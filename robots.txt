@@ -1,10 +1,18 @@
-# Robots.txt for HRL International Private Limited
-# Optimized for Googlebot, Bingbot, Applebot, and AI Search Crawlers
+# Robots.txt for HRL International Private Limited & Founder hrlpavan
+# Optimized for Googlebot, Googlebot-Image, Bingbot, Applebot, PerplexityBot, and Generative AI Crawlers
 
 User-agent: *
 Allow: /
+Allow: /hrlpavan.html
 Allow: /assets/
+Allow: /assets/*.jpg
+Allow: /assets/*.png
+Allow: /assets/*.svg
 Allow: /showcase.html
+Allow: /announcements.html
+Allow: /nvidia-rtx-localai.html
+Allow: /hrl-lang.html
+Allow: /legal.html
 Allow: /*.md
 Allow: /sitemap.xml
 

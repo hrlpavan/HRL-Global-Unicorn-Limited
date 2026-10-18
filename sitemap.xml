@@ -3,10 +3,28 @@
         xmlns:image="http://www.google.com/schemas/sitemap-image/1.1"
         xmlns:video="http://www.google.com/schemas/sitemap-video/1.1">
   
+  <!-- Canonical Entity Profile & Knowledge Graph (hrlpavan) -->
+  <url>
+    <loc>https://hrlpavan.github.io/hrl-international-website-/hrlpavan.html</loc>
+    <lastmod>2026-10-19</lastmod>
+    <changefreq>daily</changefreq>
+    <priority>1.0</priority>
+    <image:image>
+      <image:loc>https://hrlpavan.github.io/hrl-international-website-/assets/hrlpavan-founder-avatar.jpg</image:loc>
+      <image:title>hrlpavan - Pavan Kumar Sadashiv - Founder &amp; Chief AI Systems Architect</image:title>
+      <image:caption>Official portrait of hrlpavan (Pavan Kumar Sadashiv), Founder &amp; Managing Director of HRL International Private Limited</image:caption>
+    </image:image>
+    <image:image>
+      <image:loc>https://hrlpavan.github.io/hrl-international-website-/assets/hrlpavan.jpg</image:loc>
+      <image:title>hrlpavan Executive Avatar</image:title>
+      <image:caption>Official sovereign identity and commercial avatar for hrlpavan</image:caption>
+    </image:image>
+  </url>
+
   <!-- Primary Corporate Homepage -->
   <url>
     <loc>https://hrlpavan.github.io/hrl-international-website-/</loc>
-    <lastmod>2026-08-29</lastmod>
+    <lastmod>2026-10-19</lastmod>
     <changefreq>daily</changefreq>
     <priority>1.0</priority>
     <image:image>
@@ -15,59 +33,64 @@
       <image:caption>HRL International - Media Engineering and Enterprise Software Architecture</image:caption>
     </image:image>
     <image:image>
+      <image:loc>https://hrlpavan.github.io/hrl-international-website-/assets/hrlpavan-founder-avatar.jpg</image:loc>
+      <image:title>hrlpavan - Founder Pavan Kumar Sadashiv</image:title>
+      <image:caption>Pavan Kumar Sadashiv (hrlpavan), Founder of HRL International Private Limited</image:caption>
+    </image:image>
+    <image:image>
       <image:loc>https://hrlpavan.github.io/hrl-international-website-/assets/hrl-official-logo.png</image:loc>
       <image:title>HRL Official Crimson Typography Logo</image:title>
     </image:image>
   </url>
 
+  <!-- Announcements Hub -->
+  <url>
+    <loc>https://hrlpavan.github.io/hrl-international-website-/announcements.html</loc>
+    <lastmod>2026-10-19</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.95</priority>
+  </url>
+
+  <!-- NVIDIA RTX-LocalAI Runtime Specification -->
+  <url>
+    <loc>https://hrlpavan.github.io/hrl-international-website-/nvidia-rtx-localai.html</loc>
+    <lastmod>2026-10-19</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.95</priority>
+  </url>
+
+  <!-- HRL-Lang DSL Specification -->
+  <url>
+    <loc>https://hrlpavan.github.io/hrl-international-website-/hrl-lang.html</loc>
+    <lastmod>2026-10-19</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.95</priority>
+  </url>
+
+  <!-- Statutory Legal & IP Charter -->
+  <url>
+    <loc>https://hrlpavan.github.io/hrl-international-website-/legal.html</loc>
+    <lastmod>2026-10-19</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.90</priority>
+  </url>
+
   <!-- 4K 60FPS Video Showcase & VFX Suite -->
   <url>
     <loc>https://hrlpavan.github.io/hrl-international-website-/showcase.html</loc>
-    <lastmod>2026-08-29</lastmod>
+    <lastmod>2026-10-19</lastmod>
     <changefreq>weekly</changefreq>
-    <priority>0.95</priority>
+    <priority>0.90</priority>
     <image:image>
       <image:loc>https://hrlpavan.github.io/hrl-international-website-/assets/showcase-theater-4k-preview.png</image:loc>
       <image:title>HRL International 4K 60FPS Video Showcase</image:title>
     </image:image>
   </url>
 
-  <!-- Executive Technical Evaluation & Competency Diagnosis -->
-  <url>
-    <loc>https://hrlpavan.github.io/hrl-international-website-/EXECUTIVE_TECHNICAL_EVALUATION.md</loc>
-    <lastmod>2026-08-29</lastmod>
-    <changefreq>monthly</changefreq>
-    <priority>0.85</priority>
-  </url>
-
-  <!-- Statutory Trademark and Intellectual Property Roadmap -->
-  <url>
-    <loc>https://hrlpavan.github.io/hrl-international-website-/TRADEMARK_AND_LEGAL_PROTECTION_ROADMAP.md</loc>
-    <lastmod>2026-08-29</lastmod>
-    <changefreq>monthly</changefreq>
-    <priority>0.80</priority>
-  </url>
-
-  <!-- Statutory Copyright and DMCA Enforcement Policy -->
-  <url>
-    <loc>https://hrlpavan.github.io/hrl-international-website-/COPYRIGHT_AND_DMCA_POLICY.md</loc>
-    <lastmod>2026-08-29</lastmod>
-    <changefreq>monthly</changefreq>
-    <priority>0.80</priority>
-  </url>
-
-  <!-- MNC Executive LinkedIn Announcement Suite -->
-  <url>
-    <loc>https://hrlpavan.github.io/hrl-international-website-/MNC_EXECUTIVE_LINKEDIN_ANNOUNCEMENT.md</loc>
-    <lastmod>2026-08-29</lastmod>
-    <changefreq>monthly</changefreq>
-    <priority>0.75</priority>
-  </url>
-
   <!-- Global Publication: Rule Breaking by Pavan Kumar Sadashiv -->
   <url>
     <loc>https://hrlpavan.github.io/hrl-international-website-/RULE_BREAKING_BY_HRL.pdf</loc>
-    <lastmod>2026-08-31</lastmod>
+    <lastmod>2026-10-19</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.90</priority>
   </url>
