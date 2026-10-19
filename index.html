@@ -2437,25 +2437,12 @@
     /* UPSTREAM GITLAB CORE & AI GATEWAY SHOWCASE                */
     /* ========================================================= */
     .gitlab-section {
-      padding: 100px 20px 105px;
-      background-color: #000000;
-      background-image: 
-        linear-gradient(180deg, 
-          #000000 0%, 
-          rgba(0, 0, 0, 0.35) 4%, 
-          transparent 12%, 
-          transparent 88%, 
-          rgba(0, 0, 0, 0.45) 96%, 
-          #000000 100%),
-        url('assets/gitlab-glass-backdrop.jpg');
-      background-size: cover;
-      background-position: center center;
-      background-repeat: no-repeat;
-      image-rendering: -webkit-optimize-contrast;
-      color: #ffffff;
-      border-top: 1px solid rgba(252, 109, 38, 0.25);
+      padding: 96px 20px 96px;
+      background-color: #deac93;
+      color: #1d1d1f;
+      border-top: 1px solid rgba(0, 0, 0, 0.15);
+      border-bottom: 1px solid rgba(0, 0, 0, 0.15);
       position: relative;
-      overflow: hidden;
     }
 
     /* Liquid Specular Glass Card Frame */
@@ -2528,13 +2515,14 @@
       font-size: 11px;
       text-transform: uppercase;
       letter-spacing: 0.08em;
-      color: #fc6d26;
+      color: #7c2d12;
       font-weight: 700;
       margin-bottom: 12px;
-      padding: 4px 12px;
-      background: rgba(252, 109, 38, 0.12);
-      border: 1px solid rgba(252, 109, 38, 0.35);
+      padding: 5px 14px;
+      background: rgba(255, 255, 255, 0.65);
+      border: 1px solid rgba(124, 45, 18, 0.25);
       border-radius: 980px;
+      box-shadow: 0 2px 8px rgba(0, 0, 0, 0.06);
     }
     .mr-cards-grid {
       display: grid;
@@ -2546,22 +2534,20 @@
       .mr-cards-grid { grid-template-columns: 1fr; }
     }
     .mr-card {
-      background: rgba(17, 18, 24, 0.82);
-      backdrop-filter: blur(24px);
-      -webkit-backdrop-filter: blur(24px);
-      border: 1px solid rgba(255, 255, 255, 0.14);
+      background: #111218;
+      border: 1px solid rgba(0, 0, 0, 0.2);
       border-radius: 16px;
       padding: 24px;
       display: flex;
       flex-direction: column;
       justify-content: space-between;
       transition: border-color 0.2s ease, transform 0.2s ease, box-shadow 0.2s ease;
-      box-shadow: 0 16px 36px rgba(0, 0, 0, 0.45);
+      box-shadow: 0 12px 28px rgba(0, 0, 0, 0.18);
     }
     .mr-card:hover {
       border-color: rgba(252, 109, 38, 0.6);
       transform: translateY(-2px);
-      box-shadow: 0 20px 48px rgba(0, 0, 0, 0.55), 0 0 24px rgba(252, 109, 38, 0.2);
+      box-shadow: 0 16px 36px rgba(0, 0, 0, 0.25);
     }
     .mr-tag-row {
       display: flex;
@@ -2626,16 +2612,12 @@
     .client-trust-box {
       margin-top: 48px;
       margin-bottom: 24px;
-      background: radial-gradient(circle at 50% 0%, rgba(209, 0, 45, 0.18) 0%, transparent 65%),
-                  linear-gradient(135deg, rgba(209, 0, 45, 0.08) 0%, rgba(255, 255, 255, 0.03) 100%),
-                  rgba(14, 15, 20, 0.88);
-      border: 1px solid rgba(209, 0, 45, 0.4);
+      background: #111218;
+      border: 1px solid rgba(0, 0, 0, 0.25);
       border-radius: 24px;
       padding: 38px 32px 42px;
-      box-shadow: 0 24px 60px rgba(0, 0, 0, 0.65), 0 0 35px rgba(209, 0, 45, 0.15);
+      box-shadow: 0 20px 48px rgba(0, 0, 0, 0.2);
       position: relative;
-      backdrop-filter: blur(24px);
-      -webkit-backdrop-filter: blur(24px);
     }
     .trust-box-eyebrow {
       font-size: 11px;
@@ -2695,33 +2677,6 @@
       color: #94a3b8 !important;
       margin-top: 8px;
       font-family: -apple-system, BlinkMacSystemFont, "SF Pro Text", "SF Pro", "Helvetica Neue", sans-serif;
-    }
-    .section-ambient-fade-bottom {
-      height: 56px;
-      background: linear-gradient(180deg, transparent 0%, rgba(0, 0, 0, 0.5) 60%, #000000 100%);
-      margin-top: 24px;
-      border-radius: 16px;
-      pointer-events: none;
-    }
-
-    /* Seamless Apple Atmospheric Page Transition Ramps */
-    .apple-section-fade-light-to-dark {
-      width: 100%;
-      height: 100px;
-      background: linear-gradient(180deg, var(--apple-bg) 0%, #2c2c2e 50%, #000000 100%);
-      border: none;
-      margin: 0;
-      padding: 0;
-      display: block;
-    }
-    .apple-section-fade-dark-to-light {
-      width: 100%;
-      height: 100px;
-      background: linear-gradient(180deg, #000000 0%, #1c1c1e 35%, #e5e5ea 75%, #ffffff 100%);
-      border: none;
-      margin: 0;
-      padding: 0;
-      display: block;
     }
     /* GitHub Achievements & Milestones Showcase Table */
     .achievement-showcase-container {
@@ -3853,8 +3808,8 @@
           <svg width="14" height="14" viewBox="0 0 24 24" fill="#fc6d26"><path d="m23.6 9.6-1.5-4.7c-.2-.5-.8-.8-1.3-.8-.5 0-1 .3-1.2.8l-1.9 5.8H6.3L4.4 4.9c-.2-.5-.7-.8-1.2-.8-.5 0-1.1.3-1.3.8L.4 9.6c-.3.8-.1 1.6.6 2.1l11 8.2 11-8.2c.7-.5.9-1.3.6-2.1z"/></svg>
           Official Upstream Contributor
         </span>
-        <h2 class="achievement-headline" style="color: #ffffff; text-shadow: 0 4px 28px rgba(0, 0, 0, 0.95), 0 1px 3px rgba(0, 0, 0, 0.95);">GitLab Core &amp; AI Gateway Engineering.</h2>
-        <p class="achievement-subhead" style="margin: 0 auto; color: #f1f5f9; text-shadow: 0 2px 14px rgba(0, 0, 0, 0.9); font-weight: 450;">
+        <h2 class="achievement-headline" style="color: #1d1d1f !important;">GitLab Core &amp; AI Gateway Engineering.</h2>
+        <p class="achievement-subhead" style="margin: 0 auto; color: #43302b !important; font-weight: 450;">
           Direct, accepted code contributions into the upstream GitLab codebase and AI Assist Gateway. Delivering mission-critical MCP endpoints, model lifecycles, and enterprise CI test suites.
         </p>
       </div>
@@ -3999,9 +3954,6 @@
           </div>
         </div>
       </div>
-
-      <!-- Atmospheric Section Bottom Spacer & Gradient Fade -->
-      <div class="section-ambient-fade-bottom" aria-hidden="true"></div>
 
     </div>
   </section>
@@ -4178,13 +4130,10 @@
     </div>
   </section>
 
-  <!-- Seamless Gradient Transition: Dark Showcase to Light Platform -->
-  <div class="apple-section-fade-dark-to-light" aria-hidden="true"></div>
-
   <!-- ========================================================= -->
   <!-- CENTRAL GOVERNMENT SOVEREIGN AI: OMNITRANSFORM AI PLATFORM -->
   <!-- ========================================================= -->
-  <section class="apple-omnitransform-section" id="government-ai" style="background: #ffffff; padding: 64px 16px; border-bottom: 1px solid var(--apple-border);">
+  <section class="apple-omnitransform-section" id="government-ai" style="background: #ffffff; padding: 64px 16px; border-top: 1px solid var(--apple-border); border-bottom: 1px solid var(--apple-border);">
     <div style="max-width: 1040px; margin: 0 auto;">
       
       <div style="background: linear-gradient(180deg, #ffffff 0%, #fbfbfd 100%); border: 1px solid rgba(0, 0, 0, 0.08); border-radius: 24px; padding: 36px 32px; box-shadow: 0 8px 30px rgba(0, 0, 0, 0.03);">
