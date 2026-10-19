@@ -1,0 +1,162 @@
+/**
+ * HRL X MacOS 27 V2.0 - Design Tokens
+ * Master Apple Human Interface Guidelines (HIG) & macOS 27 Glassmorphism Specifications
+ */
+
+:root {
+  /* System Fonts */
+  --apple-font-sans: -apple-system, BlinkMacSystemFont, "SF Pro Display", "SF Pro Text", "SF Pro", "Helvetica Neue", sans-serif;
+  --apple-font-mono: ui-monospace, "SF Mono", SFMono-Regular, Menlo, Monaco, Consolas, monospace;
+
+  /* Typography Scale */
+  --apple-text-display: clamp(40px, 5vw, 64px);
+  --apple-text-title-1: 34px;
+  --apple-text-title-2: 28px;
+  --apple-text-title-3: 22px;
+  --apple-text-headline: 18px;
+  --apple-text-body: 14.5px;
+  --apple-text-callout: 13.5px;
+  --apple-text-subheadline: 12.5px;
+  --apple-text-footnote: 11.5px;
+  --apple-text-caption: 10px;
+
+  /* Corner Radii */
+  --apple-radius-xs: 6px;
+  --apple-radius-sm: 8px;
+  --apple-radius-md: 12px;
+  --apple-radius-lg: 16px;
+  --apple-radius-xl: 20px;
+  --apple-radius-2xl: 26px;
+  --apple-radius-pill: 9999px;
+
+  /* macOS Traffic Light Controls */
+  --apple-traffic-close: #ff5f56;
+  --apple-traffic-close-border: #e0443e;
+  --apple-traffic-minimize: #ffbd2e;
+  --apple-traffic-minimize-border: #dea123;
+  --apple-traffic-expand: #27c93f;
+  --apple-traffic-expand-border: #1aab29;
+
+  /* Accent Colors (macOS System Palette) */
+  --apple-blue: #0071e3;
+  --apple-blue-hover: #0077ed;
+  --apple-blue-subtle: rgba(0, 113, 227, 0.14);
+  
+  --apple-green: #34c759;
+  --apple-green-hover: #30d158;
+  --apple-green-subtle: rgba(52, 199, 89, 0.14);
+
+  --apple-red: #ff3b30;
+  --apple-red-hover: #ff453a;
+  --apple-red-subtle: rgba(255, 59, 48, 0.14);
+
+  --apple-amber: #ff9500;
+  --apple-amber-hover: #ff9f0a;
+  --apple-amber-subtle: rgba(255, 149, 0, 0.14);
+
+  --apple-purple: #af52de;
+  --apple-purple-hover: #bf5af2;
+  --apple-purple-subtle: rgba(175, 82, 222, 0.14);
+
+  --apple-pink: #ff2d55;
+  --apple-pink-hover: #ff375f;
+  
+  --apple-teal: #5ac8fa;
+  --apple-teal-hover: #64d2ff;
+
+  --apple-indigo: #5856d6;
+  --apple-indigo-hover: #5e5ce6;
+
+  /* HRL Corporate Accent */
+  --hrl-crimson: #D1002D;
+  --hrl-crimson-hover: #b00026;
+  --hrl-crimson-subtle: rgba(209, 0, 45, 0.15);
+
+  /* Animations & Transitions */
+  --apple-transition-snappy: all 0.18s cubic-bezier(0.25, 1, 0.5, 1);
+  --apple-transition-smooth: all 0.28s cubic-bezier(0.16, 1, 0.3, 1);
+  --apple-transition-bounce: all 0.4s cubic-bezier(0.34, 1.56, 0.64, 1);
+}
+
+/* ========================================================= */
+/* DARK MODE (Default macOS 27 Dark Titanium & Liquid Glass) */
+/* ========================================================= */
+:root, [data-theme="dark"] {
+  --apple-bg: #000000;
+  --apple-bg-secondary: #0a0b10;
+  --apple-bg-tertiary: #12131a;
+
+  --apple-surface: rgba(22, 23, 29, 0.72);
+  --apple-surface-solid: #16171d;
+  --apple-surface-hover: rgba(255, 255, 255, 0.08);
+  --apple-surface-active: rgba(255, 255, 255, 0.12);
+
+  --apple-glass-bg: rgba(20, 22, 28, 0.68);
+  --apple-glass-card: rgba(26, 28, 36, 0.55);
+  --apple-glass-dock: rgba(18, 20, 26, 0.62);
+  --apple-glass-menu: rgba(14, 15, 20, 0.72);
+  --apple-glass-border: rgba(255, 255, 255, 0.12);
+  --apple-glass-border-subtle: rgba(255, 255, 255, 0.06);
+
+  --apple-text-primary: #f5f5f7;
+  --apple-text-secondary: #a1a1a6;
+  --apple-text-tertiary: #6e6e73;
+  --apple-text-quaternary: #48484a;
+
+  --apple-border: rgba(255, 255, 255, 0.10);
+  --apple-border-strong: rgba(255, 255, 255, 0.18);
+  --apple-divider: rgba(255, 255, 255, 0.07);
+
+  /* Multi-Layer Specular Highlights (macOS 27 Liquid Glass) */
+  --apple-specular-top: inset 0 1px 1px 0 rgba(255, 255, 255, 0.32);
+  --apple-specular-edge: inset 0 0 0 1px rgba(255, 255, 255, 0.08);
+  --apple-shadow-window: 0 28px 64px -12px rgba(0, 0, 0, 0.65), 0 0 0 1px rgba(255, 255, 255, 0.12);
+  --apple-shadow-dropdown: 0 18px 40px -8px rgba(0, 0, 0, 0.55), 0 0 0 1px rgba(255, 255, 255, 0.12);
+  --apple-shadow-dock: 0 24px 48px rgba(0, 0, 0, 0.55), 0 0 0 1px rgba(255, 255, 255, 0.14);
+  --apple-shadow-card: 0 12px 28px rgba(0, 0, 0, 0.35);
+
+  --apple-blur-thin: blur(16px) saturate(180%);
+  --apple-blur-regular: blur(32px) saturate(190%) contrast(92%);
+  --apple-blur-thick: blur(52px) saturate(210%) contrast(96%);
+}
+
+/* ========================================================= */
+/* LIGHT MODE (macOS 27 Frosted Pearl & Silver Aluminum)    */
+/* ========================================================= */
+[data-theme="light"] {
+  --apple-bg: #f5f5f7;
+  --apple-bg-secondary: #ffffff;
+  --apple-bg-tertiary: #e5e5ea;
+
+  --apple-surface: rgba(255, 255, 255, 0.82);
+  --apple-surface-solid: #ffffff;
+  --apple-surface-hover: rgba(0, 0, 0, 0.04);
+  --apple-surface-active: rgba(0, 0, 0, 0.08);
+
+  --apple-glass-bg: rgba(255, 255, 255, 0.72);
+  --apple-glass-card: rgba(255, 255, 255, 0.68);
+  --apple-glass-dock: rgba(245, 245, 247, 0.78);
+  --apple-glass-menu: rgba(255, 255, 255, 0.82);
+  --apple-glass-border: rgba(0, 0, 0, 0.09);
+  --apple-glass-border-subtle: rgba(0, 0, 0, 0.05);
+
+  --apple-text-primary: #1d1d1f;
+  --apple-text-secondary: #6e6e73;
+  --apple-text-tertiary: #86868b;
+  --apple-text-quaternary: #aeaeb2;
+
+  --apple-border: rgba(0, 0, 0, 0.08);
+  --apple-border-strong: rgba(0, 0, 0, 0.16);
+  --apple-divider: rgba(0, 0, 0, 0.06);
+
+  --apple-specular-top: inset 0 1px 1px 0 rgba(255, 255, 255, 0.8);
+  --apple-specular-edge: inset 0 0 0 1px rgba(0, 0, 0, 0.05);
+  --apple-shadow-window: 0 24px 56px -12px rgba(0, 0, 0, 0.18), 0 0 0 1px rgba(0, 0, 0, 0.08);
+  --apple-shadow-dropdown: 0 16px 36px -8px rgba(0, 0, 0, 0.14), 0 0 0 1px rgba(0, 0, 0, 0.08);
+  --apple-shadow-dock: 0 20px 40px rgba(0, 0, 0, 0.12), 0 0 0 1px rgba(0, 0, 0, 0.08);
+  --apple-shadow-card: 0 8px 24px rgba(0, 0, 0, 0.06);
+
+  --apple-blur-thin: blur(16px) saturate(180%);
+  --apple-blur-regular: blur(28px) saturate(180%);
+  --apple-blur-thick: blur(48px) saturate(200%);
+}

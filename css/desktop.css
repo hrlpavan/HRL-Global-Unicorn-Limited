@@ -1,0 +1,391 @@
+/**
+ * HRL X MacOS 27 V2.0 - Desktop OS Environment Styles
+ * Full macOS 27 Desktop Canvas: Menu Bar, Dock, Control Center, Spotlight
+ */
+
+.macos-desktop {
+  width: 100vw;
+  height: 100vh;
+  overflow: hidden;
+  position: relative;
+  background: radial-gradient(circle at 50% 20%, #1c1d2e 0%, #0d0e15 60%, #050608 100%);
+  user-select: none;
+  -webkit-user-select: none;
+}
+
+/* ========================================================= */
+/* TOP GLOBAL MENU BAR                                       */
+/* ========================================================= */
+.macos-menubar {
+  height: 30px;
+  width: 100%;
+  background: var(--apple-glass-menu);
+  backdrop-filter: var(--apple-blur-thin);
+  -webkit-backdrop-filter: var(--apple-blur-thin);
+  border-bottom: 1px solid var(--apple-glass-border-subtle);
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 0 14px;
+  position: fixed;
+  top: 0;
+  left: 0;
+  z-index: 10000;
+  font-size: 13px;
+  font-weight: 500;
+  color: var(--apple-text-primary);
+}
+
+.menubar-left, .menubar-right {
+  display: flex;
+  align-items: center;
+  gap: 16px;
+}
+
+.menubar-item {
+  cursor: pointer;
+  padding: 3px 6px;
+  border-radius: 4px;
+  transition: background 0.15s ease;
+  display: inline-flex;
+  align-items: center;
+  gap: 6px;
+}
+.menubar-item:hover, .menubar-item.active {
+  background: rgba(255, 255, 255, 0.15);
+}
+
+.apple-logo-item svg {
+  width: 14px;
+  height: 14px;
+  fill: currentColor;
+}
+
+.app-name-active {
+  font-weight: 700;
+}
+
+/* Dropdown Menu System */
+.apple-dropdown-menu {
+  position: absolute;
+  top: 32px;
+  background: var(--apple-glass-bg);
+  backdrop-filter: var(--apple-blur-regular);
+  -webkit-backdrop-filter: var(--apple-blur-regular);
+  border: 1px solid var(--apple-glass-border);
+  border-radius: var(--apple-radius-sm);
+  box-shadow: var(--apple-shadow-dropdown), var(--apple-specular-top);
+  padding: 6px;
+  min-width: 220px;
+  display: none;
+  flex-direction: column;
+  z-index: 10001;
+}
+
+.apple-dropdown-menu.show {
+  display: flex;
+}
+
+.dropdown-item {
+  padding: 5px 12px;
+  font-size: 12.5px;
+  color: var(--apple-text-primary);
+  border-radius: 4px;
+  cursor: pointer;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  transition: background 0.1s ease;
+}
+
+.dropdown-item:hover {
+  background: var(--apple-blue);
+  color: #ffffff;
+}
+
+.dropdown-item.disabled {
+  opacity: 0.4;
+  pointer-events: none;
+}
+
+.dropdown-divider {
+  height: 1px;
+  background: var(--apple-divider);
+  margin: 4px 0;
+}
+
+.shortcut-key {
+  font-size: 11px;
+  color: var(--apple-text-tertiary);
+  font-family: var(--apple-font-sans);
+}
+.dropdown-item:hover .shortcut-key {
+  color: rgba(255, 255, 255, 0.8);
+}
+
+/* ========================================================= */
+/* CONTROL CENTER POPUP                                      */
+/* ========================================================= */
+.control-center-popup {
+  position: absolute;
+  top: 36px;
+  right: 14px;
+  width: 320px;
+  background: var(--apple-glass-bg);
+  backdrop-filter: var(--apple-blur-thick);
+  -webkit-backdrop-filter: var(--apple-blur-thick);
+  border: 1px solid var(--apple-glass-border);
+  border-radius: var(--apple-radius-lg);
+  box-shadow: var(--apple-shadow-dropdown), var(--apple-specular-top);
+  padding: 16px;
+  display: none;
+  flex-direction: column;
+  gap: 12px;
+  z-index: 10002;
+}
+
+.control-center-popup.show {
+  display: flex;
+}
+
+.cc-grid-2 {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 10px;
+}
+
+.cc-card {
+  background: rgba(255, 255, 255, 0.05);
+  border: 1px solid rgba(255, 255, 255, 0.08);
+  border-radius: var(--apple-radius-md);
+  padding: 12px;
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  cursor: pointer;
+  transition: background 0.2s ease;
+}
+.cc-card:hover {
+  background: rgba(255, 255, 255, 0.08);
+}
+.cc-card.active {
+  background: var(--apple-blue);
+  color: #ffffff;
+}
+
+.cc-icon-circle {
+  width: 32px;
+  height: 32px;
+  border-radius: 50%;
+  background: rgba(255, 255, 255, 0.12);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+.cc-card.active .cc-icon-circle {
+  background: #ffffff;
+  color: var(--apple-blue);
+}
+
+.cc-card-title {
+  font-size: 13px;
+  font-weight: 600;
+  line-height: 1.2;
+}
+.cc-card-sub {
+  font-size: 11px;
+  opacity: 0.7;
+}
+
+/* Sliders */
+.cc-slider-card {
+  background: rgba(255, 255, 255, 0.05);
+  border: 1px solid rgba(255, 255, 255, 0.08);
+  border-radius: var(--apple-radius-md);
+  padding: 12px 14px;
+}
+.cc-slider-title {
+  font-size: 11.5px;
+  font-weight: 600;
+  margin-bottom: 8px;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+.cc-range-slider {
+  width: 100%;
+  -webkit-appearance: none;
+  height: 6px;
+  border-radius: 3px;
+  background: rgba(255, 255, 255, 0.15);
+  outline: none;
+}
+.cc-range-slider::-webkit-slider-thumb {
+  -webkit-appearance: none;
+  width: 18px;
+  height: 18px;
+  border-radius: 50%;
+  background: #ffffff;
+  cursor: pointer;
+  box-shadow: 0 2px 6px rgba(0, 0, 0, 0.35);
+}
+
+/* ========================================================= */
+/* SPOTLIGHT SEARCH MODAL                                    */
+/* ========================================================= */
+.spotlight-modal {
+  position: fixed;
+  top: 18%;
+  left: 50%;
+  transform: translateX(-50%);
+  width: min(620px, 92vw);
+  background: var(--apple-glass-bg);
+  backdrop-filter: var(--apple-blur-thick);
+  -webkit-backdrop-filter: var(--apple-blur-thick);
+  border: 1px solid var(--apple-glass-border);
+  border-radius: var(--apple-radius-lg);
+  box-shadow: 0 32px 80px rgba(0, 0, 0, 0.65), var(--apple-specular-top);
+  display: none;
+  flex-direction: column;
+  z-index: 10005;
+  overflow: hidden;
+}
+
+.spotlight-modal.show {
+  display: flex;
+}
+
+.spotlight-input-row {
+  display: flex;
+  align-items: center;
+  padding: 14px 18px;
+  gap: 12px;
+  border-bottom: 1px solid var(--apple-divider);
+}
+
+.spotlight-input {
+  flex: 1;
+  background: transparent;
+  border: none;
+  outline: none;
+  font-size: 18px;
+  color: var(--apple-text-primary);
+  font-family: var(--apple-font-sans);
+}
+.spotlight-input::placeholder {
+  color: var(--apple-text-tertiary);
+}
+
+.spotlight-results {
+  max-height: 320px;
+  overflow-y: auto;
+  padding: 8px;
+  display: flex;
+  flex-direction: column;
+  gap: 2px;
+}
+
+.spotlight-result-item {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  padding: 8px 12px;
+  border-radius: var(--apple-radius-sm);
+  cursor: pointer;
+  transition: background 0.1s ease;
+}
+.spotlight-result-item:hover, .spotlight-result-item.selected {
+  background: var(--apple-blue);
+  color: #ffffff;
+}
+
+/* ========================================================= */
+/* DYNAMIC PARABOLIC APPLE DOCK                              */
+/* ========================================================= */
+.macos-dock-wrapper {
+  position: fixed;
+  bottom: 12px;
+  left: 50%;
+  transform: translateX(-50%);
+  z-index: 9999;
+}
+
+.macos-dock {
+  background: var(--apple-glass-dock);
+  backdrop-filter: var(--apple-blur-regular);
+  -webkit-backdrop-filter: var(--apple-blur-regular);
+  border: 1px solid var(--apple-glass-border);
+  border-radius: 24px;
+  padding: 8px 12px;
+  display: flex;
+  align-items: flex-end;
+  gap: 10px;
+  box-shadow: var(--apple-shadow-dock), var(--apple-specular-top);
+}
+
+.dock-item {
+  width: 48px;
+  height: 48px;
+  border-radius: 12px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  position: relative;
+  cursor: pointer;
+  transition: width 0.15s ease, height 0.15s ease, transform 0.15s ease;
+  transform-origin: bottom center;
+}
+
+.dock-item:hover {
+  transform: translateY(-8px);
+}
+
+.dock-icon-img {
+  width: 100%;
+  height: 100%;
+  object-fit: contain;
+  border-radius: 12px;
+  filter: drop-shadow(0 4px 8px rgba(0, 0, 0, 0.35));
+}
+
+.dock-tooltip {
+  position: absolute;
+  top: -34px;
+  left: 50%;
+  transform: translateX(-50%);
+  background: rgba(22, 23, 29, 0.88);
+  backdrop-filter: blur(12px);
+  border: 1px solid rgba(255, 255, 255, 0.14);
+  color: #ffffff;
+  font-size: 11px;
+  font-weight: 500;
+  padding: 3px 10px;
+  border-radius: 6px;
+  white-space: nowrap;
+  pointer-events: none;
+  opacity: 0;
+  transition: opacity 0.15s ease;
+}
+
+.dock-item:hover .dock-tooltip {
+  opacity: 1;
+}
+
+.dock-dot {
+  width: 4px;
+  height: 4px;
+  background: rgba(255, 255, 255, 0.8);
+  border-radius: 50%;
+  position: absolute;
+  bottom: -6px;
+  left: 50%;
+  transform: translateX(-50%);
+}
+
+.dock-divider {
+  width: 1px;
+  height: 36px;
+  background: rgba(255, 255, 255, 0.15);
+  margin: 0 4px;
+  align-self: center;
+}
