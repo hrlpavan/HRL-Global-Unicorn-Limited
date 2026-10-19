@@ -2497,6 +2497,7 @@
       letter-spacing: 0.06em;
       color: #9ca3af;
       margin-top: 6px;
+    }
     /* GitHub Achievements & Milestones Showcase Table */
     .achievement-showcase-container {
       background: #0d0d11;
@@ -2536,7 +2537,9 @@
     }
     .achievement-table {
       width: 100%;
+      min-width: 680px;
       border-collapse: collapse;
+      table-layout: fixed;
       text-align: left;
       font-size: 13.5px;
     }
@@ -2545,23 +2548,39 @@
       color: #9ca3af;
       font-weight: 600;
       padding: 14px 18px;
-      border-bottom: 1px solid rgba(255, 255, 255, 0.08);
-      border-right: 1px solid rgba(255, 255, 255, 0.04);
-      font-size: 12px;
+      border-bottom: 1px solid rgba(255, 255, 255, 0.1);
+      font-size: 11.5px;
       text-transform: uppercase;
-      letter-spacing: 0.05em;
+      letter-spacing: 0.06em;
     }
-    .achievement-table th:last-child {
-      border-right: none;
+    .achievement-table th.col-achieve,
+    .achievement-table td.achieve-name {
+      text-align: left;
+      padding-left: 20px;
+      padding-right: 14px;
+    }
+    .achievement-table th.col-badge,
+    .achievement-table td.achieve-badge {
+      text-align: center;
+      padding-left: 10px;
+      padding-right: 10px;
+    }
+    .achievement-table th.col-desc,
+    .achievement-table td.achieve-desc {
+      text-align: left;
+      padding-left: 16px;
+      padding-right: 16px;
+    }
+    .achievement-table th.col-status,
+    .achievement-table td.achieve-status {
+      text-align: center;
+      padding-left: 12px;
+      padding-right: 20px;
     }
     .achievement-table td {
       padding: 12px 18px;
       border-bottom: 1px solid rgba(255, 255, 255, 0.06);
-      border-right: 1px solid rgba(255, 255, 255, 0.04);
       vertical-align: middle;
-    }
-    .achievement-table td:last-child {
-      border-right: none;
     }
     .achievement-table tr:last-child td {
       border-bottom: none;
@@ -2573,39 +2592,61 @@
       font-weight: 700;
       color: #ffffff;
       font-size: 14px;
-      text-align: center;
       white-space: nowrap;
     }
     .achieve-badge {
       text-align: center;
-      padding: 6px 12px !important;
     }
     .achieve-badge img {
       display: inline-block;
-      width: 54px;
-      height: 54px;
+      width: 52px;
+      height: 52px;
       object-fit: contain;
       filter: drop-shadow(0 4px 12px rgba(0, 0, 0, 0.6));
       transition: transform 0.2s ease;
+      vertical-align: middle;
     }
     .achieve-badge img:hover {
       transform: scale(1.1);
     }
     .achieve-desc {
-      color: #d1d5db;
+      color: #cbd5e1;
       font-size: 13.5px;
       line-height: 1.5;
+      word-break: break-word;
     }
     .achieve-status {
       text-align: center;
-      font-weight: 700;
-      font-size: 13px;
       white-space: nowrap;
     }
     .status-pill {
+      display: inline-block;
+      padding: 4px 12px;
+      border-radius: 9999px;
+      font-size: 11.5px;
       font-weight: 700;
-      color: #ffffff;
-      letter-spacing: -0.01em;
+      letter-spacing: 0.02em;
+      text-transform: uppercase;
+    }
+    .status-pill.unlocked {
+      background: rgba(34, 197, 94, 0.12);
+      border: 1px solid rgba(34, 197, 94, 0.3);
+      color: #4ade80;
+    }
+    .status-pill.active {
+      background: rgba(56, 189, 248, 0.12);
+      border: 1px solid rgba(56, 189, 248, 0.3);
+      color: #38bdf8;
+    }
+    .status-pill.in-progress {
+      background: rgba(245, 158, 11, 0.12);
+      border: 1px solid rgba(245, 158, 11, 0.3);
+      color: #fbbf24;
+    }
+    .status-pill.available {
+      background: rgba(168, 85, 247, 0.12);
+      border: 1px solid rgba(168, 85, 247, 0.3);
+      color: #c084fc;
     }
 
   </style>
@@ -3498,68 +3539,68 @@
           <table class="achievement-table">
             <thead>
               <tr>
-                <th style="width: 20%; text-align: center;">Achievement</th>
-                <th style="width: 14%; text-align: center;">Badge</th>
-                <th style="width: 48%; text-align: left;">Milestone Description</th>
-                <th style="width: 18%; text-align: center;">Status</th>
+                <th class="col-achieve" style="width: 22%;">Achievement</th>
+                <th class="col-badge" style="width: 14%;">Badge</th>
+                <th class="col-desc" style="width: 48%;">Milestone Description</th>
+                <th class="col-status" style="width: 16%;">Status</th>
               </tr>
             </thead>
             <tbody>
               <tr>
                 <td class="achieve-name">Galaxy Brain</td>
                 <td class="achieve-badge">
-                  <img src="assets/achievements/galaxy-brain-default.png" alt="Galaxy Brain Badge" width="58" height="58" loading="lazy" />
+                  <img src="assets/achievements/galaxy-brain-default.png" alt="Galaxy Brain Badge" width="52" height="52" loading="lazy" />
                 </td>
                 <td class="achieve-desc">Answered discussions with accepted solutions</td>
-                <td class="achieve-status"><span class="status-pill">Unlocked</span></td>
+                <td class="achieve-status"><span class="status-pill unlocked">Unlocked</span></td>
               </tr>
               <tr>
                 <td class="achieve-name">Quickdraw</td>
                 <td class="achieve-badge">
-                  <img src="assets/achievements/quickdraw-default.png" alt="Quickdraw Badge" width="58" height="58" loading="lazy" />
+                  <img src="assets/achievements/quickdraw-default.png" alt="Quickdraw Badge" width="52" height="52" loading="lazy" />
                 </td>
                 <td class="achieve-desc">Closed an issue or PR within 5 minutes of opening</td>
-                <td class="achieve-status"><span class="status-pill">Unlocked</span></td>
+                <td class="achieve-status"><span class="status-pill unlocked">Unlocked</span></td>
               </tr>
               <tr>
                 <td class="achieve-name">YOLO</td>
                 <td class="achieve-badge">
-                  <img src="assets/achievements/yolo-default.png" alt="YOLO Badge" width="58" height="58" loading="lazy" />
+                  <img src="assets/achievements/yolo-default.png" alt="YOLO Badge" width="52" height="52" loading="lazy" />
                 </td>
                 <td class="achieve-desc">Merged a pull request directly without code review</td>
-                <td class="achieve-status"><span class="status-pill">Unlocked</span></td>
+                <td class="achieve-status"><span class="status-pill unlocked">Unlocked</span></td>
               </tr>
               <tr>
                 <td class="achieve-name">Pull Shark</td>
                 <td class="achieve-badge">
-                  <img src="assets/achievements/pull-shark-default.png" alt="Pull Shark Badge" width="58" height="58" loading="lazy" />
+                  <img src="assets/achievements/pull-shark-default.png" alt="Pull Shark Badge" width="52" height="52" loading="lazy" />
                 </td>
                 <td class="achieve-desc">Opened pull requests that were successfully merged</td>
-                <td class="achieve-status"><span class="status-pill">Active</span></td>
+                <td class="achieve-status"><span class="status-pill active">Active</span></td>
               </tr>
               <tr>
                 <td class="achieve-name">Pair Extraordinaire</td>
                 <td class="achieve-badge">
-                  <img src="assets/achievements/pair-extraordinaire-default.png" alt="Pair Extraordinaire Badge" width="58" height="58" loading="lazy" />
+                  <img src="assets/achievements/pair-extraordinaire-default.png" alt="Pair Extraordinaire Badge" width="52" height="52" loading="lazy" />
                 </td>
                 <td class="achieve-desc">Co-authored commits on a merged repository</td>
-                <td class="achieve-status"><span class="status-pill">Active</span></td>
+                <td class="achieve-status"><span class="status-pill active">Active</span></td>
               </tr>
               <tr>
                 <td class="achieve-name">Starstruck</td>
                 <td class="achieve-badge">
-                  <img src="assets/achievements/starstruck-default.png" alt="Starstruck Badge" width="58" height="58" loading="lazy" />
+                  <img src="assets/achievements/starstruck-default.png" alt="Starstruck Badge" width="52" height="52" loading="lazy" />
                 </td>
                 <td class="achieve-desc">Created high-impact public repositories receiving community stars</td>
-                <td class="achieve-status"><span class="status-pill">In Progress</span></td>
+                <td class="achieve-status"><span class="status-pill in-progress">In Progress</span></td>
               </tr>
               <tr>
                 <td class="achieve-name">Public Sponsor</td>
                 <td class="achieve-badge">
-                  <img src="assets/achievements/public-sponsor-default.png" alt="Public Sponsor Badge" width="58" height="58" loading="lazy" />
+                  <img src="assets/achievements/public-sponsor-default.png" alt="Public Sponsor Badge" width="52" height="52" loading="lazy" />
                 </td>
                 <td class="achieve-desc">Financially sponsored open-source maintainers via GitHub Sponsors</td>
-                <td class="achieve-status"><span class="status-pill">Available</span></td>
+                <td class="achieve-status"><span class="status-pill available">Available</span></td>
               </tr>
             </tbody>
           </table>
