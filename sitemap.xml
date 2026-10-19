@@ -95,4 +95,12 @@
     <priority>0.90</priority>
   </url>
 
+  <!-- Antigravity Global Engineering Record Audit -->
+  <url>
+    <loc>https://hrlpavan.github.io/hrl-international-website-/antigravity-record.html</loc>
+    <lastmod>2026-10-19</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.95</priority>
+  </url>
+
 </urlset>
