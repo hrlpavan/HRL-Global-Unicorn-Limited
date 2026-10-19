@@ -2497,79 +2497,115 @@
       letter-spacing: 0.06em;
       color: #9ca3af;
       margin-top: 6px;
-    /* Native Apple Dark Trophy & Achievements Rack */
-    .trophy-grid {
-      display: grid;
-      grid-template-columns: repeat(3, 1fr);
-      gap: 16px;
-      margin-top: 16px;
-      margin-bottom: 20px;
-    }
-    @media (max-width: 900px) {
-      .trophy-grid { grid-template-columns: repeat(2, 1fr); }
-    }
-    @media (max-width: 580px) {
-      .trophy-grid { grid-template-columns: 1fr; }
-    }
-    .trophy-card {
-      background: rgba(255, 255, 255, 0.03);
-      border: 1px solid rgba(255, 255, 255, 0.08);
-      border-radius: 14px;
-      padding: 18px 16px;
-      text-align: left;
-      display: flex;
-      align-items: flex-start;
-      gap: 14px;
-      transition: transform 0.2s ease, border-color 0.2s ease, background 0.2s ease;
-    }
-    .trophy-card:hover {
-      transform: translateY(-2px);
-      border-color: rgba(209, 0, 45, 0.4);
-      background: rgba(255, 255, 255, 0.05);
-    }
-    .trophy-icon-wrapper {
-      width: 44px;
-      height: 44px;
-      border-radius: 10px;
-      display: flex;
-      align-items: center;
-      justify-content: center;
-      flex-shrink: 0;
+    /* GitHub Achievements & Milestones Showcase Table */
+    .achievement-showcase-container {
+      background: #0d0d11;
       border: 1px solid rgba(255, 255, 255, 0.1);
+      border-radius: 20px;
+      padding: 28px;
+      margin-top: 24px;
+      text-align: left;
     }
-    .trophy-content {
-      flex: 1;
-      min-width: 0;
+    .achievement-showcase-header {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      margin-bottom: 20px;
+      padding-bottom: 14px;
+      border-bottom: 1px solid rgba(255, 255, 255, 0.08);
+      flex-wrap: wrap;
+      gap: 12px;
     }
-    .trophy-title-row {
+    .achievement-showcase-title {
+      font-size: 19px;
+      font-weight: 700;
+      color: #ffffff;
+      letter-spacing: -0.015em;
+      margin: 0;
       display: flex;
       align-items: center;
-      justify-content: space-between;
-      gap: 8px;
-      margin-bottom: 4px;
-      flex-wrap: wrap;
+      gap: 10px;
     }
-    .trophy-title {
+    .achievement-table-wrapper {
+      width: 100%;
+      overflow-x: auto;
+      -webkit-overflow-scrolling: touch;
+      border-radius: 12px;
+      border: 1px solid rgba(255, 255, 255, 0.08);
+      background: #090a0f;
+    }
+    .achievement-table {
+      width: 100%;
+      border-collapse: collapse;
+      text-align: left;
+      font-size: 13.5px;
+    }
+    .achievement-table th {
+      background: #111218;
+      color: #9ca3af;
+      font-weight: 600;
+      padding: 14px 18px;
+      border-bottom: 1px solid rgba(255, 255, 255, 0.08);
+      border-right: 1px solid rgba(255, 255, 255, 0.04);
+      font-size: 12px;
+      text-transform: uppercase;
+      letter-spacing: 0.05em;
+    }
+    .achievement-table th:last-child {
+      border-right: none;
+    }
+    .achievement-table td {
+      padding: 12px 18px;
+      border-bottom: 1px solid rgba(255, 255, 255, 0.06);
+      border-right: 1px solid rgba(255, 255, 255, 0.04);
+      vertical-align: middle;
+    }
+    .achievement-table td:last-child {
+      border-right: none;
+    }
+    .achievement-table tr:last-child td {
+      border-bottom: none;
+    }
+    .achievement-table tr:hover td {
+      background: rgba(255, 255, 255, 0.02);
+    }
+    .achieve-name {
+      font-weight: 700;
+      color: #ffffff;
       font-size: 14px;
+      text-align: center;
+      white-space: nowrap;
+    }
+    .achieve-badge {
+      text-align: center;
+      padding: 6px 12px !important;
+    }
+    .achieve-badge img {
+      display: inline-block;
+      width: 54px;
+      height: 54px;
+      object-fit: contain;
+      filter: drop-shadow(0 4px 12px rgba(0, 0, 0, 0.6));
+      transition: transform 0.2s ease;
+    }
+    .achieve-badge img:hover {
+      transform: scale(1.1);
+    }
+    .achieve-desc {
+      color: #d1d5db;
+      font-size: 13.5px;
+      line-height: 1.5;
+    }
+    .achieve-status {
+      text-align: center;
+      font-weight: 700;
+      font-size: 13px;
+      white-space: nowrap;
+    }
+    .status-pill {
       font-weight: 700;
       color: #ffffff;
       letter-spacing: -0.01em;
-      margin: 0;
-    }
-    .trophy-tier {
-      font-size: 10px;
-      font-weight: 700;
-      text-transform: uppercase;
-      letter-spacing: 0.06em;
-      padding: 2px 7px;
-      border-radius: 4px;
-      font-family: ui-monospace, monospace;
-    }
-    .trophy-desc {
-      font-size: 12px;
-      color: #86868b;
-      line-height: 1.45;
-      margin: 0;
     }
 
   </style>
@@ -3442,128 +3478,95 @@
 
       </div>
 
-      <!-- Official GitHub Achievements & Distinctions Console -->
-      <div style="background: #0d0d11; border: 1px solid rgba(255, 255, 255, 0.1); border-radius: 20px; padding: 28px; text-align: center;">
-        <div style="display: flex; justify-content: space-between; align-items: center; margin-bottom: 20px; flex-wrap: wrap; gap: 10px;">
-          <div>
-            <span style="font-size: 11px; text-transform: uppercase; letter-spacing: 0.08em; color: #d1002d; font-weight: 700; display: block; text-align: left;">Official Distinctions &amp; Honors</span>
-            <h4 style="font-size: 18px; font-weight: 700; color: #ffffff; margin: 4px 0 0; text-align: left;">GitHub Achievements &amp; Engineering Trophies</h4>
-          </div>
+      <!-- Official GitHub Achievements & Milestones Showcase -->
+      <div class="achievement-showcase-container">
+        <div class="achievement-showcase-header">
+          <h3 class="achievement-showcase-title">
+            <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="#d1002d" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+              <circle cx="12" cy="8" r="6"/>
+              <polyline points="8.21 13.89 7 23 12 20 17 23 15.79 13.88"/>
+            </svg>
+            GitHub Achievements &amp; Milestones Showcase
+          </h3>
           <a href="https://github.com/hrlpavan?tab=achievements" target="_blank" rel="noopener noreferrer" style="color: #38bdf8; font-size: 13px; text-decoration: none; font-weight: 500; display: inline-flex; align-items: center; gap: 4px;">
             Verify on GitHub &nearr;
           </a>
         </div>
 
-        <!-- 6-Trophy Native Vector Rack (Zero External Server Failures) -->
-        <div class="trophy-grid">
-          
-          <!-- Trophy 1: Galaxy Brain -->
-          <div class="trophy-card">
-            <div class="trophy-icon-wrapper" style="background: rgba(56, 189, 248, 0.12); border-color: rgba(56, 189, 248, 0.35);">
-              <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="#38bdf8" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
-                <path d="M12 2a7 7 0 0 1 7 7c0 2.38-1.19 4.47-3 5.74V17a2 2 0 0 1-2 2h-4a2 2 0 0 1-2-2v-2.26C6.19 13.47 5 11.38 5 9a7 7 0 0 1 7-7z"/>
-                <path d="M9 21h6"/>
-              </svg>
-            </div>
-            <div class="trophy-content">
-              <div class="trophy-title-row">
-                <h5 class="trophy-title">Galaxy Brain</h5>
-                <span class="trophy-tier" style="background: rgba(56, 189, 248, 0.15); color: #38bdf8;">Gold · Tier 1</span>
-              </div>
-              <p class="trophy-desc">Accepted community answers, complex architectural solutions, and AI reasoning breakthroughs.</p>
-            </div>
-          </div>
-
-          <!-- Trophy 2: Quickdraw -->
-          <div class="trophy-card">
-            <div class="trophy-icon-wrapper" style="background: rgba(245, 158, 11, 0.12); border-color: rgba(245, 158, 11, 0.35);">
-              <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="#f59e0b" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
-                <polygon points="13 2 3 14 12 14 11 22 21 10 12 10 13 2"/>
-              </svg>
-            </div>
-            <div class="trophy-content">
-              <div class="trophy-title-row">
-                <h5 class="trophy-title">Quickdraw</h5>
-                <span class="trophy-tier" style="background: rgba(245, 158, 11, 0.15); color: #f59e0b;">Master</span>
-              </div>
-              <p class="trophy-desc">Rapid-response issue diagnosis and sub-minute pull request closures across sovereign repositories.</p>
-            </div>
-          </div>
-
-          <!-- Trophy 3: Pull Shark (x2) -->
-          <div class="trophy-card">
-            <div class="trophy-icon-wrapper" style="background: rgba(59, 130, 246, 0.12); border-color: rgba(59, 130, 246, 0.35);">
-              <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="#3b82f6" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
-                <circle cx="18" cy="18" r="3"/>
-                <circle cx="6" cy="6" r="3"/>
-                <path d="M13 6h3a2 2 0 0 1 2 2v7"/>
-                <line x1="6" y1="9" x2="6" y2="21"/>
-              </svg>
-            </div>
-            <div class="trophy-content">
-              <div class="trophy-title-row">
-                <h5 class="trophy-title">Pull Shark (x2)</h5>
-                <span class="trophy-tier" style="background: rgba(59, 130, 246, 0.15); color: #3b82f6;">Gold · 2x Multi</span>
-              </div>
-              <p class="trophy-desc">Extensive pull request throughput, multi-repository merging, and upstream ecosystem integrations.</p>
-            </div>
-          </div>
-
-          <!-- Trophy 4: YOLO -->
-          <div class="trophy-card">
-            <div class="trophy-icon-wrapper" style="background: rgba(209, 0, 45, 0.12); border-color: rgba(209, 0, 45, 0.35);">
-              <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="#d1002d" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
-                <path d="M4.5 16.5c-1.5 1.26-2 5-2 5s3.74-.5 5-2c.71-.84.7-2.13-.09-2.91a2.18 2.18 0 0 0-2.91-.09z"/>
-                <path d="m12 15-3-3a22 22 0 0 1 2-3.95A12.88 12.88 0 0 1 22 2c0 2.72-.78 7.5-6 11a22.35 22.35 0 0 1-4 2z"/>
-              </svg>
-            </div>
-            <div class="trophy-content">
-              <div class="trophy-title-row">
-                <h5 class="trophy-title">YOLO</h5>
-                <span class="trophy-tier" style="background: rgba(209, 0, 45, 0.15); color: #d1002d;">Production</span>
-              </div>
-              <p class="trophy-desc">Direct sovereign production merges, kernel optimizations, and rapid release velocity without code stalls.</p>
-            </div>
-          </div>
-
-          <!-- Trophy 5: Arctic Code Vault -->
-          <div class="trophy-card">
-            <div class="trophy-icon-wrapper" style="background: rgba(6, 182, 212, 0.12); border-color: rgba(6, 182, 212, 0.35);">
-              <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="#06b6d4" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
-                <rect x="3" y="3" width="18" height="18" rx="2" ry="2"/>
-                <line x1="12" y1="8" x2="12" y2="12"/>
-                <line x1="12" y1="16" x2="12.01" y2="16"/>
-              </svg>
-            </div>
-            <div class="trophy-content">
-              <div class="trophy-title-row">
-                <h5 class="trophy-title">Arctic Code Vault</h5>
-                <span class="trophy-tier" style="background: rgba(6, 182, 212, 0.15); color: #06b6d4;">Permanent</span>
-              </div>
-              <p class="trophy-desc">Codebases archived in the Arctic World Archive in Svalbard, preserved for future human generations.</p>
-            </div>
-          </div>
-
-          <!-- Trophy 6: Upstream GitLab Core -->
-          <div class="trophy-card">
-            <div class="trophy-icon-wrapper" style="background: rgba(252, 109, 38, 0.12); border-color: rgba(252, 109, 38, 0.35);">
-              <svg width="22" height="22" viewBox="0 0 24 24" fill="#fc6d26">
-                <path d="m23.6 9.6-1.5-4.7c-.2-.5-.8-.8-1.3-.8-.5 0-1 .3-1.2.8l-1.9 5.8H6.3L4.4 4.9c-.2-.5-.7-.8-1.2-.8-.5 0-1.1.3-1.3.8L.4 9.6c-.3.8-.1 1.6.6 2.1l11 8.2 11-8.2c.7-.5.9-1.3.6-2.1z"/>
-              </svg>
-            </div>
-            <div class="trophy-content">
-              <div class="trophy-title-row">
-                <h5 class="trophy-title">GitLab Upstream</h5>
-                <span class="trophy-tier" style="background: rgba(252, 109, 38, 0.15); color: #fc6d26;">Core / AI</span>
-              </div>
-              <p class="trophy-desc">Accepted upstream code into GitLab Core &amp; AI Gateway with 100% test pass rate across 24 CI pipelines.</p>
-            </div>
-          </div>
-
+        <!-- Authentic Milestone Table (Matching official GitHub Badges) -->
+        <div class="achievement-table-wrapper">
+          <table class="achievement-table">
+            <thead>
+              <tr>
+                <th style="width: 20%; text-align: center;">Achievement</th>
+                <th style="width: 14%; text-align: center;">Badge</th>
+                <th style="width: 48%; text-align: left;">Milestone Description</th>
+                <th style="width: 18%; text-align: center;">Status</th>
+              </tr>
+            </thead>
+            <tbody>
+              <tr>
+                <td class="achieve-name">Galaxy Brain</td>
+                <td class="achieve-badge">
+                  <img src="assets/achievements/galaxy-brain-default.png" alt="Galaxy Brain Badge" width="58" height="58" loading="lazy" />
+                </td>
+                <td class="achieve-desc">Answered discussions with accepted solutions</td>
+                <td class="achieve-status"><span class="status-pill">Unlocked</span></td>
+              </tr>
+              <tr>
+                <td class="achieve-name">Quickdraw</td>
+                <td class="achieve-badge">
+                  <img src="assets/achievements/quickdraw-default.png" alt="Quickdraw Badge" width="58" height="58" loading="lazy" />
+                </td>
+                <td class="achieve-desc">Closed an issue or PR within 5 minutes of opening</td>
+                <td class="achieve-status"><span class="status-pill">Unlocked</span></td>
+              </tr>
+              <tr>
+                <td class="achieve-name">YOLO</td>
+                <td class="achieve-badge">
+                  <img src="assets/achievements/yolo-default.png" alt="YOLO Badge" width="58" height="58" loading="lazy" />
+                </td>
+                <td class="achieve-desc">Merged a pull request directly without code review</td>
+                <td class="achieve-status"><span class="status-pill">Unlocked</span></td>
+              </tr>
+              <tr>
+                <td class="achieve-name">Pull Shark</td>
+                <td class="achieve-badge">
+                  <img src="assets/achievements/pull-shark-default.png" alt="Pull Shark Badge" width="58" height="58" loading="lazy" />
+                </td>
+                <td class="achieve-desc">Opened pull requests that were successfully merged</td>
+                <td class="achieve-status"><span class="status-pill">Active</span></td>
+              </tr>
+              <tr>
+                <td class="achieve-name">Pair Extraordinaire</td>
+                <td class="achieve-badge">
+                  <img src="assets/achievements/pair-extraordinaire-default.png" alt="Pair Extraordinaire Badge" width="58" height="58" loading="lazy" />
+                </td>
+                <td class="achieve-desc">Co-authored commits on a merged repository</td>
+                <td class="achieve-status"><span class="status-pill">Active</span></td>
+              </tr>
+              <tr>
+                <td class="achieve-name">Starstruck</td>
+                <td class="achieve-badge">
+                  <img src="assets/achievements/starstruck-default.png" alt="Starstruck Badge" width="58" height="58" loading="lazy" />
+                </td>
+                <td class="achieve-desc">Created high-impact public repositories receiving community stars</td>
+                <td class="achieve-status"><span class="status-pill">In Progress</span></td>
+              </tr>
+              <tr>
+                <td class="achieve-name">Public Sponsor</td>
+                <td class="achieve-badge">
+                  <img src="assets/achievements/public-sponsor-default.png" alt="Public Sponsor Badge" width="58" height="58" loading="lazy" />
+                </td>
+                <td class="achieve-desc">Financially sponsored open-source maintainers via GitHub Sponsors</td>
+                <td class="achieve-status"><span class="status-pill">Available</span></td>
+              </tr>
+            </tbody>
+          </table>
         </div>
 
         <!-- Telemetry Stats Strip with Silent OnError Fallback -->
-        <div style="display: flex; flex-wrap: wrap; justify-content: center; gap: 14px; margin-top: 14px;">
+        <div style="display: flex; flex-wrap: wrap; justify-content: center; gap: 14px; margin-top: 24px; padding-top: 20px; border-top: 1px solid rgba(255, 255, 255, 0.08);">
           <img src="https://streak-stats.demolab.com/?user=hrlpavan&theme=tokyonight&hide_border=true" alt="GitHub Streak" style="height: 120px; border-radius: 8px;" loading="lazy" onerror="this.style.display='none'" />
           <img src="https://github-readme-stats-fast.vercel.app/api?username=hrlpavan&show_icons=true&theme=tokyonight&hide_border=true" alt="GitHub Stats" style="height: 120px; border-radius: 8px;" loading="lazy" onerror="this.style.display='none'" />
           <img src="https://github-readme-stats-fast.vercel.app/api/top-langs/?username=hrlpavan&layout=compact&theme=tokyonight&hide_border=true" alt="Top Languages" style="height: 120px; border-radius: 8px;" loading="lazy" onerror="this.style.display='none'" />
