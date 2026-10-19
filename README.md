@@ -1,5 +1,5 @@
-# HRL Global Unicorn Limited — Intellectual Property, Trademark, Copyright & DMCA Statutory Charter
-**Corporate Entity**: HRL Global Unicorn Limited  
+# HRL International — Intellectual Property, Trademark, Copyright & DMCA Statutory Charter
+**Corporate Entity**: HRL International Private Limited  
 **Founder & Managing Director**: Pavan Kumar Sadashiv  
 **Corporate Motto**: *"We Can Do Everything Related To Software Sector Without Any Excuses!"*  
 **Headquarters**: Mangaluru, Karnataka, India (Beyond Bengaluru Tier-2 Hub)  
@@ -9,9 +9,9 @@
 ---
 
 ## 🏛️ Executive Summary & Public Notice
-This repository serves as the **Official Public Intellectual Property (IP) Vault, Trademark Registry, Copyright Registry, DMCA Takedown Notice, and Statutory Legal Enforcement Charter** of **HRL Global Unicorn Limited**.
+This repository serves as the **Official Public Intellectual Property (IP) Vault, Trademark Registry, Copyright Registry, DMCA Takedown Notice, and Statutory Legal Enforcement Charter** of **HRL International Private Limited**.
 
-All source codes, visual computing shaders, neural models, brand names, logos, technical manuscripts, and research pipelines created under HRL Global Unicorn Limited are protected under international treaties and Indian statutory laws (including the *Trade Marks Act 1999*, *Copyright Act 1957*, *Patents Act 1970*, *Information Technology Act 2000*, *17 U.S.C. § 512 DMCA*, *WIPO Madrid System*, and *Bharatiya Nyaya Sanhita 2023*).
+All source codes, visual computing shaders, neural models, brand names, logos, technical manuscripts, and research pipelines created under HRL International are protected under international treaties and Indian statutory laws (including the *Trade Marks Act 1999*, *Copyright Act 1957*, *Patents Act 1970*, *Information Technology Act 2000*, *17 U.S.C. § 512 DMCA*, *WIPO Madrid System*, and *Bharatiya Nyaya Sanhita 2023*).
 
 ---
 
@@ -37,7 +37,7 @@ Unauthorized reproduction of our software, brand passing-off, scraping of propri
 
 ### v2.7.0 — September 7, 2026
 - **Footer Legal Links**: All footer legal links (`Privacy Policy`, `Terms of Use`, `Corporate Verification`, `Trademark Policy`, `Copyright & Licensing`, `DMCA Policy`, `Statutory FIR Notice`) now open directly inside the GitHub profile repository (`hrlpavan/hrlpavan`) in a new tab. Eliminated dummy `href="#"` anchor scroll behavior entirely.
-- **Company History Published**: Official corporate history document (`COMPANY_HISTORY.md`) published to the `hrlpavan` profile repository documenting the four-phase evolution of HRL Global Unicorn Limited.
+- **Company History Published**: Official corporate history document (`COMPANY_HISTORY.md`) published to the `hrlpavan` profile repository documenting the four-phase evolution of HRL International.
 - **Vercel Production Deployment**: Live site at [hrl-brand-seo.vercel.app](https://hrl-brand-seo.vercel.app) re-deployed with optimized `.vercelignore` — deployment bundle reduced from 9.8MB to 177KB for instant build times.
 - **Document Inventory**: Complete 26-document legal and corporate vault now synchronized across `hrlpavan`, `hrl-executive-career-archive`, and `hrl-international-website-` repositories.
 
