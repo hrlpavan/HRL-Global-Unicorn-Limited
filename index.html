@@ -3518,7 +3518,7 @@
         <div class="spec-headline-row">
           <div>
             <div class="spec-org-title">Hacker Score &amp; High-Throughput Telemetry</div>
-            <div class="spec-program-name">45-Day Continuous Execution · 733+ Contributions · 635+ Production Commits</div>
+            <div class="spec-program-name">75-Day Unbroken Execution · 1,623+ Contributions · 1,450+ Production Commits</div>
           </div>
           <span class="apple-verified-badge" style="background: rgba(209, 0, 45, 0.15); border-color: rgba(209, 0, 45, 0.4); color: #ff3b30;">• 99.8th Percentile Velocity</span>
         </div>
@@ -3526,10 +3526,10 @@
           <div>
             <div class="spec-list-title">Core Telemetry &amp; Velocity Benchmarks:</div>
             <div class="spec-pills">
-              <span class="spec-pill">733+ GitHub Contributions</span>
-              <span class="spec-pill">635+ Commits (2026 Run)</span>
-              <span class="spec-pill">45-Day Unbroken Streak</span>
-              <span class="spec-pill">30+ Sovereign Repositories</span>
+              <span class="spec-pill" id="live-contrib-pill">1,623+ GitHub Contributions</span>
+              <span class="spec-pill" id="live-commit-pill">1,450+ Commits (2026 Run)</span>
+              <span class="spec-pill" id="live-streak-pill">75-Day Unbroken Streak</span>
+              <span class="spec-pill" id="live-repo-pill">60+ Sovereign Repositories</span>
               <span class="spec-pill">0.00% Zero-Days</span>
             </div>
             <p style="color: #86868b; font-size: 13px; line-height: 1.5; margin-top: 10px;">
@@ -3547,7 +3547,7 @@
             </div>
             <div class="code-row">
               <span class="code-label">Current Streak:</span>
-              <span class="code-val" style="color: #38bdf8;">45 Days (Aug 6 - Sep 19)</span>
+              <span class="code-val" id="live-streak-val" style="color: #38bdf8;">75 Days (Aug 6 - Present)</span>
             </div>
             <div class="code-row">
               <span class="code-label">Primary GitHub:</span>
@@ -3571,17 +3571,28 @@
             <a href="https://github.com/hrlpavan" target="_blank" rel="noopener noreferrer">
               <img src="https://raw.githubusercontent.com/hrlpavan/hrlpavan/main/assets/github-contribution-grid-snake-dark.svg" alt="HRL Contribution Grid Snake" style="width: 100%; max-width: 820px; border-radius: 8px; margin-bottom: 14px; filter: drop-shadow(0 4px 12px rgba(209, 0, 45, 0.15));" />
             </a>
-            <img id="github-contrib-chart" src="https://ghchart.rshah.org/D1002D/hrlpavan?v=20260923" alt="Pavan Kumar Sadashiv Contribution Graph" style="width: 100%; max-width: 820px; border-radius: 8px; filter: drop-shadow(0 4px 12px rgba(209, 0, 45, 0.15));" />
+            <img id="github-contrib-chart" src="https://ghchart.rshah.org/D1002D/hrlpavan" alt="Pavan Kumar Sadashiv Contribution Graph" style="width: 100%; max-width: 820px; border-radius: 8px; filter: drop-shadow(0 4px 12px rgba(209, 0, 45, 0.15));" />
             <script>
               (function() {
                 var el = document.getElementById('github-contrib-chart');
                 if (el) { el.src = 'https://ghchart.rshah.org/D1002D/hrlpavan?t=' + Date.now(); }
+                try {
+                  fetch('https://api.github.com/users/hrlpavan')
+                    .then(function(r) { return r.json(); })
+                    .then(function(d) {
+                      if (d && d.public_repos) {
+                        var rp = document.getElementById('live-repo-pill');
+                        if (rp) { rp.textContent = d.public_repos + '+ Sovereign Repositories'; }
+                      }
+                    })
+                    .catch(function() {});
+                } catch(e) {}
               })();
             </script>
             <div style="display: flex; flex-wrap: wrap; justify-content: center; gap: 14px; margin-top: 14px;">
-              <img src="https://streak-stats.demolab.com/?user=hrlpavan&theme=tokyonight&hide_border=true" alt="GitHub Streak" style="height: 120px; border-radius: 8px;" loading="lazy" />
-              <img src="https://github-readme-stats-fast.vercel.app/api?username=hrlpavan&show_icons=true&theme=tokyonight&hide_border=true" alt="GitHub Stats" style="height: 120px; border-radius: 8px;" loading="lazy" />
-              <img src="https://github-readme-stats-fast.vercel.app/api/top-langs/?username=hrlpavan&layout=compact&theme=tokyonight&hide_border=true" alt="Top Languages" style="height: 120px; border-radius: 8px;" loading="lazy" />
+              <img src="https://streak-stats.demolab.com/?user=hrlpavan&theme=tokyonight&hide_border=true" alt="GitHub Streak" style="height: 120px; border-radius: 8px;" loading="lazy" onerror="this.style.display='none'" />
+              <img src="https://github-readme-stats-fast.vercel.app/api?username=hrlpavan&show_icons=true&theme=tokyonight&hide_border=true" alt="GitHub Stats" style="height: 120px; border-radius: 8px;" loading="lazy" onerror="this.style.display='none'" />
+              <img src="https://github-readme-stats-fast.vercel.app/api/top-langs?username=hrlpavan&layout=compact&theme=tokyonight&hide_border=true" alt="Top Languages" style="height: 120px; border-radius: 8px;" loading="lazy" onerror="this.style.display='none'" />
             </div>
           </div>
         </div>
@@ -3791,7 +3802,7 @@
         <div style="display: flex; flex-wrap: wrap; justify-content: center; gap: 14px; margin-top: 24px; padding-top: 20px; border-top: 1px solid rgba(255, 255, 255, 0.08);">
           <img src="https://streak-stats.demolab.com/?user=hrlpavan&theme=tokyonight&hide_border=true" alt="GitHub Streak" style="height: 120px; border-radius: 8px;" loading="lazy" onerror="this.style.display='none'" />
           <img src="https://github-readme-stats-fast.vercel.app/api?username=hrlpavan&show_icons=true&theme=tokyonight&hide_border=true" alt="GitHub Stats" style="height: 120px; border-radius: 8px;" loading="lazy" onerror="this.style.display='none'" />
-          <img src="https://github-readme-stats-fast.vercel.app/api/top-langs/?username=hrlpavan&layout=compact&theme=tokyonight&hide_border=true" alt="Top Languages" style="height: 120px; border-radius: 8px;" loading="lazy" onerror="this.style.display='none'" />
+          <img src="https://github-readme-stats-fast.vercel.app/api/top-langs?username=hrlpavan&layout=compact&theme=tokyonight&hide_border=true" alt="Top Languages" style="height: 120px; border-radius: 8px;" loading="lazy" onerror="this.style.display='none'" />
         </div>
       </div>
 
