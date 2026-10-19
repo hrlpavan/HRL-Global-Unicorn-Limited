@@ -152,9 +152,9 @@ function initDockMagnification() {
   if (!dock) return;
 
   const items = dock.querySelectorAll('.dock-item');
-  const baseSize = 48;
-  const maxScale = 1.45;
-  const range = 120; // Pixel radius of magnification influence
+  const baseSize = 38;
+  const maxScale = 1.55;
+  const range = 95; // Pixel radius of magnification influence
 
   dock.addEventListener('mousemove', (e) => {
     const mouseX = e.clientX;
@@ -165,13 +165,13 @@ function initDockMagnification() {
       const distance = Math.abs(mouseX - itemCenterX);
 
       if (distance < range) {
-        // Parabolic curve: 1 + maxScale * (1 - (dist / range)^2)
-        const factor = 1 - Math.pow(distance / range, 2);
-        const scale = 1 + (maxScale - 1) * factor;
-        const newSize = baseSize * scale;
+        // Smooth cosine bell-curve magnification
+        const factor = Math.cos((distance / range) * (Math.PI / 2));
+        const scale = 1 + (maxScale - 1) * Math.pow(factor, 1.4);
+        const newSize = Math.round(baseSize * scale);
         item.style.width = `${newSize}px`;
         item.style.height = `${newSize}px`;
-        item.style.transform = `translateY(-${(scale - 1) * 16}px)`;
+        item.style.transform = `translateY(-${Math.round((scale - 1) * 20)}px)`;
       } else {
         item.style.width = `${baseSize}px`;
         item.style.height = `${baseSize}px`;
@@ -201,11 +201,27 @@ function initDockMagnification() {
         }
       }
       
-      // Little bounce
-      item.style.transform = 'translateY(-20px)';
-      setTimeout(() => item.style.transform = 'translateY(0)', 200);
+      // Apple dock bounce animation
+      item.animate([
+        { transform: 'translateY(0)' },
+        { transform: 'translateY(-22px)' },
+        { transform: 'translateY(0)' },
+        { transform: 'translateY(-10px)' },
+        { transform: 'translateY(0)' }
+      ], {
+        duration: 380,
+        easing: 'cubic-bezier(0.16, 1, 0.3, 1)'
+      });
     });
   });
+
+  // Dynamic calendar date sync
+  const now = new Date();
+  const days = ['SUN', 'MON', 'TUE', 'WED', 'THU', 'FRI', 'SAT'];
+  const calDay = document.getElementById('dockCalDay');
+  const calDate = document.getElementById('dockCalDate');
+  if (calDay) calDay.textContent = days[now.getDay()];
+  if (calDate) calDate.textContent = now.getDate();
 }
 
 /* ========================================================= */
