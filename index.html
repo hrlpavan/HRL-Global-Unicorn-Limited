@@ -2433,13 +2433,68 @@
       border-color: rgba(255, 255, 255, 0.25);
     }
 
-    /* GitLab Upstream Core Engineering Showcase */
-    .gitlab-section {
-      padding: 96px 20px 84px;
-      background: #090a0f;
-      color: #ffffff;
-      border-top: 1px solid rgba(252, 109, 38, 0.25);
+    /* Liquid Specular Glass Card Frame */
+    .glass-card-frame {
       position: relative;
+      border-radius: 18px;
+      display: inline-block;
+      line-height: 0;
+      max-width: 840px;
+      width: 100%;
+      background: #18171c;
+      transition: transform 0.25s ease, box-shadow 0.25s ease;
+    }
+    .glass-card-frame:hover {
+      transform: translateY(-3px);
+    }
+    .glass-card-frame img {
+      border-radius: 16px;
+      display: block;
+      width: 100%;
+      height: auto;
+      box-shadow: 0 20px 48px rgba(0, 0, 0, 0.6), 0 4px 14px rgba(0, 0, 0, 0.35);
+      border: none !important;
+    }
+    /* Outer Specular Glass Conic/Linear Rim */
+    .glass-card-frame::before {
+      content: "";
+      position: absolute;
+      inset: -2px;
+      border-radius: 18px;
+      padding: 2px;
+      background: linear-gradient(
+        135deg,
+        rgba(255, 255, 255, 0.95) 0%,
+        rgba(255, 255, 255, 0.35) 25%,
+        rgba(255, 255, 255, 0.08) 50%,
+        rgba(0, 0, 0, 0.45) 75%,
+        rgba(255, 255, 255, 0.2) 88%,
+        rgba(255, 255, 255, 0.85) 100%
+      );
+      -webkit-mask: linear-gradient(#fff 0 0) content-box, linear-gradient(#fff 0 0);
+      -webkit-mask-composite: xor;
+      mask-composite: exclude;
+      pointer-events: none;
+      filter: drop-shadow(0 2px 6px rgba(0, 0, 0, 0.35));
+      z-index: 2;
+    }
+    /* Internal Specular Bevel & Light Glare */
+    .glass-card-frame::after {
+      content: "";
+      position: absolute;
+      inset: 0;
+      border-radius: 16px;
+      pointer-events: none;
+      background: linear-gradient(
+        180deg,
+        rgba(255, 255, 255, 0.24) 0%,
+        rgba(255, 255, 255, 0.04) 30%,
+        transparent 65%
+      );
+      box-shadow: 
+        inset 0 1.5px 2px rgba(255, 255, 255, 0.85),
+        inset 0 -1.5px 2px rgba(0, 0, 0, 0.5);
+      z-index: 3;
     }
     .gitlab-badge {
       display: inline-flex;
@@ -3713,9 +3768,11 @@
       </div>
 
       <!-- Contributor Banner -->
-      <div style="text-align: center; margin-bottom: 30px;">
-        <a href="https://contributors.gitlab.com/users/hrlpavan" target="_blank" rel="noopener noreferrer" style="display: inline-block;">
-          <img src="https://contributors.gitlab.com/users/hrlpavan/banner.svg" alt="Pavan Kumar Sadashiv GitLab Contributor Banner" style="max-width: 100%; border-radius: 12px; border: 1px solid rgba(252, 109, 38, 0.3); box-shadow: 0 8px 24px rgba(252, 109, 38, 0.15);" loading="lazy" />
+      <div style="text-align: center; margin-bottom: 36px;">
+        <a href="https://contributors.gitlab.com/users/hrlpavan" target="_blank" rel="noopener noreferrer" style="display: inline-block; max-width: 840px; width: 100%;">
+          <div class="glass-card-frame">
+            <img src="https://contributors.gitlab.com/users/hrlpavan/banner.svg" alt="Pavan Kumar Sadashiv GitLab Contributor Banner" loading="lazy" />
+          </div>
         </a>
       </div>
 
