@@ -120,28 +120,57 @@ Every software, web, and media project created under **HRL International** must 
 </div>
 ```
 ```css
+/* Apple-Caliber Executive Company Motto Badge */
 .company-motto-badge {
   display: inline-flex;
   align-items: center;
-  gap: 10px;
-  background: rgba(209, 0, 45, 0.08);
-  border: 1px solid rgba(209, 0, 45, 0.28);
-  padding: 6px 16px;
+  gap: 12px;
+  background: #FFFFFF;
+  border: 1px solid rgba(0, 0, 0, 0.08);
+  padding: 5px 18px 5px 6px;
   border-radius: 9999px;
-  font-size: 13px;
-  font-weight: 600;
-  color: #1d1d1f;
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.04), 0 1px 2px rgba(0, 0, 0, 0.02);
+  transition: all 0.2s cubic-bezier(0.16, 1, 0.3, 1);
   margin-bottom: 24px;
+  vertical-align: middle;
+}
+.company-motto-badge:hover {
+  border-color: rgba(0, 0, 0, 0.14);
+  box-shadow: 0 4px 14px rgba(0, 0, 0, 0.06);
+  transform: translateY(-1px);
 }
 .motto-tag {
-  background: #D1002D;
-  color: #ffffff;
-  font-size: 9.5px;
+  background: linear-gradient(135deg, #D1002D 0%, #B80026 100%);
+  color: #FFFFFF;
+  font-size: 10px;
   font-weight: 700;
   text-transform: uppercase;
-  letter-spacing: 0.06em;
-  padding: 2.5px 8px;
+  letter-spacing: 0.05em;
+  padding: 4px 11px;
   border-radius: 9999px;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  line-height: 1;
+  box-shadow: 0 1px 3px rgba(209, 0, 45, 0.28);
+  flex-shrink: 0;
+}
+.motto-text {
+  color: #1D1D1F;
+  font-size: 13px;
+  font-weight: 600;
+  letter-spacing: -0.012em;
+  line-height: 1;
+  display: inline-flex;
+  align-items: center;
+}
+@media (max-width: 640px) {
+  .company-motto-badge {
+    padding: 6px 14px 6px 6px;
+    gap: 8px;
+    max-width: 100%;
+    text-align: left;
+  }
 }
 ```
 
