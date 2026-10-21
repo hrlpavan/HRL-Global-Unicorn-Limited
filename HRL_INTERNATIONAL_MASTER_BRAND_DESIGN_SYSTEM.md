@@ -239,6 +239,87 @@ Every software, web, and media project created under **HRL International** must 
 
 ---
 
+### Pattern 2.1: Full-Width Rectangular Sovereign Flag Showcase Card
+Use whenever displaying the Sovereign Corporate Flag within an entity grid, spanning full width (`grid-column: 1 / -1;`) with two-column content + RAW visual layout to eliminate wasted space.
+```html
+<div class="entity-flag-rectangle-card">
+  <div class="entity-flag-info">
+    <div class="entity-card-eyebrow" style="color: #BF1F1F; font-weight: 700;">Sovereign Corporate Flag &amp; Vexillological Standard</div>
+    <div class="entity-card-title" style="font-size: 22px; font-weight: 800; margin-bottom: 8px;">
+      <a href="flag.html" style="color: inherit; text-decoration: none;">Official HRL Sovereign Corporate Flag</a>
+    </div>
+    <p class="entity-card-desc" style="font-size: 14px; line-height: 1.6; color: #515154;">
+      Official sovereign flag specifications, heraldic geometry, and vector standard.
+    </p>
+    <div class="entity-flag-badges">
+      <span class="entity-flag-badge primary">Nordic Cross 83px Grid</span>
+      <span class="entity-flag-badge">RAW Ultra-HD (10,800 × 7,200 px)</span>
+    </div>
+    <div class="entity-flag-actions">
+      <a href="flag.html" class="apple-btn-primary">Explore Flag Portal &rarr;</a>
+      <a href="assets/HRL%20INTERNATIONAL%20PRIVATE%20LIMITED%20CORE%20COUNTRY%20FLAG.png" download class="apple-btn-secondary">Download RAW Master &darr;</a>
+    </div>
+  </div>
+  <div class="entity-flag-preview-column">
+    <a href="flag.html" class="entity-flag-preview-wrapper" title="Explore Official Corporate Flag">
+      <img src="assets/HRL%20INTERNATIONAL%20PRIVATE%20LIMITED%20CORE%20COUNTRY%20FLAG.png" alt="HRL Official Flag" class="entity-flag-preview-img" />
+    </a>
+  </div>
+</div>
+```
+```css
+.entity-flag-rectangle-card {
+  grid-column: 1 / -1;
+  background: #FFFFFF;
+  border: 1px solid rgba(0, 0, 0, 0.08);
+  border-top: 3px solid #BF1F1F;
+  border-radius: 18px;
+  padding: 30px;
+  display: grid;
+  grid-template-columns: 1fr;
+  gap: 28px;
+  align-items: center;
+  transition: transform 0.2s ease, box-shadow 0.2s ease, border-color 0.2s ease;
+  box-shadow: 0 2px 10px rgba(0, 0, 0, 0.02);
+}
+@media (min-width: 860px) {
+  .entity-flag-rectangle-card {
+    grid-template-columns: 1.3fr 1fr;
+    gap: 36px;
+  }
+}
+.entity-flag-rectangle-card:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 12px 30px rgba(0, 0, 0, 0.06);
+  border-color: rgba(0, 0, 0, 0.14);
+}
+.entity-flag-preview-wrapper {
+  display: block;
+  width: 100%;
+  aspect-ratio: 3 / 2;
+  border-radius: 12px;
+  overflow: hidden;
+  background: #BF1F1F;
+  border: 1px solid rgba(0, 0, 0, 0.08);
+  transition: transform 0.2s ease, box-shadow 0.2s ease;
+  text-decoration: none;
+}
+.entity-flag-preview-wrapper:hover {
+  transform: scale(1.015);
+  box-shadow: 0 8px 24px rgba(191, 31, 31, 0.18);
+}
+.entity-flag-preview-img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  display: block;
+  box-shadow: none !important;
+  border: none !important;
+}
+```
+
+---
+
 ### Pattern 3: Primary Crimson CTA Button
 ```html
 <a href="#action" class="hrl-btn-primary">
