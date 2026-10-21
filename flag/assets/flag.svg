@@ -10,11 +10,11 @@
         --emblem-dark: #000000;
         --emblem-red: #BF1F1F;
       }
-      .field-bg { fill: var(--bg-color, var(--field-color, #BF1F1F)); }
-      .cross-stripe { fill: var(--cross-color, #FFFFFF); }
-      .canton-stripe { fill: var(--stripe-color, #000000); }
-      .mark-red { fill: var(--emblem-red, #BF1F1F); fill-rule: evenodd; }
-      .mark-black { fill: var(--emblem-dark, #000000); fill-rule: evenodd; }
+      .field-bg { fill: #BF1F1F; }
+      .cross-stripe { fill: #FFFFFF; }
+      .canton-stripe { fill: #000000; }
+      .mark-red { fill: #BF1F1F; fill-rule: evenodd; }
+      .mark-black { fill: #000000; fill-rule: evenodd; }
     </style>
   </defs>
 
