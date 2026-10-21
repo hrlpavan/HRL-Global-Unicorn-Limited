@@ -88,14 +88,20 @@
     .nav-brand {
       display: inline-flex;
       align-items: center;
+      gap: 10px;
       text-decoration: none;
-      opacity: 0.92;
+      color: var(--apple-dark);
+      font-weight: 700;
+      font-size: 14px;
+      opacity: 0.95;
     }
-    .nav-logo-img {
-      height: 19px;
+    .nav-flag-img {
+      height: 20px;
       width: auto;
-      max-width: 65px;
-      display: block;
+      object-fit: contain;
+      vertical-align: middle;
+      box-shadow: none !important;
+      border: none !important;
     }
     .nav-links {
       display: flex;
@@ -487,7 +493,8 @@
   <nav class="apple-nav">
     <div class="nav-container">
       <a href="index.html" class="nav-brand" aria-label="HRL International">
-        <img src="assets/logo.png" alt="HRL Logo" class="nav-logo-img" />
+        <img src="assets/HRL%20INTERNATIONAL%20PRIVATE%20LIMITED%20CORE%20COUNTRY%20FLAG.png" alt="HRL Flag" class="nav-flag-img" />
+        <span>HRL International</span>
       </a>
       
       <ul class="nav-links">
