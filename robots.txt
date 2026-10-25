@@ -13,6 +13,7 @@ Allow: /announcements.html
 Allow: /nvidia-rtx-localai.html
 Allow: /hrl-lang.html
 Allow: /legal.html
+Allow: /antigravity-record.html
 Allow: /*.md
 Allow: /sitemap.xml
 
