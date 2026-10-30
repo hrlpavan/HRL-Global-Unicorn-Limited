@@ -23,6 +23,9 @@ def test_leadership_pages():
         ('Nishwin', 'Real Estate Agent (REA)', '@hrl', 'nishwin.jpeg'),
         ('Shubhada Naik', 'Business Consultant', '@hrl', 'shubhada-naik.jpg'),
         ('Jia Shetty', 'Core Community Manager', '@hrl', 'jia-shetty.jpeg'),
+        ('Saismitha', 'Head of Commercial Brands & Brand Partnerships Lead', '@hrl', 'Saismitha.jpg'),
+        ('Seejal', 'Deep Data & Data Engineering', '@hrl', 'seejal.jpg'),
+        ('Thaif', 'Developer Ecosystem Coordinator', '@hrl', 'thaif.jpg'),
     ]
 
     for filepath, base_dir in pages:

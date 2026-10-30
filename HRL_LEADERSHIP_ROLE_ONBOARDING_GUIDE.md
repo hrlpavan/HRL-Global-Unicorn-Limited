@@ -278,6 +278,9 @@ The test runner will deterministically verify:
 | **Nishwin** | Real Estate Agent (REA) | `@hrl` | `nishwin.jpeg` | `REA` |
 | **Shubhada Naik** | Business Consultant | `@hrl` | `shubhada-naik.jpg` | `BIZ` |
 | **Jia Shetty** | Core Community Manager | `@hrl` | `jia-shetty.jpeg` | `CM` |
+| **Saismitha** | Head of Commercial Brands & Brand Partnerships Lead | `@hrl` | `Saismitha.jpg` | `CB` |
+| **Seejal** | Deep Data & Data Engineering | `@hrl` | `seejal.jpg` | `DATA` |
+| **Thaif** | Developer Ecosystem Coordinator | `@hrl` | `thaif.jpg` | `DEV` |
 
 ---
 
