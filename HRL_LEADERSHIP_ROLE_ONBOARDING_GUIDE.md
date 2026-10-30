@@ -310,5 +310,42 @@ When exporting leadership tactile cards for social media (Instagram Stories / 10
    - The `finally` block must unconditionally remove `#hrl-offscreen-host` from `document.body` to preserve DOM cleanliness.
 
 ---
+
+## 8. The 3-Artifact LinkedIn Social & Profile Onboarding Standard
+
+Whenever a batch of 3 new candidates (or an individual candidate) joins HRL International, the following 3 mandatory artifacts must be generated:
+
+### Artifact 1: Main Company LinkedIn Post (3-Candidate Batch Announcement)
+- **Format**: High-impact multi-image post attaching the 3 corresponding `1080x1920` 9:16 HD PNG cards in numeric sequence (`01_...`, `02_...`, `03_...`).
+- **Required Elements**:
+  - Hook featuring company entity: `HRL International Private Limited`.
+  - Non-negotiable motto: *"We Can Do Everything Related To Software Sector Without Any Excuses!"*.
+  - Founder recognition: `Pavan Kumar Sadashiv (Managing Director & Chief AI Systems Architect)`.
+  - Summary of the 3 candidates with Name, Title, Domain Mandate, and Division Tag (`@hrl` or `@hrlcrimsonRED`).
+  - Official directory link: `https://hrlpavan.github.io/hrl-international-website-/leadership.html`.
+  - Corporate Inquiries: `hrlinternationalprivatelimited@gmail.com`.
+  - Statutory HQ attribution: `Mangaluru, Karnataka, India`.
+  - Strict zero-emoji policy.
+
+### Artifact 2: Individual Candidate Spotlight Caption
+- **Format**: Single-candidate deep-dive post paired with that candidate's standalone `1080x1920` 9:16 HD PNG card.
+- **Required Elements**:
+  - Candidate Name, Corporate Title, and Division.
+  - Strategic role scope detailing core responsibilities and technical ownership.
+  - Mandatory company motto and official verification URL.
+
+### Artifact 3: Personal Candidate LinkedIn Experience Markdown (`.md`)
+- **Format**: Stored in `HRL_LINKEDIN_EXPERIENCE_KIT.md` and provided privately to the candidate for immediate 1-click copy-paste.
+- **Required Fields**:
+  - **Title**: Exact Corporate Designation.
+  - **Employment Type**: `Full-time`.
+  - **Company Name**: `HRL International Private Limited` (or `HRL Crimson Red Media`).
+  - **Location**: `Mangaluru, Karnataka, India`.
+  - **Location Type**: `Hybrid` or `On-site`.
+  - **Description**: 4–5 bullet points detailing core operational responsibilities, domain mandate, division tag, and official directory link.
+  - **Top Skills**: 8–10 high-value technical/operational LinkedIn skills.
+  - **Media Link**: `https://hrlpavan.github.io/hrl-international-website-/leadership.html`.
+
+---
 **Maintained by**: HRL International Private Limited Corporate Systems Directorate  
 **Author & Inventor**: Pavan Kumar Sadashiv (`hrlpavan`)
