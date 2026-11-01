@@ -5,7 +5,8 @@
 **Founder & Managing Director**: Pavan Kumar Sadashiv (`hrlpavan`)  
 **Standard Identifier**: `HRL-SPEC-LEADERSHIP-ONBOARDING-2026-V1`  
 **Effective Date**: October 2026  
-**Target Repositories**: `hrl-international-website-` & `HRL-Company-Page-Announcement-Design`  
+**Target Repositories**: `hrl-international-website-`, `HRL-Company-Page-Announcement-Design`, and `HRL-Self-Assigning-Core-Inner-Roles`  
+**Hiring & Role Discovery Portal**: [https://github.com/hrlpavan/HRL-Self-Assigning-Core-Inner-Roles](https://github.com/hrlpavan/HRL-Self-Assigning-Core-Inner-Roles)  
 
 ---
 
