@@ -3643,9 +3643,19 @@
     }
     .directorate-grid {
       display: grid;
-      grid-template-columns: repeat(auto-fill, minmax(185px, 1fr));
+      grid-template-columns: repeat(2, 1fr);
       gap: 14px;
       margin-bottom: 32px;
+    }
+    @media (min-width: 600px) {
+      .directorate-grid {
+        grid-template-columns: repeat(3, 1fr);
+      }
+    }
+    @media (min-width: 992px) {
+      .directorate-grid {
+        grid-template-columns: repeat(5, 1fr);
+      }
     }
     .directorate-card {
       background: #ffffff;
@@ -5921,14 +5931,14 @@
         </div>
 
         <div class="directorate-grid">
-          <!-- 1. Sheikh Mohammed Raees -->
+          <!-- 1. Nishwin (First in Top Edge) -->
           <a href="leadership.html" class="directorate-card">
             <div class="directorate-avatar-wrap">
-              <img src="HRL%20CORE%20COMPANY%20ROLE/sheikh-mohammed-raees.jpg" alt="Sheikh Mohammed Raees" loading="lazy" />
+              <img src="HRL%20CORE%20COMPANY%20ROLE/nishwin.jpeg" alt="Nishwin" loading="lazy" />
             </div>
-            <div class="directorate-card-name">Sheikh Mohammed Raees</div>
-            <div class="directorate-card-role">Chief Executive Officer (CEO)</div>
-            <span class="directorate-card-division">@hrl</span>
+            <div class="directorate-card-name">Nishwin</div>
+            <div class="directorate-card-role">CTO, Crimson Red Media</div>
+            <span class="directorate-card-division crimson">@hrlcrimsonRED</span>
           </a>
 
           <!-- 2. Sanjana -->
@@ -5941,7 +5951,17 @@
             <span class="directorate-card-division">@hrl</span>
           </a>
 
-          <!-- 3. Apoorvi Vijay -->
+          <!-- 3. Pavan Kumar Sadashiv (In Center, Between Sanjana & Apoorvi) -->
+          <a href="leadership.html" class="directorate-card" style="border-color: rgba(0, 113, 227, 0.25); box-shadow: 0 4px 14px rgba(0, 113, 227, 0.06);">
+            <div class="directorate-avatar-wrap" style="border-color: #0071e3;">
+              <img src="assets/hrlpavan-founder-avatar.jpg" alt="Pavan Kumar Sadashiv" loading="lazy" />
+            </div>
+            <div class="directorate-card-name">Pavan Kumar Sadashiv</div>
+            <div class="directorate-card-role">Founder &amp; Managing Director</div>
+            <span class="directorate-card-division">@hrl</span>
+          </a>
+
+          <!-- 4. Apoorvi Vijay -->
           <a href="leadership.html" class="directorate-card">
             <div class="directorate-avatar-wrap">
               <img src="HRL%20CORE%20COMPANY%20ROLE/apoorvi-vijay.jpg" alt="Apoorvi Vijay" loading="lazy" />
@@ -5951,17 +5971,17 @@
             <span class="directorate-card-division crimson">@hrlcrimsonRED</span>
           </a>
 
-          <!-- 4. Nishwin -->
+          <!-- 5. Sheikh Mohammed Raees (At the End of Top Row) -->
           <a href="leadership.html" class="directorate-card">
             <div class="directorate-avatar-wrap">
-              <img src="HRL%20CORE%20COMPANY%20ROLE/nishwin.jpeg" alt="Nishwin" loading="lazy" />
+              <img src="HRL%20CORE%20COMPANY%20ROLE/sheikh-mohammed-raees.jpg" alt="Sheikh Mohammed Raees" loading="lazy" />
             </div>
-            <div class="directorate-card-name">Nishwin</div>
-            <div class="directorate-card-role">CTO, Crimson Red Media</div>
-            <span class="directorate-card-division crimson">@hrlcrimsonRED</span>
+            <div class="directorate-card-name">Sheikh Mohammed Raees</div>
+            <div class="directorate-card-role">Chief Executive Officer (CEO)</div>
+            <span class="directorate-card-division">@hrl</span>
           </a>
 
-          <!-- 5. Shubhada Naik -->
+          <!-- 6. Shubhada Naik (Moved Down to Row 2) -->
           <a href="leadership.html" class="directorate-card">
             <div class="directorate-avatar-wrap">
               <img src="HRL%20CORE%20COMPANY%20ROLE/shubhada-naik.jpg" alt="Shubhada Naik" loading="lazy" />
@@ -5971,7 +5991,7 @@
             <span class="directorate-card-division crimson">@hrlcrimsonRED</span>
           </a>
 
-          <!-- 6. Jia Shetty -->
+          <!-- 7. Jia Shetty -->
           <a href="leadership.html" class="directorate-card">
             <div class="directorate-avatar-wrap">
               <img src="HRL%20CORE%20COMPANY%20ROLE/jia-shetty.jpeg" alt="Jia Shetty" loading="lazy" />
@@ -5981,7 +6001,7 @@
             <span class="directorate-card-division crimson">@hrlcrimsonRED</span>
           </a>
 
-          <!-- 7. Saismitha -->
+          <!-- 8. Saismitha -->
           <a href="leadership.html" class="directorate-card">
             <div class="directorate-avatar-wrap">
               <img src="HRL%20CORE%20COMPANY%20ROLE/Saismitha.jpg" alt="Saismitha" loading="lazy" />
@@ -5991,7 +6011,7 @@
             <span class="directorate-card-division crimson">@hrlcrimsonRED</span>
           </a>
 
-          <!-- 8. Seejal -->
+          <!-- 9. Seejal -->
           <a href="leadership.html" class="directorate-card">
             <div class="directorate-avatar-wrap">
               <img src="HRL%20CORE%20COMPANY%20ROLE/seejal.jpg" alt="Seejal" loading="lazy" />
@@ -6001,7 +6021,7 @@
             <span class="directorate-card-division crimson">@hrlcrimsonRED</span>
           </a>
 
-          <!-- 9. Thaif -->
+          <!-- 10. Thaif -->
           <a href="leadership.html" class="directorate-card">
             <div class="directorate-avatar-wrap">
               <img src="HRL%20CORE%20COMPANY%20ROLE/thaif.jpg" alt="Thaif" loading="lazy" />
@@ -6009,16 +6029,6 @@
             <div class="directorate-card-name">Thaif</div>
             <div class="directorate-card-role">VP, Production &amp; Logistics</div>
             <span class="directorate-card-division crimson">@hrlcrimsonRED</span>
-          </a>
-
-          <!-- 10. Pavan Kumar Sadashiv -->
-          <a href="leadership.html" class="directorate-card">
-            <div class="directorate-avatar-wrap">
-              <img src="assets/hrlpavan-founder-avatar.jpg" alt="Pavan Kumar Sadashiv" loading="lazy" />
-            </div>
-            <div class="directorate-card-name">Pavan Kumar Sadashiv</div>
-            <div class="directorate-card-role">Founder &amp; Managing Director</div>
-            <span class="directorate-card-division">@hrl</span>
           </a>
         </div>
 
