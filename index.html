@@ -3447,6 +3447,269 @@
       }
     }
 
+    /* ========================================================= */
+    /* HRL CORPORATE SECTORS & SYSTEMS ARCHITECTURE MATRIX       */
+    /* ========================================================= */
+    .apple-sectors-section {
+      background: #ffffff;
+      padding: 72px 16px;
+      border-top: 1px solid var(--apple-border);
+      border-bottom: 1px solid var(--apple-border);
+      position: relative;
+    }
+    .sectors-container {
+      max-width: 1040px;
+      margin: 0 auto;
+    }
+    .sectors-header {
+      text-align: center;
+      margin-bottom: 40px;
+    }
+    .sectors-eyebrow {
+      display: inline-flex;
+      align-items: center;
+      gap: 8px;
+      background: rgba(0, 113, 227, 0.08);
+      color: #0071e3;
+      font-size: 11px;
+      font-weight: 700;
+      text-transform: uppercase;
+      letter-spacing: 0.08em;
+      padding: 5px 14px;
+      border-radius: 9999px;
+      border: 1px solid rgba(0, 113, 227, 0.22);
+      margin-bottom: 12px;
+    }
+    .sectors-title {
+      font-size: clamp(28px, 5.5vw, 40px);
+      font-weight: 800;
+      letter-spacing: -0.025em;
+      color: var(--apple-text-dark);
+      margin-bottom: 10px;
+      line-height: 1.15;
+    }
+    .sectors-subhead {
+      font-size: clamp(15px, 3.2vw, 17px);
+      color: var(--apple-text-muted);
+      max-width: 760px;
+      margin: 0 auto;
+      line-height: 1.5;
+    }
+    .sectors-grid {
+      display: grid;
+      grid-template-columns: 1fr;
+      gap: 18px;
+    }
+    @media (min-width: 680px) {
+      .sectors-grid {
+        grid-template-columns: repeat(2, 1fr);
+      }
+    }
+    @media (min-width: 1024px) {
+      .sectors-grid {
+        grid-template-columns: repeat(3, 1fr);
+      }
+    }
+    .sector-card {
+      background: #fbfbfd;
+      border: 1px solid rgba(0, 0, 0, 0.07);
+      border-radius: 20px;
+      padding: 26px 22px;
+      display: flex;
+      flex-direction: column;
+      justify-content: space-between;
+      transition: transform 0.25s cubic-bezier(0.16, 1, 0.3, 1), box-shadow 0.25s ease, border-color 0.25s ease;
+      position: relative;
+      overflow: hidden;
+    }
+    .sector-card:hover {
+      transform: translateY(-3px);
+      box-shadow: 0 12px 28px rgba(0, 0, 0, 0.06);
+      border-color: rgba(0, 113, 227, 0.3);
+    }
+    .sector-tag-pill {
+      display: inline-flex;
+      align-items: center;
+      gap: 6px;
+      font-size: 10.5px;
+      font-weight: 700;
+      text-transform: uppercase;
+      letter-spacing: 0.06em;
+      padding: 3px 10px;
+      border-radius: 9999px;
+      margin-bottom: 14px;
+      width: fit-content;
+    }
+    .sector-tag-pill.blue {
+      background: rgba(0, 113, 227, 0.08);
+      color: #0071e3;
+      border: 1px solid rgba(0, 113, 227, 0.2);
+    }
+    .sector-tag-pill.orange {
+      background: rgba(252, 109, 38, 0.08);
+      color: #fc6d26;
+      border: 1px solid rgba(252, 109, 38, 0.25);
+    }
+    .sector-tag-pill.crimson {
+      background: rgba(209, 0, 45, 0.08);
+      color: #d1002d;
+      border: 1px solid rgba(209, 0, 45, 0.25);
+    }
+    .sector-tag-pill.green {
+      background: rgba(16, 133, 72, 0.08);
+      color: #108548;
+      border: 1px solid rgba(16, 133, 72, 0.25);
+    }
+    .sector-tag-pill.purple {
+      background: rgba(147, 51, 234, 0.08);
+      color: #9333ea;
+      border: 1px solid rgba(147, 51, 234, 0.25);
+    }
+    .sector-tag-pill.teal {
+      background: rgba(13, 148, 136, 0.08);
+      color: #0d9488;
+      border: 1px solid rgba(13, 148, 136, 0.25);
+    }
+    .sector-card-title {
+      font-size: 18px;
+      font-weight: 700;
+      color: var(--apple-text-dark);
+      letter-spacing: -0.015em;
+      margin-bottom: 8px;
+    }
+    .sector-card-desc {
+      font-size: 13px;
+      color: #515154;
+      line-height: 1.55;
+      margin-bottom: 16px;
+    }
+    .sector-specs {
+      list-style: none;
+      padding: 0;
+      margin: 0 0 18px 0;
+      display: flex;
+      flex-direction: column;
+      gap: 6px;
+    }
+    .sector-specs li {
+      font-size: 12px;
+      color: #1d1d1f;
+      display: flex;
+      align-items: flex-start;
+      gap: 6px;
+      line-height: 1.4;
+    }
+    .sector-specs li::before {
+      content: "•";
+      color: #0071e3;
+      font-weight: bold;
+    }
+    .sector-action-link {
+      font-size: 12.5px;
+      font-weight: 600;
+      text-decoration: none;
+      display: inline-flex;
+      align-items: center;
+      gap: 5px;
+      transition: color 0.2s ease, transform 0.2s ease;
+      margin-top: auto;
+    }
+    .sector-action-link:hover {
+      transform: translateX(2px);
+    }
+
+    /* Directorate Roster Grid */
+    .directorate-section {
+      margin-top: 48px;
+      padding-top: 40px;
+      border-top: 1px solid rgba(0, 0, 0, 0.08);
+    }
+    .directorate-header {
+      text-align: center;
+      margin-bottom: 28px;
+    }
+    .directorate-title {
+      font-size: clamp(22px, 4.5vw, 30px);
+      font-weight: 700;
+      color: var(--apple-text-dark);
+      letter-spacing: -0.02em;
+      margin-bottom: 6px;
+    }
+    .directorate-subhead {
+      font-size: 14px;
+      color: var(--apple-text-muted);
+      max-width: 680px;
+      margin: 0 auto;
+    }
+    .directorate-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fill, minmax(185px, 1fr));
+      gap: 14px;
+      margin-bottom: 32px;
+    }
+    .directorate-card {
+      background: #ffffff;
+      border: 1px solid rgba(0, 0, 0, 0.07);
+      border-radius: 18px;
+      padding: 18px 14px;
+      text-align: center;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      transition: transform 0.2s ease, box-shadow 0.2s ease, border-color 0.2s ease;
+      text-decoration: none;
+      color: inherit;
+    }
+    .directorate-card:hover {
+      transform: translateY(-3px);
+      box-shadow: 0 10px 22px rgba(0, 0, 0, 0.05);
+      border-color: rgba(209, 0, 45, 0.25);
+    }
+    .directorate-avatar-wrap {
+      width: 66px;
+      height: 66px;
+      border-radius: 50%;
+      overflow: hidden;
+      margin-bottom: 10px;
+      border: 2px solid #ffffff;
+      box-shadow: 0 3px 10px rgba(0, 0, 0, 0.08);
+      background: #f5f5f7;
+    }
+    .directorate-avatar-wrap img {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+      display: block;
+    }
+    .directorate-card-name {
+      font-size: 13.5px;
+      font-weight: 700;
+      color: #1d1d1f;
+      margin-bottom: 3px;
+      line-height: 1.3;
+    }
+    .directorate-card-role {
+      font-size: 11.5px;
+      color: #515154;
+      line-height: 1.35;
+      margin-bottom: 8px;
+      flex-grow: 1;
+    }
+    .directorate-card-division {
+      font-size: 9.5px;
+      font-weight: 700;
+      text-transform: uppercase;
+      letter-spacing: 0.05em;
+      padding: 2px 7px;
+      border-radius: 9999px;
+      background: rgba(0, 0, 0, 0.04);
+      color: #515154;
+    }
+    .directorate-card-division.crimson {
+      background: rgba(209, 0, 45, 0.08);
+      color: #d1002d;
+    }
+
   </style>
   <script src="assets/js/security-shield.js" defer></script>
 </head>
@@ -3455,7 +3718,8 @@
   <!-- Top Announcement Ribbon -->
   <div class="apple-ribbon">
     Global Record: 17,353+ Lines Engineered by Antigravity · 
-    <a href="antigravity-record.html" style="color: #fc6d26; font-weight: 700;">Explore Live Engineering Audit &rarr;</a>
+    <a href="antigravity-record.html" style="color: #fc6d26; font-weight: 700;">Explore Live Engineering Audit &rarr;</a> · 
+    Global HQ: San Francisco, CA | Systems Engineering Hub: Mangaluru, India
   </div>
 
   <!-- Apple Global Navigation -->
@@ -3469,6 +3733,7 @@
       <!-- Desktop Links: Mathematically Centered -->
       <ul class="nav-links">
         <li><a href="#overview">Overview</a></li>
+        <li><a href="#sectors" style="color: #0071e3; font-weight: 600;">Sectors</a></li>
         <li><a href="hrlpavan.html" style="color: #d1002d; font-weight: 700;">Entity: hrlpavan</a></li>
         <li><a href="flag.html" style="color: #BF1F1F; font-weight: 700;">Official Flag</a></li>
         <li><a href="antigravity-record.html" style="color: #fc6d26; font-weight: 700;">Antigravity Record</a></li>
@@ -3500,8 +3765,10 @@
   <!-- Mobile Drawer -->
   <div class="mobile-drawer" id="mobileDrawer">
     <a href="#overview" onclick="toggleMobileMenu()">Overview</a>
+    <a href="#sectors" onclick="toggleMobileMenu()" style="color: #0071e3; font-weight: 700;">Core Corporate Sectors &rarr;</a>
     <a href="hrlpavan.html" style="color: #d1002d; font-weight: 700;">Official Entity: hrlpavan &rarr;</a>
     <a href="flag.html" style="color: #BF1F1F; font-weight: 700;">Official Corporate Flag &rarr;</a>
+    <a href="antigravity-record.html" style="color: #fc6d26; font-weight: 700;">Antigravity Engineering Record &rarr;</a>
     <a href="#achievements" onclick="toggleMobileMenu()" style="color: #d1002d; font-weight: 700;">Executive Achievement Console &rarr;</a>
     <a href="#gitlab-contributions" onclick="toggleMobileMenu()" style="color: #fc6d26; font-weight: 700;">Upstream GitLab Core Showcase &rarr;</a>
     <a href="https://hrlpavan.github.io/nvedia-project-by-hrl/" target="_blank" rel="noopener noreferrer" style="color: #5c9100; font-weight: 700;">NVIDIA RTX-LocalAI Runtime &rarr;</a>
@@ -3516,7 +3783,7 @@
     <a href="#credentials" onclick="toggleMobileMenu()">Credentials</a>
     <a href="#voice-ai" onclick="toggleMobileMenu()">ElevenLabs Voice AI</a>
     <a href="#capabilities" onclick="toggleMobileMenu()">Capabilities</a>
-    <a href="leadership.html" style="color: #d1002d; font-weight: 700;">Leadership &rarr;</a>
+    <a href="leadership.html" style="color: #d1002d; font-weight: 700;">Leadership Directorate (10-Leader Council) &rarr;</a>
     <a href="#contact" onclick="toggleMobileMenu()">Contact & Inquiries</a>
     <div style="margin-top: 8px; padding-top: 12px; border-top: 1px solid rgba(0,0,0,0.06); display: flex; flex-direction: column; gap: 8px;">
       <span style="font-size: 11px; text-transform: uppercase; letter-spacing: 0.05em; color: #86868b; font-weight: 600;">Official Network</span>
@@ -3541,36 +3808,43 @@
       <span class="motto-text">We Can Do Everything Related To Software Sector Without Any Excuses!</span>
     </div>
 
+    <!-- Global Dual-Presence Pill -->
+    <div style="display: inline-flex; align-items: center; gap: 8px; background: #ffffff; border: 1px solid #d2d2d7; padding: 6px 14px; border-radius: 9999px; font-size: 12px; font-weight: 600; color: #1d1d1f; margin-bottom: 16px; box-shadow: 0 1px 3px rgba(0,0,0,0.04);">
+      <span style="display: inline-block; width: 8px; height: 8px; border-radius: 50%; background: #0071e3;"></span>
+      Global HQ: San Francisco, CA · Systems Engineering Hub: Mangaluru, India
+    </div>
+
     <span class="hero-eyebrow">HRL International Private Limited</span>
-    <h1 class="hero-headline">Media engineering.<br/>Supercharged by AI.</h1>
-    <h2 class="hero-subhead">High-velocity viral growth, creator ecosystems, and enterprise software foundations.</h2>
-    <p class="hero-description">Founded by Pavan Kumar Sadashiv to engineer next-generation media distribution, high-retention storytelling, and algorithm-driven brand acceleration.</p>
+    <h1 class="hero-headline">Sovereign DeepTech.<br/>High-Performance Compute &amp; Media Systems.</h1>
+    <h2 class="hero-subhead">Proprietary neural runtimes, multi-agent reasoning swarms, patented compilers, and cinematic creator distribution.</h2>
+    <p class="hero-description">Founded by Pavan Kumar Sadashiv to architect resilient enterprise intelligence, sub-millisecond local inference, and high-retention global storytelling.</p>
     
     <div class="apple-cta-group">
-      <a href="https://hrlpavan.github.io/hrl-project-extreme/" target="_blank" rel="noopener noreferrer" class="apple-btn-primary">HRL Project Extreme &rarr;</a>
-      <a href="showcase.html" class="apple-btn-secondary" style="color: #D1002D; border-color: rgba(209, 0, 45, 0.25);">Watch Video Showcase &rarr;</a>
-      <a href="#rate-card" class="apple-btn-secondary" style="color: #e05375; border-color: rgba(224, 83, 117, 0.35);">View Rate Card &rarr;</a>
-      <a href="#voice-ai" class="apple-btn-secondary">Test Voice AI</a>
+      <a href="#sectors" class="apple-btn-primary">Explore Sectors &rarr;</a>
+      <a href="https://hrlpavan.github.io/nvedia-project-by-hrl/" target="_blank" rel="noopener noreferrer" class="apple-btn-secondary" style="color: #5c9100; border-color: rgba(92, 145, 0, 0.35);">RTX-LocalAI Runtime &nearr;</a>
+      <a href="antigravity-record.html" class="apple-btn-secondary" style="color: #fc6d26; border-color: rgba(252, 109, 38, 0.35);">Antigravity Record &rarr;</a>
+      <a href="leadership.html" class="apple-btn-secondary" style="color: #0071e3; border-color: rgba(0, 113, 227, 0.25);">Leadership Council &rarr;</a>
+      <a href="showcase.html" class="apple-btn-secondary" style="color: #D1002D; border-color: rgba(209, 0, 45, 0.25);">Video Showcase &rarr;</a>
     </div>
 
     <!-- Apple Visual Stats Card (2x2 Mobile / 4-Column Desktop) -->
     <div class="hero-visual-card">
       <div class="stats-row">
         <div>
-          <div class="stat-number">2.5M+</div>
-          <div class="stat-label">Organic Reel Impressions</div>
-        </div>
-        <div>
-          <div class="stat-number">53+</div>
-          <div class="stat-label">Sovereign Software Repositories</div>
+          <div class="stat-number">17,353+</div>
+          <div class="stat-label">Audited Code Lines (100% CI)</div>
         </div>
         <div>
           <div class="stat-number">1,538+</div>
           <div class="stat-label">Tokens/sec RTX-LocalAI Engine</div>
         </div>
         <div>
-          <div class="stat-number">4+</div>
-          <div class="stat-label">Upstream GitLab Core MRs (100% CI)</div>
+          <div class="stat-number">2.5M+</div>
+          <div class="stat-label">Organic Media Impressions</div>
+        </div>
+        <div>
+          <div class="stat-number">53+</div>
+          <div class="stat-label">Sovereign Software Repositories</div>
         </div>
       </div>
     </div>
@@ -5127,6 +5401,137 @@
     </div>
   </section>
 
+  <!-- ========================================================= -->
+  <!-- HRL CORPORATE SECTORS & SYSTEMS ARCHITECTURE MATRIX       -->
+  <!-- ========================================================= -->
+  <section class="apple-sectors-section" id="sectors">
+    <div class="sectors-container">
+      <div class="sectors-header">
+        <span class="sectors-eyebrow">Enterprise Architecture &amp; Operating Verticals</span>
+        <h2 class="sectors-title">Core Corporate Sectors.</h2>
+        <p class="sectors-subhead">Engineered from foundational C++/CUDA systems to Hollywood-grade cinema pipelines and high-velocity creator networks.</p>
+      </div>
+
+      <div class="sectors-grid">
+        
+        <!-- Sector 1: DeepTech & High-Performance Compute -->
+        <div class="sector-card">
+          <div>
+            <span class="sector-tag-pill green">Sector 01 · DeepTech &amp; HPC</span>
+            <h3 class="sector-card-title">High-Performance Compute &amp; Neural Runtimes</h3>
+            <p class="sector-card-desc">Sovereign C++20 and CUDA tensor cores delivering air-gapped, zero-latency local artificial intelligence for defense, enterprise, and low-latency environments.</p>
+            <ul class="sector-specs">
+              <li>1,538+ tokens/sec sustained RTX-LocalAI execution</li>
+              <li>0.17&micro;s KV cache attention latency</li>
+              <li>Complete air-gapped data sovereignty with zero external API leak</li>
+            </ul>
+          </div>
+          <div style="margin-top: 20px;">
+            <a href="https://hrlpavan.github.io/nvedia-project-by-hrl/" target="_blank" rel="noopener noreferrer" class="sector-action-link" style="color: #108548;">
+              Explore NVIDIA RTX-LocalAI Runtime &nearr;
+            </a>
+          </div>
+        </div>
+
+        <!-- Sector 2: Autonomous Multi-Agent Swarms & Protocol Engineering -->
+        <div class="sector-card">
+          <div>
+            <span class="sector-tag-pill orange">Sector 02 · Swarm Systems</span>
+            <h3 class="sector-card-title">Autonomous Multi-Agent Swarms &amp; Protocols</h3>
+            <p class="sector-card-desc">Feudal Hierarchical Reinforcement Learning reasoning engines, Model Context Protocol (MCP) integrations, and upstream contributions to global infrastructure.</p>
+            <ul class="sector-specs">
+              <li>17,353+ audited lines engineered by Antigravity (100% CI pass)</li>
+              <li>Upstream merged GitLab Core contributions (MR !260212 &amp; !7251)</li>
+              <li>Multi-agent deterministic verification oracles with bounded credit assignment</li>
+            </ul>
+          </div>
+          <div style="margin-top: 20px;">
+            <a href="antigravity-record.html" class="sector-action-link" style="color: #fc6d26;">
+              Inspect Antigravity Engineering Audit &rarr;
+            </a>
+          </div>
+        </div>
+
+        <!-- Sector 3: Patented Compilers & AI Languages -->
+        <div class="sector-card">
+          <div>
+            <span class="sector-tag-pill blue">Sector 03 · Compiler Engineering</span>
+            <h3 class="sector-card-title">Patented Compilers &amp; AI Domain Languages</h3>
+            <p class="sector-card-desc">Proprietary programming language specification and deterministic AST parser designed for next-generation neuro-symbolic systems and sovereign runtime safety.</p>
+            <ul class="sector-specs">
+              <li>Patent Spec: HRL-PATENT-SPEC-2026-004-LANG</li>
+              <li>Single-binary compiler toolchain targeting native machine bytecode</li>
+              <li>Deterministic memory guarantees for mission-critical execution</li>
+            </ul>
+          </div>
+          <div style="margin-top: 20px;">
+            <a href="hrl-lang.html" class="sector-action-link" style="color: #0071e3;">
+              Review HRL Programming Language Specification &rarr;
+            </a>
+          </div>
+        </div>
+
+        <!-- Sector 4: Studio Media Engineering & Hollywood VFX -->
+        <div class="sector-card">
+          <div>
+            <span class="sector-tag-pill crimson">Sector 04 · Studio Media</span>
+            <h3 class="sector-card-title">Studio Media Engineering &amp; Hollywood VFX</h3>
+            <p class="sector-card-desc">Advanced DaVinci Resolve 20/21 color science pipelines, custom OpenFX neural shaders, and 12-bit DPX uncompressed master workflows for film and global cinema.</p>
+            <ul class="sector-specs">
+              <li>Custom AI Cinematic Haze neural post-production shaders</li>
+              <li>Lossless 12-bit DPX &amp; Apple ProRes 4444 XQ mastering</li>
+              <li>Sub-frame audio-visual synchronization with tactile haptic timing</li>
+            </ul>
+          </div>
+          <div style="margin-top: 20px;">
+            <a href="showcase.html" class="sector-action-link" style="color: #d1002d;">
+              View Studio Master Showcase &rarr;
+            </a>
+          </div>
+        </div>
+
+        <!-- Sector 5: Digital Broadcasting & Creator Growth -->
+        <div class="sector-card">
+          <div>
+            <span class="sector-tag-pill purple">Sector 05 · Broadcasting</span>
+            <h3 class="sector-card-title">Digital Broadcasting &amp; Creator Networks</h3>
+            <p class="sector-card-desc">HRL Crimson Red Media operating multi-market creator distribution channels, viral short-form retention engines, and cultural event broadcasting systems.</p>
+            <ul class="sector-specs">
+              <li>2.5M+ verified organic short-form video reach</li>
+              <li>Executive leadership under CEO Apoorvi Vijay</li>
+              <li>Enterprise rate card packaging with sub-48-hour turnarounds</li>
+            </ul>
+          </div>
+          <div style="margin-top: 20px;">
+            <a href="#crimson-red-media" class="sector-action-link" style="color: #9333ea;">
+              Explore HRL Crimson Red Media &rarr;
+            </a>
+          </div>
+        </div>
+
+        <!-- Sector 6: Combinatorial Optimization & Public Platforms -->
+        <div class="sector-card">
+          <div>
+            <span class="sector-tag-pill teal">Sector 06 · Enterprise Platforms</span>
+            <h3 class="sector-card-title">Combinatorial Optimization &amp; Public Sector</h3>
+            <p class="sector-card-desc">Mathematical constraint satisfaction problem (CSP) solvers and automated workflow transformation engines engineered for government institutions and large-scale enterprises.</p>
+            <ul class="sector-specs">
+              <li>InvigiMatrix: NP-hard combinatorial timetable &amp; exam scheduler</li>
+              <li>OmniTransform AI: Multi-format document intelligence for ministries</li>
+              <li>Zero-downtime, microservice-grade deployment architecture</li>
+            </ul>
+          </div>
+          <div style="margin-top: 20px;">
+            <a href="https://hrlpavan.github.io/omnitransform-ai-resources/?v=header_ux_fixed" target="_blank" rel="noopener noreferrer" class="sector-action-link" style="color: #0d9488;">
+              Launch OmniTransform AI Platform &nearr;
+            </a>
+          </div>
+        </div>
+
+      </div>
+    </div>
+  </section>
+
   <!-- Apple Bento Grid: Capabilities -->
   <section class="apple-bento-section" id="capabilities">
     <div class="bento-header">
@@ -5486,7 +5891,7 @@
 
   <!-- Apple Keynote Quote / Leadership -->
   <section class="apple-keynote-section" id="leadership">
-    <div class="keynote-container" style="text-align: center;">
+    <div class="keynote-container" style="text-align: center; max-width: 1040px; margin: 0 auto;">
       <div style="margin-bottom: 24px;">
         <a href="hrlpavan.html" title="View hrlpavan Knowledge Graph &amp; Master Catalog" style="display: inline-block;">
           <div class="glass-avatar-lens" style="width: 120px; height: 120px;">
@@ -5506,6 +5911,122 @@
         <a href="https://www.linkedin.com/in/pavan-kumar-s-703993330/" target="_blank" rel="noopener noreferrer" style="color: #0071e3; font-size: 13px; text-decoration: none; font-weight: 500; display: inline-flex; align-items: center; gap: 4px; padding: 8px 14px;">
           LinkedIn &rarr;
         </a>
+      </div>
+
+      <!-- Directorate Roster Showcase (10-Leader Council) -->
+      <div class="directorate-section">
+        <div class="directorate-header">
+          <h3 class="directorate-title">Executive Directorate &amp; Core Council</h3>
+          <p class="directorate-subhead">Ten distinguished leaders directing sovereign software engineering, media production, and global enterprise operations.</p>
+        </div>
+
+        <div class="directorate-grid">
+          <!-- 1. Sheikh Mohammed Raees -->
+          <a href="leadership.html" class="directorate-card">
+            <div class="directorate-avatar-wrap">
+              <img src="HRL%20CORE%20COMPANY%20ROLE/sheikh-mohammed-raees.jpg" alt="Sheikh Mohammed Raees" loading="lazy" />
+            </div>
+            <div class="directorate-card-name">Sheikh Mohammed Raees</div>
+            <div class="directorate-card-role">Chief Executive Officer (CEO)</div>
+            <span class="directorate-card-division">@hrl</span>
+          </a>
+
+          <!-- 2. Sanjana -->
+          <a href="leadership.html" class="directorate-card">
+            <div class="directorate-avatar-wrap">
+              <img src="HRL%20CORE%20COMPANY%20ROLE/sanjana.png" alt="Sanjana" loading="lazy" />
+            </div>
+            <div class="directorate-card-name">Sanjana</div>
+            <div class="directorate-card-role">Chief Operations Officer (COO)</div>
+            <span class="directorate-card-division">@hrl</span>
+          </a>
+
+          <!-- 3. Apoorvi Vijay -->
+          <a href="leadership.html" class="directorate-card">
+            <div class="directorate-avatar-wrap">
+              <img src="HRL%20CORE%20COMPANY%20ROLE/apoorvi-vijay.jpg" alt="Apoorvi Vijay" loading="lazy" />
+            </div>
+            <div class="directorate-card-name">Apoorvi Vijay</div>
+            <div class="directorate-card-role">CEO, Crimson Red Media</div>
+            <span class="directorate-card-division crimson">@hrlcrimsonRED</span>
+          </a>
+
+          <!-- 4. Nishwin -->
+          <a href="leadership.html" class="directorate-card">
+            <div class="directorate-avatar-wrap">
+              <img src="HRL%20CORE%20COMPANY%20ROLE/nishwin.jpeg" alt="Nishwin" loading="lazy" />
+            </div>
+            <div class="directorate-card-name">Nishwin</div>
+            <div class="directorate-card-role">CTO, Crimson Red Media</div>
+            <span class="directorate-card-division crimson">@hrlcrimsonRED</span>
+          </a>
+
+          <!-- 5. Shubhada Naik -->
+          <a href="leadership.html" class="directorate-card">
+            <div class="directorate-avatar-wrap">
+              <img src="HRL%20CORE%20COMPANY%20ROLE/shubhada-naik.jpg" alt="Shubhada Naik" loading="lazy" />
+            </div>
+            <div class="directorate-card-name">Shubhada Naik</div>
+            <div class="directorate-card-role">CMO, Crimson Red Media</div>
+            <span class="directorate-card-division crimson">@hrlcrimsonRED</span>
+          </a>
+
+          <!-- 6. Jia Shetty -->
+          <a href="leadership.html" class="directorate-card">
+            <div class="directorate-avatar-wrap">
+              <img src="HRL%20CORE%20COMPANY%20ROLE/jia-shetty.jpeg" alt="Jia Shetty" loading="lazy" />
+            </div>
+            <div class="directorate-card-name">Jia Shetty</div>
+            <div class="directorate-card-role">CFO, Crimson Red Media</div>
+            <span class="directorate-card-division crimson">@hrlcrimsonRED</span>
+          </a>
+
+          <!-- 7. Saismitha -->
+          <a href="leadership.html" class="directorate-card">
+            <div class="directorate-avatar-wrap">
+              <img src="HRL%20CORE%20COMPANY%20ROLE/Saismitha.jpg" alt="Saismitha" loading="lazy" />
+            </div>
+            <div class="directorate-card-name">Saismitha</div>
+            <div class="directorate-card-role">VP, Strategic Partnerships</div>
+            <span class="directorate-card-division crimson">@hrlcrimsonRED</span>
+          </a>
+
+          <!-- 8. Seejal -->
+          <a href="leadership.html" class="directorate-card">
+            <div class="directorate-avatar-wrap">
+              <img src="HRL%20CORE%20COMPANY%20ROLE/seejal.jpg" alt="Seejal" loading="lazy" />
+            </div>
+            <div class="directorate-card-name">Seejal</div>
+            <div class="directorate-card-role">VP, Digital Growth</div>
+            <span class="directorate-card-division crimson">@hrlcrimsonRED</span>
+          </a>
+
+          <!-- 9. Thaif -->
+          <a href="leadership.html" class="directorate-card">
+            <div class="directorate-avatar-wrap">
+              <img src="HRL%20CORE%20COMPANY%20ROLE/thaif.jpg" alt="Thaif" loading="lazy" />
+            </div>
+            <div class="directorate-card-name">Thaif</div>
+            <div class="directorate-card-role">VP, Production &amp; Logistics</div>
+            <span class="directorate-card-division crimson">@hrlcrimsonRED</span>
+          </a>
+
+          <!-- 10. Pavan Kumar Sadashiv -->
+          <a href="leadership.html" class="directorate-card">
+            <div class="directorate-avatar-wrap">
+              <img src="assets/hrlpavan-founder-avatar.jpg" alt="Pavan Kumar Sadashiv" loading="lazy" />
+            </div>
+            <div class="directorate-card-name">Pavan Kumar Sadashiv</div>
+            <div class="directorate-card-role">Founder &amp; Managing Director</div>
+            <span class="directorate-card-division">@hrl</span>
+          </a>
+        </div>
+
+        <div style="text-align: center;">
+          <a href="leadership.html" class="apple-btn-primary" style="display: inline-flex; align-items: center; gap: 8px;">
+            Explore Interactive Leadership Portal (9:16 HD Cards) &rarr;
+          </a>
+        </div>
       </div>
     </div>
   </section>
@@ -5528,9 +6049,9 @@
 
         <!-- Card 2: Corporate Location & Jurisdiction -->
         <div class="entity-info-card">
-          <div class="entity-card-eyebrow">Corporate Headquarters</div>
-          <div class="entity-card-title">Mangaluru, Karnataka, India</div>
-          <p class="entity-card-desc">Incorporated corporate entity operating across Indian and international creator markets under strict statutory regulatory frameworks and digital enterprise standards.</p>
+          <div class="entity-card-eyebrow">Corporate Presence &amp; Jurisdiction</div>
+          <div class="entity-card-title">San Francisco, CA &amp; Mangaluru, India</div>
+          <p class="entity-card-desc">Global headquarters positioned in San Francisco, California, USA, with sovereign deep-tech systems engineering and R&amp;D anchored in Mangaluru (Beyond Bengaluru Tier-2 Tech Corridor), Karnataka, India.</p>
         </div>
 
         <!-- Card 3: Core Competencies & Impact -->
