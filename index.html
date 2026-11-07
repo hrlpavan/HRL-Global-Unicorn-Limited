@@ -3735,6 +3735,411 @@
       border: 1px solid rgba(0, 113, 227, 0.22);
     }
 
+    /* ========================================================= */
+    /* HRL INSTITUTIONAL CRYPTO AI CONSOLE & AGENSI HUB           */
+    /* Cinema-Grade Dark OLED, Bitcoin Gold & HRL Crimson Themes */
+    /* ========================================================= */
+    .crypto-console-section {
+      padding: 108px 20px 96px;
+      background: #050508;
+      background-image: 
+        radial-gradient(circle at 50% 0%, rgba(247, 147, 26, 0.12) 0%, rgba(209, 0, 45, 0.08) 35%, transparent 75%),
+        linear-gradient(180deg, #020204 0%, #08080C 50%, #040406 100%);
+      color: #ffffff;
+      border-top: 1px solid rgba(247, 147, 26, 0.2);
+      border-bottom: 1px solid rgba(255, 255, 255, 0.08);
+      position: relative;
+      overflow: hidden;
+      font-family: -apple-system, BlinkMacSystemFont, "SF Pro Text", "SF Pro Display", "Inter", sans-serif;
+    }
+    .crypto-console-container {
+      max-width: 1280px;
+      margin: 0 auto;
+      position: relative;
+      z-index: 2;
+    }
+    
+    /* Live Crypto Ticker Bar */
+    .crypto-live-ticker {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      flex-wrap: wrap;
+      gap: 12px 20px;
+      padding: 10px 20px;
+      background: rgba(18, 18, 24, 0.85);
+      backdrop-filter: blur(20px);
+      -webkit-backdrop-filter: blur(20px);
+      border: 1px solid rgba(247, 147, 26, 0.25);
+      border-radius: 9999px;
+      margin-bottom: 40px;
+      box-shadow: 0 4px 24px rgba(0, 0, 0, 0.5), inset 0 1px 0 rgba(255, 255, 255, 0.08);
+    }
+    .ticker-item {
+      display: inline-flex;
+      align-items: center;
+      gap: 8px;
+      font-size: 12px;
+      font-weight: 600;
+      letter-spacing: -0.01em;
+      color: #e4e4e7;
+    }
+    .ticker-dot {
+      width: 7px;
+      height: 7px;
+      border-radius: 50%;
+      display: inline-block;
+      box-shadow: 0 0 10px currentColor;
+      animation: pulseDot 2s infinite ease-in-out;
+    }
+    @keyframes pulseDot {
+      0%, 100% { opacity: 1; transform: scale(1); }
+      50% { opacity: 0.4; transform: scale(0.85); }
+    }
+    .ticker-item.btc .ticker-dot { background: #F7931A; color: #F7931A; }
+    .ticker-item.eth .ticker-dot { background: #627EEA; color: #627EEA; }
+    .ticker-item.sol .ticker-dot { background: #14F195; color: #14F195; }
+    .ticker-item.status .ticker-dot { background: #10B981; color: #10B981; }
+
+    /* Header & Eyebrows */
+    .crypto-header-wrap {
+      text-align: center;
+      margin-bottom: 52px;
+    }
+    .crypto-eyebrow-pill {
+      display: inline-flex;
+      align-items: center;
+      gap: 8px;
+      padding: 6px 16px;
+      background: rgba(247, 147, 26, 0.12);
+      border: 1px solid rgba(247, 147, 26, 0.35);
+      border-radius: 9999px;
+      color: #FFB800;
+      font-size: 11px;
+      font-weight: 700;
+      text-transform: uppercase;
+      letter-spacing: 0.08em;
+      margin-bottom: 20px;
+    }
+    .crypto-main-headline {
+      font-size: clamp(34px, 5vw, 56px);
+      font-weight: 800;
+      letter-spacing: -0.03em;
+      line-height: 1.06;
+      color: #ffffff;
+      margin-bottom: 16px;
+    }
+    .crypto-main-headline span.gold {
+      background: linear-gradient(135deg, #FFB800 0%, #F7931A 50%, #FF8C00 100%);
+      -webkit-background-clip: text;
+      -webkit-text-fill-color: transparent;
+    }
+    .crypto-main-headline span.crimson {
+      color: #D1002D;
+    }
+    .crypto-subhead {
+      font-size: clamp(16px, 1.8vw, 19px);
+      color: #a1a1aa;
+      line-height: 1.5;
+      max-width: 840px;
+      margin: 0 auto 32px;
+      font-weight: 400;
+    }
+
+    /* Interactive Filter Tabs */
+    .crypto-filter-bar {
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      flex-wrap: wrap;
+      gap: 10px;
+      margin-bottom: 44px;
+    }
+    .crypto-filter-btn {
+      background: rgba(255, 255, 255, 0.04);
+      border: 1px solid rgba(255, 255, 255, 0.08);
+      color: #a1a1aa;
+      font-size: 13px;
+      font-weight: 600;
+      padding: 8px 18px;
+      border-radius: 9999px;
+      cursor: pointer;
+      transition: all 0.2s cubic-bezier(0.16, 1, 0.3, 1);
+      display: inline-flex;
+      align-items: center;
+      gap: 6px;
+    }
+    .crypto-filter-btn:hover {
+      background: rgba(255, 255, 255, 0.08);
+      color: #ffffff;
+      border-color: rgba(255, 255, 255, 0.16);
+      transform: translateY(-1px);
+    }
+    .crypto-filter-btn.active {
+      background: linear-gradient(135deg, rgba(247, 147, 26, 0.22) 0%, rgba(209, 0, 45, 0.18) 100%);
+      color: #FFB800;
+      border-color: rgba(247, 147, 26, 0.5);
+      box-shadow: 0 4px 16px rgba(247, 147, 26, 0.15);
+    }
+    .crypto-filter-btn .count-badge {
+      font-size: 11px;
+      padding: 1px 7px;
+      border-radius: 9999px;
+      background: rgba(255, 255, 255, 0.1);
+      color: inherit;
+    }
+
+    /* Grid of 12 Products (Symmetrical Placing Principle) */
+    .crypto-cards-grid {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 24px;
+      margin-bottom: 48px;
+    }
+    @media (min-width: 1320px) {
+      .crypto-cards-grid {
+        grid-template-columns: repeat(4, 1fr);
+      }
+    }
+    @media (max-width: 1024px) {
+      .crypto-cards-grid {
+        grid-template-columns: repeat(2, 1fr);
+      }
+    }
+    @media (max-width: 640px) {
+      .crypto-cards-grid {
+        grid-template-columns: 1fr;
+      }
+    }
+
+    /* Individual Product Card */
+    .crypto-product-card {
+      background: #0E0E13;
+      border: 1px solid rgba(255, 255, 255, 0.08);
+      border-radius: 20px;
+      padding: 24px;
+      display: flex;
+      flex-direction: column;
+      justify-content: space-between;
+      transition: all 0.25s cubic-bezier(0.16, 1, 0.3, 1);
+      position: relative;
+      overflow: hidden;
+    }
+    .crypto-product-card::before {
+      content: "";
+      position: absolute;
+      top: 0;
+      left: 0;
+      right: 0;
+      height: 3px;
+      background: linear-gradient(90deg, #F7931A 0%, #D1002D 50%, #FFB800 100%);
+      opacity: 0;
+      transition: opacity 0.25s ease;
+    }
+    .crypto-product-card:hover {
+      transform: translateY(-4px);
+      border-color: rgba(247, 147, 26, 0.4);
+      box-shadow: 0 16px 36px rgba(0, 0, 0, 0.6), 0 0 24px rgba(247, 147, 26, 0.12);
+    }
+    .crypto-product-card:hover::before {
+      opacity: 1;
+    }
+    
+    /* Card Media & Image */
+    .crypto-card-thumb-wrap {
+      width: 100%;
+      aspect-ratio: 1 / 1;
+      border-radius: 14px;
+      overflow: hidden;
+      background: #000000;
+      border: 1px solid rgba(255, 255, 255, 0.08);
+      margin-bottom: 18px;
+      position: relative;
+    }
+    .crypto-card-thumb-wrap img {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+      display: block;
+      transition: transform 0.4s ease;
+    }
+    .crypto-product-card:hover .crypto-card-thumb-wrap img {
+      transform: scale(1.04);
+    }
+    
+    /* Price Tag Overlay on Thumbnail */
+    .crypto-thumb-price-badge {
+      position: absolute;
+      top: 10px;
+      right: 10px;
+      background: rgba(10, 10, 14, 0.88);
+      backdrop-filter: blur(12px);
+      -webkit-backdrop-filter: blur(12px);
+      border: 1px solid rgba(247, 147, 26, 0.4);
+      color: #FFB800;
+      font-size: 13px;
+      font-weight: 800;
+      padding: 4px 10px;
+      border-radius: 9999px;
+      display: inline-flex;
+      align-items: center;
+      gap: 4px;
+      box-shadow: 0 4px 12px rgba(0, 0, 0, 0.4);
+    }
+    .crypto-thumb-tag-badge {
+      position: absolute;
+      bottom: 10px;
+      left: 10px;
+      background: rgba(0, 0, 0, 0.75);
+      backdrop-filter: blur(8px);
+      color: #e4e4e7;
+      font-size: 10px;
+      font-weight: 700;
+      text-transform: uppercase;
+      letter-spacing: 0.06em;
+      padding: 3px 8px;
+      border-radius: 6px;
+      border: 1px solid rgba(255, 255, 255, 0.1);
+    }
+
+    /* Card Typography */
+    .crypto-card-title {
+      font-size: 17px;
+      font-weight: 700;
+      letter-spacing: -0.015em;
+      line-height: 1.28;
+      color: #ffffff;
+      margin-bottom: 10px;
+    }
+    .crypto-card-desc {
+      font-size: 13px;
+      color: #a1a1aa;
+      line-height: 1.5;
+      margin-bottom: 16px;
+      font-weight: 400;
+      min-height: 40px;
+    }
+    
+    /* Specs Pills */
+    .crypto-card-specs {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 6px;
+      margin-bottom: 20px;
+    }
+    .crypto-spec-pill {
+      font-size: 11px;
+      font-weight: 600;
+      color: #d4d4d8;
+      background: rgba(255, 255, 255, 0.04);
+      border: 1px solid rgba(255, 255, 255, 0.08);
+      padding: 3px 8px;
+      border-radius: 6px;
+    }
+
+    /* Direct CTA Button to Agensi */
+    .crypto-card-cta-btn {
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      gap: 8px;
+      width: 100%;
+      background: linear-gradient(135deg, #1C1C24 0%, #15151C 100%);
+      border: 1px solid rgba(247, 147, 26, 0.35);
+      color: #ffffff;
+      font-size: 13px;
+      font-weight: 700;
+      padding: 11px 16px;
+      border-radius: 12px;
+      text-decoration: none;
+      transition: all 0.2s ease;
+      box-shadow: 0 2px 8px rgba(0, 0, 0, 0.3);
+    }
+    .crypto-card-cta-btn:hover {
+      background: linear-gradient(135deg, #F7931A 0%, #D1002D 100%);
+      border-color: transparent;
+      color: #ffffff;
+      box-shadow: 0 6px 20px rgba(247, 147, 26, 0.35);
+      transform: translateY(-1px);
+    }
+    .crypto-card-cta-btn svg {
+      transition: transform 0.2s ease;
+    }
+    .crypto-card-cta-btn:hover svg {
+      transform: translateX(3px) translateY(-1px);
+    }
+
+    /* Master Callout Banner */
+    .crypto-master-banner {
+      background: #0D0D12;
+      border: 1px solid rgba(247, 147, 26, 0.3);
+      border-radius: 24px;
+      padding: 36px 32px;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      flex-wrap: wrap;
+      gap: 24px;
+      box-shadow: 0 12px 32px rgba(0, 0, 0, 0.5), inset 0 1px 0 rgba(255, 255, 255, 0.08);
+    }
+    .crypto-banner-content {
+      max-width: 740px;
+    }
+    .crypto-banner-badge {
+      display: inline-flex;
+      align-items: center;
+      gap: 6px;
+      font-size: 11px;
+      font-weight: 700;
+      text-transform: uppercase;
+      letter-spacing: 0.08em;
+      color: #10B981;
+      margin-bottom: 12px;
+    }
+    .crypto-banner-title {
+      font-size: 24px;
+      font-weight: 700;
+      letter-spacing: -0.02em;
+      color: #ffffff;
+      margin-bottom: 8px;
+    }
+    .crypto-banner-desc {
+      font-size: 14px;
+      color: #a1a1aa;
+      line-height: 1.5;
+    }
+    .crypto-banner-cta {
+      display: inline-flex;
+      align-items: center;
+      gap: 10px;
+      background: linear-gradient(135deg, #F7931A 0%, #D1002D 100%);
+      color: #ffffff;
+      font-size: 14px;
+      font-weight: 700;
+      padding: 14px 28px;
+      border-radius: 9999px;
+      text-decoration: none;
+      transition: all 0.2s ease;
+      box-shadow: 0 4px 20px rgba(247, 147, 26, 0.35);
+    }
+    .crypto-banner-cta:hover {
+      box-shadow: 0 6px 28px rgba(247, 147, 26, 0.5);
+      transform: translateY(-2px);
+      color: #ffffff;
+    }
+    @media (max-width: 768px) {
+      .crypto-master-banner {
+        padding: 24px;
+        flex-direction: column;
+        align-items: flex-start;
+      }
+      .crypto-banner-cta {
+        width: 100%;
+        justify-content: center;
+      }
+    }
+
+
   </style>
   <script src="assets/js/security-shield.js" defer></script>
 </head>
@@ -3765,6 +4170,7 @@
         <li><a href="#achievements" style="color: #d1002d; font-weight: 600;">Achievements</a></li>
         <li><a href="#gitlab-contributions" style="color: #fc6d26; font-weight: 600;">GitLab Core</a></li>
         <li><a href="https://hrlpavan.github.io/nvedia-project-by-hrl/" target="_blank" rel="noopener noreferrer" style="color: #5c9100; font-weight: 600;">RTX-LocalAI ↗</a></li>
+        <li><a href="#crypto-console" style="color: #FFB800; font-weight: 700; display: inline-flex; align-items: center; gap: 4px;"><svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><circle cx="12" cy="12" r="10"/><path d="M9.5 8h5a2.5 2.5 0 0 1 0 5H9.5"/><path d="M9.5 13h5.5a2.5 2.5 0 0 1 0 5H9.5"/><path d="M12 6v2m0 10v2m-3-14v2m0 10v2"/></svg>Crypto Console</a></li>
         <li><a href="hrl-lang.html" style="color: #0071e3; font-weight: 600;">HRL Lang</a></li>
         <li><a href="showcase.html" style="color: #d1002d; font-weight: 600;">Showcase</a></li>
         <li><a href="#crimson-red-media" style="color: #DC143C; font-weight: 600;">Crimson Media</a></li>
@@ -3795,6 +4201,7 @@
     <a href="flag.html" style="color: #BF1F1F; font-weight: 700;">Official Corporate Flag &rarr;</a>
     <a href="antigravity-record.html" style="color: #fc6d26; font-weight: 700;">Antigravity Engineering Record &rarr;</a>
     <a href="#achievements" onclick="toggleMobileMenu()" style="color: #d1002d; font-weight: 700;">Executive Achievement Console &rarr;</a>
+    <a href="#crypto-console" onclick="toggleMobileMenu()" style="color: #FFB800; font-weight: 700;">HRL Crypto AI Console (Agensi Live) &rarr;</a>
     <a href="#gitlab-contributions" onclick="toggleMobileMenu()" style="color: #fc6d26; font-weight: 700;">Upstream GitLab Core Showcase &rarr;</a>
     <a href="https://hrlpavan.github.io/nvedia-project-by-hrl/" target="_blank" rel="noopener noreferrer" style="color: #5c9100; font-weight: 700;">NVIDIA RTX-LocalAI Runtime &rarr;</a>
     <a href="https://hrlpavan.github.io/omnitransform-ai-resources/?v=header_ux_fixed" target="_blank" rel="noopener noreferrer" style="color: #0071e3; font-weight: 700;">OmniTransform AI (Govt Platform) &rarr;</a>
@@ -3820,7 +4227,7 @@
       <a href="https://contributors.gitlab.com/users/hrlpavan" target="_blank" rel="noopener noreferrer" style="color: #fc6d26; font-size: 14px; padding: 4px 0; border: none; font-weight: 600;">GitLab: @hrlpavan &nearr;</a>
       <a href="https://app.intigriti.com/researcher/profile/hrlpavan" target="_blank" rel="noopener noreferrer" style="color: #0071e3; font-size: 14px; padding: 4px 0; border: none; font-weight: 600;">Intigriti: @hrlpavan (Bug Bounty) &nearr;</a>
       <a href="https://dev.to/hrlpavan" target="_blank" rel="noopener noreferrer" style="color: var(--apple-text-dark); font-size: 14px; padding: 4px 0; border: none; font-weight: 600;">DEV.to: @hrlpavan &nearr;</a>
-      <a href="https://www.agensi.io/creators/pavan-kumar" target="_blank" rel="noopener noreferrer" style="color: #0071e3; font-size: 14px; padding: 4px 0; border: none; font-weight: 600;">Agensi.io: @pavan-kumar &nearr;</a>
+      <a href="https://www.agensi.io/creators/pavan-kumar" target="_blank" rel="noopener noreferrer" style="color: #FFB800; font-size: 14px; padding: 4px 0; border: none; font-weight: 700;">Agensi Store: @pavan-kumar (37 Skills Live) &nearr;</a>
       <a href="https://www.reddit.com/user/hrlvillan/" target="_blank" rel="noopener noreferrer" style="color: #ff4500; font-size: 14px; padding: 4px 0; border: none; font-weight: 600;">Reddit: @hrlvillan &nearr;</a>
       <a href="https://whatsapp.com/channel/0029Vb8p6p2KGGG93J1qlF0n" target="_blank" rel="noopener noreferrer" style="color: #25d366; font-size: 14px; padding: 4px 0; border: none; font-weight: 600;">WhatsApp Official Channel &nearr;</a>
       <a href="https://www.instagram.com/hrlpremiumstudio/" target="_blank" rel="noopener noreferrer" style="color: #d1002d; font-size: 14px; padding: 4px 0; border: none;">@hrlpremiumstudio (Studio) &nearr;</a>
@@ -4896,6 +5303,412 @@
             <div class="trust-metric-label">Reproducible Pipelines</div>
           </div>
         </div>
+      </div>
+
+    </div>
+  </section>
+
+  <!-- ========================================================= -->
+  <!-- HRL INSTITUTIONAL CRYPTO AI CONSOLE & AGENSI HUB           -->
+  <!-- Zero-Emoji Sovereign Terminals (Bitcoin, Ethereum, Solana)-->
+  <!-- ========================================================= -->
+  <section class="crypto-console-section" id="crypto-console">
+    <div class="crypto-console-container">
+      
+      <!-- Live Crypto Market Telemetry Ticker -->
+      <div class="crypto-live-ticker">
+        <div class="ticker-item btc">
+          <span class="ticker-dot"></span>
+          <span>BTC/USD: $98,420</span>
+          <span style="color: #10B981; font-size: 11px;">+4.2%</span>
+        </div>
+        <div class="ticker-item eth">
+          <span class="ticker-dot"></span>
+          <span>ETH/USD: $3,450</span>
+          <span style="color: #10B981; font-size: 11px;">+6.8%</span>
+        </div>
+        <div class="ticker-item sol">
+          <span class="ticker-dot"></span>
+          <span>SOL/USD: $218.40</span>
+          <span style="color: #10B981; font-size: 11px;">+8.1%</span>
+        </div>
+        <div class="ticker-item status">
+          <span class="ticker-dot"></span>
+          <span>AGENSI RUNTIME: 100% SECURE & SANDBOXED</span>
+        </div>
+        <div class="ticker-item" style="color: #D1002D; font-weight: 700;">
+          <svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><polygon points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2"/></svg>
+          <span>HRLCRYPTO PROTOCOL ACTIVE</span>
+        </div>
+      </div>
+
+      <!-- Section Header -->
+      <div class="crypto-header-wrap">
+        <div class="company-motto-badge">
+          <span class="motto-tag">Company Motto</span>
+          <span class="motto-text">We Can Do Everything Related To Software Sector Without Any Excuses!</span>
+        </div>
+        <br />
+        <div class="crypto-eyebrow-pill">
+          <svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><circle cx="12" cy="12" r="10"/><path d="M9.5 8h5a2.5 2.5 0 0 1 0 5H9.5"/><path d="M9.5 13h5.5a2.5 2.5 0 0 1 0 5H9.5"/><path d="M12 6v2m0 10v2m-3-14v2m0 10v2"/></svg>
+          <span>Sovereign Web3 & Quantitative Crypto Intelligence</span>
+        </div>
+        <h2 class="crypto-main-headline">
+          HRL Institutional <span class="gold">Crypto AI Console</span>.
+        </h2>
+        <p class="crypto-subhead">
+          12 sovereign, mathematically audited quantitative and cybersecurity engines engineered for crypto hedge funds, active traders, and protocol security teams. Deployed natively on the Agensi Agent Marketplace with instant 1-click execution.
+        </p>
+
+        <div style="display: flex; justify-content: center; gap: 12px; margin-bottom: 24px; flex-wrap: wrap;">
+          <a href="crypto-console.html" style="display: inline-flex; align-items: center; gap: 6px; padding: 8px 18px; background: rgba(247, 147, 26, 0.14); border: 1px solid rgba(247, 147, 26, 0.4); border-radius: 980px; color: #FFB800; font-size: 13px; font-weight: 700; text-decoration: none; transition: all 0.2s ease;">
+            <svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><rect x="3" y="3" width="18" height="18" rx="2"/><path d="M9 3v18M3 9h18"/></svg>
+            <span>Launch Full-Screen Crypto Console Page &rarr;</span>
+          </a>
+          <a href="https://www.agensi.io/creators/pavan-kumar" target="_blank" rel="noopener noreferrer" style="display: inline-flex; align-items: center; gap: 6px; padding: 8px 18px; background: rgba(255, 255, 255, 0.06); border: 1px solid rgba(255, 255, 255, 0.14); border-radius: 980px; color: #FFFFFF; font-size: 13px; font-weight: 600; text-decoration: none; transition: all 0.2s ease;">
+            <span>Agensi Store (37 Skills Live)</span>
+            <svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><line x1="7" y1="17" x2="17" y2="7"/><polyline points="7 7 17 7 17 17"/></svg>
+          </a>
+        </div>
+
+        <!-- Interactive Category Filters -->
+        <div class="crypto-filter-bar">
+          <button class="crypto-filter-btn active" onclick="filterCryptoProducts('all', this)">
+            <span>All Terminals</span>
+            <span class="count-badge">12</span>
+          </button>
+          <button class="crypto-filter-btn" onclick="filterCryptoProducts('security', this)">
+            <svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"/></svg>
+            <span>Security & Exploit Defense</span>
+            <span class="count-badge">4</span>
+          </button>
+          <button class="crypto-filter-btn" onclick="filterCryptoProducts('yield', this)">
+            <svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><line x1="12" y1="1" x2="12" y2="23"/><path d="M17 5H9.5a3.5 3.5 0 0 0 0 7h5a3.5 3.5 0 0 1 0 7H6"/></svg>
+            <span>Yield & Basis Arbitrage</span>
+            <span class="count-badge">3</span>
+          </button>
+          <button class="crypto-filter-btn" onclick="filterCryptoProducts('defi', this)">
+            <svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="2" y="7" width="20" height="14" rx="2" ry="2"/><path d="M16 21V5a2 2 0 0 0-2-2h-4a2 2 0 0 0-2 2v16"/></svg>
+            <span>DeFi & Lending Solvency</span>
+            <span class="count-badge">3</span>
+          </button>
+          <button class="crypto-filter-btn" onclick="filterCryptoProducts('launch', this)">
+            <svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polygon points="13 2 3 14 12 14 11 22 21 10 12 10 13 2"/></svg>
+            <span>Launch Sniping & Whales</span>
+            <span class="count-badge">4</span>
+          </button>
+        </div>
+      </div>
+
+      <!-- Symmetrical 12-Product Bento Grid -->
+      <div class="crypto-cards-grid" id="cryptoProductsGrid">
+
+        <!-- Product 0: Universal Bitcoin & All-Crypto Plug (MAX 1) -->
+        <div class="crypto-product-card" data-category="launch yield">
+          <div>
+            <div class="crypto-card-thumb-wrap">
+              <img src="https://geeduzbsatvodnlijqfs.supabase.co/storage/v1/object/public/product-media/b027f27a-4810-4db5-af19-d23650bee53f/logo/eb50ce89-8a93-4a68-b11d-733d81e9ddb3.jpg" alt="Crypto Deep Analysis MAX 1 Hardware Plug" loading="lazy" />
+              <div class="crypto-thumb-price-badge">$29.00</div>
+              <div class="crypto-thumb-tag-badge">Master Universal Plug</div>
+            </div>
+            <h3 class="crypto-card-title">Crypto Deep Analysis MAX 1</h3>
+            <p class="crypto-card-desc">
+              The universal hardware-style plug connecting Bitcoin, Ethereum, Solana, and all crypto telemetry into a single unified agentic runtime.
+            </p>
+            <div class="crypto-card-specs">
+              <span class="crypto-spec-pill">BTC / All-Crypto Sync</span>
+              <span class="crypto-spec-pill">Macro Cointegration</span>
+              <span class="crypto-spec-pill">Instant Telemetry</span>
+            </div>
+          </div>
+          <a href="https://agensi.io/skills/crypto-deep-analysis-max-1-the-universal-bitcoin-all-crypto-plug-by-hrlcrypto" target="_blank" rel="noopener noreferrer" class="crypto-card-cta-btn">
+            <span>Deploy on Agensi</span>
+            <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><line x1="7" y1="17" x2="17" y2="7"/><polyline points="7 7 17 7 17 17"/></svg>
+          </a>
+        </div>
+
+        <!-- Product 1: Cross-Chain Bridge Exploit & Proof-of-Reserve Sentry -->
+        <div class="crypto-product-card" data-category="security">
+          <div>
+            <div class="crypto-card-thumb-wrap">
+              <img src="https://geeduzbsatvodnlijqfs.supabase.co/storage/v1/object/public/product-media/b027f27a-4810-4db5-af19-d23650bee53f/logo/687af3c0-3f1c-4812-802e-36ac7224a15e.jpg" alt="Cross-Chain Bridge Exploit Terminal" loading="lazy" />
+              <div class="crypto-thumb-price-badge">$49.00</div>
+              <div class="crypto-thumb-tag-badge">Bridge Security</div>
+            </div>
+            <h3 class="crypto-card-title">Cross-Chain Bridge Exploit Sentry</h3>
+            <p class="crypto-card-desc">
+              Audits L1 vault collateral parity vs L2 synthetic tokens and detects vault drain anomalies before emergency bridge halts occur.
+            </p>
+            <div class="crypto-card-specs">
+              <span class="crypto-spec-pill">1:1 Solvency Ratio</span>
+              <span class="crypto-spec-pill">Outflow Z-Score &gt;3.5</span>
+              <span class="crypto-spec-pill">Multisig Quorum Check</span>
+            </div>
+          </div>
+          <a href="https://agensi.io/skills/cross-chain-bridge-exploit-proof-of-reserve-sentry" target="_blank" rel="noopener noreferrer" class="crypto-card-cta-btn">
+            <span>Deploy on Agensi</span>
+            <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><line x1="7" y1="17" x2="17" y2="7"/><polyline points="7 7 17 7 17 17"/></svg>
+          </a>
+        </div>
+
+        <!-- Product 2: Crypto Tax Loss Harvesting Architect -->
+        <div class="crypto-product-card" data-category="defi">
+          <div>
+            <div class="crypto-card-thumb-wrap">
+              <img src="https://geeduzbsatvodnlijqfs.supabase.co/storage/v1/object/public/product-media/b027f27a-4810-4db5-af19-d23650bee53f/logo/fe688bbc-d80c-4e79-a7e9-9496d9b66e40.jpg" alt="Crypto Tax Loss Harvesting Hardware Calculator" loading="lazy" />
+              <div class="crypto-thumb-price-badge">$39.00</div>
+              <div class="crypto-thumb-tag-badge">Tax Optimization</div>
+            </div>
+            <h3 class="crypto-card-title">Tax Loss Harvesting Architect</h3>
+            <p class="crypto-card-desc">
+              Simulates FIFO vs LIFO vs HIFO cost-basis allocation to systematically harvest deep capital losses and eliminate tens of thousands in taxes.
+            </p>
+            <div class="crypto-card-specs">
+              <span class="crypto-spec-pill">HIFO Tax Alpha</span>
+              <span class="crypto-spec-pill">DeFi Event Classifier</span>
+              <span class="crypto-spec-pill">Gas Fee Deductions</span>
+            </div>
+          </div>
+          <a href="https://agensi.io/skills/crypto-tax-loss-harvesting-fifo-lifo-audit-architect" target="_blank" rel="noopener noreferrer" class="crypto-card-cta-btn">
+            <span>Deploy on Agensi</span>
+            <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><line x1="7" y1="17" x2="17" y2="7"/><polyline points="7 7 17 7 17 17"/></svg>
+          </a>
+        </div>
+
+        <!-- Product 3: Airdrop Sybil Farming Defense & Allocation Qualifier -->
+        <div class="crypto-product-card" data-category="security">
+          <div>
+            <div class="crypto-card-thumb-wrap">
+              <img src="https://geeduzbsatvodnlijqfs.supabase.co/storage/v1/object/public/product-media/b027f27a-4810-4db5-af19-d23650bee53f/logo/2bebcd88-169e-4575-8861-10c2bc026699.jpg" alt="Airdrop Sybil Shield Forensic Scanner" loading="lazy" />
+              <div class="crypto-thumb-price-badge">$35.00</div>
+              <div class="crypto-thumb-tag-badge">Sybil Defense</div>
+            </div>
+            <h3 class="crypto-card-title">Airdrop Sybil Farming Defense</h3>
+            <p class="crypto-card-desc">
+              Traces gas funding lineage trees, detects CEX deposit address consolidation, and qualifies wallets under LayerZero and Arbitrum heuristics.
+            </p>
+            <div class="crypto-card-specs">
+              <span class="crypto-spec-pill">Gas Lineage DAG</span>
+              <span class="crypto-spec-pill">CIDI Diversity Index</span>
+              <span class="crypto-spec-pill">Safe-Harbor Filtering</span>
+            </div>
+          </div>
+          <a href="https://agensi.io/skills/airdrop-sybil-farming-defense-allocation-qualifier" target="_blank" rel="noopener noreferrer" class="crypto-card-cta-btn">
+            <span>Deploy on Agensi</span>
+            <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><line x1="7" y1="17" x2="17" y2="7"/><polyline points="7 7 17 7 17 17"/></svg>
+          </a>
+        </div>
+
+        <!-- Product 4: Gas Spike Predictor & Priority Fee Slasher -->
+        <div class="crypto-product-card" data-category="defi">
+          <div>
+            <div class="crypto-card-thumb-wrap">
+              <img src="https://geeduzbsatvodnlijqfs.supabase.co/storage/v1/object/public/product-media/b027f27a-4810-4db5-af19-d23650bee53f/logo/2e549086-06a9-4b20-9a43-66f13a34c46e.jpg" alt="Gas Slasher Terminal" loading="lazy" />
+              <div class="crypto-thumb-price-badge">$29.00</div>
+              <div class="crypto-thumb-tag-badge">Gas Optimization</div>
+            </div>
+            <h3 class="crypto-card-title">Gas Spike Predictor & Slasher</h3>
+            <p class="crypto-card-desc">
+              Forecasts EIP-1559 base fee elasticity curves (&plusmn;12.5% per block) and slashes over-quoted tips by up to 60% with instant nonce unfreezers.
+            </p>
+            <div class="crypto-card-specs">
+              <span class="crypto-spec-pill">EIP-1559 Elasticity</span>
+              <span class="crypto-spec-pill">Percentile Tip Bidding</span>
+              <span class="crypto-spec-pill">10% Nonce Bump Rescue</span>
+            </div>
+          </div>
+          <a href="https://agensi.io/skills/gas-spike-predictor-priority-fee-slasher" target="_blank" rel="noopener noreferrer" class="crypto-card-cta-btn">
+            <span>Deploy on Agensi</span>
+            <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><line x1="7" y1="17" x2="17" y2="7"/><polyline points="7 7 17 7 17 17"/></svg>
+          </a>
+        </div>
+
+        <!-- Product 5: DeFi Lending Liquidation Risk & Health Factor Radar -->
+        <div class="crypto-product-card" data-category="defi">
+          <div>
+            <div class="crypto-card-thumb-wrap">
+              <img src="https://geeduzbsatvodnlijqfs.supabase.co/storage/v1/object/public/product-media/b027f27a-4810-4db5-af19-d23650bee53f/logo/f8a31e1a-f0d6-49bf-a62f-158b8f605bb6.jpg" alt="Liquidation Sentry Telemetry Module" loading="lazy" />
+              <div class="crypto-thumb-price-badge">$39.00</div>
+              <div class="crypto-thumb-tag-badge">DeFi Lending</div>
+            </div>
+            <h3 class="crypto-card-title">DeFi Lending Liquidation Radar</h3>
+            <p class="crypto-card-desc">
+              Monitors multi-collateral Health Factors across Aave v3, Compound, and Maker, simulating -15%, -30%, and -50% shock cascades.
+            </p>
+            <div class="crypto-card-specs">
+              <span class="crypto-spec-pill">Multi-Asset P_liq Solver</span>
+              <span class="crypto-spec-pill">Kink Rate Surge Alert</span>
+              <span class="crypto-spec-pill">Defensive Buffer Injection</span>
+            </div>
+          </div>
+          <a href="https://agensi.io/skills/defi-lending-liquidation-risk-health-factor-radar" target="_blank" rel="noopener noreferrer" class="crypto-card-cta-btn">
+            <span>Deploy on Agensi</span>
+            <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><line x1="7" y1="17" x2="17" y2="7"/><polyline points="7 7 17 7 17 17"/></svg>
+          </a>
+        </div>
+
+        <!-- Product 6: Perps Funding Rate Arbitrage & Basis Trade Engine -->
+        <div class="crypto-product-card" data-category="yield">
+          <div>
+            <div class="crypto-card-thumb-wrap">
+              <img src="https://geeduzbsatvodnlijqfs.supabase.co/storage/v1/object/public/product-media/b027f27a-4810-4db5-af19-d23650bee53f/logo/91915c69-febd-4ac1-b338-77e48efb83cd.jpg" alt="Basis Arbitrage Core Rack Module" loading="lazy" />
+              <div class="crypto-thumb-price-badge">$45.00</div>
+              <div class="crypto-thumb-tag-badge">Quantitative Yield</div>
+            </div>
+            <h3 class="crypto-card-title">Perps Funding Arbitrage Engine</h3>
+            <p class="crypto-card-desc">
+              Delta-neutral cash-and-carry basis trade engine capturing 15% to 80% funding APY across Hyperliquid, dYdX, and Binance.
+            </p>
+            <div class="crypto-card-specs">
+              <span class="crypto-spec-pill">&Delta; = 0.000 Neutrality</span>
+              <span class="crypto-spec-pill">Fee Breakeven Horizon</span>
+              <span class="crypto-spec-pill">Sign-Flip Warning Radar</span>
+            </div>
+          </div>
+          <a href="https://agensi.io/skills/perps-funding-rate-arbitrage-basis-trade-engine" target="_blank" rel="noopener noreferrer" class="crypto-card-cta-btn">
+            <span>Deploy on Agensi</span>
+            <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><line x1="7" y1="17" x2="17" y2="7"/><polyline points="7 7 17 7 17 17"/></svg>
+          </a>
+        </div>
+
+        <!-- Product 7: Tokenomics Vesting Schedule & Cliff Unlock Sentry -->
+        <div class="crypto-product-card" data-category="launch">
+          <div>
+            <div class="crypto-card-thumb-wrap">
+              <img src="https://geeduzbsatvodnlijqfs.supabase.co/storage/v1/object/public/product-media/b027f27a-4810-4db5-af19-d23650bee53f/logo/b44c4167-2500-4cbd-9769-c4a13bfc26e5.jpg" alt="Tokenomics Unlock Radar Terminal" loading="lazy" />
+              <div class="crypto-thumb-price-badge">$39.00</div>
+              <div class="crypto-thumb-tag-badge">Supply Intelligence</div>
+            </div>
+            <h3 class="crypto-card-title">Tokenomics Cliff Unlock Sentry</h3>
+            <p class="crypto-card-desc">
+              Audits on-chain vesting contracts (Sablier, OpenZeppelin), calculating circulating dilution ratios and order book absorption depth.
+            </p>
+            <div class="crypto-card-specs">
+              <span class="crypto-spec-pill">Dilution Ratio D_R</span>
+              <span class="crypto-spec-pill">Order Book Depth A_R</span>
+              <span class="crypto-spec-pill">14-Day Pre-Unlock Hedge</span>
+            </div>
+          </div>
+          <a href="https://agensi.io/skills/tokenomics-vesting-schedule-cliff-unlock-sentry" target="_blank" rel="noopener noreferrer" class="crypto-card-cta-btn">
+            <span>Deploy on Agensi</span>
+            <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><line x1="7" y1="17" x2="17" y2="7"/><polyline points="7 7 17 7 17 17"/></svg>
+          </a>
+        </div>
+
+        <!-- Product 8: Malicious Permit2 & Signature Drainer Auditor -->
+        <div class="crypto-product-card" data-category="security">
+          <div>
+            <div class="crypto-card-thumb-wrap">
+              <img src="https://geeduzbsatvodnlijqfs.supabase.co/storage/v1/object/public/product-media/b027f27a-4810-4db5-af19-d23650bee53f/logo/65f19f3f-c0df-49c2-8a88-2d7858e9bf44.jpg" alt="Permit Sentry Cryptographic Scanner" loading="lazy" />
+              <div class="crypto-thumb-price-badge">$35.00</div>
+              <div class="crypto-thumb-tag-badge">Phishing Defense</div>
+            </div>
+            <h3 class="crypto-card-title">Permit2 Signature Drainer Auditor</h3>
+            <p class="crypto-card-desc">
+              Decompiles EIP-712 permits and Uniswap Permit2 payloads before signing, generating instant emergency lockdown calldata.
+            </p>
+            <div class="crypto-card-specs">
+              <span class="crypto-spec-pill">EIP-712 Decompiler</span>
+              <span class="crypto-spec-pill">Permit2 Spender Radar</span>
+              <span class="crypto-spec-pill">One-Click Lockdown Call</span>
+            </div>
+          </div>
+          <a href="https://agensi.io/skills/malicious-permit2-signature-drainer-auditor" target="_blank" rel="noopener noreferrer" class="crypto-card-cta-btn">
+            <span>Deploy on Agensi</span>
+            <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><line x1="7" y1="17" x2="17" y2="7"/><polyline points="7 7 17 7 17 17"/></svg>
+          </a>
+        </div>
+
+        <!-- Product 9: Memecoin Launch Sniper & Bonding Curve Radar -->
+        <div class="crypto-product-card" data-category="launch">
+          <div>
+            <div class="crypto-card-thumb-wrap">
+              <img src="https://geeduzbsatvodnlijqfs.supabase.co/storage/v1/object/public/product-media/b027f27a-4810-4db5-af19-d23650bee53f/logo/4156fa46-d9a6-4c21-bf35-2df75dccebe5.jpg" alt="Bonding Radar Micro-Cap Terminal" loading="lazy" />
+              <div class="crypto-thumb-price-badge">$49.00</div>
+              <div class="crypto-thumb-tag-badge">Launch Sniping</div>
+            </div>
+            <h3 class="crypto-card-title">Memecoin Launch Sniper Radar</h3>
+            <p class="crypto-card-desc">
+              Solana sub-second launch sniper analyzing Jito Block 0 bundles, dev supply concentration, and virtual reserve bonding curves.
+            </p>
+            <div class="crypto-card-specs">
+              <span class="crypto-spec-pill">Jito Block 0 Sniffer</span>
+              <span class="crypto-spec-pill">Bundle Concentration BCI</span>
+              <span class="crypto-spec-pill">Raydium LP Burn Check</span>
+            </div>
+          </div>
+          <a href="https://agensi.io/skills/memecoin-launch-sniper-first-tick-bonding-curve-radar" target="_blank" rel="noopener noreferrer" class="crypto-card-cta-btn">
+            <span>Deploy on Agensi</span>
+            <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><line x1="7" y1="17" x2="17" y2="7"/><polyline points="7 7 17 7 17 17"/></svg>
+          </a>
+        </div>
+
+        <!-- Product 10: DAO Governance Proposal & Treasury Risk Auditor -->
+        <div class="crypto-product-card" data-category="security">
+          <div>
+            <div class="crypto-card-thumb-wrap">
+              <img src="https://geeduzbsatvodnlijqfs.supabase.co/storage/v1/object/public/product-media/b027f27a-4810-4db5-af19-d23650bee53f/logo/7d34e727-7f84-4d87-b025-b5a2159a6f65.jpg" alt="Governance Sentry Terminal" loading="lazy" />
+              <div class="crypto-thumb-price-badge">$59.00</div>
+              <div class="crypto-thumb-tag-badge">Treasury Protection</div>
+            </div>
+            <h3 class="crypto-card-title">DAO Governance Proposal Auditor</h3>
+            <p class="crypto-card-desc">
+              Audits on-chain proposal calldata across GovernorBravo and OpenZeppelin, flagging Trojan horse privilege escalations and flash-loan hijacking.
+            </p>
+            <div class="crypto-card-specs">
+              <span class="crypto-spec-pill">Recursive ABI Decompile</span>
+              <span class="crypto-spec-pill">Flash-Loan Quorum Check</span>
+              <span class="crypto-spec-pill">Timelock Window Guard</span>
+            </div>
+          </div>
+          <a href="https://agensi.io/skills/dao-governance-proposal-treasury-risk-auditor" target="_blank" rel="noopener noreferrer" class="crypto-card-cta-btn">
+            <span>Deploy on Agensi</span>
+            <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><line x1="7" y1="17" x2="17" y2="7"/><polyline points="7 7 17 7 17 17"/></svg>
+          </a>
+        </div>
+
+        <!-- Product 11 (Bonus Elite System): Crypto Whale Wallet Radar -->
+        <div class="crypto-product-card" data-category="launch yield">
+          <div>
+            <div class="crypto-card-thumb-wrap">
+              <img src="https://geeduzbsatvodnlijqfs.supabase.co/storage/v1/object/public/product-media/b027f27a-4810-4db5-af19-d23650bee53f/logo/f57aaff5-9542-4924-93db-98983fa97996.jpg" alt="Crypto Whale Wallet Radar Terminal" loading="lazy" />
+              <div class="crypto-thumb-price-badge">$49.00</div>
+              <div class="crypto-thumb-tag-badge">Smart Money Flow</div>
+            </div>
+            <h3 class="crypto-card-title">Crypto Whale Wallet Radar</h3>
+            <p class="crypto-card-desc">
+              Tracks institutional smart money wallet clusters, CEX accumulation/distribution phases, and mega-whale front-running signals.
+            </p>
+            <div class="crypto-card-specs">
+              <span class="crypto-spec-pill">Whale Cluster Flow</span>
+              <span class="crypto-spec-pill">Exchange Inflow Delta</span>
+              <span class="crypto-spec-pill">Smart Money Copy-Trade</span>
+            </div>
+          </div>
+          <a href="https://agensi.io/skills/crypto-whale-wallet-radar-smart-money-flow-sentry" target="_blank" rel="noopener noreferrer" class="crypto-card-cta-btn">
+            <span>Deploy on Agensi</span>
+            <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><line x1="7" y1="17" x2="17" y2="7"/><polyline points="7 7 17 7 17 17"/></svg>
+          </a>
+        </div>
+
+      </div>
+
+      <!-- Master Callout & Safety Guarantee Banner -->
+      <div class="crypto-master-banner">
+        <div class="crypto-banner-content">
+          <div class="crypto-banner-badge">
+            <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"/><polyline points="9 12 11 14 15 10"/></svg>
+            <span>Sovereign Security Guarantee &middot; 100% Offline Runtime</span>
+          </div>
+          <h3 class="crypto-banner-title">Deploy Institutional Crypto Intelligence Directly to Your AI Agent.</h3>
+          <p class="crypto-banner-desc">
+            Every terminal in the HRL Crypto AI Suite operates with zero external network egress, zero private key exposure, and verified mathematical invariants. Fully compatible with Google Antigravity, Claude, and all native MCP agentic environments via Agensi.
+          </p>
+        </div>
+        <a href="https://www.agensi.io/creators/pavan-kumar" target="_blank" rel="noopener noreferrer" class="crypto-banner-cta">
+          <span>Explore Entire Agensi Catalog (37 Skills)</span>
+          <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><line x1="5" y1="12" x2="19" y2="12"/><polyline points="12 5 19 12 12 19"/></svg>
+        </a>
       </div>
 
     </div>
@@ -6759,7 +7572,7 @@
       }
 
       // Active Section Tracker for Wireframe Dock
-      const sections = ["overview", "credentials", "voice-ai", "capabilities", "contact"];
+      const sections = ["overview", "credentials", "crypto-console", "voice-ai", "capabilities", "contact"];
       window.addEventListener("scroll", () => {
         let currentSec = "";
         const scrollPos = window.pageYOffset + 120;
@@ -6779,6 +7592,21 @@
 
     window.addEventListener("load", initMobileScrollOptimizations);
 
+    // Filter Interactive Products in HRL Institutional Crypto Console
+    function filterCryptoProducts(category, btn) {
+      document.querySelectorAll('.crypto-filter-btn').forEach(b => b.classList.remove('active'));
+      if (btn) btn.classList.add('active');
+      const cards = document.querySelectorAll('#cryptoProductsGrid .crypto-product-card');
+      cards.forEach(card => {
+        const cats = card.getAttribute('data-category') || '';
+        if (category === 'all' || cats.includes(category)) {
+          card.style.display = 'flex';
+        } else {
+          card.style.display = 'none';
+        }
+      });
+    }
+
     function toggleMobileMenu() {
       const drawer = document.getElementById('mobileDrawer');
       if (drawer) {
@@ -6789,19 +7617,22 @@
 
   <!-- Smartphone Wireframe UX Quick Navigation Dock -->
   <nav class="smartphone-wireframe-nav" id="mobileWireframeDock" aria-label="Quick Mobile Navigation">
-    <a href="#overview" class="wireframe-nav-btn active" data-section="overview" onclick="wireframeScrollTo(overview, event)">
+    <a href="#overview" class="wireframe-nav-btn active" data-section="overview" onclick="wireframeScrollTo('overview', event)">
       <span>Top</span>
     </a>
-    <a href="#credentials" class="wireframe-nav-btn" data-section="credentials" onclick="wireframeScrollTo(credentials, event)">
+    <a href="#credentials" class="wireframe-nav-btn" data-section="credentials" onclick="wireframeScrollTo('credentials', event)">
       <span>Verified</span>
     </a>
-    <a href="#voice-ai" class="wireframe-nav-btn" data-section="voice-ai" onclick="wireframeScrollTo(voice-ai, event)">
+    <a href="#crypto-console" class="wireframe-nav-btn" data-section="crypto-console" onclick="wireframeScrollTo('crypto-console', event)">
+      <span style="color: #FFB800; font-weight: 700;">Crypto</span>
+    </a>
+    <a href="#voice-ai" class="wireframe-nav-btn" data-section="voice-ai" onclick="wireframeScrollTo('voice-ai', event)">
       <span>Voice AI</span>
     </a>
-    <a href="#capabilities" class="wireframe-nav-btn" data-section="capabilities" onclick="wireframeScrollTo(capabilities, event)">
+    <a href="#capabilities" class="wireframe-nav-btn" data-section="capabilities" onclick="wireframeScrollTo('capabilities', event)">
       <span>Scale</span>
     </a>
-    <a href="#contact" class="wireframe-nav-btn" data-section="contact" onclick="wireframeScrollTo(contact, event)">
+    <a href="#contact" class="wireframe-nav-btn" data-section="contact" onclick="wireframeScrollTo('contact', event)">
       <span>Network</span>
     </a>
   </nav>
