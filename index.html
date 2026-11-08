@@ -645,12 +645,27 @@
     }
     .apple-cta-group {
       display: flex;
+      flex-direction: column;
+      gap: 14px;
+      align-items: center;
+      justify-content: center;
+      width: 100%;
+      max-width: 980px;
+      margin: 0 auto 28px;
+    }
+    .cta-primary-row {
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      width: 100%;
+    }
+    .cta-secondary-row {
+      display: flex;
       gap: 12px;
       align-items: center;
       justify-content: center;
       flex-wrap: wrap;
       width: 100%;
-      max-width: 400px;
     }
     .apple-btn-primary {
       background: var(--apple-blue);
@@ -1458,8 +1473,12 @@
       .nav-subrow { display: none; }
       .mobile-menu-btn { display: block; }
       .apple-btn-primary.nav-cta, .nav-cta-wrapper { display: none; }
-      .apple-cta-group .apple-btn-primary,
-      .apple-cta-group .apple-btn-secondary {
+    }
+    @media (max-width: 600px) {
+      .cta-secondary-row .apple-btn-secondary {
+        width: 100%;
+      }
+      .cta-primary-row .apple-btn-primary {
         width: 100%;
       }
     }
@@ -4320,11 +4339,17 @@
     <p class="hero-description">Founded by Pavan Kumar Sadashiv to architect resilient enterprise intelligence, sub-millisecond local inference, and high-retention global storytelling.</p>
     
     <div class="apple-cta-group">
-      <a href="#sectors" class="apple-btn-primary">Explore Sectors &rarr;</a>
-      <a href="https://hrlpavan.github.io/nvedia-project-by-hrl/" target="_blank" rel="noopener noreferrer" class="apple-btn-secondary" style="color: #5c9100; border-color: rgba(92, 145, 0, 0.35);">RTX-LocalAI Runtime &nearr;</a>
-      <a href="antigravity-record.html" class="apple-btn-secondary" style="color: #fc6d26; border-color: rgba(252, 109, 38, 0.35);">Antigravity Record &rarr;</a>
-      <a href="leadership.html" class="apple-btn-secondary" style="color: #0071e3; border-color: rgba(0, 113, 227, 0.25);">Leadership Council &rarr;</a>
-      <a href="showcase.html" class="apple-btn-secondary" style="color: #D1002D; border-color: rgba(209, 0, 45, 0.25);">Video Showcase &rarr;</a>
+      <!-- Primary Featured CTA (Centered in Row 1) -->
+      <div class="cta-primary-row">
+        <a href="#sectors" class="apple-btn-primary">Explore Sectors &rarr;</a>
+      </div>
+      <!-- Secondary Action CTAs (All in the Same Row Below) -->
+      <div class="cta-secondary-row">
+        <a href="https://hrlpavan.github.io/nvedia-project-by-hrl/" target="_blank" rel="noopener noreferrer" class="apple-btn-secondary" style="color: #5c9100; border-color: rgba(92, 145, 0, 0.35);">RTX-LocalAI Runtime &nearr;</a>
+        <a href="antigravity-record.html" class="apple-btn-secondary" style="color: #fc6d26; border-color: rgba(252, 109, 38, 0.35);">Antigravity Record &rarr;</a>
+        <a href="leadership.html" class="apple-btn-secondary" style="color: #0071e3; border-color: rgba(0, 113, 227, 0.25);">Leadership Council &rarr;</a>
+        <a href="showcase.html" class="apple-btn-secondary" style="color: #D1002D; border-color: rgba(209, 0, 45, 0.25);">Video Showcase &rarr;</a>
+      </div>
     </div>
 
     <!-- Apple Visual Stats Card (2x2 Mobile / 4-Column Desktop) -->
