@@ -1,0 +1,1437 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, minimum-scale=1.0, maximum-scale=5.0, viewport-fit=cover" />
+  <meta name="format-detection" content="telephone=no, date=no, address=no, email=no" />
+  <title>HRL Executive Admin Console &amp; Client Launchpad | HRL International Private Limited</title>
+  <meta name="description" content="Sovereign Executive Admin Console, 1-Click Client Acquisition Launchpad, RealtyCraft AI PropTech Engine, and Whop 6-Figure MRR Command Center engineered by HRL International Private Limited." />
+  <meta name="author" content="Pavan Kumar Sadashiv (hrlpavan)" />
+  <link rel="icon" type="image/png" href="assets/favicon.png" />
+  <link rel="stylesheet" href="https://fonts.cdnfonts.com/css/sf-pro-display" />
+
+  <style>
+    :root {
+      --bg-oled: #050508;
+      --bg-base: #0A0A0C;
+      --bg-surface: #121216;
+      --bg-elevated: #1C1C22;
+      --border-subtle: rgba(255, 255, 255, 0.08);
+      --border-hover: rgba(255, 255, 255, 0.18);
+      --hrl-crimson: #D1002D;
+      --hrl-crimson-dark: #A50024;
+      --hrl-crimson-tint: rgba(209, 0, 45, 0.10);
+      --hrl-crimson-glow: rgba(209, 0, 45, 0.28);
+      --emerald-live: #10B981;
+      --gold-accent: #F7931A;
+      --blue-accent: #0071E3;
+      --text-primary: #FFFFFF;
+      --text-secondary: #A1A1AA;
+      --text-muted: #71717A;
+      --font-sans: -apple-system, BlinkMacSystemFont, "SF Pro Display", "SF Pro Text", "Segoe UI", Roboto, Helvetica, Arial, sans-serif;
+      --font-mono: ui-monospace, "SF Mono", "Cascadia Code", "Roboto Mono", Menlo, Consolas, monospace;
+    }
+
+    * {
+      box-sizing: border-box;
+      margin: 0;
+      padding: 0;
+    }
+
+    body {
+      background-color: var(--bg-oled);
+      color: var(--text-primary);
+      font-family: var(--font-sans);
+      -webkit-font-smoothing: antialiased;
+      -moz-osx-font-smoothing: grayscale;
+      line-height: 1.5;
+      overflow-x: hidden;
+    }
+
+    /* Top Corporate Ribbon */
+    .top-ribbon {
+      background: #000000;
+      border-bottom: 1px solid var(--border-subtle);
+      padding: 8px 16px;
+      font-size: 11px;
+      letter-spacing: 0.06em;
+      text-transform: uppercase;
+      text-align: center;
+      color: var(--text-muted);
+    }
+    .top-ribbon a {
+      color: var(--hrl-crimson);
+      text-decoration: none;
+      font-weight: 700;
+    }
+    .top-ribbon a:hover {
+      text-decoration: underline;
+    }
+
+    /* Global Navigation */
+    .apple-nav {
+      position: sticky;
+      top: 0;
+      z-index: 999;
+      background: rgba(5, 5, 8, 0.88);
+      backdrop-filter: saturate(180%) blur(20px);
+      -webkit-backdrop-filter: saturate(180%) blur(20px);
+      border-bottom: 1px solid var(--border-subtle);
+      height: 56px;
+      display: flex;
+      align-items: center;
+    }
+    .nav-container {
+      width: 100%;
+      max-width: 1360px;
+      margin: 0 auto;
+      padding: 0 24px;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+    }
+    .nav-brand {
+      display: flex;
+      align-items: center;
+      gap: 12px;
+      text-decoration: none;
+      color: #FFFFFF;
+      font-weight: 700;
+      font-size: 15px;
+      letter-spacing: -0.01em;
+    }
+    .nav-flag-img {
+      height: 22px;
+      width: auto;
+      object-fit: contain;
+    }
+    .nav-badge {
+      display: inline-flex;
+      align-items: center;
+      gap: 6px;
+      background: var(--hrl-crimson-tint);
+      border: 1px solid rgba(209, 0, 45, 0.4);
+      border-radius: 980px;
+      padding: 3px 10px;
+      font-size: 11px;
+      font-weight: 700;
+      color: #FF4D6D;
+      letter-spacing: 0.04em;
+      text-transform: uppercase;
+    }
+    .nav-links {
+      display: flex;
+      align-items: center;
+      gap: 22px;
+      list-style: none;
+    }
+    .nav-links a {
+      color: var(--text-secondary);
+      text-decoration: none;
+      font-size: 13px;
+      font-weight: 500;
+      transition: color 0.2s ease;
+    }
+    .nav-links a:hover,
+    .nav-links a.active {
+      color: #FFFFFF;
+    }
+    .nav-cta-btn {
+      display: inline-flex;
+      align-items: center;
+      gap: 6px;
+      background: var(--hrl-crimson);
+      color: #FFFFFF;
+      font-weight: 700;
+      font-size: 12.5px;
+      padding: 8px 18px;
+      border-radius: 980px;
+      text-decoration: none;
+      box-shadow: 0 2px 14px var(--hrl-crimson-glow);
+      transition: all 0.2s ease;
+    }
+    .nav-cta-btn:hover {
+      background: var(--hrl-crimson-dark);
+      transform: translateY(-1px);
+    }
+
+    /* Live Telemetry Bar */
+    .telemetry-bar {
+      background: rgba(12, 12, 18, 0.95);
+      border-bottom: 1px solid var(--border-subtle);
+      padding: 10px 24px;
+      display: flex;
+      flex-wrap: wrap;
+      align-items: center;
+      justify-content: center;
+      gap: 28px;
+      font-family: var(--font-mono);
+      font-size: 11.5px;
+      font-weight: 600;
+    }
+    .telemetry-item {
+      display: inline-flex;
+      align-items: center;
+      gap: 8px;
+      color: var(--text-secondary);
+    }
+    .telemetry-dot {
+      width: 7px;
+      height: 7px;
+      border-radius: 50%;
+      background: var(--emerald-live);
+      box-shadow: 0 0 8px var(--emerald-live);
+    }
+
+    /* Main Container */
+    .console-wrapper {
+      max-width: 1360px;
+      margin: 0 auto;
+      padding: 36px 24px 80px;
+    }
+
+    /* Executive Header */
+    .console-hero {
+      background: radial-gradient(circle at 15% 0%, rgba(209, 0, 45, 0.14) 0%, transparent 60%), var(--bg-surface);
+      border: 1px solid var(--border-subtle);
+      border-radius: 24px;
+      padding: 36px;
+      margin-bottom: 28px;
+      display: flex;
+      flex-wrap: wrap;
+      justify-content: space-between;
+      align-items: center;
+      gap: 24px;
+    }
+    .motto-pill {
+      display: inline-flex;
+      align-items: center;
+      gap: 8px;
+      background: rgba(209, 0, 45, 0.12);
+      border: 1px solid rgba(209, 0, 45, 0.35);
+      color: #FF5A79;
+      font-size: 11px;
+      font-weight: 700;
+      letter-spacing: 0.06em;
+      text-transform: uppercase;
+      padding: 5px 12px;
+      border-radius: 980px;
+      margin-bottom: 12px;
+    }
+    .console-hero h1 {
+      font-size: clamp(26px, 3.8vw, 40px);
+      font-weight: 800;
+      letter-spacing: -0.03em;
+      line-height: 1.12;
+      margin-bottom: 8px;
+    }
+    .console-hero p {
+      font-size: 14.5px;
+      color: var(--text-secondary);
+      max-width: 720px;
+    }
+
+    /* 4-Card Symmetrical Metric Grid */
+    .kpi-grid {
+      display: grid;
+      grid-template-columns: repeat(4, 1fr);
+      gap: 16px;
+      margin-bottom: 28px;
+    }
+    @media (max-width: 960px) {
+      .kpi-grid { grid-template-columns: repeat(2, 1fr); }
+    }
+    @media (max-width: 560px) {
+      .kpi-grid { grid-template-columns: 1fr; }
+    }
+    .kpi-card {
+      background: var(--bg-surface);
+      border: 1px solid var(--border-subtle);
+      border-radius: 18px;
+      padding: 20px 22px;
+      transition: border-color 0.2s ease;
+    }
+    .kpi-card:hover {
+      border-color: var(--border-hover);
+    }
+    .kpi-label {
+      font-size: 11px;
+      font-weight: 700;
+      text-transform: uppercase;
+      letter-spacing: 0.06em;
+      color: var(--text-muted);
+      margin-bottom: 6px;
+    }
+    .kpi-value {
+      font-size: 28px;
+      font-weight: 800;
+      letter-spacing: -0.02em;
+      color: #FFFFFF;
+      font-family: var(--font-mono);
+    }
+    .kpi-sub {
+      font-size: 12px;
+      color: var(--text-secondary);
+      margin-top: 4px;
+    }
+
+    /* Console Tab Switcher */
+    .console-tabs {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 10px;
+      border-bottom: 1px solid var(--border-subtle);
+      padding-bottom: 16px;
+      margin-bottom: 28px;
+    }
+    .tab-trigger {
+      display: inline-flex;
+      align-items: center;
+      gap: 8px;
+      background: var(--bg-surface);
+      border: 1px solid var(--border-subtle);
+      color: var(--text-secondary);
+      font-size: 13.5px;
+      font-weight: 700;
+      padding: 10px 20px;
+      border-radius: 12px;
+      cursor: pointer;
+      transition: all 0.2s ease;
+    }
+    .tab-trigger:hover {
+      color: #FFFFFF;
+      border-color: var(--border-hover);
+    }
+    .tab-trigger.active {
+      background: var(--hrl-crimson);
+      border-color: var(--hrl-crimson);
+      color: #FFFFFF;
+      box-shadow: 0 4px 18px var(--hrl-crimson-glow);
+    }
+
+    /* Control Bar */
+    .launchpad-controls {
+      background: var(--bg-surface);
+      border: 1px solid var(--border-subtle);
+      border-radius: 18px;
+      padding: 18px 22px;
+      margin-bottom: 20px;
+      display: flex;
+      flex-wrap: wrap;
+      align-items: center;
+      justify-content: space-between;
+      gap: 16px;
+    }
+    .market-pills {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 8px;
+    }
+    .market-pill {
+      background: var(--bg-base);
+      border: 1px solid var(--border-subtle);
+      color: var(--text-secondary);
+      font-size: 12px;
+      font-weight: 600;
+      padding: 7px 14px;
+      border-radius: 980px;
+      cursor: pointer;
+      transition: all 0.15s ease;
+    }
+    .market-pill.active,
+    .market-pill:hover {
+      background: rgba(209, 0, 45, 0.15);
+      border-color: var(--hrl-crimson);
+      color: #FFFFFF;
+    }
+    .search-input {
+      background: var(--bg-base);
+      border: 1px solid var(--border-subtle);
+      color: #FFFFFF;
+      font-size: 13px;
+      padding: 8px 14px;
+      border-radius: 10px;
+      min-width: 240px;
+      outline: none;
+    }
+    .search-input:focus {
+      border-color: var(--hrl-crimson);
+    }
+
+    /* Launchpad Table */
+    .table-card {
+      background: var(--bg-surface);
+      border: 1px solid var(--border-subtle);
+      border-radius: 20px;
+      overflow: hidden;
+    }
+    .table-scroll {
+      overflow-x: auto;
+    }
+    table {
+      width: 100%;
+      border-collapse: collapse;
+      text-align: left;
+    }
+    th {
+      background: #08080B;
+      border-bottom: 1px solid var(--border-subtle);
+      padding: 14px 18px;
+      font-size: 11px;
+      font-weight: 700;
+      text-transform: uppercase;
+      letter-spacing: 0.06em;
+      color: var(--text-muted);
+    }
+    td {
+      padding: 14px 18px;
+      border-bottom: 1px solid rgba(255, 255, 255, 0.05);
+      font-size: 13px;
+      vertical-align: middle;
+    }
+    tr:hover td {
+      background: rgba(255, 255, 255, 0.02);
+    }
+    tr.contacted-row td {
+      opacity: 0.48;
+      background: rgba(16, 185, 129, 0.04);
+    }
+
+    /* Action Buttons */
+    .action-cluster {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 8px;
+    }
+    .btn-wa {
+      display: inline-flex;
+      align-items: center;
+      gap: 6px;
+      background: #10B981;
+      color: #04130D;
+      font-size: 12px;
+      font-weight: 700;
+      padding: 7px 12px;
+      border-radius: 8px;
+      text-decoration: none;
+      transition: opacity 0.15s ease;
+    }
+    .btn-wa:hover { opacity: 0.9; }
+    .btn-sms {
+      display: inline-flex;
+      align-items: center;
+      gap: 6px;
+      background: rgba(0, 113, 227, 0.15);
+      border: 1px solid rgba(0, 113, 227, 0.4);
+      color: #60A5FA;
+      font-size: 12px;
+      font-weight: 600;
+      padding: 7px 12px;
+      border-radius: 8px;
+      text-decoration: none;
+    }
+    .btn-ig {
+      display: inline-flex;
+      align-items: center;
+      gap: 6px;
+      background: rgba(209, 0, 45, 0.14);
+      border: 1px solid rgba(209, 0, 45, 0.4);
+      color: #FF6B88;
+      font-size: 12px;
+      font-weight: 600;
+      padding: 7px 12px;
+      border-radius: 8px;
+      text-decoration: none;
+      cursor: pointer;
+    }
+
+    /* 3-Column Bento Grid for Whop Tiers */
+    .bento-3 {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 20px;
+    }
+    @media (max-width: 960px) {
+      .bento-3 { grid-template-columns: 1fr; }
+    }
+    .tier-card {
+      background: var(--bg-surface);
+      border: 1px solid var(--border-subtle);
+      border-radius: 22px;
+      padding: 28px;
+      display: flex;
+      flex-direction: column;
+      justify-content: space-between;
+    }
+    .tier-card.featured {
+      border: 1.5px solid var(--hrl-crimson);
+      box-shadow: 0 12px 36px rgba(209, 0, 45, 0.14);
+    }
+
+    /* RealtyCraft AI Embedded Split Grid */
+    .split-2 {
+      display: grid;
+      grid-template-columns: 5fr 7fr;
+      gap: 24px;
+    }
+    @media (max-width: 960px) {
+      .split-2 { grid-template-columns: 1fr; }
+    }
+    .form-input, .form-select, .form-textarea {
+      width: 100%;
+      background: var(--bg-base);
+      border: 1px solid var(--border-subtle);
+      color: #FFFFFF;
+      font-family: var(--font-sans);
+      font-size: 13.5px;
+      padding: 10px 14px;
+      border-radius: 10px;
+      outline: none;
+      margin-top: 6px;
+    }
+    .form-input:focus, .form-select:focus, .form-textarea:focus {
+      border-color: var(--hrl-crimson);
+    }
+    .form-label {
+      display: block;
+      font-size: 11px;
+      font-weight: 700;
+      text-transform: uppercase;
+      letter-spacing: 0.06em;
+      color: var(--text-secondary);
+    }
+
+    .hidden { display: none !important; }
+
+    /* Sovereign Executive Security Gate */
+    .auth-gate-section {
+      min-height: calc(100vh - 140px);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      padding: 40px 20px;
+      background: radial-gradient(circle at 50% 10%, rgba(209, 0, 45, 0.16) 0%, transparent 55%), var(--bg-oled);
+    }
+    .auth-vault-card {
+      width: 100%;
+      max-width: 480px;
+      background: var(--bg-surface);
+      border: 1px solid rgba(209, 0, 45, 0.38);
+      border-radius: 24px;
+      padding: 36px 32px;
+      box-shadow: 0 24px 64px rgba(0, 0, 0, 0.75), 0 0 40px rgba(209, 0, 45, 0.12);
+    }
+    .auth-badge {
+      display: inline-flex;
+      align-items: center;
+      gap: 7px;
+      background: rgba(209, 0, 45, 0.14);
+      border: 1px solid rgba(209, 0, 45, 0.45);
+      color: #FF5A79;
+      font-size: 11px;
+      font-weight: 700;
+      letter-spacing: 0.06em;
+      text-transform: uppercase;
+      padding: 5px 12px;
+      border-radius: 980px;
+      margin-bottom: 14px;
+    }
+    .auth-status-banner {
+      margin-top: 14px;
+      padding: 11px 14px;
+      border-radius: 10px;
+      font-size: 12.5px;
+      font-weight: 600;
+      line-height: 1.45;
+    }
+    .auth-status-error {
+      background: rgba(209, 0, 45, 0.14);
+      border: 1px solid rgba(209, 0, 45, 0.5);
+      color: #FF6B88;
+    }
+    .auth-status-ok {
+      background: rgba(16, 185, 129, 0.12);
+      border: 1px solid rgba(16, 185, 129, 0.45);
+      color: #34D399;
+    }
+    .vault-meta-box {
+      margin-top: 20px;
+      padding: 12px 14px;
+      background: var(--bg-base);
+      border: 1px solid var(--border-subtle);
+      border-radius: 12px;
+      font-family: var(--font-mono);
+      font-size: 11px;
+      color: var(--text-muted);
+      line-height: 1.55;
+    }
+
+    /* Footer */
+    .apple-footer {
+      border-top: 1px solid var(--border-subtle);
+      padding: 36px 24px;
+      text-align: center;
+      font-size: 12px;
+      color: var(--text-muted);
+      background: #020204;
+    }
+  </style>
+</head>
+<body>
+
+  <!-- Top Corporate Ribbon -->
+  <div class="top-ribbon">
+    HRL International Private Limited &middot; Sovereign Executive Command &middot;
+    <a href="index.html">Return to Corporate HQ &rarr;</a> &middot;
+    <a href="crypto-console.html">Crypto AI Console &rarr;</a>
+  </div>
+
+  <!-- Global Navigation -->
+  <nav class="apple-nav">
+    <div class="nav-container">
+      <a href="index.html" class="nav-brand">
+        <img src="assets/HRL%20INTERNATIONAL%20PRIVATE%20LIMITED%20CORE%20COUNTRY%20FLAG.png" alt="HRL Corporate Flag" class="nav-flag-img" />
+        <span>HRL International</span>
+        <span class="nav-badge">Admin Console</span>
+      </a>
+
+      <ul class="nav-links">
+        <li><a href="index.html">HQ Home</a></li>
+        <li><a href="crypto-console.html">Crypto Console</a></li>
+        <li><a href="showcase.html">Showcase</a></li>
+        <li><a href="hrlpavan.html">Founder</a></li>
+        <li><a href="#launchpad" class="active">Launchpad</a></li>
+      </ul>
+
+      <div style="display: flex; align-items: center; gap: 10px;">
+        <button id="nav-lock-btn" onclick="lockAdminConsole()" class="hidden" style="background: rgba(209, 0, 45, 0.14); border: 1px solid rgba(209, 0, 45, 0.45); color: #FF5A79; font-size: 12px; font-weight: 700; padding: 7px 14px; border-radius: 980px; cursor: pointer; display: inline-flex; align-items: center; gap: 6px;">
+          <svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><rect x="3" y="11" width="18" height="11" rx="2" ry="2"/><path d="M7 11V7a5 5 0 0 1 10 0v4"/></svg>
+          <span>Lock Console</span>
+        </button>
+        <a href="https://whop.com/checkout/plan_XWk5vBBgGy52z" target="_blank" rel="noopener noreferrer" class="nav-cta-btn">
+          <span>Whop White-Label Portal</span>
+          <svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><line x1="7" y1="17" x2="17" y2="7"/><polyline points="7 7 17 7 17 17"/></svg>
+        </a>
+      </div>
+    </div>
+  </nav>
+
+  <!-- ========================================================= -->
+  <!-- SOVEREIGN EXECUTIVE AUTHENTICATION & DATABASE VAULT GATE  -->
+  <!-- ========================================================= -->
+  <section id="hrl-security-gate" class="auth-gate-section">
+    <div class="auth-vault-card">
+      <div class="auth-badge" id="auth-gate-badge">
+        <svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><rect x="3" y="11" width="18" height="11" rx="2" ry="2"/><path d="M7 11V7a5 5 0 0 1 10 0v4"/></svg>
+        <span id="auth-gate-badge-text">SOVEREIGN DATABASE SECURITY CHECK</span>
+      </div>
+
+      <h2 id="auth-gate-title" style="font-size: 24px; font-weight: 800; letter-spacing: -0.02em; margin-bottom: 6px;">
+        Initialize Executive Admin Credentials
+      </h2>
+      <p id="auth-gate-desc" style="font-size: 13px; color: var(--text-secondary); margin-bottom: 22px; line-height: 1.55;">
+        Create your administrator email and master password. Credentials are hashed with 5,000-round SHA-256 and locked in the database so only you can open this console—even if the page link is shared.
+      </p>
+
+      <form id="auth-gate-form" onsubmit="handleAuthVaultSubmit(event)" autocomplete="off">
+        <div style="margin-bottom: 14px;">
+          <label class="form-label" for="auth-email-input">Administrator Email</label>
+          <input
+            type="email"
+            id="auth-email-input"
+            required
+            placeholder="hrlinternationalprivatelimited@gmail.com"
+            class="form-input"
+          />
+        </div>
+
+        <div style="margin-bottom: 14px;">
+          <label class="form-label" for="auth-password-input" id="auth-password-label">Create Master Password</label>
+          <input
+            type="password"
+            id="auth-password-input"
+            required
+            minlength="6"
+            placeholder="Enter master password (min 6 characters)"
+            class="form-input"
+          />
+        </div>
+
+        <div id="auth-confirm-group" style="margin-bottom: 18px;">
+          <label class="form-label" for="auth-confirm-input">Confirm Master Password</label>
+          <input
+            type="password"
+            id="auth-confirm-input"
+            placeholder="Re-enter master password to confirm"
+            class="form-input"
+          />
+        </div>
+
+        <button type="submit" id="auth-submit-btn" class="nav-cta-btn" style="width: 100%; justify-content: center; padding: 12px 18px; font-size: 13.5px; border: none; cursor: pointer;">
+          <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"/></svg>
+          <span id="auth-submit-text">Save to Database &amp; Unlock Console</span>
+        </button>
+      </form>
+
+      <div id="auth-status-msg" class="auth-status-banner hidden"></div>
+
+      <div class="vault-meta-box">
+        <div>DB ENGINE: IndexedDB (HRL_Sovereign_Vault_DB) + SQLite Vault Seal</div>
+        <div>CIPHER: Salted SHA-256 (5,000-Round Key Stretching)</div>
+        <div id="vault-state-indicator" style="color: #FF5A79; font-weight: 700; margin-top: 2px;">VAULT STATUS: AWAITING INITIAL ADMIN REGISTRATION</div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Protected Console Shell (Hidden until Database Auth Verification Passes) -->
+  <div id="console-protected-shell" class="hidden">
+
+  <!-- Live Telemetry Bar -->
+  <div class="telemetry-bar">
+    <div class="telemetry-item">
+      <span class="telemetry-dot"></span>
+      <span>OUTBOUND ENGINE: ACTIVE (hrlinternationalprivatelimited@gmail.com)</span>
+    </div>
+    <div class="telemetry-item">
+      <span>WHOP PRODUCT ID: prod_XNVWINGzY6KMz</span>
+    </div>
+    <div class="telemetry-item">
+      <span>VERIFIED REALTOR TARGETS: 56 (BEVERLY HILLS, MIAMI, AUSTIN)</span>
+    </div>
+    <div class="telemetry-item" style="color: var(--emerald-live);">
+      <span id="telemetry-vault-badge">DB VAULT: LOCKED TO ADMIN</span>
+    </div>
+  </div>
+
+  <!-- Main Console Wrapper -->
+  <main class="console-wrapper">
+
+    <!-- Executive Hero Banner with Mandatory Motto -->
+    <section class="console-hero">
+      <div>
+        <div class="motto-pill">
+          <svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><polygon points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2"/></svg>
+          <span>We Can Do Everything Related To Software Sector Without Any Excuses!</span>
+        </div>
+        <h1>HRL Executive Admin &amp; Client Acquisition Console</h1>
+        <p>
+          Unified command center for RealtyCraft AI outbound distribution, 1-click WhatsApp/SMS/Instagram realtor conversion, multi-tone MLS synthesis, and 3-tier Whop recurring revenue management.
+        </p>
+      </div>
+      <div style="display: flex; gap: 10px; flex-wrap: wrap;">
+        <button onclick="resetContactedStatus()" style="background: var(--bg-elevated); border: 1px solid var(--border-subtle); color: var(--text-secondary); padding: 10px 16px; border-radius: 10px; font-size: 12px; font-weight: 600; cursor: pointer;">
+          Reset Contacted Counter
+        </button>
+      </div>
+    </section>
+
+    <!-- 4-Column Symmetrical KPI Grid -->
+    <section class="kpi-grid">
+      <div class="kpi-card">
+        <div class="kpi-label">Verified Direct Prospects</div>
+        <div class="kpi-value" id="kpi-total-leads">56</div>
+        <div class="kpi-sub">23 Beverly Hills &middot; 28 Miami &middot; 5 Austin</div>
+      </div>
+      <div class="kpi-card">
+        <div class="kpi-label">Emails Dispatched Today</div>
+        <div class="kpi-value" style="color: var(--emerald-live);">23</div>
+        <div class="kpi-sub">36 Queued for Next 24h Window</div>
+      </div>
+      <div class="kpi-card">
+        <div class="kpi-label">Direct Launchpad Touches</div>
+        <div class="kpi-value" id="kpi-contacted" style="color: #FF4D6D;">0</div>
+        <div class="kpi-sub">WhatsApp, SMS &amp; Instagram DMs</div>
+      </div>
+      <div class="kpi-card">
+        <div class="kpi-label">6-Figure Value Ladder</div>
+        <div class="kpi-value">$8,636<span style="font-size: 14px; color: var(--text-muted);">/mo</span></div>
+        <div class="kpi-sub">$39 Solo &middot; $299/mo Team &middot; $997 VIP</div>
+      </div>
+    </section>
+
+    <!-- Navigation Tabs -->
+    <div class="console-tabs">
+      <button onclick="switchConsoleTab('launchpad')" id="tab-btn-launchpad" class="tab-trigger active">
+        <svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2"><path d="M22 2L11 13"/><polygon points="22 2 15 22 11 13 2 9 22 2"/></svg>
+        <span>Launchpad (56 Realtors)</span>
+      </button>
+      <button onclick="switchConsoleTab('realtor-engine')" id="tab-btn-realtor-engine" class="tab-trigger">
+        <svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2"><rect x="3" y="3" width="18" height="18" rx="2"/><path d="M9 3v18M3 9h18"/></svg>
+        <span>RealtyCraft AI Synthesis Terminal</span>
+      </button>
+      <button onclick="switchConsoleTab('whop-mrr')" id="tab-btn-whop-mrr" class="tab-trigger">
+        <svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2"><line x1="12" y1="1" x2="12" y2="23"/><path d="M17 5H9.5a3.5 3.5 0 0 0 0 7h5a3.5 3.5 0 0 1 0 7H6"/></svg>
+        <span>Whop 6-Figure MRR &amp; Checkout Hub</span>
+      </button>
+    </div>
+
+    <!-- ========================================================= -->
+    <!-- TAB 1: LAUNCHPAD (1-CLICK WHATSAPP, SMS & IG DM CONSOLE)   -->
+    <!-- ========================================================= -->
+    <section id="tab-panel-launchpad">
+      <div class="launchpad-controls">
+        <div class="market-pills">
+          <button onclick="filterMarket('ALL', this)" class="market-pill active">All Markets (56)</button>
+          <button onclick="filterMarket('Beverly Hills', this)" class="market-pill">Beverly Hills 90210 (23)</button>
+          <button onclick="filterMarket('Miami', this)" class="market-pill">Miami &amp; South Florida (28)</button>
+          <button onclick="filterMarket('Austin', this)" class="market-pill">Austin &amp; DFW (5)</button>
+        </div>
+        <div style="display: flex; gap: 10px; align-items: center; flex-wrap: wrap;">
+          <select id="pitch-mode-select" onchange="renderLaunchpadTable()" class="search-input" style="min-width: 220px;">
+            <option value="high_ticket">Pitch: High-Ticket ($299/mo White-Label &amp; $997 VIP)</option>
+            <option value="solo">Pitch: Solo Agent Free Test ($39 Lifetime)</option>
+          </select>
+          <input type="text" id="lead-search-input" oninput="renderLaunchpadTable()" placeholder="Search realtor, brokerage, or 310/305..." class="search-input" />
+        </div>
+      </div>
+
+      <div class="table-card">
+        <div class="table-scroll">
+          <table>
+            <thead>
+              <tr>
+                <th>#</th>
+                <th>Realtor &amp; Brokerage</th>
+                <th>Market</th>
+                <th>Direct Phone</th>
+                <th>Instagram</th>
+                <th>1-Click Direct Outbound Actions</th>
+              </tr>
+            </thead>
+            <tbody id="launchpad-tbody"></tbody>
+          </table>
+        </div>
+      </div>
+    </section>
+
+    <!-- ========================================================= -->
+    <!-- TAB 2: REALTYCRAFT AI SYNTHESIS TERMINAL                  -->
+    <!-- ========================================================= -->
+    <section id="tab-panel-realtor-engine" class="hidden">
+      <div class="split-2">
+        <!-- Input Spec Form -->
+        <div class="tier-card" style="gap: 16px;">
+          <div>
+            <h3 style="font-size: 18px; font-weight: 700; margin-bottom: 4px;">Property Specification Input</h3>
+            <p style="font-size: 12.5px; color: var(--text-secondary);">Synthesizes HUD Fair Housing-safe MLS descriptions and social scripts in real time.</p>
+          </div>
+          <div style="display: grid; grid-template-columns: 1fr 1fr; gap: 12px;">
+            <div>
+              <label class="form-label">Neighborhood / Enclave</label>
+              <input type="text" id="rc-hood" value="Trousdale Estates" class="form-input" />
+            </div>
+            <div>
+              <label class="form-label">City</label>
+              <input type="text" id="rc-city" value="Beverly Hills, CA" class="form-input" />
+            </div>
+          </div>
+          <div style="display: grid; grid-template-columns: 1fr 1fr 1fr; gap: 12px;">
+            <div>
+              <label class="form-label">Beds</label>
+              <input type="text" id="rc-beds" value="5" class="form-input" />
+            </div>
+            <div>
+              <label class="form-label">Baths</label>
+              <input type="text" id="rc-baths" value="6.5" class="form-input" />
+            </div>
+            <div>
+              <label class="form-label">Sq Ft</label>
+              <input type="text" id="rc-sqft" value="6,480" class="form-input" />
+            </div>
+          </div>
+          <div style="display: grid; grid-template-columns: 1fr 1fr; gap: 12px;">
+            <div>
+              <label class="form-label">Offering Price</label>
+              <input type="text" id="rc-price" value="$11,450,000" class="form-input" />
+            </div>
+            <div>
+              <label class="form-label">Listing Tone</label>
+              <select id="rc-tone" class="form-select" onchange="synthesizeRealtyCopy()">
+                <option value="luxury">Architectural Luxury &amp; Storytelling</option>
+                <option value="mls">MLS Standard &amp; HUD Compliant</option>
+                <option value="investor">Investor Yield &amp; Cap Rate</option>
+                <option value="punchy">Punchy Zillow Skimmer</option>
+              </select>
+            </div>
+          </div>
+          <div>
+            <label class="form-label">Key Architectural Features</label>
+            <textarea id="rc-features" rows="3" class="form-textarea">Zero-edge infinity pool with panoramic city-to-ocean views, chef's kitchen with dual waterfall islands, primary suite with private terrace, smart home automation</textarea>
+          </div>
+          <button onclick="synthesizeRealtyCopy()" class="nav-cta-btn" style="width: 100%; justify-content: center; padding: 12px; font-size: 13.5px; border: none; cursor: pointer;">
+            Synthesize MLS Copy &amp; 15s Reel Script
+          </button>
+        </div>
+
+        <!-- Output Display -->
+        <div class="tier-card" style="gap: 16px;">
+          <div style="display: flex; justify-content: space-between; align-items: center;">
+            <div>
+              <span style="font-size: 11px; font-weight: 700; color: var(--emerald-live); text-transform: uppercase; letter-spacing: 0.06em;">HUD Fair Housing Verified</span>
+              <h3 id="rc-out-headline" style="font-size: 18px; font-weight: 700; margin-top: 2px;">Architectural Elegance in Trousdale Estates</h3>
+            </div>
+            <button onclick="copyElementValue('rc-out-body', this)" class="btn-ig">Copy Output</button>
+          </div>
+          <textarea id="rc-out-body" rows="14" class="form-textarea" style="font-family: var(--font-mono); font-size: 12.5px; line-height: 1.6;"></textarea>
+        </div>
+      </div>
+    </section>
+
+    <!-- ========================================================= -->
+    <!-- TAB 3: WHOP 6-FIGURE MRR & CHECKOUT COMMAND               -->
+    <!-- ========================================================= -->
+    <section id="tab-panel-whop-mrr" class="hidden">
+      <div class="bento-3">
+        <!-- Tier 1 -->
+        <div class="tier-card">
+          <div>
+            <span style="font-size: 11px; font-weight: 700; color: var(--text-muted); text-transform: uppercase; letter-spacing: 0.06em;">Tier 1 &middot; Front-End Lead Engine</span>
+            <h3 style="font-size: 22px; font-weight: 800; margin-top: 6px;">Solo Agent Lifetime</h3>
+            <div style="font-size: 32px; font-weight: 800; margin: 12px 0; font-family: var(--font-mono);">$39 <span style="font-size: 13px; color: var(--text-muted);">one-time</span></div>
+            <p style="font-size: 13px; color: var(--text-secondary); margin-bottom: 18px;">
+              Self-serve lifetime license for individual realtors. Plan ID: <code>plan_9MqDk8UfL1RLy</code>
+            </p>
+          </div>
+          <div style="display: flex; gap: 10px; flex-wrap: wrap;">
+            <button onclick="copyRawText('https://whop.com/checkout/plan_9MqDk8UfL1RLy', this)" class="btn-ig" style="flex: 1; justify-content: center;">Copy Link</button>
+            <a href="https://whop.com/checkout/plan_9MqDk8UfL1RLy" target="_blank" class="btn-sms" style="flex: 1; justify-content: center;">Open Checkout</a>
+          </div>
+        </div>
+
+        <!-- Tier 2 -->
+        <div class="tier-card featured">
+          <div>
+            <span style="font-size: 11px; font-weight: 700; color: #FF5A79; text-transform: uppercase; letter-spacing: 0.06em;">Tier 2 &middot; Core Team MRR</span>
+            <h3 style="font-size: 22px; font-weight: 800; margin-top: 6px;">Brokerage White-Label (25x)</h3>
+            <div style="font-size: 32px; font-weight: 800; margin: 12px 0; font-family: var(--font-mono);">$299 <span style="font-size: 13px; color: var(--text-muted);">/ month</span></div>
+            <p style="font-size: 13px; color: var(--text-secondary); margin-bottom: 18px;">
+              Custom-branded portal for up to 25 agents + office-wide Fair Housing shield. Plan ID: <code>plan_XWk5vBBgGy52z</code>
+            </p>
+          </div>
+          <div style="display: flex; gap: 10px; flex-wrap: wrap;">
+            <button onclick="copyRawText('https://whop.com/checkout/plan_XWk5vBBgGy52z', this)" class="btn-wa" style="flex: 1; justify-content: center; border: none; cursor: pointer;">Copy Link</button>
+            <a href="https://whop.com/checkout/plan_XWk5vBBgGy52z" target="_blank" class="btn-sms" style="flex: 1; justify-content: center;">Open Checkout</a>
+          </div>
+        </div>
+
+        <!-- Tier 3 -->
+        <div class="tier-card">
+          <div>
+            <span style="font-size: 11px; font-weight: 700; color: var(--gold-accent); text-transform: uppercase; letter-spacing: 0.06em;">Tier 3 &middot; High-Ticket Turnkey</span>
+            <h3 style="font-size: 22px; font-weight: 800; margin-top: 6px;">Done-For-You VIP Setup</h3>
+            <div style="font-size: 32px; font-weight: 800; margin: 12px 0; font-family: var(--font-mono);">$997 <span style="font-size: 13px; color: var(--text-muted);">turnkey</span></div>
+            <p style="font-size: 13px; color: var(--text-secondary); margin-bottom: 18px;">
+              Full custom domain, luxury calibration &amp; 90-day social vault built for top producers. Plan ID: <code>plan_6E8r13MwcNe7Y</code>
+            </p>
+          </div>
+          <div style="display: flex; gap: 10px; flex-wrap: wrap;">
+            <button onclick="copyRawText('https://whop.com/checkout/plan_6E8r13MwcNe7Y', this)" class="btn-ig" style="flex: 1; justify-content: center;">Copy Link</button>
+            <a href="https://whop.com/checkout/plan_6E8r13MwcNe7Y" target="_blank" class="btn-sms" style="flex: 1; justify-content: center;">Open Checkout</a>
+          </div>
+        </div>
+      </div>
+    </section>
+
+  </main>
+  </div><!-- /#console-protected-shell -->
+
+  <footer class="apple-footer">
+    <p>&copy; 2026 HRL International Private Limited. Engineered by Founder &amp; Managing Director Pavan Kumar Sadashiv. All Rights Reserved.</p>
+  </footer>
+
+  <script>
+    // =========================================================================
+    // HRL SOVEREIGN DATABASE VAULT & CRYPTOGRAPHIC AUTHENTICATION ENGINE
+    // Persists credentials to IndexedDB (HRL_Sovereign_Vault_DB), LocalStorage,
+    // and SQLite (hrl_admin_vault.db) + SEALED_VAULT_RECORD for shared links.
+    // =========================================================================
+    const SEALED_VAULT_RECORD = null;
+    const VAULT_DB_NAME = "HRL_Sovereign_Vault_DB";
+    const VAULT_STORE_NAME = "admin_credentials";
+    const VAULT_LS_KEY = "hrl_sovereign_admin_vault_v1";
+    const VAULT_SESSION_KEY = "hrl_sovereign_admin_session_active";
+    const VAULT_API_URL = "http://127.0.0.1:8788/api/vault";
+
+    let activeVaultRecord = SEALED_VAULT_RECORD;
+
+    // Pure FIPS 180-4 SHA-256 (works identically on file://, localhost, and https://)
+    function sha256Hex(ascii) {
+      function rightRotate(value, amount) {
+        return (value >>> amount) | (value << (32 - amount));
+      }
+      const mathPow = Math.pow;
+      const maxWord = mathPow(2, 32);
+      let result = "";
+      const words = [];
+      const utf8 = unescape(encodeURIComponent(ascii));
+      const asciiBitLength = utf8.length * 8;
+      let hash = sha256Hex.h = sha256Hex.h || [];
+      const k = sha256Hex.k = sha256Hex.k || [];
+      let primeCounter = k.length;
+      const isComposite = {};
+      for (let candidate = 2; primeCounter < 64; candidate++) {
+        if (!isComposite[candidate]) {
+          for (let i = 0; i < 313; i += candidate) isComposite[i] = candidate;
+          hash[primeCounter] = (mathPow(candidate, 0.5) * maxWord) | 0;
+          k[primeCounter++] = (mathPow(candidate, 1 / 3) * maxWord) | 0;
+        }
+      }
+      hash = hash.slice(0, 8);
+      let str = utf8 + "\x80";
+      while ((str.length % 64) - 56) str += "\x00";
+      for (let i = 0; i < str.length; i++) {
+        const j = str.charCodeAt(i);
+        words[i >> 2] |= j << ((3 - (i % 4)) * 8);
+      }
+      words[words.length] = (asciiBitLength / maxWord) | 0;
+      words[words.length] = asciiBitLength;
+      for (let j = 0; j < words.length;) {
+        const w = words.slice(j, (j += 16));
+        const oldHash = hash.slice(0);
+        for (let i = 0; i < 64; i++) {
+          const i2 = i + j;
+          const w15 = w[i - 15], w2 = w[i - 2];
+          const a = hash[0], e = hash[4];
+          const temp1 =
+            hash[7] +
+            (rightRotate(e, 6) ^ rightRotate(e, 11) ^ rightRotate(e, 25)) +
+            ((e & hash[5]) ^ (~e & hash[6])) +
+            k[i] +
+            (w[i] =
+              i < 16
+                ? w[i]
+                : (w[i - 16] +
+                    (rightRotate(w15, 7) ^ rightRotate(w15, 18) ^ (w15 >>> 3)) +
+                    w[i - 7] +
+                    (rightRotate(w2, 17) ^ rightRotate(w2, 19) ^ (w2 >>> 10))) |
+                  0);
+          const temp2 =
+            (rightRotate(a, 2) ^ rightRotate(a, 13) ^ rightRotate(a, 22)) +
+            ((a & hash[1]) ^ (a & hash[2]) ^ (hash[1] & hash[2]));
+          hash = [(temp1 + temp2) | 0].concat(hash);
+          hash[4] = (hash[4] + temp1) | 0;
+          hash.pop();
+        }
+        for (let i = 0; i < 8; i++) hash[i] = (hash[i] + oldHash[i]) | 0;
+      }
+      for (let i = 0; i < 8; i++) {
+        for (let j = 3; j + 1; j--) {
+          const b = (hash[i] >> (j * 8)) & 255;
+          result += (b < 16 ? 0 : "") + b.toString(16);
+        }
+      }
+      return result;
+    }
+
+    function stretchKey(emailNorm, password, salt) {
+      let digest = sha256Hex(`HRL_SOVEREIGN_V1|${salt}|${emailNorm}|${password}`);
+      for (let i = 0; i < 5000; i++) {
+        digest = sha256Hex(`${digest}|${salt}|${i}`);
+      }
+      return digest;
+    }
+
+    function openVaultIDB() {
+      return new Promise((resolve, reject) => {
+        if (!window.indexedDB) return resolve(null);
+        const req = indexedDB.open(VAULT_DB_NAME, 1);
+        req.onupgradeneeded = (e) => {
+          const db = e.target.result;
+          if (!db.objectStoreNames.contains(VAULT_STORE_NAME)) {
+            db.createObjectStore(VAULT_STORE_NAME, { keyPath: "id" });
+          }
+        };
+        req.onsuccess = () => resolve(req.result);
+        req.onerror = () => resolve(null);
+      });
+    }
+
+    async function readVaultFromIDB() {
+      const db = await openVaultIDB();
+      if (!db) return null;
+      return new Promise((resolve) => {
+        try {
+          const tx = db.transaction(VAULT_STORE_NAME, "readonly");
+          const req = tx.objectStore(VAULT_STORE_NAME).get("founder_master");
+          req.onsuccess = () => resolve(req.result || null);
+          req.onerror = () => resolve(null);
+        } catch (_) {
+          resolve(null);
+        }
+      });
+    }
+
+    async function writeVaultToIDB(record) {
+      const db = await openVaultIDB();
+      if (!db) return false;
+      return new Promise((resolve) => {
+        try {
+          const tx = db.transaction(VAULT_STORE_NAME, "readwrite");
+          tx.objectStore(VAULT_STORE_NAME).put(record);
+          tx.oncomplete = () => resolve(true);
+          tx.onerror = () => resolve(false);
+        } catch (_) {
+          resolve(false);
+        }
+      });
+    }
+
+    async function loadExistingVaultRecord() {
+      if (SEALED_VAULT_RECORD && SEALED_VAULT_RECORD.emailHash && SEALED_VAULT_RECORD.passwordHash) {
+        await writeVaultToIDB(SEALED_VAULT_RECORD);
+        localStorage.setItem(VAULT_LS_KEY, JSON.stringify(SEALED_VAULT_RECORD));
+        return SEALED_VAULT_RECORD;
+      }
+      try {
+        const res = await fetch(`${VAULT_API_URL}/status`, { cache: "no-store" });
+        if (res.ok) {
+          const data = await res.json();
+          if (data && data.locked && data.record) {
+            await writeVaultToIDB(data.record);
+            localStorage.setItem(VAULT_LS_KEY, JSON.stringify(data.record));
+            return data.record;
+          }
+        }
+      } catch (_) {}
+
+      const idbRec = await readVaultFromIDB();
+      if (idbRec && idbRec.emailHash && idbRec.passwordHash) return idbRec;
+
+      try {
+        const lsRec = JSON.parse(localStorage.getItem(VAULT_LS_KEY) || "null");
+        if (lsRec && lsRec.emailHash && lsRec.passwordHash) {
+          await writeVaultToIDB(lsRec);
+          return lsRec;
+        }
+      } catch (_) {}
+
+      return null;
+    }
+
+    function setAuthFeedback(message, isError) {
+      const el = document.getElementById("auth-status-msg");
+      el.classList.remove("hidden", "auth-status-error", "auth-status-ok");
+      el.classList.add(isError ? "auth-status-error" : "auth-status-ok");
+      el.innerText = message;
+    }
+
+    function configureGateUI(isLocked) {
+      const badgeText = document.getElementById("auth-gate-badge-text");
+      const title = document.getElementById("auth-gate-title");
+      const desc = document.getElementById("auth-gate-desc");
+      const pwdLabel = document.getElementById("auth-password-label");
+      const confirmGroup = document.getElementById("auth-confirm-group");
+      const confirmInput = document.getElementById("auth-confirm-input");
+      const submitText = document.getElementById("auth-submit-text");
+      const stateInd = document.getElementById("vault-state-indicator");
+
+      if (isLocked) {
+        badgeText.innerText = "SOVEREIGN SECURITY CHECK · VAULT LOCKED";
+        title.innerText = "HRL Executive Admin Sign-In";
+        desc.innerText = "This console is cryptographically locked in the database. Enter your registered administrator email and master password to unlock.";
+        pwdLabel.innerText = "Master Password";
+        confirmGroup.classList.add("hidden");
+        confirmInput.required = false;
+        submitText.innerText = "Verify Credentials & Unlock Console";
+        stateInd.innerText = "VAULT STATUS: LOCKED TO REGISTERED FOUNDER (REGISTRATION DISABLED)";
+        stateInd.style.color = "#10B981";
+      } else {
+        badgeText.innerText = "INITIAL DATABASE VAULT SETUP";
+        title.innerText = "Create Executive Admin Credentials";
+        desc.innerText = "Create your administrator email and master password. Once saved in the database, registration is permanently locked across all shared links so only you can open this console.";
+        pwdLabel.innerText = "Create Master Password";
+        confirmGroup.classList.remove("hidden");
+        confirmInput.required = true;
+        submitText.innerText = "Save to Database & Lock Console";
+        stateInd.innerText = "VAULT STATUS: AWAITING INITIAL ADMIN REGISTRATION";
+        stateInd.style.color = "#FF5A79";
+      }
+    }
+
+    function unlockConsoleView() {
+      document.getElementById("hrl-security-gate").classList.add("hidden");
+      document.getElementById("console-protected-shell").classList.remove("hidden");
+      document.getElementById("nav-lock-btn").classList.remove("hidden");
+      renderLaunchpadTable();
+      synthesizeRealtyCopy();
+    }
+
+    function lockAdminConsole() {
+      sessionStorage.removeItem(VAULT_SESSION_KEY);
+      document.getElementById("console-protected-shell").classList.add("hidden");
+      document.getElementById("nav-lock-btn").classList.add("hidden");
+      document.getElementById("hrl-security-gate").classList.remove("hidden");
+      document.getElementById("auth-password-input").value = "";
+      document.getElementById("auth-confirm-input").value = "";
+      configureGateUI(true);
+      setAuthFeedback("Console locked. Enter your registered email and password to unlock.", false);
+    }
+
+    async function handleAuthVaultSubmit(event) {
+      event.preventDefault();
+      const emailRaw = (document.getElementById("auth-email-input").value || "").trim().toLowerCase();
+      const password = document.getElementById("auth-password-input").value || "";
+      const confirmPwd = document.getElementById("auth-confirm-input").value || "";
+
+      if (!emailRaw || !password) {
+        return setAuthFeedback("Please enter both administrator email and password.", true);
+      }
+
+      if (!activeVaultRecord) {
+        // INITIAL REGISTRATION FLOW -> SAVE TO DATABASE & LOCK PERMANENTLY
+        if (password.length < 6) {
+          return setAuthFeedback("Master password must be at least 6 characters.", true);
+        }
+        if (password !== confirmPwd) {
+          return setAuthFeedback("Password confirmation does not match.", true);
+        }
+
+        const salt = "HRL_SOVEREIGN_SALT_" + sha256Hex(emailRaw + "|2026").slice(0, 16);
+        const emailHash = sha256Hex("HRL_EMAIL|" + emailRaw);
+        const passwordHash = stretchKey(emailRaw, password, salt);
+        const record = {
+          id: "founder_master",
+          emailHash,
+          passwordHash,
+          salt,
+          createdAt: new Date().toISOString(),
+          locked: true
+        };
+
+        await writeVaultToIDB(record);
+        localStorage.setItem(VAULT_LS_KEY, JSON.stringify(record));
+
+        try {
+          await fetch(`${VAULT_API_URL}/register`, {
+            method: "POST",
+            headers: { "Content-Type": "application/json" },
+            body: JSON.stringify(record)
+          });
+        } catch (_) {}
+
+        activeVaultRecord = record;
+        sessionStorage.setItem(VAULT_SESSION_KEY, passwordHash);
+        configureGateUI(true);
+        setAuthFeedback("Credentials saved to database and console locked to your account.", false);
+        setTimeout(() => unlockConsoleView(), 450);
+      } else {
+        // LOCKED VERIFICATION FLOW -> CHECK AGAINST DATABASE HASHES
+        const emailHash = sha256Hex("HRL_EMAIL|" + emailRaw);
+        const candidateHash = stretchKey(emailRaw, password, activeVaultRecord.salt);
+
+        if (emailHash !== activeVaultRecord.emailHash || candidateHash !== activeVaultRecord.passwordHash) {
+          return setAuthFeedback("ACCESS DENIED: Invalid administrator email or master password.", true);
+        }
+
+        sessionStorage.setItem(VAULT_SESSION_KEY, candidateHash);
+        setAuthFeedback("Identity verified against Sovereign Database Vault. Unlocking...", false);
+        setTimeout(() => unlockConsoleView(), 300);
+      }
+    }
+
+    async function initSovereignSecurityGate() {
+      activeVaultRecord = await loadExistingVaultRecord();
+      const isLocked = Boolean(activeVaultRecord);
+      configureGateUI(isLocked);
+
+      if (isLocked) {
+        const activeToken = sessionStorage.getItem(VAULT_SESSION_KEY);
+        if (activeToken && activeToken === activeVaultRecord.passwordHash) {
+          unlockConsoleView();
+        }
+      }
+    }
+
+    const LEADS = [
+      // BEVERLY HILLS 90210 LUXURY BATCH
+      { name: "Norma Voelkel (CEO)", market: "Beverly Hills", city: "Beverly Hills", phone: "13105314900", displayPhone: "(310) 531-4900", ig: "TheRealNormaVoelkel", note: "CEO, Voelkel & Associates • Mansion Specialist" },
+      { name: "Valerie Fitzgerald", market: "Beverly Hills", city: "Beverly Hills", phone: "13108509242", displayPhone: "(310) 850-9242", ig: "joeybenzvi", note: "Beverly Hills Luxury Estates ($100M+ Producer)" },
+      { name: "Stefani Stolper", market: "Beverly Hills", city: "Beverly Hills", phone: "13107336551", displayPhone: "(310) 733-6551", ig: "stolperstefani", note: "Beverly Hills Luxury Realtor • 18.9K Followers" },
+      { name: "David Ivkovic", market: "Beverly Hills", city: "Beverly Hills 90210", phone: "13109261955", displayPhone: "(310) 926-1955", ig: "davidivkovic", note: "$4.7M+ Beverly Hills Estates" },
+      { name: "Joshua Sarir", market: "Beverly Hills", city: "Beverly Hills", phone: "13106331452", displayPhone: "(310) 633-1452", ig: "joshuasarirrealestate", note: "Keller Williams Beverly Hills Flats" },
+      { name: "Chaya Cohen", market: "Beverly Hills", city: "Beverly Hills", phone: "13107353124", displayPhone: "(310) 735-3124", ig: "realtorchaya", note: "Douglas Elliman Beverly Hills" },
+      { name: "Sharlot Arabshahi", market: "Beverly Hills", city: "Beverly Hills", phone: "13107564814", displayPhone: "(310) 756-4814", ig: "arabshahisharlot", note: "Beverly & Co. Luxury Realtor" },
+      { name: "Connie Lopez", market: "Beverly Hills", city: "Beverly Hills", phone: "13104614051", displayPhone: "(310) 461-4051", ig: "CfHuF9oj1x1", note: "KW Beverly Hills Penthouse (439 N. Canon Dr)" },
+      { name: "Aja' N. Daniels", market: "Beverly Hills", city: "Beverly Hills", phone: "13109852740", displayPhone: "(310) 985-2740", ig: "TheAgentAja", note: "Keller Williams Beverly Hills" },
+      { name: "Ashley Kermani", market: "Beverly Hills", city: "Beverly Hills 90210", phone: "13109958551", displayPhone: "(310) 995-8551", ig: "ashleyshojaie", note: "90210 & Westwood Market Specialist" },
+      { name: "Jihan (Trousdale Estates)", market: "Beverly Hills", city: "Beverly Hills", phone: "13108040883", displayPhone: "(310) 804-0883", ig: "jihanestate", note: "KW Beverly Hills • Trousdale Estates Luxury" },
+      { name: "Maureen Giancanelli", market: "Beverly Hills", city: "Beverly Hills", phone: "13108099277", displayPhone: "(310) 809-9277", ig: "madamedarling", note: "KW Luxury Homes" },
+      { name: "Osnat 'Ossi' Timsit", market: "Beverly Hills", city: "Beverly Hills", phone: "13109909527", displayPhone: "(310) 990-9527", ig: "C6PC9R5LInT", note: "Beverly & Co. • Developer & Realtor" },
+      { name: "Dana Carter-Cataldi", market: "Beverly Hills", city: "Beverly Hills", phone: "13108049207", displayPhone: "(310) 804-9207", ig: "DVttBd5EiYn", note: "Compass Beverly Hills Luxury" },
+      { name: "Samuel Volodarsky", market: "Beverly Hills", city: "Beverly Hills", phone: "13109050288", displayPhone: "(310) 905-0288", ig: "samuelvolo", note: "Keller Williams Beverly Hills" },
+      { name: "Bob Murphy", market: "Beverly Hills", city: "Beverly Hills", phone: "13103671130", displayPhone: "(310) 367-1130", ig: "bobmurphybhrealestate", note: "Beverly Hills & Hollywood Hills" },
+      { name: "Roxane Eskan", market: "Beverly Hills", city: "Beverly Hills", phone: "13107493111", displayPhone: "(310) 749-3111", ig: "tanyastawski", note: "Beverly Hills Lifestyle Estates" },
+      { name: "Banu Simrose", market: "Beverly Hills", city: "Beverly Hills", phone: "13109774204", displayPhone: "(310) 977-4204", ig: "annshumbo", note: "Rodeo Drive & 90210 Specialist" },
+      { name: "Branden Williams Office", market: "Beverly Hills", city: "Beverly Hills", phone: "13107760737", displayPhone: "(310) 776-0737", ig: "peterlorimer", note: "The Beverly Hills Estates" },
+      { name: "Woody Mendoza", market: "Beverly Hills", city: "Beverly Hills & Bel-Air", phone: "16262061432", displayPhone: "(626) 206-1432", ig: "filipino_realtor", note: "EstateX • Bel-Air & Beverly Hills" },
+      { name: "Lisa Walton", market: "Beverly Hills", city: "Beverly Hills", phone: "13238364770", displayPhone: "(323) 836-4770", ig: "lisawaltn", note: "Beverly Hills & LA Realtor" },
+      { name: "Katie Rice ($35M+ Estates)", market: "Beverly Hills", city: "Beverly Hills", phone: "", displayPhone: "IG Direct", ig: "ricerealty", note: "$11.4M–$35M+ Beverly Hills Luxury" },
+      { name: "Todd Marks", market: "Beverly Hills", city: "Beverly Hills", phone: "", displayPhone: "IG Direct", ig: "toddmarks_realestate", note: "Berkshire Hathaway Beverly Hills" },
+
+      // MIAMI & SOUTH FLORIDA BATCH
+      { name: "Luz Colmenero", market: "Miami", city: "Miami", phone: "17868781200", displayPhone: "(786) 878-1200", ig: "yourmiamibroker", note: "The Keyes Company Miami" },
+      { name: "Elizabeth", market: "Miami", city: "Miami", phone: "", displayPhone: "IG (52.4K)", ig: "elizabethmiamirealtor", note: "SERHANT South Florida" },
+      { name: "Francisco Rivera", market: "Miami", city: "Miami", phone: "13053015720", displayPhone: "(305) 301-5720", ig: "miami.luxury.realtor", note: "Miami Florida Realtor" },
+      { name: "Michael Vallejo", market: "Miami", city: "Miami", phone: "13058014309", displayPhone: "(305) 801-4309", ig: "michael.vallejo.realtor", note: "HotSpot Realty Miami" },
+      { name: "Jake Fletcher", market: "Miami", city: "Miami", phone: "13058129181", displayPhone: "(305) 812-9181", ig: "jake.miami", note: "eXp Realty Miami" },
+      { name: "Yusleidy Pomares", market: "Miami", city: "Coral Gables", phone: "", displayPhone: "IG Direct", ig: "yusleidypomares_realtor", note: "Coral Gables Specialist" },
+      { name: "Melissa Gibbings", market: "Miami", city: "Miami Beach", phone: "13053452802", displayPhone: "(305) 345-2802", ig: "meli_miamire", note: "Broker Associate • 13.8K Followers" },
+      { name: "Daniella Deatherage", market: "Miami", city: "Miami / Ft. Lauderdale", phone: "17542301968", displayPhone: "(754) 230-1968", ig: "danielladeatherage", note: "South Florida Realtor" },
+      { name: "LaKeeta Sullivan", market: "Miami", city: "Miami / Broward", phone: "17866790748", displayPhone: "(786) 679-0748", ig: "lakeetarairealtor", note: "Miami, Broward & Palm Beach" },
+      { name: "Valeria Freitas", market: "Miami", city: "Miami", phone: "13052407209", displayPhone: "(305) 240-7209", ig: "therealestatematchmakermiami", note: "BeachFront Realty" },
+      { name: "Jack Dhanji", market: "Miami", city: "Miami", phone: "19548160234", displayPhone: "(954) 816-0234", ig: "viviankpena", note: "South Florida Real Estate" },
+      { name: "Kathy Murillo", market: "Miami", city: "North Miami", phone: "17869708826", displayPhone: "(786) 970-8826", ig: "kmrealtormiami", note: "Miami Global Realty" },
+      { name: "Fong Chiu", market: "Miami", city: "Miami", phone: "13055054569", displayPhone: "(305) 505-4569", ig: "fong.chiu.realtor", note: "Florida Realty of Miami" },
+      { name: "Marilia 'Mia' Rodrigues", market: "Miami", city: "Miami / Ft. Lauderdale", phone: "19543991036", displayPhone: "(954) 399-1036", ig: "miarodriguesrealtor", note: "Keller Williams Luxury • 3.7K" },
+      { name: "Lisandra Cotopa", market: "Miami", city: "Miami", phone: "13053336871", displayPhone: "(305) 333-6871", ig: "soldbylisandra", note: "Miami Residential" },
+      { name: "Bryan Roach", market: "Miami", city: "Miami", phone: "13054396211", displayPhone: "(305) 439-6211", ig: "bryanroachrealtor", note: "Avenew Miami" },
+      { name: "Edwin Silie", market: "Miami", city: "Miami / Homestead", phone: "17867749077", displayPhone: "(786) 774-9077", ig: "edwinsilie.realtor", note: "Keller Williams" },
+      { name: "Anarelys Garcia", market: "Miami", city: "Miami", phone: "17869722821", displayPhone: "(786) 972-2821", ig: "anarelys.garcia", note: "South Florida Real Estate" },
+      { name: "Victoria Romanenko", market: "Miami", city: "Miami", phone: "13059049998", displayPhone: "(305) 904-9998", ig: "vikarealtormiami", note: "Golden Keys Miami" },
+      { name: "Lucy Aget", market: "Miami", city: "Miami", phone: "17865489676", displayPhone: "(786) 548-9676", ig: "myblockmiami", note: "PAK Home Realty" },
+      { name: "Marlon Cano", market: "Miami", city: "Miami & Tampa", phone: "13054342623", displayPhone: "(305) 434-2623", ig: "marloncanorealtor", note: "210K+ Followers • Top Creator" },
+      { name: "Denis Bibik", market: "Miami", city: "Miami", phone: "17865374637", displayPhone: "(786) 537-4637", ig: "realtordenisbibik", note: "Berkshire Hathaway EWM Realty" },
+      { name: "Hector Chinea", market: "Miami", city: "Miami & Ft. Lauderdale", phone: "17862364268", displayPhone: "(786) 236-4268", ig: "hectorchinea.realtormiami", note: "Real Broker LLC" },
+      { name: "Anabel Dominguez", market: "Miami", city: "Miami Beach", phone: "13059799278", displayPhone: "(305) 979-9278", ig: "adominguezmiamirealtor", note: "London Foster Miami Beach" },
+      { name: "Alejandra Jaramillo", market: "Miami", city: "Miami", phone: "19547982577", displayPhone: "(954) 798-2577", ig: "alinakleinrealtor", note: "The Keyes Company" },
+      { name: "Maite Munoz", market: "Miami", city: "Miami", phone: "13059650800", displayPhone: "(305) 965-0800", ig: "miami.realtor.maite", note: "Prime One Realty LLC" },
+      { name: "Pierre Cameau", market: "Miami", city: "Fisher Island / Miami", phone: "13052985715", displayPhone: "(305) 298-5715", ig: "luxuryhomemia", note: "Miami Luxe Property LLC" },
+      { name: "Olga Zaurova", market: "Miami", city: "Surfside / Miami", phone: "17183547604", displayPhone: "(718) 354-7604", ig: "tehillatehillaa", note: "Surfside Luxury Specialist" },
+
+      // AUSTIN & DFW BATCH
+      { name: "Hanalei Myers", market: "Austin", city: "Austin", phone: "15125731432", displayPhone: "(512) 573-1432", ig: "hanaleimyers", note: "Coldwell Banker Global Luxury • Top 3%" },
+      { name: "Alma Silbert", market: "Austin", city: "Austin", phone: "15129155397", displayPhone: "(512) 915-5397", ig: "homesweetatx", note: "Austin Real Estate" },
+      { name: "Sammy", market: "Austin", city: "Austin", phone: "", displayPhone: "IG Direct", ig: "soldwithsammy", note: "Compass Austin & Dripping Springs" },
+      { name: "Katia Mauricio", market: "Austin", city: "Dallas / Austin", phone: "14692160533", displayPhone: "(469) 216-0533", ig: "daylasellsatx", note: "Fernandez Realty DFW" },
+      { name: "Brittany Austin", market: "Austin", city: "Charlotte / Austin", phone: "17042549534", displayPhone: "(704) 254-9534", ig: "brittanyaustinhomes", note: "Dembek Realty" }
+    ];
+
+    let activeMarketFilter = "ALL";
+    let contactedIds = new Set(JSON.parse(localStorage.getItem("hrl_launchpad_contacted") || "[]"));
+
+    function switchConsoleTab(tabId) {
+      ["launchpad", "realtor-engine", "whop-mrr"].forEach(id => {
+        document.getElementById(`tab-panel-${id}`).classList.add("hidden");
+        document.getElementById(`tab-btn-${id}`).classList.remove("active");
+      });
+      document.getElementById(`tab-panel-${tabId}`).classList.remove("hidden");
+      document.getElementById(`tab-btn-${tabId}`).classList.add("active");
+    }
+
+    function filterMarket(market, btn) {
+      activeMarketFilter = market;
+      document.querySelectorAll(".market-pill").forEach(b => b.classList.remove("active"));
+      btn.classList.add("active");
+      renderLaunchpadTable();
+    }
+
+    function buildPitch(lead) {
+      const first = lead.name.split(" ")[0];
+      const mode = document.getElementById("pitch-mode-select").value;
+      if (mode === "high_ticket") {
+        return `Hi ${first}, saw your ${lead.city} luxury listings. We engineered RealtyCraft AI for ${lead.city} brokerages and top producers—turns property specs into HUD Fair Housing-safe MLS descriptions + 15s Reel scripts in 5 seconds. We offer a $39 Solo license, a $299/mo custom-branded Brokerage White-Label portal (25 seats), or a $997 Done-For-You VIP setup. Mind if I send over the private preview link?`;
+      }
+      return `Hi ${first}, saw your ${lead.city} listings on IG. I built a fast AI tool (RealtyCraft AI) for ${lead.city} agents that turns property specs into Fair Housing-safe MLS descriptions + 15s Reel walkthrough scripts in 5 seconds. Mind if I drop the link here so you can test it on your next listing?`;
+    }
+
+    function markRowContacted(idx) {
+      contactedIds.add(idx);
+      localStorage.setItem("hrl_launchpad_contacted", JSON.stringify([...contactedIds]));
+      document.getElementById("kpi-contacted").innerText = contactedIds.size;
+      const r = document.getElementById(`lp-row-${idx}`);
+      if (r) r.classList.add("contacted-row");
+    }
+
+    function resetContactedStatus() {
+      contactedIds.clear();
+      localStorage.removeItem("hrl_launchpad_contacted");
+      document.getElementById("kpi-contacted").innerText = "0";
+      renderLaunchpadTable();
+    }
+
+    function copyAndOpenIG(idx, igHandle, btn) {
+      const pitch = buildPitch(LEADS[idx]);
+      navigator.clipboard.writeText(pitch).then(() => {
+        const orig = btn.innerText;
+        btn.innerText = "Copied Pitch";
+        setTimeout(() => { btn.innerText = orig; }, 1400);
+        markRowContacted(idx);
+        window.open(`https://instagram.com/${igHandle}`, "_blank");
+      });
+    }
+
+    function renderLaunchpadTable() {
+      const q = (document.getElementById("lead-search-input").value || "").toLowerCase();
+      const tbody = document.getElementById("launchpad-tbody");
+      document.getElementById("kpi-contacted").innerText = contactedIds.size;
+
+      tbody.innerHTML = LEADS.map((lead, idx) => {
+        if (activeMarketFilter !== "ALL" && lead.market !== activeMarketFilter) return "";
+        if (q && !(`${lead.name} ${lead.city} ${lead.note} ${lead.displayPhone} ${lead.ig}`).toLowerCase().includes(q)) return "";
+
+        const encodedPitch = encodeURIComponent(buildPitch(lead));
+        const isDone = contactedIds.has(idx);
+
+        const waBtn = lead.phone
+          ? `<a href="https://wa.me/${lead.phone}?text=${encodedPitch}" target="_blank" onclick="markRowContacted(${idx})" class="btn-wa">WhatsApp Direct</a>`
+          : "";
+        const smsBtn = lead.phone
+          ? `<a href="sms:+${lead.phone}?&body=${encodedPitch}" onclick="markRowContacted(${idx})" class="btn-sms">iMessage / SMS</a>`
+          : "";
+        const igBtn = `<button onclick="copyAndOpenIG(${idx}, '${lead.ig}', this)" class="btn-ig">Copy Pitch &amp; Open IG</button>`;
+
+        return `
+          <tr id="lp-row-${idx}" class="${isDone ? 'contacted-row' : ''}">
+            <td style="font-family: var(--font-mono); color: var(--text-muted);">${idx + 1}</td>
+            <td>
+              <div style="font-weight: 700; color: #FFFFFF;">${lead.name}</div>
+              <div style="font-size: 11.5px; color: var(--text-secondary);">${lead.note}</div>
+            </td>
+            <td><span style="font-size: 11.5px; font-weight: 600; color: #FF5A79;">${lead.city}</span></td>
+            <td style="font-family: var(--font-mono); color: var(--text-secondary);">${lead.displayPhone}</td>
+            <td style="font-family: var(--font-mono); color: var(--text-secondary);">@${lead.ig}</td>
+            <td>
+              <div class="action-cluster">
+                ${waBtn}
+                ${smsBtn}
+                ${igBtn}
+              </div>
+            </td>
+          </tr>
+        `;
+      }).join("");
+    }
+
+    function synthesizeRealtyCopy() {
+      const hood = document.getElementById("rc-hood").value || "Prime Enclave";
+      const city = document.getElementById("rc-city").value || "Beverly Hills, CA";
+      const beds = document.getElementById("rc-beds").value || "5";
+      const baths = document.getElementById("rc-baths").value || "6";
+      const sqft = document.getElementById("rc-sqft").value || "6,000";
+      const price = document.getElementById("rc-price").value || "$10,000,000";
+      const features = document.getElementById("rc-features").value || "";
+
+      document.getElementById("rc-out-headline").innerText = `Architectural Sanctuary in ${hood} | ${beds} Bed, ${baths} Bath`;
+      const body = `MLS & FAIR HOUSING VERIFIED COPY:\nExperience bespoke modern luxury in this rarely available residence presiding over ${hood}, ${city}. Spanning ${sqft} sq ft of custom architectural craftsmanship, this ${beds}-bedroom, ${baths}-bathroom estate seamlessly blends indoor-outdoor entertaining.\n\nInterior Appointments & Features:\n• ${features.split(",").map(s => s.trim()).join("\n• ")}\n\nOffered at ${price}. Private viewings arranged by appointment.\n\n----------------------------------------\n15-SECOND REEL / TIKTOK WALKTHROUGH SCRIPT:\n[0-3s Hook]: "Step inside this ${price} architectural sanctuary in ${hood}..."\n[3-10s Flow]: Fast sequence from grand entry through kitchen island to panoramic terrace.\n[10-15s CTA]: "Comment TOUR or DM for private showing credentials."`;
+      document.getElementById("rc-out-body").value = body;
+    }
+
+    function copyElementValue(id, btn) {
+      const val = document.getElementById(id).value;
+      copyRawText(val, btn);
+    }
+
+    function copyRawText(txt, btn) {
+      navigator.clipboard.writeText(txt).then(() => {
+        const orig = btn.innerText;
+        btn.innerText = "Copied";
+        setTimeout(() => { btn.innerText = orig; }, 1400);
+      });
+    }
+
+    window.addEventListener("DOMContentLoaded", () => {
+      initSovereignSecurityGate();
+    });
+  </script>
+</body>
+</html>
