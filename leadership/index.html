@@ -1796,7 +1796,7 @@
                 alt="Samruddhi Shetty — Director of Autonomous Swarms &amp; Multi-Agent Reasoning" 
                 class="avatar-img"
                 crossorigin="anonymous"
-                loading="lazy"
+                loading="eager"
                 onerror="this.onerror=null; this.src='../assets/hrl-company-avatar.png';"
               />
             </div>
@@ -1852,7 +1852,7 @@
                 alt="Rakshitha Bhandary — Chief Communications Officer" 
                 class="avatar-img"
                 crossorigin="anonymous"
-                loading="lazy"
+                loading="eager"
                 onerror="this.onerror=null; this.src='../assets/hrl-company-avatar.png';"
               />
             </div>
@@ -1908,7 +1908,7 @@
                 alt="Savi — VP of Technical Evangelism &amp; Ecosystem Relations" 
                 class="avatar-img"
                 crossorigin="anonymous"
-                loading="lazy"
+                loading="eager"
                 onerror="this.onerror=null; this.src='../assets/hrl-company-avatar.png';"
               />
             </div>
@@ -1964,7 +1964,7 @@
                 alt="Sanvi Brijesh — Director of Short-Form Viral Distribution &amp; Algorithm Science I" 
                 class="avatar-img"
                 crossorigin="anonymous"
-                loading="lazy"
+                loading="eager"
                 onerror="this.onerror=null; this.src='../assets/hrl-company-avatar.png';"
               />
             </div>
@@ -2020,7 +2020,7 @@
                 alt="Sneha Choudhary — Director of Short-Form Viral Distribution &amp; Algorithm Science III" 
                 class="avatar-img"
                 crossorigin="anonymous"
-                loading="lazy"
+                loading="eager"
                 onerror="this.onerror=null; this.src='../assets/hrl-company-avatar.png';"
               />
             </div>
@@ -2142,240 +2142,352 @@
       `;
       button.disabled = true;
 
-      let offscreenHost = null;
-      let exportWrapper = null;
-
       try {
-        // 1. Fetch & read original image to raw Base64 data URL via FileReader (immune to canvas taint & Safari SVG blocks)
+        const isCrimson = card.classList.contains('card-crimson');
+        const watermarkText = (card.querySelector('.card-watermark')?.innerText || '').trim();
+        const eyebrowText = (card.querySelector('.card-eyebrow-pill .pill-text')?.innerText || 'HRL Executive Council').trim();
+        const nameText = (card.querySelector('.card-main-title')?.innerText || memberName).trim();
+        const roleText = (card.querySelector('.card-accent-subhead')?.innerText || '').trim();
+        const descText = (card.querySelector('.card-body-desc')?.innerText || '').trim();
+        const divisionPill = card.querySelector('.division-tag-row .division-pill');
+        const divisionText = (divisionPill?.innerText || '@hrl').trim();
+        const footerName = (card.querySelector('.card-footer-name')?.innerText || nameText).trim();
+        const footerMeta = (card.querySelector('.card-footer-meta')?.innerText || '').trim();
         const origImg = card.querySelector('.avatar-img');
-        let circularBase64 = null;
+
+        // 1. Ensure avatar photo is 100% loaded and ready in memory
+        let avatarBitmap = null;
         if (origImg) {
-          try {
-            let rawDataUrl = null;
-            try {
-              const resp = await fetch(origImg.src);
-              const blob = await resp.blob();
-              rawDataUrl = await new Promise((resolve, reject) => {
-                const reader = new FileReader();
-                reader.onloadend = () => resolve(reader.result);
-                reader.onerror = reject;
-                reader.readAsDataURL(blob);
-              });
-            } catch (fetchErr) {
-              console.warn('Direct fetch fallback to image element:', fetchErr);
-            }
-
-            const tempImg = new Image();
-            tempImg.crossOrigin = 'anonymous';
-            tempImg.src = rawDataUrl || origImg.src;
-            if (!tempImg.complete || tempImg.naturalWidth === 0) {
-              await new Promise((resolve) => {
-                tempImg.onload = resolve;
-                tempImg.onerror = resolve;
-                setTimeout(resolve, 600);
-              });
-            }
-
-            const canvasSize = 400;
-            const c = document.createElement('canvas');
-            c.width = canvasSize;
-            c.height = canvasSize;
-            const ctx = c.getContext('2d');
-            ctx.imageSmoothingEnabled = true;
-            ctx.imageSmoothingQuality = 'high';
-
-            // Clean circular clip
-            ctx.save();
-            ctx.beginPath();
-            ctx.arc(canvasSize / 2, canvasSize / 2, canvasSize / 2 - 4, 0, Math.PI * 2);
-            ctx.closePath();
-            ctx.clip();
-            ctx.drawImage(tempImg, 0, 0, canvasSize, canvasSize);
-            ctx.restore();
-
-            // Crisp matching outer border ring
-            const isCrimsonCard = card.classList.contains('card-crimson');
-            ctx.beginPath();
-            ctx.arc(canvasSize / 2, canvasSize / 2, canvasSize / 2 - 4, 0, Math.PI * 2);
-            ctx.strokeStyle = isCrimsonCard ? '#D1002D' : '#0071E3';
-            ctx.lineWidth = 8;
-            ctx.stroke();
-
-            circularBase64 = c.toDataURL('image/png');
-          } catch (err) {
-            console.warn('Canvas conversion fallback:', err);
-            circularBase64 = origImg.src;
-          }
-        }
-
-        // 2. Clone the card for isolated 9:16 off-screen rendering
-        const clonedCard = card.cloneNode(true);
-        const clonedWrapper = clonedCard.querySelector('.avatar-wrapper');
-        const clonedImg = clonedCard.querySelector('.avatar-img');
-
-        if (clonedWrapper) {
-          clonedWrapper.style.background = 'none';
-          clonedWrapper.style.boxShadow = '0 10px 24px rgba(0,0,0,0.12)';
-          clonedWrapper.style.borderRadius = '50%';
-          clonedWrapper.style.overflow = 'hidden';
-          clonedWrapper.style.padding = '0';
-          clonedWrapper.style.border = 'none';
-        }
-
-        if (clonedImg) {
-          clonedImg.src = circularBase64 || origImg.src;
-          clonedImg.style.width = '146px';
-          clonedImg.style.height = '146px';
-          clonedImg.style.borderRadius = '50%';
-          clonedImg.style.objectFit = 'cover';
-          clonedImg.style.backgroundColor = 'transparent';
-        }
-
-        // 3. Swap "Download Card (PNG)" button with Scannable QR Code ONLY in the cloned export
-        const clonedActions = clonedCard.querySelector('.card-actions-row');
-        if (clonedActions) clonedActions.style.display = 'none';
-
-        const clonedQrRow = clonedCard.querySelector('.card-export-qr-row');
-        if (clonedQrRow) {
-          clonedQrRow.style.display = 'flex';
-          const qrBox = clonedQrRow.querySelector('.qr-code-box');
-          if (qrBox && window.QRCode) {
-            qrBox.innerHTML = '';
-            new QRCode(qrBox, {
-              text: 'https://hrlpavan.github.io/hrl-international-website-/',
-              width: 56,
-              height: 56,
-              colorDark: '#000000',
-              colorLight: '#ffffff',
-              correctLevel: QRCode.CorrectLevel.M
+          if (origImg.complete && origImg.naturalWidth > 0) {
+            avatarBitmap = origImg;
+          } else {
+            const loadImg = new Image();
+            loadImg.crossOrigin = 'anonymous';
+            loadImg.src = origImg.src;
+            await new Promise((resolve) => {
+              loadImg.onload = () => { avatarBitmap = loadImg; resolve(); };
+              loadImg.onerror = () => { avatarBitmap = origImg; resolve(); };
+              setTimeout(resolve, 800);
             });
           }
         }
 
-        const isCrimson = card.classList.contains('card-crimson');
+        // 2. Generate crisp vector QR Code directly
+        const tempQr = document.createElement('div');
+        let qrCanvas = null;
+        if (window.QRCode) {
+          new QRCode(tempQr, {
+            text: 'https://hrlpavan.github.io/hrl-international-website-/',
+            width: 140,
+            height: 140,
+            colorDark: '#000000',
+            colorLight: '#ffffff',
+            correctLevel: QRCode.CorrectLevel.M
+          });
+          await new Promise(r => setTimeout(r, 40));
+          qrCanvas = tempQr.querySelector('canvas') || tempQr.querySelector('img');
+        }
 
-        // Lock cloned card styles for Instagram Story display
-        clonedCard.style.width = '100%';
-        clonedCard.style.maxWidth = '440px';
-        clonedCard.style.margin = '0 auto';
-        clonedCard.style.transform = 'none';
-        clonedCard.style.transition = 'none';
-        clonedCard.style.boxShadow = isCrimson 
-          ? '0 20px 48px rgba(209, 0, 45, 0.20), 0 4px 12px rgba(209, 0, 45, 0.10)' 
-          : '0 20px 48px rgba(0, 0, 0, 0.16), 0 4px 12px rgba(0, 0, 0, 0.06)';
-
-        // 4. Create locked 9:16 Export Wrapper (540 x 960 px) inside offscreen host
-        offscreenHost = document.createElement('div');
-        offscreenHost.id = 'hrl-offscreen-host';
-        offscreenHost.style.position = 'fixed';
-        offscreenHost.style.left = '-9999px';
-        offscreenHost.style.top = '0';
-        offscreenHost.style.width = '540px';
-        offscreenHost.style.height = '960px';
-        offscreenHost.style.overflow = 'hidden';
-        offscreenHost.style.pointerEvents = 'none';
-        offscreenHost.style.zIndex = '-9999';
-
-        exportWrapper = document.createElement('div');
-        exportWrapper.id = 'hrl-export-wrapper';
-        exportWrapper.style.position = 'relative';
-        exportWrapper.style.width = '540px';
-        exportWrapper.style.height = '960px'; // 9:16 exact aspect ratio
-        exportWrapper.style.display = 'flex';
-        exportWrapper.style.flexDirection = 'column';
-        exportWrapper.style.justifyContent = 'center';
-        exportWrapper.style.alignItems = 'center';
-        exportWrapper.style.padding = '44px 36px';
-        exportWrapper.style.boxSizing = 'border-box';
-        exportWrapper.style.background = isCrimson 
-          ? 'linear-gradient(165deg, #FFFFFF 0%, #FFF5F6 40%, #FFE9ED 100%)' 
-          : 'linear-gradient(165deg, #FFFFFF 0%, #F8FAFC 40%, #FFF0F4 100%)';
-
-        // Style block to eliminate pseudo-elements and unclipped box-shadow smears in export wrapper
-        const exportStyleBlock = document.createElement('style');
-        exportStyleBlock.textContent = `
-          #hrl-export-wrapper .avatar-wrapper::before,
-          #hrl-export-wrapper .avatar-wrapper::after {
-            display: none !important;
-            content: none !important;
-            opacity: 0 !important;
-            visibility: hidden !important;
-          }
-        `;
-
-        exportWrapper.appendChild(exportStyleBlock);
-        exportWrapper.appendChild(clonedCard);
-        offscreenHost.appendChild(exportWrapper);
-        document.body.appendChild(offscreenHost);
-
-        // Wait a frame for layout & QR code canvas to paint
-        await new Promise(r => setTimeout(r, 60));
-
-        // 5. Render to 1080x1920 (scale 2 from 540x960) via htmlToImage
-        const storyDataUrl = await window.htmlToImage.toPng(exportWrapper, {
-          pixelRatio: 2, // 540*2 = 1080, 960*2 = 1920
-          quality: 1.0,
-          skipFonts: true,
-          fontEmbedCSS: '',
-          backgroundColor: isCrimson ? '#FFF5F6' : '#F8FAFC'
-        });
-
-        // 6. Draw to final 1080x1920 Canvas with high smoothing quality
-        const storyImg = new Image();
-        storyImg.src = storyDataUrl;
-        await new Promise(r => storyImg.onload = r);
-
-        const finalCanvas = document.createElement('canvas');
-        finalCanvas.width = 1080;
-        finalCanvas.height = 1920;
-        const ctx = finalCanvas.getContext('2d');
+        // 3. Create Master 1080 x 1920 HD Canvas (Exact 9:16 Instagram Story Ratio)
+        const canvas = document.createElement('canvas');
+        canvas.width = 1080;
+        canvas.height = 1920;
+        const ctx = canvas.getContext('2d');
         ctx.imageSmoothingEnabled = true;
         ctx.imageSmoothingQuality = 'high';
-        ctx.drawImage(storyImg, 0, 0, 1080, 1920);
 
-        const finalDataUrl = finalCanvas.toDataURL('image/png', 1.0);
+        // Background Atmosphere Gradient (Zero external bleed)
+        const bgGrad = ctx.createLinearGradient(0, 0, 1080, 1920);
+        if (isCrimson) {
+          bgGrad.addColorStop(0, '#FFFFFF');
+          bgGrad.addColorStop(0.35, '#FFF2F4');
+          bgGrad.addColorStop(1, '#FFE4E8');
+        } else {
+          bgGrad.addColorStop(0, '#FFFFFF');
+          bgGrad.addColorStop(0.35, '#F5F8FC');
+          bgGrad.addColorStop(1, '#EBF2FA');
+        }
+        ctx.fillStyle = bgGrad;
+        ctx.fillRect(0, 0, 1080, 1920);
 
+        // Card Container Dimensions
+        const cardX = 90;
+        const cardY = 160;
+        const cardW = 900;
+        const cardH = 1600;
+        const cardR = 44;
+
+        // Card Soft Ambient Shadow (Pure 2D canvas, perfectly contained)
+        ctx.save();
+        ctx.shadowColor = isCrimson ? 'rgba(209, 0, 45, 0.16)' : 'rgba(0, 50, 120, 0.12)';
+        ctx.shadowBlur = 54;
+        ctx.shadowOffsetY = 24;
+        ctx.fillStyle = '#FFFFFF';
+        ctx.beginPath();
+        ctx.roundRect(cardX, cardY, cardW, cardH, cardR);
+        ctx.fill();
+        ctx.restore();
+
+        // Clip strictly within Card bounds
+        ctx.save();
+        ctx.beginPath();
+        ctx.roundRect(cardX, cardY, cardW, cardH, cardR);
+        ctx.clip();
+
+        // Card Surface Fill
+        ctx.fillStyle = '#FFFFFF';
+        ctx.fillRect(cardX, cardY, cardW, cardH);
+
+        // Left Division Accent Stripe
+        ctx.fillStyle = isCrimson ? '#D1002D' : '#0071E3';
+        ctx.fillRect(cardX, cardY, 10, cardH);
+
+        // Monogram Watermark
+        if (watermarkText) {
+          ctx.save();
+          ctx.font = '900 240px -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif';
+          ctx.fillStyle = isCrimson ? 'rgba(209, 0, 45, 0.04)' : 'rgba(0, 113, 227, 0.04)';
+          ctx.textAlign = 'right';
+          ctx.textBaseline = 'alphabetic';
+          ctx.fillText(watermarkText, cardX + cardW - 20, cardY + cardH - 120);
+          ctx.restore();
+        }
+
+        // Eyebrow Badge Pill
+        const pillX = cardX + 54;
+        const pillY = cardY + 54;
+        ctx.save();
+        ctx.font = '700 22px -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif';
+        const eyebrowUpper = eyebrowText.toUpperCase();
+        const pillW = ctx.measureText(eyebrowUpper).width + 56;
+        const pillH = 44;
+
+        ctx.fillStyle = isCrimson ? '#FFF0F2' : '#F0F5FD';
+        ctx.beginPath();
+        ctx.roundRect(pillX, pillY, pillW, pillH, 22);
+        ctx.fill();
+
+        ctx.strokeStyle = isCrimson ? 'rgba(209, 0, 45, 0.22)' : 'rgba(0, 113, 227, 0.22)';
+        ctx.lineWidth = 1.5;
+        ctx.stroke();
+
+        ctx.fillStyle = isCrimson ? '#D1002D' : '#0071E3';
+        ctx.beginPath();
+        ctx.arc(pillX + 22, pillY + pillH / 2, 5, 0, Math.PI * 2);
+        ctx.fill();
+
+        ctx.textBaseline = 'middle';
+        ctx.fillText(eyebrowUpper, pillX + 36, pillY + pillH / 2 + 1);
+        ctx.restore();
+
+        // Master Avatar Hero Circle
+        const avatarCenterX = cardX + cardW / 2;
+        const avatarCenterY = cardY + 310;
+        const avatarRadius = 140;
+
+        ctx.save();
+        ctx.shadowColor = isCrimson ? 'rgba(209, 0, 45, 0.24)' : 'rgba(0, 0, 0, 0.16)';
+        ctx.shadowBlur = 32;
+        ctx.shadowOffsetY = 14;
+        ctx.fillStyle = '#FFFFFF';
+        ctx.beginPath();
+        ctx.arc(avatarCenterX, avatarCenterY, avatarRadius, 0, Math.PI * 2);
+        ctx.fill();
+        ctx.restore();
+
+        // Draw Avatar Photo (Pure Canvas 2D clip - Zero SVG foreignObject drop)
+        if (avatarBitmap && (avatarBitmap.naturalWidth || avatarBitmap.width)) {
+          ctx.save();
+          ctx.beginPath();
+          ctx.arc(avatarCenterX, avatarCenterY, avatarRadius - 4, 0, Math.PI * 2);
+          ctx.closePath();
+          ctx.clip();
+          ctx.drawImage(avatarBitmap, avatarCenterX - avatarRadius, avatarCenterY - avatarRadius, avatarRadius * 2, avatarRadius * 2);
+          ctx.restore();
+        }
+
+        // Avatar Outer Accent Ring
+        ctx.save();
+        ctx.beginPath();
+        ctx.arc(avatarCenterX, avatarCenterY, avatarRadius - 2, 0, Math.PI * 2);
+        ctx.strokeStyle = isCrimson ? '#D1002D' : '#0071E3';
+        ctx.lineWidth = 7;
+        ctx.stroke();
+        ctx.restore();
+
+        // Card Typography & Content Group
+        const contentLeft = cardX + 54;
+        const contentRight = cardX + cardW - 54;
+        const contentWidth = contentRight - contentLeft;
+        let curY = cardY + 520;
+
+        // Leader Name
+        ctx.save();
+        ctx.font = '800 56px -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif';
+        ctx.fillStyle = '#1D1D1F';
+        ctx.textBaseline = 'top';
+        ctx.fillText(nameText, contentLeft, curY);
+        curY += 72;
+
+        // Accent Subhead (Role)
+        ctx.font = '800 24px -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif';
+        ctx.fillStyle = isCrimson ? '#D1002D' : '#0071E3';
+        const roleWords = roleText.toUpperCase().split(' ');
+        let roleLine = '';
+        for (let n = 0; n < roleWords.length; n++) {
+          const test = roleLine + roleWords[n] + ' ';
+          if (ctx.measureText(test).width > contentWidth && n > 0) {
+            ctx.fillText(roleLine.trim(), contentLeft, curY);
+            roleLine = roleWords[n] + ' ';
+            curY += 34;
+          } else {
+            roleLine = test;
+          }
+        }
+        if (roleLine.trim()) {
+          ctx.fillText(roleLine.trim(), contentLeft, curY);
+          curY += 46;
+        }
+
+        // Body Description
+        ctx.font = '400 28px -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif';
+        ctx.fillStyle = '#4B5563';
+        const words = descText.split(' ');
+        let line = '';
+        for (let n = 0; n < words.length; n++) {
+          const test = line + words[n] + ' ';
+          if (ctx.measureText(test).width > contentWidth && n > 0) {
+            ctx.fillText(line.trim(), contentLeft, curY);
+            line = words[n] + ' ';
+            curY += 42;
+          } else {
+            line = test;
+          }
+        }
+        if (line.trim()) {
+          ctx.fillText(line.trim(), contentLeft, curY);
+          curY += 42;
+        }
+        curY += 16;
+
+        // Division Badge Pill
+        ctx.font = '700 22px -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif';
+        const divPillW = ctx.measureText(divisionText).width + 48;
+        const divPillH = 40;
+        ctx.fillStyle = isCrimson ? '#FFF0F2' : (divisionText.toUpperCase().includes('CORE') ? '#F0F5FD' : '#F4F4F6');
+        ctx.beginPath();
+        ctx.roundRect(contentLeft, curY, divPillW, divPillH, 20);
+        ctx.fill();
+
+        ctx.strokeStyle = isCrimson ? 'rgba(209, 0, 45, 0.25)' : (divisionText.toUpperCase().includes('CORE') ? 'rgba(0, 113, 227, 0.25)' : 'rgba(0, 0, 0, 0.12)');
+        ctx.lineWidth = 1.5;
+        ctx.stroke();
+
+        ctx.fillStyle = isCrimson ? '#D1002D' : (divisionText.toUpperCase().includes('CORE') ? '#0071E3' : '#64748B');
+        ctx.beginPath();
+        ctx.arc(contentLeft + 18, curY + divPillH / 2, 4.5, 0, Math.PI * 2);
+        ctx.fill();
+
+        ctx.fillStyle = isCrimson ? '#D1002D' : (divisionText.toUpperCase().includes('CORE') ? '#0071E3' : '#1D1D1F');
+        ctx.textBaseline = 'middle';
+        ctx.fillText(divisionText, contentLeft + 30, curY + divPillH / 2 + 1);
+        ctx.restore();
+
+        // Footer Section
+        const footerDividerY = cardY + cardH - 260;
+        ctx.save();
+        ctx.strokeStyle = 'rgba(0, 0, 0, 0.08)';
+        ctx.lineWidth = 1.5;
+        ctx.beginPath();
+        ctx.moveTo(contentLeft, footerDividerY);
+        ctx.lineTo(contentRight, footerDividerY);
+        ctx.stroke();
+
+        // Footer Member Name & Meta
+        ctx.font = '700 26px -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif';
+        ctx.fillStyle = '#1D1D1F';
+        ctx.textBaseline = 'top';
+        ctx.fillText(footerName, contentLeft, footerDividerY + 20);
+
+        ctx.font = '500 21px -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif';
+        ctx.fillStyle = '#6B7280';
+        ctx.fillText(footerMeta, contentLeft, footerDividerY + 56);
+
+        // Scannable QR Code
+        const qrY = footerDividerY + 98;
+        const qrSize = 130;
+        if (qrCanvas) {
+          ctx.drawImage(qrCanvas, contentLeft, qrY, qrSize, qrSize);
+        }
+
+        const qrTextX = contentLeft + qrSize + 24;
+        ctx.font = '700 20px -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif';
+        ctx.fillStyle = '#6B7280';
+        ctx.fillText('SCAN TO VERIFY & CONNECT', qrTextX, qrY + 32);
+
+        ctx.font = '600 22px -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif';
+        ctx.fillStyle = '#1D1D1F';
+        ctx.fillText('hrlpavan.github.io/hrl-international-website-/', qrTextX, qrY + 68);
+        ctx.restore();
+
+        ctx.restore(); // End card clip
+
+        // Export to mobile-safe PNG Blob
         const cleanName = memberName.replace(/[^a-zA-Z0-9]/g, '_');
         const filename = `HRL_Leadership_${cleanName}_Story_9x16.png`;
 
-        // Safari-safe, mobile-safe Blob download
-        const res = await fetch(finalDataUrl);
-        const blob = await res.blob();
-        const blobUrl = URL.createObjectURL(blob);
+        if (canvas.toBlob) {
+          await new Promise((resolve) => {
+            canvas.toBlob((blob) => {
+              if (!blob) {
+                showToast('Export failed. Please try again.');
+                button.innerHTML = originalHtml;
+                button.disabled = false;
+                resolve();
+                return;
+              }
+              const blobUrl = URL.createObjectURL(blob);
+              const link = document.createElement('a');
+              link.download = filename;
+              link.href = blobUrl;
+              document.body.appendChild(link);
+              link.click();
+              setTimeout(() => {
+                document.body.removeChild(link);
+                URL.revokeObjectURL(blobUrl);
+              }, 600);
 
-        const link = document.createElement('a');
-        link.download = filename;
-        link.href = blobUrl;
-        document.body.appendChild(link);
-        link.click();
-
-        setTimeout(() => {
-          document.body.removeChild(link);
-          URL.revokeObjectURL(blobUrl);
-        }, 500);
-
-        showToast(`Downloaded ${memberName} Card (9:16 HD PNG)`);
-        button.innerHTML = `
-          <svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><polyline points="20 6 9 17 4 12"/></svg>
-          <span>Downloaded!</span>
-        `;
-        setTimeout(() => {
+              showToast(`Downloaded ${memberName} Card (9:16 HD PNG)`);
+              button.innerHTML = `
+                <svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><polyline points="20 6 9 17 4 12"/></svg>
+                <span>Downloaded!</span>
+              `;
+              setTimeout(() => {
+                button.innerHTML = originalHtml;
+                button.disabled = false;
+              }, 2200);
+              resolve();
+            }, 'image/png', 1.0);
+          });
+        } else {
+          const dataUrl = canvas.toDataURL('image/png', 1.0);
+          const link = document.createElement('a');
+          link.download = filename;
+          link.href = dataUrl;
+          document.body.appendChild(link);
+          link.click();
+          setTimeout(() => {
+            document.body.removeChild(link);
+          }, 600);
+          showToast(`Downloaded ${memberName} Card (9:16 HD PNG)`);
           button.innerHTML = originalHtml;
           button.disabled = false;
-        }, 2200);
-
+        }
       } catch (err) {
         console.error('Download error:', err);
         showToast('Export failed. Please try again.');
         button.innerHTML = originalHtml;
         button.disabled = false;
-      } finally {
-        // Cleanup off-screen wrapper immediately
-        if (offscreenHost && offscreenHost.parentNode) {
-          offscreenHost.parentNode.removeChild(offscreenHost);
-        } else if (exportWrapper && exportWrapper.parentNode) {
-          exportWrapper.parentNode.removeChild(exportWrapper);
-        }
       }
     }
   </script>
