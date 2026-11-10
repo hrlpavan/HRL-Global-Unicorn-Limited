@@ -2149,48 +2149,89 @@
       let exportWrapper = null;
 
       try {
-        // 1. Preload & convert original avatar image to Base64 to guarantee zero blank image / CORS tainting
-        // Pre-clip strictly to circle to physically eliminate square photo bitmap corner leakage past border-radius in foreignObject SVG canvas
+        // 1. Fetch & read original image to raw Base64 data URL via FileReader (immune to canvas taint & Safari SVG blocks)
         const origImg = card.querySelector('.avatar-img');
-        let base64Src = null;
+        let circularBase64 = null;
         if (origImg) {
-          if (!origImg.complete || origImg.naturalWidth === 0) {
-            await new Promise((resolve) => {
-              origImg.onload = resolve;
-              origImg.onerror = resolve;
-              setTimeout(resolve, 600);
-            });
-          }
-          if (origImg.decode) {
-            try { await origImg.decode(); } catch(e){}
-          }
           try {
-            const size = Math.max(origImg.naturalWidth || 400, origImg.naturalHeight || 400, 400);
+            let rawDataUrl = null;
+            try {
+              const resp = await fetch(origImg.src);
+              const blob = await resp.blob();
+              rawDataUrl = await new Promise((resolve, reject) => {
+                const reader = new FileReader();
+                reader.onloadend = () => resolve(reader.result);
+                reader.onerror = reject;
+                reader.readAsDataURL(blob);
+              });
+            } catch (fetchErr) {
+              console.warn('Direct fetch fallback to image element:', fetchErr);
+            }
+
+            const tempImg = new Image();
+            tempImg.crossOrigin = 'anonymous';
+            tempImg.src = rawDataUrl || origImg.src;
+            if (!tempImg.complete || tempImg.naturalWidth === 0) {
+              await new Promise((resolve) => {
+                tempImg.onload = resolve;
+                tempImg.onerror = resolve;
+                setTimeout(resolve, 600);
+              });
+            }
+
+            const canvasSize = 400;
             const c = document.createElement('canvas');
-            c.width = size;
-            c.height = size;
+            c.width = canvasSize;
+            c.height = canvasSize;
             const ctx = c.getContext('2d');
+            ctx.imageSmoothingEnabled = true;
+            ctx.imageSmoothingQuality = 'high';
+
+            // Clean circular clip
+            ctx.save();
             ctx.beginPath();
-            ctx.arc(size / 2, size / 2, size / 2, 0, Math.PI * 2);
+            ctx.arc(canvasSize / 2, canvasSize / 2, canvasSize / 2 - 4, 0, Math.PI * 2);
             ctx.closePath();
             ctx.clip();
-            ctx.drawImage(origImg, 0, 0, size, size);
-            base64Src = c.toDataURL('image/png');
+            ctx.drawImage(tempImg, 0, 0, canvasSize, canvasSize);
+            ctx.restore();
+
+            // Crisp matching outer border ring
+            const isCrimsonCard = card.classList.contains('card-crimson');
+            ctx.beginPath();
+            ctx.arc(canvasSize / 2, canvasSize / 2, canvasSize / 2 - 4, 0, Math.PI * 2);
+            ctx.strokeStyle = isCrimsonCard ? '#D1002D' : '#0071E3';
+            ctx.lineWidth = 8;
+            ctx.stroke();
+
+            circularBase64 = c.toDataURL('image/png');
           } catch (err) {
             console.warn('Canvas conversion fallback:', err);
-            base64Src = origImg.src;
+            circularBase64 = origImg.src;
           }
         }
 
         // 2. Clone the card for isolated 9:16 off-screen rendering
         const clonedCard = card.cloneNode(true);
+        const clonedWrapper = clonedCard.querySelector('.avatar-wrapper');
+        const clonedImg = clonedCard.querySelector('.avatar-img');
 
-        // Apply preloaded base64 image to cloned card
-        if (base64Src) {
-          const clonedImg = clonedCard.querySelector('.avatar-img');
-          if (clonedImg) {
-            clonedImg.src = base64Src;
-          }
+        if (clonedWrapper) {
+          clonedWrapper.style.background = 'none';
+          clonedWrapper.style.boxShadow = '0 10px 24px rgba(0,0,0,0.12)';
+          clonedWrapper.style.borderRadius = '50%';
+          clonedWrapper.style.overflow = 'hidden';
+          clonedWrapper.style.padding = '0';
+          clonedWrapper.style.border = 'none';
+        }
+
+        if (clonedImg) {
+          clonedImg.src = circularBase64 || origImg.src;
+          clonedImg.style.width = '146px';
+          clonedImg.style.height = '146px';
+          clonedImg.style.borderRadius = '50%';
+          clonedImg.style.objectFit = 'cover';
+          clonedImg.style.backgroundColor = 'transparent';
         }
 
         // 3. Swap "Download Card (PNG)" button with Scannable QR Code ONLY in the cloned export
@@ -2227,8 +2268,6 @@
           : '0 20px 48px rgba(0, 0, 0, 0.16), 0 4px 12px rgba(0, 0, 0, 0.06)';
 
         // 4. Create locked 9:16 Export Wrapper (540 x 960 px) inside offscreen host
-        // The outer host is fixed at left: -9999px (never flashes or overlaps on user viewport)
-        // The inner wrapper is position: relative (renders at 0,0 inside SVG foreignObject canvas)
         offscreenHost = document.createElement('div');
         offscreenHost.id = 'hrl-offscreen-host';
         offscreenHost.style.position = 'fixed';
@@ -2249,12 +2288,25 @@
         exportWrapper.style.flexDirection = 'column';
         exportWrapper.style.justifyContent = 'center';
         exportWrapper.style.alignItems = 'center';
-        exportWrapper.style.padding = '48px 40px';
         exportWrapper.style.padding = '44px 36px';
         exportWrapper.style.boxSizing = 'border-box';
         exportWrapper.style.background = isCrimson 
           ? 'linear-gradient(165deg, #FFFFFF 0%, #FFF5F6 40%, #FFE9ED 100%)' 
           : 'linear-gradient(165deg, #FFFFFF 0%, #F8FAFC 40%, #FFF0F4 100%)';
+
+        // Style block to eliminate pseudo-elements and unclipped box-shadow smears in export wrapper
+        const exportStyleBlock = document.createElement('style');
+        exportStyleBlock.textContent = `
+          #hrl-export-wrapper .avatar-wrapper::before,
+          #hrl-export-wrapper .avatar-wrapper::after {
+            display: none !important;
+            content: none !important;
+            opacity: 0 !important;
+            visibility: hidden !important;
+          }
+        `;
+
+        exportWrapper.appendChild(exportStyleBlock);
         exportWrapper.appendChild(clonedCard);
         offscreenHost.appendChild(exportWrapper);
         document.body.appendChild(offscreenHost);
