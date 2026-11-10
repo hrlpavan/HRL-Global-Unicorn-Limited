@@ -280,6 +280,22 @@
   }
   </script>
 
+  <!-- Robust SVG Initials Fallback Handler (Zero Broken Images, Zero Cropping Artifacts) -->
+  <script>
+    function handleAvatarFallback(img, initials, accentColor) {
+      if (!img) return;
+      img.onerror = null;
+      const color = accentColor || '#0071e3';
+      const safeInitials = (initials || 'HRL').slice(0, 3).toUpperCase();
+      const svg = '<svg xmlns="http://www.w3.org/2000/svg" width="100" height="100" viewBox="0 0 100 100">' +
+        '<rect width="100" height="100" fill="#f8fafc"/>' +
+        '<circle cx="50" cy="50" r="46" fill="' + color + '" fill-opacity="0.08" stroke="' + color + '" stroke-width="2"/>' +
+        '<text x="50" y="56" font-family="-apple-system, BlinkMacSystemFont, \'SF Pro Display\', \'Segoe UI\', sans-serif" font-size="34" font-weight="700" fill="' + color + '" text-anchor="middle" dominant-baseline="middle">' + safeInitials + '</text>' +
+        '</svg>';
+      img.src = 'data:image/svg+xml;utf8,' + encodeURIComponent(svg);
+    }
+  </script>
+
   <!-- Apple Human Interface System & Mobile-First Styling -->
   <style>
     :root {
@@ -3804,15 +3820,37 @@
       height: 66px;
       border-radius: 50%;
       overflow: hidden;
-      margin-bottom: 10px;
-      border: 2px solid #ffffff;
-      box-shadow: 0 3px 10px rgba(0, 0, 0, 0.08);
+      margin: 0 auto 10px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      box-sizing: border-box;
+      border: 2px solid #0071e3;
+      box-shadow: 0 4px 12px rgba(0, 113, 227, 0.12);
       background: #f5f5f7;
+      transition: transform 0.25s ease, border-color 0.25s ease;
+    }
+    .directorate-card:hover .directorate-avatar-wrap {
+      transform: scale(1.05);
+    }
+    .directorate-avatar-wrap.crimson {
+      border-color: #e11d48;
+      box-shadow: 0 4px 12px rgba(225, 29, 72, 0.14);
+    }
+    .directorate-avatar-wrap.dev {
+      border-color: #0066cc;
+      box-shadow: 0 4px 12px rgba(0, 102, 204, 0.14);
+    }
+    .directorate-avatar-wrap.slate {
+      border-color: #475569;
+      box-shadow: 0 4px 12px rgba(71, 85, 105, 0.12);
     }
     .directorate-avatar-wrap img {
       width: 100%;
       height: 100%;
+      border-radius: 50%;
       object-fit: cover;
+      object-position: center;
       display: block;
     }
     .directorate-card-name {
@@ -7362,8 +7400,8 @@
         <div class="directorate-grid">
           <!-- 1. Nishwin (First in Top Edge) -->
           <a href="leadership.html" class="directorate-card">
-            <div class="directorate-avatar-wrap">
-              <img src="HRL%20CORE%20COMPANY%20ROLE/nishwin.jpeg" alt="Nishwin" loading="lazy" />
+            <div class="directorate-avatar-wrap slate">
+              <img src="HRL%20CORE%20COMPANY%20ROLE/nishwin.jpeg" alt="Nishwin" loading="lazy" onerror="handleAvatarFallback(this, 'NW', '#475569');" />
             </div>
             <div class="directorate-card-name">Nishwin</div>
             <div class="directorate-card-role">CTO, Crimson Red Media</div>
@@ -7373,7 +7411,7 @@
           <!-- 2. Sanjana -->
           <a href="leadership.html" class="directorate-card">
             <div class="directorate-avatar-wrap">
-              <img src="HRL%20CORE%20COMPANY%20ROLE/sanjana.png" alt="Sanjana" loading="lazy" />
+              <img src="HRL%20CORE%20COMPANY%20ROLE/sanjana.png" alt="Sanjana" loading="lazy" onerror="handleAvatarFallback(this, 'SJ', '#0071e3');" />
             </div>
             <div class="directorate-card-name">Sanjana</div>
             <div class="directorate-card-role">Chief Operations Officer (COO)</div>
@@ -7383,7 +7421,7 @@
           <!-- 3. Pavan Kumar Sadashiv (In Center, Between Sanjana & Apoorvi) -->
           <a href="leadership.html" class="directorate-card" style="border-color: rgba(0, 113, 227, 0.25); box-shadow: 0 4px 14px rgba(0, 113, 227, 0.06);">
             <div class="directorate-avatar-wrap" style="border-color: #0071e3;">
-              <img src="assets/hrlpavan-founder-avatar.jpg" alt="Pavan Kumar Sadashiv" loading="lazy" />
+              <img src="assets/hrlpavan-founder-avatar.jpg" alt="Pavan Kumar Sadashiv" loading="lazy" onerror="handleAvatarFallback(this, 'PS', '#0071e3');" />
             </div>
             <div class="directorate-card-name">Pavan Kumar Sadashiv</div>
             <div class="directorate-card-role">Founder &amp; Managing Director</div>
@@ -7392,8 +7430,8 @@
 
           <!-- 4. Apoorvi Vijay -->
           <a href="leadership.html" class="directorate-card">
-            <div class="directorate-avatar-wrap">
-              <img src="HRL%20CORE%20COMPANY%20ROLE/apoorvi-vijay.jpg" alt="Apoorvi Vijay" loading="lazy" />
+            <div class="directorate-avatar-wrap crimson">
+              <img src="HRL%20CORE%20COMPANY%20ROLE/apoorvi-vijay.jpg" alt="Apoorvi Vijay" loading="lazy" onerror="handleAvatarFallback(this, 'AV', '#e11d48');" />
             </div>
             <div class="directorate-card-name">Apoorvi Vijay</div>
             <div class="directorate-card-role">CEO, Crimson Red Media</div>
@@ -7402,8 +7440,8 @@
 
           <!-- 5. Sheikh Mohammed Raees (At the End of Top Row) -->
           <a href="leadership.html" class="directorate-card">
-            <div class="directorate-avatar-wrap">
-              <img src="HRL%20CORE%20COMPANY%20ROLE/sheikh-mohammed-raees.jpg" alt="Sheikh Mohammed Raees" loading="lazy" />
+            <div class="directorate-avatar-wrap crimson">
+              <img src="HRL%20CORE%20COMPANY%20ROLE/sheikh-mohammed-raees.jpg" alt="Sheikh Mohammed Raees" loading="lazy" onerror="handleAvatarFallback(this, 'SR', '#e11d48');" />
             </div>
             <div class="directorate-card-name">Sheikh Mohammed Raees</div>
             <div class="directorate-card-role">Chief Executive Officer (CEO)</div>
@@ -7413,7 +7451,7 @@
           <!-- 6. Samruddhi Shetty (Sector 02 Lead) -->
           <a href="leadership.html" class="directorate-card">
             <div class="directorate-avatar-wrap">
-              <img src="HRL%20CORE%20COMPANY%20ROLE/samruddhi-shetty.jpeg" alt="Samruddhi Shetty" loading="lazy" />
+              <img src="HRL%20CORE%20COMPANY%20ROLE/samruddhi-shetty.jpeg" alt="Samruddhi Shetty" loading="lazy" onerror="handleAvatarFallback(this, 'SS', '#0071e3');" />
             </div>
             <div class="directorate-card-name">Samruddhi Shetty</div>
             <div class="directorate-card-role">Director of Autonomous Swarms &amp; Multi-Agent Reasoning</div>
@@ -7422,8 +7460,8 @@
 
           <!-- 7. Rakshitha Bhandary -->
           <a href="leadership.html" class="directorate-card">
-            <div class="directorate-avatar-wrap">
-              <img src="HRL%20CORE%20COMPANY%20ROLE/rakshitha-bhandary.jpg" alt="Rakshitha Bhandary" loading="lazy" />
+            <div class="directorate-avatar-wrap crimson">
+              <img src="HRL%20CORE%20COMPANY%20ROLE/rakshitha-bhandary.jpg" alt="Rakshitha Bhandary" loading="lazy" onerror="handleAvatarFallback(this, 'RB', '#e11d48');" />
             </div>
             <div class="directorate-card-name">Rakshitha Bhandary</div>
             <div class="directorate-card-role">Chief Communications Officer</div>
@@ -7432,8 +7470,8 @@
 
           <!-- 8. Savi -->
           <a href="leadership.html" class="directorate-card">
-            <div class="directorate-avatar-wrap">
-              <img src="HRL%20CORE%20COMPANY%20ROLE/savi.jpeg" alt="Savi" loading="lazy" />
+            <div class="directorate-avatar-wrap dev">
+              <img src="HRL%20CORE%20COMPANY%20ROLE/savi.jpeg" alt="Savi" loading="lazy" onerror="handleAvatarFallback(this, 'SV', '#0066cc');" />
             </div>
             <div class="directorate-card-name">Savi</div>
             <div class="directorate-card-role">VP of Technical Evangelism &amp; Ecosystem Relations</div>
@@ -7442,8 +7480,8 @@
 
           <!-- 9. Sanvi Brijesh -->
           <a href="leadership.html" class="directorate-card">
-            <div class="directorate-avatar-wrap">
-              <img src="HRL%20CORE%20COMPANY%20ROLE/sanvi-brijesh.jpeg" alt="Sanvi Brijesh" loading="lazy" />
+            <div class="directorate-avatar-wrap crimson">
+              <img src="HRL%20CORE%20COMPANY%20ROLE/sanvi-brijesh.jpeg" alt="Sanvi Brijesh" loading="lazy" onerror="handleAvatarFallback(this, 'SB', '#e11d48');" />
             </div>
             <div class="directorate-card-name">Sanvi Brijesh</div>
             <div class="directorate-card-role">Director of Short-Form Viral Distribution &amp; Algorithm Science I</div>
@@ -7452,8 +7490,8 @@
 
           <!-- 10. Sneha Choudhary -->
           <a href="leadership.html" class="directorate-card">
-            <div class="directorate-avatar-wrap">
-              <img src="HRL%20CORE%20COMPANY%20ROLE/sneha-choudhary.jpeg" alt="Sneha Choudhary" loading="lazy" />
+            <div class="directorate-avatar-wrap crimson">
+              <img src="HRL%20CORE%20COMPANY%20ROLE/sneha-choudhary.jpeg" alt="Sneha Choudhary" loading="lazy" onerror="handleAvatarFallback(this, 'SC', '#e11d48');" />
             </div>
             <div class="directorate-card-name">Sneha Choudhary</div>
             <div class="directorate-card-role">Director of Short-Form Viral Distribution &amp; Algorithm Science III</div>
@@ -7462,8 +7500,8 @@
 
           <!-- 11. Shubhada Naik (Row 3) -->
           <a href="leadership.html" class="directorate-card">
-            <div class="directorate-avatar-wrap">
-              <img src="HRL%20CORE%20COMPANY%20ROLE/shubhada-naik.jpg" alt="Shubhada Naik" loading="lazy" />
+            <div class="directorate-avatar-wrap slate">
+              <img src="HRL%20CORE%20COMPANY%20ROLE/shubhada-naik.jpg" alt="Shubhada Naik" loading="lazy" onerror="handleAvatarFallback(this, 'SN', '#475569');" />
             </div>
             <div class="directorate-card-name">Shubhada Naik</div>
             <div class="directorate-card-role">CMO, Crimson Red Media</div>
@@ -7473,7 +7511,7 @@
           <!-- 12. Jia Shetty -->
           <a href="leadership.html" class="directorate-card">
             <div class="directorate-avatar-wrap">
-              <img src="HRL%20CORE%20COMPANY%20ROLE/jia-shetty.jpeg" alt="Jia Shetty" loading="lazy" />
+              <img src="HRL%20CORE%20COMPANY%20ROLE/jia-shetty.jpeg" alt="Jia Shetty" loading="lazy" onerror="handleAvatarFallback(this, 'JS', '#0071e3');" />
             </div>
             <div class="directorate-card-name">Jia Shetty</div>
             <div class="directorate-card-role">CFO, Crimson Red Media</div>
@@ -7482,8 +7520,8 @@
 
           <!-- 13. Saismitha -->
           <a href="leadership.html" class="directorate-card">
-            <div class="directorate-avatar-wrap">
-              <img src="HRL%20CORE%20COMPANY%20ROLE/Saismitha.jpg" alt="Saismitha" loading="lazy" />
+            <div class="directorate-avatar-wrap crimson">
+              <img src="HRL%20CORE%20COMPANY%20ROLE/Saismitha.jpg" alt="Saismitha" loading="lazy" onerror="handleAvatarFallback(this, 'SM', '#e11d48');" />
             </div>
             <div class="directorate-card-name">Saismitha</div>
             <div class="directorate-card-role">VP, Strategic Partnerships</div>
@@ -7493,7 +7531,7 @@
           <!-- 14. Seejal -->
           <a href="leadership.html" class="directorate-card">
             <div class="directorate-avatar-wrap">
-              <img src="HRL%20CORE%20COMPANY%20ROLE/seejal.jpg" alt="Seejal" loading="lazy" />
+              <img src="HRL%20CORE%20COMPANY%20ROLE/seejal.jpg" alt="Seejal" loading="lazy" onerror="handleAvatarFallback(this, 'SJ', '#0071e3');" />
             </div>
             <div class="directorate-card-name">Seejal</div>
             <div class="directorate-card-role">VP, Digital Growth</div>
@@ -7502,8 +7540,8 @@
 
           <!-- 15. Thaif -->
           <a href="leadership.html" class="directorate-card">
-            <div class="directorate-avatar-wrap">
-              <img src="HRL%20CORE%20COMPANY%20ROLE/thaif.jpg" alt="Thaif" loading="lazy" />
+            <div class="directorate-avatar-wrap dev">
+              <img src="HRL%20CORE%20COMPANY%20ROLE/thaif.jpg" alt="Thaif" loading="lazy" onerror="handleAvatarFallback(this, 'TH', '#0066cc');" />
             </div>
             <div class="directorate-card-name">Thaif</div>
             <div class="directorate-card-role">VP, Production &amp; Logistics</div>

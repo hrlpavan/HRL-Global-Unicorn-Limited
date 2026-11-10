@@ -269,6 +269,22 @@
   }
   </script>
 
+  <!-- Robust SVG Initials Fallback Handler (Zero Broken Images, Zero Cropping Artifacts) -->
+  <script>
+    function handleAvatarFallback(img, initials, accentColor) {
+      if (!img) return;
+      img.onerror = null;
+      const color = accentColor || '#0071e3';
+      const safeInitials = (initials || 'HRL').slice(0, 3).toUpperCase();
+      const svg = '<svg xmlns="http://www.w3.org/2000/svg" width="140" height="140" viewBox="0 0 140 140">' +
+        '<rect width="140" height="140" fill="#f8fafc"/>' +
+        '<circle cx="70" cy="70" r="66" fill="' + color + '" fill-opacity="0.08" stroke="' + color + '" stroke-width="2.5"/>' +
+        '<text x="70" y="78" font-family="-apple-system, BlinkMacSystemFont, \'SF Pro Display\', \'Segoe UI\', sans-serif" font-size="44" font-weight="700" fill="' + color + '" text-anchor="middle" dominant-baseline="middle">' + safeInitials + '</text>' +
+        '</svg>';
+      img.src = 'data:image/svg+xml;utf8,' + encodeURIComponent(svg);
+    }
+  </script>
+
   <!-- Strict HRL Master Brand Design System CSS -->
   <style>
     :root {
@@ -723,86 +739,66 @@
     }
 
     /* ========================================================= */
-    /* MASTER SPECULAR GLASS AVATAR LENS & CONIC CHROME RIM     */
-    /* Safari & WebKit Safe: Zero Masking, Zero Smears           */
+    /* MASTER CIRCULAR AVATAR CONTAINER & ACCENT PALETTE BORDERS */
+    /* Strict Circular Masking, Zero Smears, Zero Cropping Arcs  */
     /* ========================================================= */
     .avatar-hero-container {
       display: flex;
       justify-content: center;
       align-items: center;
-      margin: 8px 0 22px;
+      margin: 8px auto 22px;
       width: 100%;
-      overflow: visible;
-      padding: 6px 12px;
+      padding: 4px 0;
     }
     .avatar-wrapper {
       position: relative;
-      width: 146px;
-      height: 146px;
-      border-radius: 50%;
-      padding: 3px;
-      box-sizing: border-box;
-      background: conic-gradient(
-        from 225deg,
-        #ffffff 0deg,
-        #cbd5e1 35deg,
-        #64748b 70deg,
-        #334155 120deg,
-        #0f172a 160deg,
-        #1e293b 200deg,
-        #475569 230deg,
-        #94a3b8 270deg,
-        #e2e8f0 310deg,
-        #ffffff 340deg,
-        #ffffff 360deg
-      );
-      box-shadow: 
-        0 12px 28px rgba(0, 0, 0, 0.14),
-        0 2px 6px rgba(0, 0, 0, 0.08);
-      overflow: visible;
-      display: inline-flex;
-      align-items: center;
-      justify-content: center;
-      flex-shrink: 0;
-      line-height: 0;
-      transition: transform 0.35s cubic-bezier(0.16, 1, 0.3, 1), box-shadow 0.35s cubic-bezier(0.16, 1, 0.3, 1);
-    }
-    .avatar-wrapper.crimson-rim {
-      background: conic-gradient(
-        from 225deg,
-        #ffffff 0deg,
-        #fecdd3 30deg,
-        #D1002D 75deg,
-        #881337 130deg,
-        #3f0713 170deg,
-        #881337 210deg,
-        #D1002D 260deg,
-        #f43f5e 300deg,
-        #ffffff 340deg,
-        #ffffff 360deg
-      );
-      box-shadow: 
-        0 12px 28px rgba(209, 0, 45, 0.22),
-        0 2px 6px rgba(209, 0, 45, 0.12);
-    }
-    .tactile-identity-card:hover .avatar-wrapper {
-      transform: scale(1.03) translateY(-2px);
-      box-shadow: 
-        0 16px 36px rgba(0, 0, 0, 0.20),
-        0 4px 10px rgba(0, 0, 0, 0.10);
-    }
-    .tactile-identity-card.card-crimson:hover .avatar-wrapper.crimson-rim {
-      box-shadow: 
-        0 16px 38px rgba(209, 0, 45, 0.32),
-        0 4px 10px rgba(209, 0, 45, 0.16);
-    }
-
-    .avatar-img {
       width: 140px;
       height: 140px;
       border-radius: 50%;
+      overflow: hidden;
+      margin: 0 auto;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      box-sizing: border-box;
+      border: 3px solid #0071e3;
+      box-shadow: 0 10px 26px rgba(0, 113, 227, 0.16), 0 2px 6px rgba(0, 0, 0, 0.06);
+      background-color: #f8fafc;
+      flex-shrink: 0;
+      transition: transform 0.35s cubic-bezier(0.16, 1, 0.3, 1), box-shadow 0.35s cubic-bezier(0.16, 1, 0.3, 1), border-color 0.35s ease;
+    }
+    .avatar-wrapper.crimson-rim,
+    .avatar-wrapper.border-council,
+    .tactile-identity-card.card-crimson .avatar-wrapper {
+      border-color: #e11d48;
+      box-shadow: 0 10px 26px rgba(225, 29, 72, 0.22), 0 2px 6px rgba(225, 29, 72, 0.10);
+    }
+    .avatar-wrapper.dev-rim,
+    .avatar-wrapper.border-dev {
+      border-color: #0066cc;
+      box-shadow: 0 10px 26px rgba(0, 102, 204, 0.20), 0 2px 6px rgba(0, 102, 204, 0.10);
+    }
+    .avatar-wrapper.slate-rim,
+    .avatar-wrapper.border-slate {
+      border-color: #475569;
+      box-shadow: 0 10px 26px rgba(71, 85, 105, 0.16), 0 2px 6px rgba(0, 0, 0, 0.06);
+    }
+    .tactile-identity-card:hover .avatar-wrapper {
+      transform: scale(1.03) translateY(-2px);
+      box-shadow: 0 16px 36px rgba(0, 0, 0, 0.18), 0 4px 10px rgba(0, 0, 0, 0.08);
+    }
+    .tactile-identity-card.card-crimson:hover .avatar-wrapper,
+    .tactile-identity-card:hover .avatar-wrapper.crimson-rim,
+    .tactile-identity-card:hover .avatar-wrapper.border-council {
+      box-shadow: 0 16px 38px rgba(225, 29, 72, 0.30), 0 4px 10px rgba(225, 29, 72, 0.14);
+    }
+
+    .avatar-img {
+      width: 100%;
+      height: 100%;
+      border-radius: 50%;
       object-fit: cover;
-      object-position: center 20%;
+      object-position: center;
       display: block;
       background-color: #f1f5f9;
       border: none !important;
@@ -812,42 +808,6 @@
     }
     .tactile-identity-card:hover .avatar-img {
       filter: contrast(1.03) brightness(1.02);
-    }
-
-    /* Specular Glass Mirror Reflection & Internal Glare Bevel */
-    .avatar-wrapper::after {
-      content: "";
-      position: absolute;
-      inset: 3px;
-      border-radius: 50%;
-      pointer-events: none;
-      z-index: 2;
-      background: 
-        /* Upper 45-degree Specular Mirror Sheen / Lens Horizon Glare */
-        linear-gradient(
-          135deg,
-          rgba(255, 255, 255, 0.38) 0%,
-          rgba(255, 255, 255, 0.15) 28%,
-          rgba(255, 255, 255, 0.02) 48%,
-          transparent 52%,
-          rgba(255, 255, 255, 0.03) 75%,
-          rgba(255, 255, 255, 0.12) 100%
-        ),
-        /* Top Radial Studio Keylight Flare */
-        radial-gradient(
-          ellipse at 50% 0%,
-          rgba(255, 255, 255, 0.45) 0%,
-          rgba(255, 255, 255, 0.12) 32%,
-          transparent 65%
-        );
-      box-shadow: 
-        inset 0 1.5px 2px rgba(255, 255, 255, 0.90),
-        inset 0 -1.5px 2px rgba(0, 0, 0, 0.35),
-        inset 0 0 0 1px rgba(255, 255, 255, 0.20);
-      transition: opacity 0.35s ease;
-    }
-    .tactile-identity-card:hover .avatar-wrapper::after {
-      opacity: 0.92;
     }
 
     /* Card Identity Hierarchy (Rate Card Standard) */
@@ -1286,14 +1246,14 @@
           </div>
 
           <div class="avatar-hero-container">
-            <div class="avatar-wrapper">
+            <div class="avatar-wrapper border-council">
               <img 
                 src="HRL%20CORE%20COMPANY%20ROLE/sheikh-mohammed-raees.jpg" 
                 alt="Sheikh Mohammed Raees — Chief Executive Officer (CEO)" 
                 class="avatar-img"
                 crossorigin="anonymous"
                 loading="eager"
-                onerror="this.onerror=null; this.src='assets/hrl-company-avatar.png';"
+                onerror="handleAvatarFallback(this, 'SR', '#e11d48');"
               />
             </div>
           </div>
@@ -1349,7 +1309,7 @@
                 class="avatar-img"
                 crossorigin="anonymous"
                 loading="eager"
-                onerror="this.onerror=null; this.src='assets/hrl-company-avatar.png';"
+                onerror="handleAvatarFallback(this, 'SJ', '#0071e3');"
               />
             </div>
           </div>
@@ -1405,7 +1365,7 @@
                 class="avatar-img"
                 crossorigin="anonymous"
                 loading="eager"
-                onerror="this.onerror=null; this.src='assets/hrl-company-avatar.png';"
+                onerror="handleAvatarFallback(this, 'AV', '#e11d48');"
               />
             </div>
           </div>
@@ -1454,14 +1414,14 @@
           </div>
 
           <div class="avatar-hero-container">
-            <div class="avatar-wrapper">
+            <div class="avatar-wrapper border-slate">
               <img 
                 src="HRL%20CORE%20COMPANY%20ROLE/nishwin.jpeg" 
                 alt="Nishwin — Real Estate Agent (REA)" 
                 class="avatar-img"
                 crossorigin="anonymous"
                 loading="eager"
-                onerror="this.onerror=null; this.src='assets/hrl-company-avatar.png';"
+                onerror="handleAvatarFallback(this, 'NW', '#475569');"
               />
             </div>
           </div>
@@ -1510,14 +1470,14 @@
           </div>
 
           <div class="avatar-hero-container">
-            <div class="avatar-wrapper">
+            <div class="avatar-wrapper border-slate">
               <img 
                 src="HRL%20CORE%20COMPANY%20ROLE/shubhada-naik.jpg" 
                 alt="Shubhada Naik — Business Consultant" 
                 class="avatar-img"
                 crossorigin="anonymous"
                 loading="eager"
-                onerror="this.onerror=null; this.src='assets/hrl-company-avatar.png';"
+                onerror="handleAvatarFallback(this, 'SN', '#475569');"
               />
             </div>
           </div>
@@ -1573,7 +1533,7 @@
                 class="avatar-img"
                 crossorigin="anonymous"
                 loading="eager"
-                onerror="this.onerror=null; this.src='assets/hrl-company-avatar.png';"
+                onerror="handleAvatarFallback(this, 'JS', '#0071e3');"
               />
             </div>
           </div>
@@ -1622,14 +1582,14 @@
           </div>
 
           <div class="avatar-hero-container">
-            <div class="avatar-wrapper">
+            <div class="avatar-wrapper crimson-rim">
               <img 
                 src="HRL%20CORE%20COMPANY%20ROLE/Saismitha.jpg" 
                 alt="Saismitha — Head of Commercial Brands &amp; Brand Partnerships Lead" 
                 class="avatar-img"
                 crossorigin="anonymous"
                 loading="eager"
-                onerror="this.onerror=null; this.src='assets/hrl-company-avatar.png';"
+                onerror="handleAvatarFallback(this, 'SM', '#e11d48');"
               />
             </div>
           </div>
@@ -1685,7 +1645,7 @@
                 class="avatar-img"
                 crossorigin="anonymous"
                 loading="eager"
-                onerror="this.onerror=null; this.src='assets/hrl-company-avatar.png';"
+                onerror="handleAvatarFallback(this, 'SJ', '#0071e3');"
               />
             </div>
           </div>
@@ -1734,14 +1694,14 @@
           </div>
 
           <div class="avatar-hero-container">
-            <div class="avatar-wrapper">
+            <div class="avatar-wrapper dev-rim">
               <img 
                 src="HRL%20CORE%20COMPANY%20ROLE/thaif.jpg" 
                 alt="Thaif — Developer Ecosystem Coordinator" 
                 class="avatar-img"
                 crossorigin="anonymous"
                 loading="eager"
-                onerror="this.onerror=null; this.src='assets/hrl-company-avatar.png';"
+                onerror="handleAvatarFallback(this, 'TH', '#0066cc');"
               />
             </div>
           </div>
@@ -1797,7 +1757,7 @@
                 class="avatar-img"
                 crossorigin="anonymous"
                 loading="eager"
-                onerror="this.onerror=null; this.src='assets/hrl-company-avatar.png';"
+                onerror="handleAvatarFallback(this, 'SS', '#0071e3');"
               />
             </div>
           </div>
@@ -1846,14 +1806,14 @@
           </div>
 
           <div class="avatar-hero-container">
-            <div class="avatar-wrapper">
+            <div class="avatar-wrapper border-council">
               <img 
                 src="HRL%20CORE%20COMPANY%20ROLE/rakshitha-bhandary.jpg" 
                 alt="Rakshitha Bhandary — Chief Communications Officer" 
                 class="avatar-img"
                 crossorigin="anonymous"
                 loading="eager"
-                onerror="this.onerror=null; this.src='assets/hrl-company-avatar.png';"
+                onerror="handleAvatarFallback(this, 'RB', '#e11d48');"
               />
             </div>
           </div>
@@ -1902,14 +1862,14 @@
           </div>
 
           <div class="avatar-hero-container">
-            <div class="avatar-wrapper">
+            <div class="avatar-wrapper dev-rim">
               <img 
                 src="HRL%20CORE%20COMPANY%20ROLE/savi.jpeg" 
                 alt="Savi — VP of Technical Evangelism &amp; Ecosystem Relations" 
                 class="avatar-img"
                 crossorigin="anonymous"
                 loading="eager"
-                onerror="this.onerror=null; this.src='assets/hrl-company-avatar.png';"
+                onerror="handleAvatarFallback(this, 'SV', '#0066cc');"
               />
             </div>
           </div>
@@ -1958,14 +1918,14 @@
           </div>
 
           <div class="avatar-hero-container">
-            <div class="avatar-wrapper">
+            <div class="avatar-wrapper crimson-rim">
               <img 
                 src="HRL%20CORE%20COMPANY%20ROLE/sanvi-brijesh.jpeg" 
                 alt="Sanvi Brijesh — Director of Short-Form Viral Distribution &amp; Algorithm Science I" 
                 class="avatar-img"
                 crossorigin="anonymous"
                 loading="eager"
-                onerror="this.onerror=null; this.src='assets/hrl-company-avatar.png';"
+                onerror="handleAvatarFallback(this, 'SB', '#e11d48');"
               />
             </div>
           </div>
@@ -2014,14 +1974,14 @@
           </div>
 
           <div class="avatar-hero-container">
-            <div class="avatar-wrapper">
+            <div class="avatar-wrapper crimson-rim">
               <img 
                 src="HRL%20CORE%20COMPANY%20ROLE/sneha-choudhary.jpeg" 
                 alt="Sneha Choudhary — Director of Short-Form Viral Distribution &amp; Algorithm Science III" 
                 class="avatar-img"
                 crossorigin="anonymous"
                 loading="eager"
-                onerror="this.onerror=null; this.src='assets/hrl-company-avatar.png';"
+                onerror="handleAvatarFallback(this, 'SC', '#e11d48');"
               />
             </div>
           </div>
@@ -2306,6 +2266,22 @@
           ctx.closePath();
           ctx.clip();
           ctx.drawImage(avatarBitmap, avatarCenterX - avatarRadius, avatarCenterY - avatarRadius, avatarRadius * 2, avatarRadius * 2);
+          ctx.restore();
+        } else {
+          // Robust Typographic Initials Fallback on Canvas
+          ctx.save();
+          ctx.fillStyle = isCrimson ? '#FFF0F2' : '#F0F5FD';
+          ctx.beginPath();
+          ctx.arc(avatarCenterX, avatarCenterY, avatarRadius - 4, 0, Math.PI * 2);
+          ctx.fill();
+
+          const words = nameText.split(' ').filter(Boolean);
+          const initials = (words.length > 1 ? (words[0][0] + words[words.length - 1][0]) : (words[0] ? words[0].slice(0, 2) : 'HR')).toUpperCase();
+          ctx.font = '800 96px -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif';
+          ctx.fillStyle = isCrimson ? '#D1002D' : '#0071E3';
+          ctx.textAlign = 'center';
+          ctx.textBaseline = 'middle';
+          ctx.fillText(initials, avatarCenterX, avatarCenterY + 4);
           ctx.restore();
         }
 
