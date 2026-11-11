@@ -753,8 +753,8 @@
     }
 
     /* ========================================================= */
-    /* MASTER CIRCULAR AVATAR CONTAINER & ACCENT PALETTE BORDERS */
-    /* Strict Circular Masking, Zero Smears, Zero Cropping Arcs  */
+    /* HRL 4-LAYER OPTICAL CIRCULAR AVATAR DESIGN SYSTEM         */
+    /* Specular Glass Conic Rim, Glare Dome, Verified Badge      */
     /* ========================================================= */
     .avatar-hero-container {
       display: flex;
@@ -764,57 +764,38 @@
       width: 100%;
       padding: 4px 0;
     }
-    .avatar-wrapper {
+    .avatar-wrapper,
+    .avatar-wrapper.hrl-avatar-wrapper {
       position: relative;
       width: 140px;
       height: 140px;
+      aspect-ratio: 1 / 1;
       border-radius: 50%;
-      overflow: hidden;
       margin: 0 auto;
       display: flex;
       align-items: center;
       justify-content: center;
       box-sizing: border-box;
-      border: 3px solid #0071e3;
-      box-shadow: 0 10px 26px rgba(0, 113, 227, 0.16), 0 2px 6px rgba(0, 0, 0, 0.06);
-      background-color: #f8fafc;
       flex-shrink: 0;
-      transition: transform 0.35s cubic-bezier(0.16, 1, 0.3, 1), box-shadow 0.35s cubic-bezier(0.16, 1, 0.3, 1), border-color 0.35s ease;
-    }
-    .avatar-wrapper.crimson-rim,
-    .avatar-wrapper.border-council,
-    .tactile-identity-card.card-crimson .avatar-wrapper {
-      border-color: #e11d48;
-      box-shadow: 0 10px 26px rgba(225, 29, 72, 0.22), 0 2px 6px rgba(225, 29, 72, 0.10);
-    }
-    .avatar-wrapper.dev-rim,
-    .avatar-wrapper.border-dev {
-      border-color: #0066cc;
-      box-shadow: 0 10px 26px rgba(0, 102, 204, 0.20), 0 2px 6px rgba(0, 102, 204, 0.10);
-    }
-    .avatar-wrapper.slate-rim,
-    .avatar-wrapper.border-slate {
-      border-color: #475569;
-      box-shadow: 0 10px 26px rgba(71, 85, 105, 0.16), 0 2px 6px rgba(0, 0, 0, 0.06);
+      background-color: #0B0E14;
+      box-shadow: 0 16px 36px rgba(0, 0, 0, 0.45), 0 4px 12px rgba(0, 0, 0, 0.30);
+      transition: transform 0.35s cubic-bezier(0.16, 1, 0.3, 1), box-shadow 0.35s cubic-bezier(0.16, 1, 0.3, 1);
     }
     .tactile-identity-card:hover .avatar-wrapper {
-      transform: scale(1.03) translateY(-2px);
-      box-shadow: 0 16px 36px rgba(0, 0, 0, 0.18), 0 4px 10px rgba(0, 0, 0, 0.08);
-    }
-    .tactile-identity-card.card-crimson:hover .avatar-wrapper,
-    .tactile-identity-card:hover .avatar-wrapper.crimson-rim,
-    .tactile-identity-card:hover .avatar-wrapper.border-council {
-      box-shadow: 0 16px 38px rgba(225, 29, 72, 0.30), 0 4px 10px rgba(225, 29, 72, 0.14);
+      transform: scale(1.04) translateY(-2px);
+      box-shadow: 0 20px 42px rgba(0, 0, 0, 0.50), 0 6px 16px rgba(0, 0, 0, 0.35);
     }
 
+    /* Layer 1: Base Image */
     .avatar-img {
       width: 100%;
       height: 100%;
+      aspect-ratio: 1 / 1;
       border-radius: 50%;
       object-fit: cover;
-      object-position: center;
+      object-position: center top;
       display: block;
-      background-color: #f1f5f9;
+      background-color: #0B0E14;
       border: none !important;
       position: relative;
       z-index: 1;
@@ -822,6 +803,79 @@
     }
     .tactile-identity-card:hover .avatar-img {
       filter: contrast(1.03) brightness(1.02);
+    }
+
+    /* Layer 2: 225deg Specular Glass Conic Rim (::before) */
+    .avatar-wrapper::before {
+      content: "";
+      position: absolute;
+      inset: -2px;
+      border-radius: 50%;
+      padding: 2px;
+      background: conic-gradient(
+        from 225deg,
+        rgba(255, 255, 255, 0.95) 0deg,
+        rgba(255, 255, 255, 0.30) 65deg,
+        rgba(255, 255, 255, 0.05) 140deg,
+        rgba(0, 0, 0, 0.40) 180deg,
+        rgba(255, 255, 255, 0.20) 240deg,
+        rgba(255, 255, 255, 0.80) 310deg,
+        rgba(255, 255, 255, 0.95) 360deg
+      );
+      -webkit-mask: linear-gradient(#fff 0 0) content-box, linear-gradient(#fff 0 0);
+      -webkit-mask-composite: xor;
+      mask-composite: exclude;
+      pointer-events: none;
+      filter: drop-shadow(0 2px 6px rgba(0, 0, 0, 0.35));
+      z-index: 2;
+    }
+
+    /* Layer 3: Internal Specular Bevel & Light Glare (::after) */
+    .avatar-wrapper::after {
+      content: "";
+      position: absolute;
+      inset: 0;
+      border-radius: 50%;
+      pointer-events: none;
+      background: radial-gradient(circle at 50% 0%, rgba(255, 255, 255, 0.28) 0%, rgba(255, 255, 255, 0.05) 40%, transparent 65%);
+      box-shadow: 
+        inset 0 1.5px 2px rgba(255, 255, 255, 0.85),
+        inset 0 -1.5px 2px rgba(0, 0, 0, 0.50);
+      z-index: 3;
+    }
+
+    /* Layer 4: Bottom-Right Anchored Verified Status Badge (.verified-badge) */
+    .avatar-wrapper .verified-badge {
+      position: absolute;
+      bottom: 2px;
+      right: 2px;
+      border-radius: 50%;
+      width: 32px;
+      height: 32px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      border: 2px solid #FFFFFF;
+      box-shadow: 0 2px 8px rgba(0, 0, 0, 0.20);
+      z-index: 4;
+      background: #D1002D;
+      color: #FFFFFF;
+    }
+    .avatar-wrapper .verified-badge.azure {
+      background: #0071E3;
+    }
+    .avatar-wrapper .verified-badge.violet {
+      background: #8B5CF6;
+    }
+    .avatar-wrapper .verified-badge.emerald {
+      background: #10B981;
+    }
+    .avatar-wrapper .verified-badge svg {
+      width: 16px;
+      height: 16px;
+      stroke-width: 3;
+      stroke: currentColor;
+      fill: none;
     }
 
     /* Card Identity Hierarchy (Rate Card Standard) */
@@ -1260,7 +1314,7 @@
           </div>
 
           <div class="avatar-hero-container">
-            <div class="avatar-wrapper border-council">
+            <div class="avatar-wrapper hrl-avatar-wrapper border-council">
               <img 
                 src="HRL%20CORE%20COMPANY%20ROLE/sheikh-mohammed-raees.jpg" 
                 alt="Sheikh Mohammed Raees — Chief Executive Officer (CEO)" 
@@ -1269,6 +1323,11 @@
                 loading="eager"
                 onerror="handleAvatarFallback(this, 'SR', '#e11d48');"
               />
+              <div class="verified-badge" title="Verified Entity">
+                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3" stroke-linecap="round" stroke-linejoin="round">
+                  <polyline points="20 6 9 17 4 12"></polyline>
+                </svg>
+              </div>
             </div>
           </div>
 
@@ -1316,7 +1375,7 @@
           </div>
 
           <div class="avatar-hero-container">
-            <div class="avatar-wrapper">
+            <div class="avatar-wrapper hrl-avatar-wrapper">
               <img 
                 src="HRL%20CORE%20COMPANY%20ROLE/sanjana.png" 
                 alt="Sanjana — Co-Founder" 
@@ -1325,6 +1384,11 @@
                 loading="eager"
                 onerror="handleAvatarFallback(this, 'SJ', '#0071e3');"
               />
+              <div class="verified-badge" title="Verified Entity">
+                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3" stroke-linecap="round" stroke-linejoin="round">
+                  <polyline points="20 6 9 17 4 12"></polyline>
+                </svg>
+              </div>
             </div>
           </div>
 
@@ -1372,7 +1436,7 @@
           </div>
 
           <div class="avatar-hero-container">
-            <div class="avatar-wrapper crimson-rim">
+            <div class="avatar-wrapper hrl-avatar-wrapper crimson-rim">
               <img 
                 src="HRL%20CORE%20COMPANY%20ROLE/apoorvi-vijay.jpg" 
                 alt="Apoorvi Vijay — Chief Executive Officer (CEO)" 
@@ -1381,6 +1445,11 @@
                 loading="eager"
                 onerror="handleAvatarFallback(this, 'AV', '#e11d48');"
               />
+              <div class="verified-badge" title="Verified Entity">
+                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3" stroke-linecap="round" stroke-linejoin="round">
+                  <polyline points="20 6 9 17 4 12"></polyline>
+                </svg>
+              </div>
             </div>
           </div>
 
@@ -1428,7 +1497,7 @@
           </div>
 
           <div class="avatar-hero-container">
-            <div class="avatar-wrapper border-slate">
+            <div class="avatar-wrapper hrl-avatar-wrapper border-slate">
               <img 
                 src="HRL%20CORE%20COMPANY%20ROLE/nishwin.jpeg" 
                 alt="Nishwin — Real Estate Agent (REA)" 
@@ -1437,6 +1506,11 @@
                 loading="eager"
                 onerror="handleAvatarFallback(this, 'NW', '#475569');"
               />
+              <div class="verified-badge azure" title="Verified Entity">
+                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3" stroke-linecap="round" stroke-linejoin="round">
+                  <polyline points="20 6 9 17 4 12"></polyline>
+                </svg>
+              </div>
             </div>
           </div>
 
@@ -1484,7 +1558,7 @@
           </div>
 
           <div class="avatar-hero-container">
-            <div class="avatar-wrapper border-slate">
+            <div class="avatar-wrapper hrl-avatar-wrapper border-slate">
               <img 
                 src="HRL%20CORE%20COMPANY%20ROLE/shubhada-naik.jpg" 
                 alt="Shubhada Naik — Business Consultant" 
@@ -1493,6 +1567,11 @@
                 loading="eager"
                 onerror="handleAvatarFallback(this, 'SN', '#475569');"
               />
+              <div class="verified-badge" title="Verified Entity">
+                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3" stroke-linecap="round" stroke-linejoin="round">
+                  <polyline points="20 6 9 17 4 12"></polyline>
+                </svg>
+              </div>
             </div>
           </div>
 
@@ -1540,7 +1619,7 @@
           </div>
 
           <div class="avatar-hero-container">
-            <div class="avatar-wrapper">
+            <div class="avatar-wrapper hrl-avatar-wrapper">
               <img 
                 src="HRL%20CORE%20COMPANY%20ROLE/jia-shetty.jpeg" 
                 alt="Jia Shetty — Core Community Manager" 
@@ -1549,6 +1628,11 @@
                 loading="eager"
                 onerror="handleAvatarFallback(this, 'JS', '#0071e3');"
               />
+              <div class="verified-badge emerald" title="Verified Entity">
+                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3" stroke-linecap="round" stroke-linejoin="round">
+                  <polyline points="20 6 9 17 4 12"></polyline>
+                </svg>
+              </div>
             </div>
           </div>
 
@@ -1596,7 +1680,7 @@
           </div>
 
           <div class="avatar-hero-container">
-            <div class="avatar-wrapper crimson-rim">
+            <div class="avatar-wrapper hrl-avatar-wrapper crimson-rim">
               <img 
                 src="HRL%20CORE%20COMPANY%20ROLE/Saismitha.jpg" 
                 alt="Saismitha — Head of Commercial Brands &amp; Brand Partnerships Lead" 
@@ -1605,6 +1689,11 @@
                 loading="eager"
                 onerror="handleAvatarFallback(this, 'SM', '#e11d48');"
               />
+              <div class="verified-badge" title="Verified Entity">
+                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3" stroke-linecap="round" stroke-linejoin="round">
+                  <polyline points="20 6 9 17 4 12"></polyline>
+                </svg>
+              </div>
             </div>
           </div>
 
@@ -1652,7 +1741,7 @@
           </div>
 
           <div class="avatar-hero-container">
-            <div class="avatar-wrapper">
+            <div class="avatar-wrapper hrl-avatar-wrapper">
               <img 
                 src="HRL%20CORE%20COMPANY%20ROLE/seejal.jpg" 
                 alt="Seejal — Deep Data &amp; Data Engineering" 
@@ -1661,6 +1750,11 @@
                 loading="eager"
                 onerror="handleAvatarFallback(this, 'SJ', '#0071e3');"
               />
+              <div class="verified-badge" title="Verified Entity">
+                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3" stroke-linecap="round" stroke-linejoin="round">
+                  <polyline points="20 6 9 17 4 12"></polyline>
+                </svg>
+              </div>
             </div>
           </div>
 
@@ -1708,7 +1802,7 @@
           </div>
 
           <div class="avatar-hero-container">
-            <div class="avatar-wrapper dev-rim">
+            <div class="avatar-wrapper hrl-avatar-wrapper dev-rim">
               <img 
                 src="HRL%20CORE%20COMPANY%20ROLE/thaif.jpg" 
                 alt="Thaif — Developer Ecosystem Coordinator" 
@@ -1717,6 +1811,11 @@
                 loading="eager"
                 onerror="handleAvatarFallback(this, 'TH', '#0066cc');"
               />
+              <div class="verified-badge azure" title="Verified Entity">
+                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3" stroke-linecap="round" stroke-linejoin="round">
+                  <polyline points="20 6 9 17 4 12"></polyline>
+                </svg>
+              </div>
             </div>
           </div>
 
@@ -1764,7 +1863,7 @@
           </div>
 
           <div class="avatar-hero-container">
-            <div class="avatar-wrapper">
+            <div class="avatar-wrapper hrl-avatar-wrapper">
               <img 
                 src="HRL%20CORE%20COMPANY%20ROLE/samruddhi-shetty.jpeg" 
                 alt="Samruddhi Shetty — Director of Autonomous Swarms &amp; Multi-Agent Reasoning" 
@@ -1773,6 +1872,11 @@
                 loading="eager"
                 onerror="handleAvatarFallback(this, 'SS', '#0071e3');"
               />
+              <div class="verified-badge violet" title="Verified Entity">
+                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3" stroke-linecap="round" stroke-linejoin="round">
+                  <polyline points="20 6 9 17 4 12"></polyline>
+                </svg>
+              </div>
             </div>
           </div>
 
@@ -1820,7 +1924,7 @@
           </div>
 
           <div class="avatar-hero-container">
-            <div class="avatar-wrapper border-council">
+            <div class="avatar-wrapper hrl-avatar-wrapper border-council">
               <img 
                 src="HRL%20CORE%20COMPANY%20ROLE/rakshitha-bhandary.jpg" 
                 alt="Rakshitha Bhandary — Chief Communications Officer" 
@@ -1829,6 +1933,11 @@
                 loading="eager"
                 onerror="handleAvatarFallback(this, 'RB', '#e11d48');"
               />
+              <div class="verified-badge" title="Verified Entity">
+                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3" stroke-linecap="round" stroke-linejoin="round">
+                  <polyline points="20 6 9 17 4 12"></polyline>
+                </svg>
+              </div>
             </div>
           </div>
 
@@ -1876,7 +1985,7 @@
           </div>
 
           <div class="avatar-hero-container">
-            <div class="avatar-wrapper dev-rim">
+            <div class="avatar-wrapper hrl-avatar-wrapper dev-rim">
               <img 
                 src="HRL%20CORE%20COMPANY%20ROLE/savi.jpeg" 
                 alt="Savi — VP of Technical Evangelism &amp; Ecosystem Relations" 
@@ -1885,6 +1994,11 @@
                 loading="eager"
                 onerror="handleAvatarFallback(this, 'SV', '#0066cc');"
               />
+              <div class="verified-badge azure" title="Verified Entity">
+                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3" stroke-linecap="round" stroke-linejoin="round">
+                  <polyline points="20 6 9 17 4 12"></polyline>
+                </svg>
+              </div>
             </div>
           </div>
 
@@ -1932,7 +2046,7 @@
           </div>
 
           <div class="avatar-hero-container">
-            <div class="avatar-wrapper crimson-rim">
+            <div class="avatar-wrapper hrl-avatar-wrapper crimson-rim">
               <img 
                 src="HRL%20CORE%20COMPANY%20ROLE/sanvi-brijesh.jpeg" 
                 alt="Saanvi Brijesh — Director of Short-Form Viral Distribution &amp; Algorithm Science I" 
@@ -1941,6 +2055,11 @@
                 loading="eager"
                 onerror="handleAvatarFallback(this, 'SB', '#e11d48');"
               />
+              <div class="verified-badge" title="Verified Entity">
+                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3" stroke-linecap="round" stroke-linejoin="round">
+                  <polyline points="20 6 9 17 4 12"></polyline>
+                </svg>
+              </div>
             </div>
           </div>
 
@@ -1988,7 +2107,7 @@
           </div>
 
           <div class="avatar-hero-container">
-            <div class="avatar-wrapper crimson-rim">
+            <div class="avatar-wrapper hrl-avatar-wrapper crimson-rim">
               <img 
                 src="HRL%20CORE%20COMPANY%20ROLE/Mizba.jpeg" 
                 alt="Mizba — Director of Short-Form Viral Distribution &amp; Algorithm Science II" 
@@ -1997,6 +2116,11 @@
                 loading="eager"
                 onerror="handleAvatarFallback(this, 'MB', '#e11d48');"
               />
+              <div class="verified-badge" title="Verified Entity">
+                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3" stroke-linecap="round" stroke-linejoin="round">
+                  <polyline points="20 6 9 17 4 12"></polyline>
+                </svg>
+              </div>
             </div>
           </div>
 
@@ -2044,7 +2168,7 @@
           </div>
 
           <div class="avatar-hero-container">
-            <div class="avatar-wrapper crimson-rim">
+            <div class="avatar-wrapper hrl-avatar-wrapper crimson-rim">
               <img 
                 src="HRL%20CORE%20COMPANY%20ROLE/sneha-choudhary.jpeg" 
                 alt="Sneha Choudhary — Director of Short-Form Viral Distribution &amp; Algorithm Science III" 
@@ -2053,6 +2177,11 @@
                 loading="eager"
                 onerror="handleAvatarFallback(this, 'SC', '#e11d48');"
               />
+              <div class="verified-badge" title="Verified Entity">
+                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3" stroke-linecap="round" stroke-linejoin="round">
+                  <polyline points="20 6 9 17 4 12"></polyline>
+                </svg>
+              </div>
             </div>
           </div>
 
@@ -2335,7 +2464,12 @@
           ctx.arc(avatarCenterX, avatarCenterY, avatarRadius - 4, 0, Math.PI * 2);
           ctx.closePath();
           ctx.clip();
-          ctx.drawImage(avatarBitmap, avatarCenterX - avatarRadius, avatarCenterY - avatarRadius, avatarRadius * 2, avatarRadius * 2);
+          const natW = avatarBitmap.naturalWidth || avatarBitmap.width;
+          const natH = avatarBitmap.naturalHeight || avatarBitmap.height;
+          const minDim = Math.min(natW, natH);
+          const sx = (natW - minDim) / 2;
+          const sy = natH > natW ? (natH - minDim) * 0.15 : (natH - minDim) / 2;
+          ctx.drawImage(avatarBitmap, sx, sy, minDim, minDim, avatarCenterX - avatarRadius, avatarCenterY - avatarRadius, avatarRadius * 2, avatarRadius * 2);
           ctx.restore();
         } else {
           // Robust Typographic Initials Fallback on Canvas
@@ -2361,6 +2495,41 @@
         ctx.arc(avatarCenterX, avatarCenterY, avatarRadius - 2, 0, Math.PI * 2);
         ctx.strokeStyle = isCrimson ? '#D1002D' : '#0071E3';
         ctx.lineWidth = 7;
+        ctx.stroke();
+        ctx.restore();
+
+        // Layer 4: Verified Status Badge on Canvas
+        const badgeAngle = Math.PI / 4;
+        const badgeCenterX = avatarCenterX + (avatarRadius - 8) * Math.cos(badgeAngle);
+        const badgeCenterY = avatarCenterY + (avatarRadius - 8) * Math.sin(badgeAngle);
+        const badgeRadius = 26;
+
+        ctx.save();
+        ctx.beginPath();
+        ctx.arc(badgeCenterX, badgeCenterY, badgeRadius + 3, 0, Math.PI * 2);
+        ctx.fillStyle = '#FFFFFF';
+        ctx.fill();
+
+        ctx.beginPath();
+        ctx.arc(badgeCenterX, badgeCenterY, badgeRadius, 0, Math.PI * 2);
+        const badgeEl = card.querySelector('.verified-badge');
+        let badgeBg = isCrimson ? '#D1002D' : '#0071E3';
+        if (badgeEl?.classList.contains('violet')) badgeBg = '#8B5CF6';
+        else if (badgeEl?.classList.contains('emerald')) badgeBg = '#10B981';
+        else if (badgeEl?.classList.contains('azure')) badgeBg = '#0071E3';
+        else if (badgeEl) badgeBg = '#D1002D';
+        ctx.fillStyle = badgeBg;
+        ctx.fill();
+
+        // Checkmark Icon
+        ctx.beginPath();
+        ctx.strokeStyle = '#FFFFFF';
+        ctx.lineWidth = 4.5;
+        ctx.lineCap = 'round';
+        ctx.lineJoin = 'round';
+        ctx.moveTo(badgeCenterX - 10, badgeCenterY);
+        ctx.lineTo(badgeCenterX - 3, badgeCenterY + 7);
+        ctx.lineTo(badgeCenterX + 10, badgeCenterY - 6);
         ctx.stroke();
         ctx.restore();
 
