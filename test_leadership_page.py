@@ -29,7 +29,7 @@ def test_leadership_pages():
         ('Samruddhi Shetty', 'Director of Autonomous Swarms & Multi-Agent Reasoning', '@HRLCORE', 'samruddhi-shetty.jpeg'),
         ('Rakshitha Bhandary', 'Chief Communications Officer', '@HRLCORE', 'rakshitha-bhandary.jpg'),
         ('Savi', 'VP of Technical Evangelism & Ecosystem Relations', '@HRLCORE', 'savi.jpeg'),
-        ('Sanvi Brijesh', 'Director of Short-Form Viral Distribution & Algorithm Science I', '@hrlcrimsonRED', 'sanvi-brijesh.jpeg'),
+        ('Saanvi Brijesh', 'Director of Short-Form Viral Distribution & Algorithm Science I', '@hrlcrimsonRED', 'sanvi-brijesh.jpeg'),
         ('Mizba', 'Director of Short-Form Viral Distribution & Algorithm Science II', '@hrlcrimsonRED', 'Mizba.jpeg'),
         ('Sneha Choudhary', 'Director of Short-Form Viral Distribution & Algorithm Science III', '@hrlcrimsonRED', 'sneha-choudhary.jpeg'),
     ]
