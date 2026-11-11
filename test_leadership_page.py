@@ -26,7 +26,7 @@ def test_leadership_pages():
         ('Saismitha', 'Head of Commercial Brands & Brand Partnerships Lead', '@hrl', 'Saismitha.jpg'),
         ('Seejal', 'Deep Data & Data Engineering', '@hrl', 'seejal.jpg'),
         ('Thaif', 'Developer Ecosystem Coordinator', '@hrl', 'thaif.jpg'),
-        ('Samruddhi Shetty', 'Director of Autonomous Swarms & Multi-Agent Reasoning', '@HRLCORE', 'samruddhi-shetty.jpeg'),
+        ('Samrudhi Shetty', 'Director of Autonomous Swarms & Multi-Agent Reasoning', '@HRLCORE', 'samruddhi-shetty.jpeg'),
         ('Rakshitha Bhandary', 'Chief Communications Officer', '@HRLCORE', 'rakshitha-bhandary.jpg'),
         ('Savi', 'VP of Technical Evangelism & Ecosystem Relations', '@HRLCORE', 'savi.jpeg'),
         ('Saanvi Brijesh', 'Director of Short-Form Viral Distribution & Algorithm Science I', '@hrlcrimsonRED', 'sanvi-brijesh.jpeg'),
