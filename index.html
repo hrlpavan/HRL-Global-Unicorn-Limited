@@ -600,75 +600,151 @@
       align-items: center;
       width: 100%;
     }
-    /* HRL x Agensi Co-Branded Top Pill & Console Plaque */
+    /* ========================================================= */
+    /* APPLE HERO PRELUDE & UNIFIED ANNOUNCEMENT ARCHITECTURE     */
+    /* Master Frosted Glass, Cohesive Geometry, Zero Visual Clutter */
+    /* ========================================================= */
+    .apple-hero-prelude {
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: center;
+      gap: 10px;
+      width: 100%;
+      max-width: 980px;
+      margin: 0 auto 16px;
+    }
+
+    /* HRL x Agensi Co-Branded Top Pill */
     .apple-announcement-pill {
       display: inline-flex;
       align-items: center;
       justify-content: center;
-      gap: 10px 14px;
-      padding: 9px 20px;
-      background: #FDFDFF;
-      border: 1px solid rgba(128, 0, 32, 0.20);
+      gap: 12px;
+      padding: 7px 18px 7px 14px;
+      background: rgba(255, 255, 255, 0.95);
+      backdrop-filter: blur(20px);
+      -webkit-backdrop-filter: blur(20px);
+      border: 1px solid rgba(0, 0, 0, 0.08);
       border-radius: 9999px;
       text-decoration: none;
-      margin: 0 auto 20px;
-      box-shadow: 0 6px 22px rgba(128, 0, 32, 0.08);
+      margin: 0;
+      box-shadow: 0 2px 8px rgba(0, 0, 0, 0.03), 0 1px 2px rgba(0, 0, 0, 0.02);
       transition: all 0.25s cubic-bezier(0.16, 1, 0.3, 1);
       cursor: pointer;
       max-width: min(94vw, 760px);
     }
     .apple-announcement-pill:hover {
-      background: #FDFDFF;
-      border-color: #CCA43B;
-      transform: translateY(-2px);
-      box-shadow: 0 10px 28px rgba(128, 0, 32, 0.14);
+      background: #FFFFFF;
+      border-color: rgba(204, 164, 59, 0.45);
+      transform: translateY(-1px);
+      box-shadow: 0 6px 20px rgba(0, 0, 0, 0.06);
     }
     .pill-collab-logos {
       display: inline-flex;
       align-items: center;
       justify-content: center;
-      gap: 10px;
-      padding-right: 12px;
-      border-right: 1px solid rgba(128, 0, 32, 0.16);
+      gap: 9px;
+      padding-right: 11px;
+      border-right: 1px solid rgba(0, 0, 0, 0.08);
       flex-shrink: 0;
     }
     .pill-logo-hrl {
-      height: 20px;
+      height: 18px;
       width: auto;
       display: block;
       object-fit: contain;
-      transform: translateY(1.5px);
+      transform: translateY(1px);
     }
     .pill-collab-x {
       color: #CCA43B;
-      font-size: 15px;
+      font-size: 13px;
       font-weight: 700;
       line-height: 1;
       display: inline-flex;
       align-items: center;
     }
     .pill-logo-agensi {
-      height: 16px;
+      height: 15px;
       width: auto;
       display: block;
       object-fit: contain;
     }
     .pill-badge-text {
-      font-size: 13px;
+      font-size: 12.5px;
       font-weight: 600;
-      color: #1d1d1f;
+      color: #1D1D1F;
       letter-spacing: -0.01em;
-      line-height: 1.35;
+      line-height: 1.3;
     }
     .pill-badge-arrow {
-      color: #800020;
+      color: #D1002D;
       display: inline-flex;
       align-items: center;
       transition: transform 0.2s ease;
       flex-shrink: 0;
     }
     .apple-announcement-pill:hover .pill-badge-arrow {
-      transform: translateX(4px);
+      transform: translateX(3px);
+    }
+
+    /* Unified Global Dual-Presence & Version 3.0 Status Row */
+    .hero-status-row {
+      display: flex;
+      flex-wrap: wrap;
+      align-items: center;
+      justify-content: center;
+      gap: 8px 10px;
+      margin: 0;
+      width: 100%;
+    }
+    .hero-status-chip {
+      display: inline-flex;
+      align-items: center;
+      gap: 7px;
+      background: rgba(255, 255, 255, 0.95);
+      backdrop-filter: blur(20px);
+      -webkit-backdrop-filter: blur(20px);
+      border: 1px solid rgba(0, 0, 0, 0.08);
+      padding: 5px 14px;
+      border-radius: 9999px;
+      font-size: 11.5px;
+      font-weight: 600;
+      color: #1D1D1F;
+      box-shadow: 0 1px 3px rgba(0, 0, 0, 0.03);
+      text-decoration: none;
+      transition: all 0.2s cubic-bezier(0.16, 1, 0.3, 1);
+      line-height: 1.3;
+      white-space: nowrap;
+    }
+    .hero-status-chip.chip-interactive:hover {
+      border-color: rgba(209, 0, 45, 0.25);
+      color: #D1002D;
+      transform: translateY(-1px);
+      box-shadow: 0 4px 12px rgba(209, 0, 45, 0.08);
+    }
+    .status-indicator-dot {
+      display: inline-block;
+      width: 6.5px;
+      height: 6.5px;
+      border-radius: 50%;
+      flex-shrink: 0;
+    }
+    .status-indicator-dot.dot-azure {
+      background: #0071E3;
+      box-shadow: 0 0 5px rgba(0, 113, 227, 0.40);
+    }
+    .status-indicator-dot.dot-crimson {
+      background: #D1002D;
+      box-shadow: 0 0 5px rgba(209, 0, 45, 0.40);
+    }
+    .chip-arrow {
+      font-size: 12px;
+      line-height: 1;
+      transition: transform 0.2s ease;
+    }
+    .hero-status-chip.chip-interactive:hover .chip-arrow {
+      transform: translateX(3px);
     }
     .crypto-collab-plaque {
       display: inline-flex;
@@ -701,18 +777,28 @@
       height: 19px;
     }
     @media (max-width: 720px) {
-      .apple-announcement-pill {
-        flex-direction: column;
-        gap: 6px;
-        border-radius: 18px;
-        padding: 12px 18px;
+      .apple-hero-prelude {
+        gap: 8px;
+        margin-bottom: 14px;
       }
-      .pill-collab-logos {
-        border-right: none;
-        padding-right: 0;
+      .apple-announcement-pill {
+        flex-direction: row;
+        gap: 9px;
+        padding: 6px 14px;
+        max-width: 95vw;
       }
       .pill-badge-arrow {
         display: none;
+      }
+      .hero-status-row {
+        gap: 6px;
+      }
+      .hero-status-chip {
+        white-space: normal;
+        text-align: center;
+        justify-content: center;
+        font-size: 11px;
+        padding: 5px 12px;
       }
       .crypto-collab-plaque {
         gap: 11px;
@@ -721,12 +807,30 @@
       .crypto-collab-plaque .pill-logo-hrl { height: 21px; }
       .crypto-collab-plaque .pill-logo-agensi { height: 17px; }
     }
+    @media (max-width: 480px) {
+      .hero-status-row {
+        flex-direction: column;
+      }
+      .apple-announcement-pill {
+        flex-direction: column;
+        gap: 6px;
+        border-radius: 18px;
+        padding: 10px 14px;
+      }
+      .pill-collab-logos {
+        border-right: none;
+        padding-right: 0;
+      }
+    }
     .hero-eyebrow {
-      font-size: 14px;
-      font-weight: 600;
+      font-size: 13px;
+      font-weight: 700;
       color: #D1002D;
-      margin-bottom: 6px;
-      letter-spacing: -0.01em;
+      text-transform: uppercase;
+      letter-spacing: 0.08em;
+      margin: 8px 0 6px;
+      display: block;
+      line-height: 1.25;
     }
     .hero-headline {
       font-size: clamp(34px, 7vw, 56px);
@@ -2463,19 +2567,22 @@
     .company-motto-badge {
       display: inline-flex;
       align-items: center;
-      gap: 12px;
-      background: #FFFFFF;
+      gap: 10px;
+      background: rgba(255, 255, 255, 0.95);
+      backdrop-filter: blur(20px);
+      -webkit-backdrop-filter: blur(20px);
       border: 1px solid rgba(0, 0, 0, 0.08);
-      padding: 5px 18px 5px 6px;
+      padding: 4px 16px 4px 5px;
       border-radius: 9999px;
-      box-shadow: 0 2px 8px rgba(0, 0, 0, 0.04), 0 1px 2px rgba(0, 0, 0, 0.02);
-      transition: all 0.2s cubic-bezier(0.16, 1, 0.3, 1);
-      margin-bottom: 24px;
+      box-shadow: 0 2px 8px rgba(0, 0, 0, 0.03), 0 1px 2px rgba(0, 0, 0, 0.02);
+      transition: all 0.25s cubic-bezier(0.16, 1, 0.3, 1);
+      margin: 0;
       vertical-align: middle;
+      max-width: min(94vw, 780px);
     }
     .company-motto-badge:hover {
-      border-color: rgba(0, 0, 0, 0.14);
-      box-shadow: 0 4px 14px rgba(0, 0, 0, 0.06);
+      border-color: rgba(209, 0, 45, 0.20);
+      box-shadow: 0 4px 14px rgba(0, 0, 0, 0.05);
       transform: translateY(-1px);
     }
     .motto-tag {
@@ -2484,7 +2591,7 @@
       font-size: 10px;
       font-weight: 700;
       text-transform: uppercase;
-      letter-spacing: 0.05em;
+      letter-spacing: 0.06em;
       padding: 4px 11px;
       border-radius: 9999px;
       display: inline-flex;
@@ -2496,19 +2603,22 @@
     }
     .motto-text {
       color: #1D1D1F;
-      font-size: 13px;
+      font-size: 12.5px;
       font-weight: 600;
       letter-spacing: -0.012em;
-      line-height: 1;
+      line-height: 1.3;
       display: inline-flex;
       align-items: center;
     }
     @media (max-width: 640px) {
       .company-motto-badge {
-        padding: 6px 14px 6px 6px;
+        padding: 5px 12px 5px 5px;
         gap: 8px;
         max-width: 100%;
         text-align: left;
+      }
+      .motto-text {
+        font-size: 11.5px;
       }
     }
 
@@ -4676,35 +4786,39 @@
   <!-- Apple Hero Section -->
   <section class="apple-hero" id="overview">
 
-    <!-- Mandatory Company Motto Badge -->
-    <div class="company-motto-badge">
-      <span class="motto-tag">Company Motto</span>
-      <span class="motto-text">We Can Do Everything Related To Software Sector Without Any Excuses!</span>
-    </div>
-
-    <!-- HRL x Agensi Co-Branded Top Announcement Pill -->
-    <a href="#crypto-console" class="apple-announcement-pill" aria-label="HRL x Agensi — 37 Institutional AI and Crypto Terminals Live">
-      <span class="pill-collab-logos">
-        <img src="assets/brands/hrl-agensi-collab.png" alt="HRL" class="pill-logo-hrl" />
-        <span class="pill-collab-x">&times;</span>
-        <img src="assets/brands/brand-agensi.png" alt="Agensi" class="pill-logo-agensi" />
-      </span>
-      <span class="pill-badge-text">37 Institutional AI &amp; Crypto Terminals Live</span>
-      <span class="pill-badge-arrow">
-        <svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12h14M12 5l7 7-7 7"/></svg>
-      </span>
-    </a>
-
-    <!-- Global Dual-Presence + Version 3.0 Release Pills -->
-    <div style="display: flex; flex-wrap: wrap; align-items: center; justify-content: center; gap: 10px; margin-bottom: 16px;">
-      <div style="display: inline-flex; align-items: center; gap: 8px; background: #ffffff; border: 1px solid #d2d2d7; padding: 6px 14px; border-radius: 9999px; font-size: 12px; font-weight: 600; color: #1d1d1f; box-shadow: 0 1px 3px rgba(0,0,0,0.04);">
-        <span style="display: inline-block; width: 8px; height: 8px; border-radius: 50%; background: #0071e3;"></span>
-        Global HQ: San Francisco, CA · Systems Engineering Hub: Mangaluru, India
+    <!-- Unified Apple Hero Prelude: Motto, Milestones, and Release Verification -->
+    <div class="apple-hero-prelude">
+      <!-- Mandatory Company Motto Badge -->
+      <div class="company-motto-badge">
+        <span class="motto-tag">Company Motto</span>
+        <span class="motto-text">We Can Do Everything Related To Software Sector Without Any Excuses!</span>
       </div>
-      <a href="#hardware-silicon" style="display: inline-flex; align-items: center; gap: 8px; background: rgba(209, 0, 45, 0.06); border: 1px solid rgba(209, 0, 45, 0.28); padding: 6px 14px; border-radius: 9999px; font-size: 12px; font-weight: 700; color: #D1002D; text-decoration: none; box-shadow: 0 1px 3px rgba(209,0,45,0.06);">
-        <span style="display: inline-block; width: 7px; height: 7px; border-radius: 50%; background: #D1002D;"></span>
-        Version 3.0 · Verified Works Up to Nov 2026 &rarr;
+
+      <!-- HRL x Agensi Co-Branded Top Announcement Pill -->
+      <a href="#crypto-console" class="apple-announcement-pill" aria-label="HRL x Agensi — 37 Institutional AI and Crypto Terminals Live">
+        <span class="pill-collab-logos">
+          <img src="assets/brands/hrl-agensi-collab.png" alt="HRL" class="pill-logo-hrl" />
+          <span class="pill-collab-x">&times;</span>
+          <img src="assets/brands/brand-agensi.png" alt="Agensi" class="pill-logo-agensi" />
+        </span>
+        <span class="pill-badge-text">37 Institutional AI &amp; Crypto Terminals Live</span>
+        <span class="pill-badge-arrow">
+          <svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12h14M12 5l7 7-7 7"/></svg>
+        </span>
       </a>
+
+      <!-- Global Dual-Presence + Version 3.0 Release Verification -->
+      <div class="hero-status-row">
+        <div class="hero-status-chip">
+          <span class="status-indicator-dot dot-azure"></span>
+          <span>Global HQ: San Francisco, CA · Systems Engineering Hub: Mangaluru, India</span>
+        </div>
+        <a href="#hardware-silicon" class="hero-status-chip chip-interactive" aria-label="Version 3.0 Verified Works Up to Nov 2026">
+          <span class="status-indicator-dot dot-crimson"></span>
+          <span>Version 3.0 · Verified Works Up to Nov 2026</span>
+          <span class="chip-arrow">&rarr;</span>
+        </a>
+      </div>
     </div>
 
     <span class="hero-eyebrow">HRL International Private Limited · Release 3.0</span>
