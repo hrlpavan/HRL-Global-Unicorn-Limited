@@ -413,33 +413,30 @@
       display: flex;
       justify-content: space-between;
       align-items: center;
-      gap: 16px;
+      gap: 12px;
+      position: relative;
     }
     .nav-brand {
+      position: absolute;
+      left: 50%;
+      transform: translateX(-50%);
       display: inline-flex;
       align-items: center;
-      gap: 10px;
+      justify-content: center;
       text-decoration: none;
       transition: opacity 0.2s ease;
       opacity: 0.95;
-      padding: 4px 0;
+      padding: 4px 8px;
       flex-shrink: 0;
-      width: auto;
+      white-space: nowrap;
+      text-align: center;
+      z-index: 3;
     }
     .nav-brand:hover {
       opacity: 0.70;
     }
-    .nav-flag-img {
-      height: 20px;
-      width: auto;
-      object-fit: contain;
-      display: inline-block;
-      vertical-align: middle;
-      box-shadow: none !important;
-      border: none !important;
-    }
     .nav-brand-text {
-      font-size: 13.5px;
+      font-size: 14px;
       font-weight: 700;
       color: var(--apple-text-dark);
       letter-spacing: -0.015em;
@@ -447,14 +444,30 @@
     }
     .nav-links {
       display: flex;
-      justify-content: center;
       align-items: center;
-      flex: 1;
-      gap: clamp(8px, 1.25vw, 18px);
+      gap: clamp(7px, 1vw, 14px);
       list-style: none;
-      margin: 0 auto;
+      margin: 0;
       padding: 0;
       white-space: nowrap;
+    }
+    .nav-links-left {
+      justify-content: flex-end;
+      flex: 1;
+      padding-right: clamp(85px, 6.5vw, 105px);
+    }
+    .nav-right-cluster {
+      display: flex;
+      align-items: center;
+      flex: 1;
+      justify-content: flex-start;
+      padding-left: clamp(85px, 6.5vw, 105px);
+      gap: clamp(8px, 1.1vw, 16px);
+    }
+    .nav-links-right {
+      justify-content: flex-start;
+      flex: initial;
+      padding-left: 0;
     }
     .nav-links li {
       display: inline-flex;
@@ -476,8 +489,6 @@
       color: var(--apple-blue);
     }
     .nav-cta-wrapper {
-      width: 170px;
-      min-width: 170px;
       display: flex;
       justify-content: flex-end;
       align-items: center;
@@ -1728,8 +1739,9 @@
     /* Responsive Nav Rules */
     @media (max-width: 1160px) {
       .nav-links { display: none; }
+      .nav-right-cluster { display: none; }
       .nav-subrow { display: none; }
-      .mobile-menu-btn { display: block; }
+      .mobile-menu-btn { display: block; margin-left: auto; }
       .apple-btn-primary.nav-cta, .nav-cta-wrapper { display: none; }
     }
     @media (max-width: 600px) {
@@ -4701,25 +4713,30 @@
   <!-- Apple Global Navigation -->
   <nav class="apple-nav">
     <div class="nav-container">
-      <a href="#" class="nav-brand" aria-label="HRL International">
-        <img src="assets/HRL%20INTERNATIONAL%20PRIVATE%20LIMITED%20CORE%20COUNTRY%20FLAG.png" alt="HRL Official Corporate Flag" class="nav-flag-img" />
-        <span class="nav-brand-text">HRL International</span>
-      </a>
-      
-      <!-- Desktop Primary Links (Row 1) -->
-      <ul class="nav-links">
+      <!-- Desktop Primary Links (Left Side) -->
+      <ul class="nav-links nav-links-left">
         <li><a href="#overview">Overview</a></li>
         <li><a href="#sectors" style="color: #0071e3; font-weight: 600;">Sectors</a></li>
         <li><a href="hrlpavan.html" style="color: #d1002d; font-weight: 700;">Entity: hrlpavan</a></li>
         <li><a href="flag.html" style="color: #BF1F1F; font-weight: 700;">Official Flag</a></li>
-        <li><a href="antigravity-record.html" style="color: #fc6d26; font-weight: 700;">Antigravity Record</a></li>
-        <li><a href="#achievements" style="color: #d1002d; font-weight: 600;">Achievements</a></li>
-        <li><a href="leadership.html" style="font-weight: 600;">Leadership</a></li>
-        <li><a href="#contact">Contact</a></li>
       </ul>
-      
-      <div class="nav-cta-wrapper">
-        <a href="#contact" class="apple-btn-primary nav-cta">Get in Touch</a>
+
+      <!-- Centered Master Brand (Zero Flag) -->
+      <a href="#" class="nav-brand" aria-label="HRL International">
+        <span class="nav-brand-text">HRL International</span>
+      </a>
+
+      <!-- Desktop Primary Cluster (Right Side) -->
+      <div class="nav-right-cluster">
+        <ul class="nav-links nav-links-right">
+          <li><a href="antigravity-record.html" style="color: #fc6d26; font-weight: 700;">Antigravity Record</a></li>
+          <li><a href="#achievements" style="color: #d1002d; font-weight: 600;">Achievements</a></li>
+          <li><a href="leadership.html" style="font-weight: 600;">Leadership</a></li>
+          <li><a href="#contact">Contact</a></li>
+        </ul>
+        <div class="nav-cta-wrapper">
+          <a href="#contact" class="apple-btn-primary nav-cta">Get in Touch</a>
+        </div>
       </div>
 
       <!-- Mobile Hamburger Toggle -->
