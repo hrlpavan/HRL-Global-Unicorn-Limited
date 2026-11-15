@@ -600,23 +600,22 @@
       align-items: center;
       width: 100%;
     }
-    /* Official Collaboration Top Announcement Pill (HRL x Agensi) */
+    /* HRL x Agensi Co-Branded Top Pill & Console Plaque */
     .apple-announcement-pill {
       display: inline-flex;
       align-items: center;
       justify-content: center;
-      flex-wrap: wrap;
-      gap: 8px 12px;
-      padding: 8px 18px 8px 10px;
+      gap: 10px 14px;
+      padding: 9px 20px;
       background: #FDFDFF;
-      border: 1px solid rgba(128, 0, 32, 0.22);
+      border: 1px solid rgba(128, 0, 32, 0.20);
       border-radius: 9999px;
       text-decoration: none;
       margin: 0 auto 20px;
       box-shadow: 0 6px 22px rgba(128, 0, 32, 0.08);
       transition: all 0.25s cubic-bezier(0.16, 1, 0.3, 1);
       cursor: pointer;
-      max-width: min(94vw, 880px);
+      max-width: min(94vw, 760px);
     }
     .apple-announcement-pill:hover {
       background: #FDFDFF;
@@ -624,38 +623,32 @@
       transform: translateY(-2px);
       box-shadow: 0 10px 28px rgba(128, 0, 32, 0.14);
     }
-    .pill-badge-tag {
-      background: #800020;
-      color: #FDFDFF;
-      font-size: 10.5px;
-      font-weight: 800;
-      text-transform: uppercase;
-      letter-spacing: 0.07em;
-      padding: 4px 11px;
-      border-radius: 9999px;
-      white-space: nowrap;
-    }
     .pill-collab-logos {
       display: inline-flex;
       align-items: center;
-      gap: 7px;
-      padding-right: 10px;
+      justify-content: center;
+      gap: 10px;
+      padding-right: 12px;
       border-right: 1px solid rgba(128, 0, 32, 0.16);
+      flex-shrink: 0;
     }
     .pill-logo-hrl {
-      height: 17px;
+      height: 20px;
       width: auto;
       display: block;
       object-fit: contain;
+      transform: translateY(1.5px);
     }
     .pill-collab-x {
       color: #CCA43B;
-      font-size: 14px;
-      font-weight: 800;
+      font-size: 15px;
+      font-weight: 700;
       line-height: 1;
+      display: inline-flex;
+      align-items: center;
     }
     .pill-logo-agensi {
-      height: 15px;
+      height: 16px;
       width: auto;
       display: block;
       object-fit: contain;
@@ -672,58 +665,61 @@
       display: inline-flex;
       align-items: center;
       transition: transform 0.2s ease;
+      flex-shrink: 0;
     }
     .apple-announcement-pill:hover .pill-badge-arrow {
       transform: translateX(4px);
     }
     .crypto-collab-plaque {
       display: inline-flex;
-      flex-wrap: wrap;
+      flex-wrap: nowrap;
       align-items: center;
       justify-content: center;
-      gap: 10px 14px;
-      padding: 9px 22px;
-      margin: 0 auto 18px;
+      gap: 14px;
+      padding: 11px 28px;
+      margin: 0;
       background: #FDFDFF;
       border: 1.5px solid #CCA43B;
       border-radius: 9999px;
       text-decoration: none;
       box-shadow: 0 10px 28px rgba(24, 0, 6, 0.34);
       transition: transform 0.2s ease, box-shadow 0.2s ease;
-      max-width: min(94vw, 680px);
+      max-width: 92vw;
     }
     .crypto-collab-plaque:hover {
       transform: translateY(-2px);
       box-shadow: 0 14px 32px rgba(24, 0, 6, 0.44);
     }
-    .crypto-collab-plaque .pill-logo-hrl { height: 22px; }
-    .crypto-collab-plaque .pill-logo-agensi { height: 20px; }
-    .crypto-collab-plaque .pill-collab-logos {
-      border-right: 1px solid rgba(128, 0, 32, 0.16);
-      padding-right: 12px;
+    .crypto-collab-plaque .pill-logo-hrl {
+      height: 24px;
+      transform: translateY(2px);
     }
-    .crypto-collab-label {
-      font-size: 11px;
-      font-weight: 800;
-      color: #800020;
-      letter-spacing: 0.06em;
-      text-transform: uppercase;
-      white-space: nowrap;
+    .crypto-collab-plaque .pill-collab-x {
+      font-size: 17px;
     }
-    @media (max-width: 640px) {
+    .crypto-collab-plaque .pill-logo-agensi {
+      height: 19px;
+    }
+    @media (max-width: 720px) {
       .apple-announcement-pill {
+        flex-direction: column;
+        gap: 6px;
         border-radius: 18px;
-        padding: 10px 14px;
+        padding: 12px 18px;
       }
-      .pill-collab-logos,
-      .crypto-collab-plaque .pill-collab-logos {
+      .pill-collab-logos {
         border-right: none;
         padding-right: 0;
       }
-      .crypto-collab-plaque {
-        border-radius: 20px;
-        padding: 10px 16px;
+      .pill-badge-arrow {
+        display: none;
       }
+      .crypto-collab-plaque {
+        gap: 11px;
+        padding: 9px 22px;
+      }
+      .crypto-collab-plaque .pill-logo-hrl { height: 21px; }
+      .crypto-collab-plaque .pill-logo-agensi { height: 17px; }
     }
     .hero-eyebrow {
       font-size: 14px;
@@ -4116,8 +4112,15 @@
 
     /* Header & Eyebrows */
     .crypto-header-wrap {
+      display: flex;
+      flex-direction: column;
+      align-items: center;
       text-align: center;
-      margin-bottom: 52px;
+      gap: 14px;
+      margin-bottom: 48px;
+    }
+    .crypto-header-wrap .company-motto-badge {
+      margin: 0;
     }
     .crypto-eyebrow-pill {
       display: inline-flex;
@@ -4132,7 +4135,7 @@
       font-weight: 700;
       text-transform: uppercase;
       letter-spacing: 0.08em;
-      margin-bottom: 20px;
+      margin: 0;
     }
     .crypto-main-headline {
       font-size: clamp(34px, 5vw, 56px);
@@ -4140,7 +4143,7 @@
       letter-spacing: -0.03em;
       line-height: 1.06;
       color: #FDFDFF;
-      margin-bottom: 16px;
+      margin: 4px 0 2px;
     }
     .crypto-main-headline span.gold {
       background: linear-gradient(135deg, #FDFDFF 0%, #E7C666 42%, #CCA43B 100%);
@@ -4155,18 +4158,19 @@
       color: rgba(253, 253, 255, 0.88);
       line-height: 1.5;
       max-width: 840px;
-      margin: 0 auto 32px;
+      margin: 0 auto 12px;
       font-weight: 400;
     }
 
     /* Interactive Filter Tabs */
     .crypto-filter-bar {
+      width: 100%;
       display: flex;
       align-items: center;
       justify-content: center;
       flex-wrap: wrap;
       gap: 10px;
-      margin-bottom: 44px;
+      margin: 12px 0 0;
     }
     .crypto-filter-btn {
       background: rgba(24, 2, 8, 0.76);
@@ -4565,8 +4569,8 @@
 
   <!-- Top Announcement Ribbon -->
   <div class="apple-ribbon">
-    <strong>Official Collaboration: HRL &times; Agensi</strong> · 37 Institutional AI &amp; Crypto Terminals Live on Agensi (v3.0 Release) · 
-    <a href="#crypto-console" style="color: #800020; font-weight: 700;">Explore HRL &times; Agensi Console &rarr;</a> · 
+    <strong>HRL &times; Agensi</strong> · 37 Institutional AI &amp; Crypto Terminals Live on Agensi (v3.0 Release) · 
+    <a href="#crypto-console" style="color: #800020; font-weight: 700;">Explore Console &rarr;</a> · 
     Global Record: 17,353+ Lines Engineered by Antigravity · 
     <a href="antigravity-record.html" style="color: #fc6d26; font-weight: 700;">Explore Live Engineering Audit &rarr;</a>
   </div>
@@ -4678,15 +4682,14 @@
       <span class="motto-text">We Can Do Everything Related To Software Sector Without Any Excuses!</span>
     </div>
 
-    <!-- Official Collaboration Top Announcement Pill (HRL x Agensi) -->
-    <a href="#crypto-console" class="apple-announcement-pill" aria-label="Official Collaboration: HRL x Agensi">
-      <span class="pill-badge-tag">Official Collab</span>
+    <!-- HRL x Agensi Co-Branded Top Announcement Pill -->
+    <a href="#crypto-console" class="apple-announcement-pill" aria-label="HRL x Agensi — 37 Institutional AI and Crypto Terminals Live">
       <span class="pill-collab-logos">
         <img src="assets/brands/hrl-agensi-collab.png" alt="HRL" class="pill-logo-hrl" />
         <span class="pill-collab-x">&times;</span>
         <img src="assets/brands/brand-agensi.png" alt="Agensi" class="pill-logo-agensi" />
       </span>
-      <span class="pill-badge-text">HRL &times; Agensi Strategic Partnership &mdash; 37 Institutional AI Terminals Live</span>
+      <span class="pill-badge-text">37 Institutional AI &amp; Crypto Terminals Live</span>
       <span class="pill-badge-arrow">
         <svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12h14M12 5l7 7-7 7"/></svg>
       </span>
@@ -5897,34 +5900,27 @@
           <span class="motto-tag">Company Motto</span>
           <span class="motto-text">We Can Do Everything Related To Software Sector Without Any Excuses!</span>
         </div>
-        <br />
-        <a href="https://www.agensi.io/creators/pavan-kumar" target="_blank" rel="noopener noreferrer" class="crypto-collab-plaque" aria-label="Official Collaboration: HRL x Agensi">
-          <span class="pill-badge-tag">Official Collab</span>
-          <span class="pill-collab-logos">
-            <img src="assets/brands/hrl-agensi-collab.png" alt="HRL" class="pill-logo-hrl" />
-            <span class="pill-collab-x">&times;</span>
-            <img src="assets/brands/brand-agensi.png" alt="Agensi" class="pill-logo-agensi" />
-          </span>
-          <span class="crypto-collab-label">HRL &times; Agensi Strategic Partner</span>
+        <a href="https://www.agensi.io/creators/pavan-kumar" target="_blank" rel="noopener noreferrer" class="crypto-collab-plaque" aria-label="HRL x Agensi">
+          <img src="assets/brands/hrl-agensi-collab.png" alt="HRL" class="pill-logo-hrl" />
+          <span class="pill-collab-x">&times;</span>
+          <img src="assets/brands/brand-agensi.png" alt="Agensi" class="pill-logo-agensi" />
         </a>
-        <br />
         <div class="crypto-eyebrow-pill">
           <svg width="16" height="16" viewBox="0 0 32 32" style="vertical-align: middle; flex-shrink: 0;"><circle cx="16" cy="16" r="16" fill="#CCA43B"/><path fill="#1A0208" d="M23.189 14.02c.314-2.096-1.283-3.223-3.465-3.975l.708-2.84-1.728-.43-.69 2.765c-.454-.114-.92-.22-1.385-.326l.695-2.783L15.596 6l-.708 2.839c-.376-.086-.746-.17-1.104-.26l.002-.009-2.384-.595-.46 1.846s1.283.294 1.256.312c.7.175.826.638.805 1.006l-.806 3.235c.048.012.11.03.18.057l-.183-.045-1.13 4.532c-.086.212-.303.531-.793.41.018.025-1.256-.313-1.256-.313l-.858 1.978 2.25.561c.418.105.828.215 1.231.318l-.715 2.872 1.727.43.708-2.84c.472.127.93.245 1.378.357l-.706 2.828 1.728.43.715-2.866c2.948.558 5.164.333 6.097-2.333.752-2.146-.037-3.385-1.587-4.192 1.13-.26 1.98-1.003 2.207-2.538zm-3.95 5.538c-.533 2.14-4.148.983-5.318.692l.949-3.805c1.17.291 4.929.868 4.369 3.113zm.533-5.565c-.487 1.953-3.495.96-4.47.717l.86-3.45c.975.243 4.118.696 3.61 2.733z"/></svg>
-          <span>Official HRL &times; Agensi Collaboration · Sovereign Web3 &amp; Quantitative Crypto Intelligence</span>
+          <span>Sovereign Web3 &amp; Quantitative Crypto Intelligence</span>
         </div>
-        <br />
-        <div class="promo-10day-badge" style="display: inline-flex; align-items: center; gap: 8px; background: rgba(204, 164, 59, 0.16); border: 1px solid rgba(204, 164, 59, 0.58); border-radius: 980px; padding: 6px 18px; margin-bottom: 16px; color: #FDFDFF; font-weight: 700; font-size: 12px; letter-spacing: 0.04em; text-transform: uppercase;">
-          <span style="width: 8px; height: 8px; border-radius: 50%; background: #CCA43B; box-shadow: 0 0 10px rgba(204, 164, 59, 0.85); display: inline-block;"></span>
+        <div class="promo-10day-badge" style="display: inline-flex; align-items: center; gap: 8px; background: rgba(204, 164, 59, 0.16); border: 1px solid rgba(204, 164, 59, 0.58); border-radius: 980px; padding: 6px 18px; margin-bottom: 0; color: #FDFDFF; font-weight: 700; font-size: 12px; letter-spacing: 0.04em; text-transform: uppercase;">
+          <span style="width: 8px; height: 8px; border-radius: 50%; background: #CCA43B; box-shadow: 0 0 10px rgba(204, 164, 59, 0.85); display: inline-block; flex-shrink: 0;"></span>
           <span>10-Day Launch Pass: 6 Flagship Terminals Unlocked 100% Free on Agensi</span>
         </div>
         <h2 class="crypto-main-headline">
           HRL Institutional <span class="gold">Crypto AI Console</span>.
         </h2>
         <p class="crypto-subhead">
-          Official HRL &times; Agensi strategic collaboration: 37 sovereign, mathematically audited quantitative, cybersecurity, and autonomous agent terminals engineered for crypto hedge funds, active traders, and enterprise engineering teams &mdash; deployed natively on the Agensi Agent Marketplace with instant 1-click execution.
+          37 sovereign, mathematically audited quantitative, cybersecurity, and autonomous agent terminals engineered for crypto hedge funds, active traders, and enterprise engineering teams &mdash; deployed natively on Agensi with instant 1-click execution.
         </p>
 
-        <div style="display: flex; justify-content: center; gap: 12px; margin-bottom: 28px; flex-wrap: wrap;">
+        <div style="display: flex; justify-content: center; gap: 12px; margin: 4px 0 8px; flex-wrap: wrap;">
           <a href="crypto-console.html" style="display: inline-flex; align-items: center; gap: 6px; padding: 9px 22px; background: #FDFDFF; border: 1px solid #CCA43B; border-radius: 980px; color: #800020; font-size: 13px; font-weight: 700; text-decoration: none; box-shadow: 0 6px 20px rgba(24, 0, 6, 0.28); transition: all 0.2s ease;">
             <svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><rect x="3" y="3" width="18" height="18" rx="2"/><path d="M9 3v18M3 9h18"/></svg>
             <span>Launch Full-Screen Crypto Console Page &rarr;</span>
