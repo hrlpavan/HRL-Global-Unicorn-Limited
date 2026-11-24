@@ -609,6 +609,42 @@
     .hc-table th { background:var(--hrl-crimson-tint); color:var(--text-dark); font-weight:600; }
     .hc-table td code { font-family:var(--font-mono); font-size:13px; }
     @media (max-width: 760px) { .hc-table { font-size:13px; } .hc-table th, .hc-table td { padding:10px; } }
+    .section-header-block, .hc-mint-card { scroll-margin-top: 72px; }
+    .hc-ledger-wrap { max-width:1100px; margin:0 auto 64px; padding:0 24px; }
+    .hc-chain-bar { display:flex; flex-wrap:wrap; align-items:center; justify-content:space-between; gap:12px;
+                    background:var(--surface-card); border:1px solid var(--border-subtle); border-radius:var(--radius-card);
+                    padding:16px 20px; margin-bottom:20px; }
+    .hc-verify-pill { display:inline-flex; align-items:center; gap:8px; font-size:13px; font-weight:600;
+                      padding:6px 14px; border-radius:var(--radius-pill); background:#ecfdf5; color:#065f46; border:1px solid #a7f3d0; }
+    .hc-verify-pill.bad { background:#fef2f2; color:#991b1b; border-color:#fecaca; }
+    .hc-addr { font-family:var(--font-mono); font-size:12.5px; background:#f5f5f7; border:1px solid var(--border-subtle);
+               padding:4px 8px; border-radius:8px; cursor:pointer; display:inline-block; color:var(--text-dark); }
+    .hc-addr:hover { border-color:var(--hrl-crimson); color:var(--hrl-crimson); }
+    .hc-pill { display:inline-block; font-size:11.5px; font-weight:700; text-transform:uppercase; letter-spacing:.04em;
+               padding:3px 9px; border-radius:var(--radius-pill); background:var(--hrl-crimson-tint); color:var(--hrl-crimson); }
+    .hc-pill.ok { background:#ecfdf5; color:#047857; }
+    .hc-pill.wait { background:#fffbeb; color:#b45309; }
+    .hc-mint-card { background:var(--surface-card); border:1px solid var(--border-subtle); border-radius:var(--radius-card);
+                    padding:28px; margin-bottom:28px; }
+    .hc-form-row { display:flex; flex-wrap:wrap; gap:12px; margin-top:14px; }
+    .hc-input { flex:1 1 220px; padding:11px 14px; border:1px solid rgba(0,0,0,.15); border-radius:12px;
+                font-size:14.5px; font-family:var(--font-sans); background:#fafafa; color:var(--text-dark); }
+    .hc-input:focus { outline:none; border-color:var(--hrl-crimson); background:#fff; }
+    .hc-mint-out { margin-top:20px; padding:20px; border-radius:14px; background:#0f172a; color:#f8fafc;
+                   font-size:13.5px; display:none; }
+    .hc-mint-out.show { display:block; }
+    .hc-kv { margin-bottom:12px; word-break:break-all; }
+    .hc-kv b { display:block; font-size:11px; text-transform:uppercase; letter-spacing:.06em; color:#94a3b8; margin-bottom:3px; }
+    .hc-kv code { font-family:var(--font-mono); font-size:13px; color:#38bdf8; }
+    .hc-kv code.secret { color:#fbbf24; }
+    .hc-mini-btn { border:1px solid rgba(255,255,255,.22); background:rgba(255,255,255,.08); color:#fff;
+                   padding:6px 12px; border-radius:8px; font-size:12.5px; font-weight:600; cursor:pointer; text-decoration:none; display:inline-block; }
+    .hc-mini-btn:hover { background:rgba(255,255,255,.18); }
+    .hc-mini-btn.primary { background:var(--hrl-crimson); border-color:var(--hrl-crimson); }
+    .hc-blocks { display:grid; gap:12px; }
+    .hc-block { background:var(--surface-card); border:1px solid var(--border-subtle); border-radius:14px; padding:16px 20px; }
+    .hc-block-top { display:flex; flex-wrap:wrap; justify-content:space-between; align-items:center; gap:8px; margin-bottom:8px; }
+    .hc-block-meta { font-family:var(--font-mono); font-size:12px; color:var(--text-body); word-break:break-all; line-height:1.6; }
   </style>
 </head>
 <body>
@@ -626,6 +662,7 @@
       </a>
       <ul class="nav-links">
         <li><a href="index.html">Overview</a></li>
+        <li><a href="#leaderboard" style="color: var(--hrl-crimson); font-weight: 700;">Leaderboard &amp; Ledger</a></li>
         <li><a href="#charter">Charter</a></li>
         <li><a href="#governance">Governance</a></li>
         <li><a href="#citizen-id">Citizen ID</a></li>
@@ -668,9 +705,10 @@
     </div>
 
     <div class="actions-row">
-      <a href="#charter" class="hrl-btn hrl-btn-primary"><span>Read the Charter</span></a>
+      <a href="#leaderboard" class="hrl-btn hrl-btn-primary"><span>Public Ledger &amp; Leaderboard</span></a>
+      <a href="#mint-candidate" class="hrl-btn hrl-btn-secondary"><span>Mint Candidate ID (0x…)</span></a>
+      <a href="#charter" class="hrl-btn hrl-btn-secondary"><span>Read the Charter</span></a>
       <a href="assets/hrl-country-flag.png" download="HRL Country Flag.png" class="hrl-btn hrl-btn-secondary"><svg width="16" height="16" fill="none" stroke="currentColor" stroke-width="2.5" viewBox="0 0 24 24"><path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4M7 10l5 5 5-5M12 15V3"></path></svg><span>Download Flag (RAW PNG)</span></a>
-      <a href="#join" class="hrl-btn hrl-btn-secondary"><span>Become a Citizen</span></a>
     </div>
 
     <div class="section-header-block">
@@ -816,6 +854,94 @@
       </div>
     </div>
 
+    <div class="section-header-block" id="leaderboard">
+      <div class="section-eyebrow">SHA-256 Hash Chain · Public Ledger</div>
+      <h2 class="section-title">Citizen Leaderboard &amp; Blockchain Explorer</h2>
+      <p class="section-desc">Every Citizen admission and contribution is recorded as a hash-chained, Proof-of-Work block with a unique cryptographic Candidate Address (<code>0x…</code>). Your browser verifies the entire chain client-side via WebCrypto SHA-256.</p>
+    </div>
+
+    <div class="hc-ledger-wrap">
+      <div class="hc-chain-bar">
+        <div>
+          <span class="hc-verify-pill" id="chainStatusBadge">Verifying SHA-256 chain…</span>
+          <span style="font-size:12.5px; color:var(--text-muted); margin-left:8px;" id="chainMetaText">Chain: hrl-country-1</span>
+        </div>
+        <div style="display:flex; gap:10px; align-items:center; flex-wrap:wrap;">
+          <button type="button" onclick="runChainVerification(true)" class="hrl-btn hrl-btn-secondary" style="padding:7px 14px; font-size:12.5px;"><span>Re-Verify SHA-256 Chain</span></button>
+          <a href="data/hrl-country-ledger.json" target="_blank" rel="noopener noreferrer" class="hrl-btn hrl-btn-secondary" style="padding:7px 14px; font-size:12.5px;"><span>Raw Ledger JSON &rarr;</span></a>
+        </div>
+      </div>
+
+      <table class="hc-table" style="margin-bottom:32px;">
+        <thead>
+          <tr>
+            <th>Rank</th>
+            <th>Citizen</th>
+            <th>Cryptographic Candidate ID</th>
+            <th>Class</th>
+            <th>Block</th>
+            <th>Merit (HRLM)</th>
+            <th>Status</th>
+          </tr>
+        </thead>
+        <tbody id="leaderboardBody">
+          <tr><td colspan="7" style="text-align:center; color:var(--text-muted);">Loading public ledger…</td></tr>
+        </tbody>
+      </table>
+
+      <div class="hc-mint-card" id="mint-candidate">
+        <div class="card-eyebrow">Client-Side Key Generation · Zero Server Secret Exposure</div>
+        <h3 class="card-title" style="margin-bottom:6px;">Join &amp; Mint Your Cryptographic Candidate ID</h3>
+        <p class="card-desc">Generate a 256-bit secret key directly in your browser, derive your public commitment and <code>0x…</code> Candidate Address, and mine a Proof-of-Work candidate block to submit for Council admission. Your secret key never leaves your device.</p>
+        <form class="hc-form-row" onsubmit="mintCandidateId(event)">
+          <input id="mintHandle" class="hc-input" type="text" required pattern="[A-Za-z0-9_-]{2,24}" placeholder="Handle (e.g. rahul_dev)" aria-label="Handle" />
+          <input id="mintName" class="hc-input" type="text" required maxlength="60" placeholder="Full Name or Pseudonym" aria-label="Full Name or Pseudonym" />
+          <button type="submit" id="mintBtn" class="hrl-btn hrl-btn-primary" style="border:none; cursor:pointer;"><span>Mint Candidate ID (PoW)</span></button>
+        </form>
+
+        <div class="hc-mint-out" id="mintOutput">
+          <div class="hc-kv">
+            <b>Cryptographic Candidate Address (Public · On-Chain)</b>
+            <code id="outCandId"></code>
+          </div>
+          <div class="hc-kv">
+            <b>Public Key Commitment (SHA-256 · Shared for Admission)</b>
+            <code id="outPubKey"></code>
+          </div>
+          <div class="hc-kv">
+            <b>Secret Key (256-bit Hex · SAVE NOW — Never Sent or Stored on Server)</b>
+            <code class="secret" id="outSecretKey"></code>
+          </div>
+          <div class="hc-kv">
+            <b>Mined Candidate PoW Block Preview</b>
+            <code id="outBlockProof" style="color:#a7f3d0;"></code>
+          </div>
+          <div style="display:flex; flex-wrap:wrap; gap:10px; margin-top:14px;">
+            <button type="button" class="hc-mini-btn primary" onclick="downloadKeystore()">Download Keystore (.json)</button>
+            <a id="outEmailBtn" href="#join" class="hc-mini-btn">Submit Admission via Email</a>
+            <a id="outWaBtn" href="#join" target="_blank" rel="noopener noreferrer" class="hc-mini-btn">Share Public Proof on WhatsApp</a>
+            <button type="button" class="hc-mini-btn" onclick="copyAdmissionCmd()">Copy Council CLI Admit Command</button>
+          </div>
+        </div>
+
+        <details style="margin-top:18px; font-size:13.5px; color:var(--text-body);">
+          <summary style="cursor:pointer; font-weight:600; color:var(--text-dark);">Verify Candidate Key Ownership (Zero-Knowledge Browser Check)</summary>
+          <div class="hc-form-row" style="margin-top:10px;">
+            <input id="chkSecret" class="hc-input" type="password" placeholder="Paste 64-char Secret Key hex" autocomplete="off" />
+            <input id="chkAddr" class="hc-input" type="text" placeholder="Candidate ID (0x…)" />
+            <button type="button" onclick="checkKeyOwnership()" class="hrl-btn hrl-btn-secondary" style="cursor:pointer;"><span>Verify Key</span></button>
+          </div>
+          <p id="chkResult" style="margin-top:8px; font-weight:600;"></p>
+        </details>
+      </div>
+
+      <h3 class="card-title" style="margin:8px 0 14px;">Public Block Explorer (Immutable Hash Chain)</h3>
+      <div class="hc-blocks" id="blockExplorerList"></div>
+      <p style="font-size:12.5px; color:var(--text-muted); margin-top:14px;">
+        <strong>Charter Art. VIII Notice:</strong> <code>HRLM</code> (HRL Merit) is a non-transferable cryptographic contribution counter recorded on an append-only SHA-256 hash chain for developer recognition only. It is not a currency, security, equity claim, or financial instrument.
+      </p>
+    </div>
+
     <div class="section-header-block" id="infrastructure">
       <div class="section-eyebrow">Infrastructure</div>
       <h2 class="section-title">Privacy-First, Self-Hosted Platform</h2>
@@ -826,7 +952,7 @@
       <tr><td><strong>Code Hosting</strong></td><td>Gitea: repositories, issues, pull requests, wiki</td><td>Tor <code>.onion</code> service + local</td></tr>
       <tr><td><strong>Encrypted Chat</strong></td><td>Matrix (Conduit) with the Element client, end-to-end encrypted</td><td>Tor <code>.onion</code> service + local</td></tr>
       <tr><td><strong>Identity</strong></td><td>Council-approved accounts only, 2FA for the Council</td><td>Registration via admission (Art. II)</td></tr>
-      <tr><td><strong>Data Protection</strong></td><td>Minimal data, deletion on request</td><td>Digital Personal Data Protection Act, 2023</td></tr>
+      <tr><td><strong>Data Protection</strong></td><td>Minimal data, deletion on request</td><td>U.S. federal &amp; state privacy standards</td></tr>
     </table>
 
     <div class="section-header-block" id="join">
@@ -835,11 +961,11 @@
       <p class="section-desc">Open to developers aged 18 and over, anywhere in the world.</p>
     </div>
     <div class="hc-flow">
-      <div class="hc-step"><b>1 · Apply</b><span>Email us your handle and GitHub/GitLab profile</span></div>
-      <div class="hc-step"><b>2 · Accept</b><span>Agree to the Charter &amp; Code of Conduct</span></div>
+      <div class="hc-step"><b>1 · Mint Key</b><span>Generate your <code>0x…</code> Candidate ID above</span></div>
+      <div class="hc-step"><b>2 · Submit</b><span>Send your handle &amp; public commitment</span></div>
       <div class="hc-step"><b>3 · Admission</b><span>Council approval or 2 vouches</span></div>
-      <div class="hc-step"><b>4 · Visitor</b><span>30 days to contribute</span></div>
-      <div class="hc-step"><b>5 · Resident</b><span>Full vote and Citizen ID</span></div>
+      <div class="hc-step"><b>4 · On-Chain</b><span>JOIN block committed to public ledger</span></div>
+      <div class="hc-step"><b>5 · Resident</b><span>Earn HRLM &amp; vote after 30 days</span></div>
     </div>
     <div class="actions-row">
       <a href="mailto:hrlinternationalprivatelimited@gmail.com?subject=HRL%20Country%20Citizenship%20Application" class="hrl-btn hrl-btn-primary"><span>Apply for Citizenship</span></a>
@@ -886,10 +1012,215 @@
       const toast = document.getElementById('toast');
       toast.innerText = msg;
       toast.classList.add('show');
-      setTimeout(() => {
-        toast.classList.remove('show');
-      }, 2500);
+      setTimeout(() => { toast.classList.remove('show'); }, 2600);
     }
+
+    const FALLBACK_LEDGER = {"chain_id":"hrl-country-1","operator":"HRL International LLC","pow_prefix":"000","unit":"HRLM","block_count":3,"tip_hash":"00063e5e52bcf972c6b55ee6e2d9d32ca4c958ea4e973c487d1068e9a79df486","leaderboard":[{"rank":1,"cid":"HRL-0001","handle":"hrlpavan","name":"Pavan Kumar Sadashiv","class":"founder","joined":"2026-11-24","candidate_id":"0x800cc49a7635210c432ae2ec8667587f612c7c10","points":100,"unit":"HRLM","join_block":1}],"blocks":[{"height":0,"ts":"2026-11-24T00:00:00Z","tx_type":"GENESIS","candidate_id":"0x0000000000000000000000000000000000000000","payload":{"chain":"hrl-country-1","charter":"1.0","operator":"HRL International LLC","unit":"HRLM (non-transferable contribution merit)"},"prev_hash":"0000000000000000000000000000000000000000000000000000000000000000","nonce":1832,"block_hash":"00017cbb781a539d18220ab525da6caa0decb725939e92b91c928013f5979311"},{"height":1,"ts":"2026-11-24T20:16:14Z","tx_type":"JOIN","candidate_id":"0x800cc49a7635210c432ae2ec8667587f612c7c10","payload":{"cid":"HRL-0001","class":"founder","handle":"hrlpavan","name":"Pavan Kumar Sadashiv","pubkey":"3e971593a798f10a7d770c22a28510f83f6fb3fd505d6dc3c2456503a86f8306"},"prev_hash":"00017cbb781a539d18220ab525da6caa0decb725939e92b91c928013f5979311","nonce":3956,"block_hash":"0004c21225bf78fa5469ae1025b270f5411e55419a84afb36112a9169e284a2d"},{"height":2,"ts":"2026-11-24T20:16:14Z","tx_type":"CONTRIBUTE","candidate_id":"0x800cc49a7635210c432ae2ec8667587f612c7c10","payload":{"cid":"HRL-0001","handle":"hrlpavan","note":"Authored HRL Country Charter v1.0 & Genesis Public Ledger","points":100,"unit":"HRLM"},"prev_hash":"0004c21225bf78fa5469ae1025b270f5411e55419a84afb36112a9169e284a2d","nonce":2704,"block_hash":"00063e5e52bcf972c6b55ee6e2d9d32ca4c958ea4e973c487d1068e9a79df486"}]};
+
+    let currentLedger = FALLBACK_LEDGER;
+    let lastMinted = null;
+    const enc = new TextEncoder();
+
+    const toHex = (buf) => Array.from(new Uint8Array(buf), b => b.toString(16).padStart(2, '0')).join('');
+    const fromHex = (hex) => new Uint8Array(hex.match(/.{1,2}/g).map(b => parseInt(b, 16)));
+    async function sha256Bytes(bytes) { return toHex(await crypto.subtle.digest('SHA-256', bytes)); }
+    async function sha256Text(str) { return sha256Bytes(enc.encode(str)); }
+
+    function canonicalJson(val) {
+      if (val === null || typeof val !== 'object') return JSON.stringify(val);
+      if (Array.isArray(val)) return '[' + val.map(canonicalJson).join(',') + ']';
+      return '{' + Object.keys(val).sort().map(k => JSON.stringify(k) + ':' + canonicalJson(val[k])).join(',') + '}';
+    }
+
+    function esc(s) {
+      return String(s).replace(/[&<>"']/g, c => ({'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;',"'":'&#39;'}[c]));
+    }
+
+    function shortHex(h, a = 10, b = 6) {
+      return h && h.length > a + b + 3 ? h.slice(0, a) + '…' + h.slice(-b) : h;
+    }
+
+    function copyText(txt, label) {
+      navigator.clipboard.writeText(txt).then(() => showToast('Copied ' + label));
+    }
+
+    async function verifyBlocks(blocks, powPrefix) {
+      let prev = '0'.repeat(64);
+      for (let i = 0; i < blocks.length; i++) {
+        const b = blocks[i];
+        if (b.height !== i || b.prev_hash !== prev) return { ok: false, at: i };
+        const raw = `${b.height}|${b.ts}|${b.tx_type}|${b.candidate_id}|${canonicalJson(b.payload)}|${b.prev_hash}|${b.nonce}`;
+        const h = await sha256Text(raw);
+        if (h !== b.block_hash || !h.startsWith(powPrefix)) return { ok: false, at: i };
+        prev = h;
+      }
+      return { ok: blocks.length > 0, count: blocks.length, tip: prev };
+    }
+
+    function getPendingCandidates() {
+      try { return JSON.parse(localStorage.getItem('hrl_pending_candidates') || '[]'); }
+      catch (_) { return []; }
+    }
+
+    function renderLedger(doc) {
+      const tbody = document.getElementById('leaderboardBody');
+      const confirmedIds = new Set(doc.leaderboard.map(r => r.candidate_id));
+      const pending = getPendingCandidates().filter(p => !confirmedIds.has(p.candidate_id));
+
+      const rows = doc.leaderboard.map(r => `
+        <tr>
+          <td><strong>#${r.rank}</strong></td>
+          <td><strong>${esc(r.name)}</strong><br/><span style="font-size:12.5px;color:var(--text-muted);">@${esc(r.handle)} · <code>${esc(r.cid)}</code></span></td>
+          <td><span class="hc-addr" title="Click to copy ${esc(r.candidate_id)}" data-copy="${esc(r.candidate_id)}">${esc(shortHex(r.candidate_id, 12, 8))}</span></td>
+          <td><span class="hc-pill">${esc(r.class)}</span></td>
+          <td><code>#${r.join_block}</code></td>
+          <td><strong>${r.points}</strong> <code>${esc(r.unit)}</code></td>
+          <td><span class="hc-pill ok">Confirmed On-Chain</span></td>
+        </tr>`);
+
+      pending.forEach((p, idx) => {
+        rows.push(`
+          <tr>
+            <td><span style="color:var(--text-muted);">—</span></td>
+            <td><strong>${esc(p.name)}</strong><br/><span style="font-size:12.5px;color:var(--text-muted);">@${esc(p.handle)} · Candidate</span></td>
+            <td><span class="hc-addr" title="Click to copy ${esc(p.candidate_id)}" data-copy="${esc(p.candidate_id)}">${esc(shortHex(p.candidate_id, 12, 8))}</span></td>
+            <td><span class="hc-pill">visitor</span></td>
+            <td><code>#${doc.block_count + idx} (PoW)</code></td>
+            <td><strong>0</strong> <code>HRLM</code></td>
+            <td><span class="hc-pill wait">Pending Council Block</span></td>
+          </tr>`);
+      });
+      tbody.innerHTML = rows.join('');
+      tbody.querySelectorAll('[data-copy]').forEach(el => {
+        el.addEventListener('click', () => copyText(el.getAttribute('data-copy'), 'Candidate ID'));
+      });
+
+      const explorer = document.getElementById('blockExplorerList');
+      explorer.innerHTML = [...doc.blocks].reverse().map(b => `
+        <div class="hc-block">
+          <div class="hc-block-top">
+            <div>
+              <strong>Block #${b.height}</strong>
+              <span class="hc-pill" style="margin-left:8px;">${esc(b.tx_type)}</span>
+              <span style="font-size:12.5px;color:var(--text-muted);margin-left:8px;">${esc(b.ts)} · Nonce ${b.nonce}</span>
+            </div>
+            <span class="hc-addr" title="Click to copy block hash" data-bhash="${esc(b.block_hash)}">Hash ${esc(shortHex(b.block_hash, 12, 8))}</span>
+          </div>
+          <div class="hc-block-meta">
+            <div><strong>Candidate:</strong> ${esc(b.candidate_id)}</div>
+            <div><strong>Prev Hash:</strong> ${esc(b.prev_hash)}</div>
+            <div><strong>Payload:</strong> ${esc(canonicalJson(b.payload))}</div>
+          </div>
+        </div>`).join('');
+      explorer.querySelectorAll('[data-bhash]').forEach(el => {
+        el.addEventListener('click', () => copyText(el.getAttribute('data-bhash'), 'Block Hash'));
+      });
+    }
+
+    async function runChainVerification(notify) {
+      const badge = document.getElementById('chainStatusBadge');
+      const meta = document.getElementById('chainMetaText');
+      const res = await verifyBlocks(currentLedger.blocks, currentLedger.pow_prefix || '000');
+      if (res.ok) {
+        badge.className = 'hc-verify-pill';
+        badge.textContent = `✓ SHA-256 Chain Verified (${res.count} Blocks · PoW ${currentLedger.pow_prefix})`;
+        meta.textContent = `Chain: ${currentLedger.chain_id} · Tip ${shortHex(res.tip, 10, 6)}`;
+        if (notify) showToast(`Verified all ${res.count} SHA-256 blocks from Genesis`);
+      } else {
+        badge.className = 'hc-verify-pill bad';
+        badge.textContent = `✕ Chain Tamper Detected at Block #${res.at}`;
+      }
+    }
+
+    async function mintCandidateId(ev) {
+      ev.preventDefault();
+      const handle = document.getElementById('mintHandle').value.trim().toLowerCase();
+      const name = document.getElementById('mintName').value.trim();
+      const btn = document.getElementById('mintBtn');
+      btn.disabled = true;
+
+      const skBytes = crypto.getRandomValues(new Uint8Array(32));
+      const skHex = toHex(skBytes);
+      const pubHex = await sha256Bytes(skBytes);
+      const candId = '0x' + (await sha256Text('hrl-id:' + pubHex)).slice(0, 40);
+
+      const height = currentLedger.block_count;
+      const prevHash = currentLedger.tip_hash;
+      const ts = new Date().toISOString().replace(/\.\d{3}Z$/, 'Z');
+      const payloadObj = { class: 'visitor', handle, name, pubkey: pubHex };
+      const payloadStr = canonicalJson(payloadObj);
+      const prefix = currentLedger.pow_prefix || '000';
+      let nonce = 0, blockHash = '';
+      while (true) {
+        blockHash = await sha256Text(`${height}|${ts}|JOIN|${candId}|${payloadStr}|${prevHash}|${nonce}`);
+        if (blockHash.startsWith(prefix)) break;
+        nonce++;
+      }
+
+      lastMinted = { chain_id: currentLedger.chain_id, handle, name, candidate_id: candId, pubkey: pubHex, secret_key: skHex, mined_at: ts, candidate_block: { height, prev_hash: prevHash, nonce, block_hash: blockHash } };
+      document.getElementById('outCandId').textContent = candId;
+      document.getElementById('outPubKey').textContent = pubHex;
+      document.getElementById('outSecretKey').textContent = skHex;
+      document.getElementById('outBlockProof').textContent = `#${height} hash=${blockHash} (nonce=${nonce}, prev=${shortHex(prevHash, 10, 6)})`;
+      document.getElementById('mintOutput').classList.add('show');
+
+      const admitBody = `HRL Country Candidate Admission Request\n\nHandle: @${handle}\nName: ${name}\nCandidate ID: ${candId}\nPublic Key Commitment: ${pubHex}\nCandidate PoW Hash: ${blockHash}\n\n(Secret key kept strictly private by candidate)`;
+      document.getElementById('outEmailBtn').href = `mailto:hrlinternationalprivatelimited@gmail.com?subject=${encodeURIComponent('HRL Country Admission: @' + handle + ' (' + candId.slice(0, 10) + '…)')}&body=${encodeURIComponent(admitBody)}`;
+      document.getElementById('outWaBtn').href = `https://wa.me/?text=${encodeURIComponent(admitBody)}`;
+
+      const list = getPendingCandidates().filter(x => x.handle !== handle);
+      list.push({ handle, name, candidate_id: candId, pubkey: pubHex });
+      try { localStorage.setItem('hrl_pending_candidates', JSON.stringify(list)); } catch (_) {}
+      renderLedger(currentLedger);
+      btn.disabled = false;
+      showToast('Minted Candidate ID ' + shortHex(candId, 8, 4));
+    }
+
+    function downloadKeystore() {
+      if (!lastMinted) return;
+      const blob = new Blob([JSON.stringify(lastMinted, null, 2)], { type: 'application/json' });
+      const a = document.createElement('a');
+      a.href = URL.createObjectURL(blob);
+      a.download = `hrl-country-${lastMinted.handle}-keystore.json`;
+      a.click();
+      URL.revokeObjectURL(a.href);
+      showToast('Keystore downloaded — keep secret_key safe');
+    }
+
+    function copyAdmissionCmd() {
+      if (!lastMinted) return;
+      const safeName = lastMinted.name.replace(/"/g, '\\"');
+      copyText(`python3 hrl.py register ${lastMinted.handle} "${safeName}" visitor --pubkey ${lastMinted.pubkey}`, 'Council CLI command');
+    }
+
+    async function checkKeyOwnership() {
+      const sk = document.getElementById('chkSecret').value.trim().toLowerCase();
+      const addr = document.getElementById('chkAddr').value.trim().toLowerCase();
+      const out = document.getElementById('chkResult');
+      if (!/^[0-9a-f]{64}$/.test(sk) || !/^0x[0-9a-f]{40}$/.test(addr)) {
+        out.style.color = '#b91c1c';
+        out.textContent = 'Enter a 64-character hex secret key and a 0x… 40-hex Candidate ID.';
+        return;
+      }
+      const pub = await sha256Bytes(fromHex(sk));
+      const derived = '0x' + (await sha256Text('hrl-id:' + pub)).slice(0, 40);
+      if (derived === addr) {
+        out.style.color = '#047857';
+        out.textContent = '✓ Valid cryptographic proof: this Secret Key controls ' + addr;
+      } else {
+        out.style.color = '#b91c1c';
+        out.textContent = '✕ Key mismatch: derives ' + derived;
+      }
+    }
+
+    (async function initLedger() {
+      try {
+        const resp = await fetch('data/hrl-country-ledger.json', { cache: 'no-store' });
+        if (resp.ok) currentLedger = await resp.json();
+      } catch (_) {}
+      renderLedger(currentLedger);
+      await runChainVerification(false);
+    })();
   </script>
 </body>
 </html>
