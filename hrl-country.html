@@ -1,0 +1,895 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, minimum-scale=1.0, maximum-scale=5.0, viewport-fit=cover" />
+  <meta name="format-detection" content="telephone=no, date=no, address=no, email=no" />
+  <meta name="mobile-web-app-capable" content="yes" />
+  <meta name="apple-touch-fullscreen" content="yes" />
+
+  <!-- Primary SEO Meta Tags -->
+  <title>HRL Country: Developer Community | HRL International Private Limited</title>
+  <meta name="title" content="HRL Country: Developer Community | HRL International Private Limited" />
+  <meta name="description" content="HRL Country is the self-governed, privacy-first developer community of HRL International Private Limited: a public Charter, elected Council, Citizen IDs, contribution recognition and self-hosted onion infrastructure." />
+  <meta name="keywords" content="HRL Country, HRL International, developer community, DAO governance, Charter, Citizen ID, hrlpavan, Pavan Kumar Sadashiv" />
+  <meta name="author" content="Pavan Kumar Sadashiv (hrlpavan)" />
+  <meta name="robots" content="index, follow, max-image-preview:large, max-snippet:-1, max-video-preview:-1" />
+  <link rel="canonical" href="https://hrlpavan.github.io/hrl-international-website-/hrl-country.html" />
+  <meta name="theme-color" content="#F5F5F7" />
+
+  <!-- Open Graph / Facebook -->
+  <meta property="og:type" content="website" />
+  <meta property="og:url" content="https://hrlpavan.github.io/hrl-international-website-/hrl-country.html" />
+  <meta property="og:title" content="HRL Country: Developer Community | HRL International Private Limited" />
+  <meta property="og:description" content="HRL Country is the self-governed, privacy-first developer community of HRL International Private Limited: a public Charter, elected Council, Citizen IDs, contribution recognition and self-hosted onion infrastructure." />
+  <meta property="og:image" content="assets/HRL%20INTERNATIONAL%20PRIVATE%20LIMITED%20CORE%20COUNTRY%20FLAG.png" />
+  <meta property="og:site_name" content="HRL International" />
+
+  <!-- Twitter / X -->
+  <meta name="twitter:card" content="summary_large_image" />
+  <meta name="twitter:title" content="HRL Country: Developer Community | HRL International Private Limited" />
+  <meta name="twitter:description" content="HRL Country is the self-governed, privacy-first developer community of HRL International Private Limited: a public Charter, elected Council, Citizen IDs, contribution recognition and self-hosted onion infrastructure." />
+  <meta name="twitter:image" content="assets/HRL%20INTERNATIONAL%20PRIVATE%20LIMITED%20CORE%20COUNTRY%20FLAG.png" />
+
+  <!-- Favicon -->
+  <link rel="icon" type="image/x-icon" href="favicon.ico" />
+  <link rel="shortcut icon" type="image/x-icon" href="favicon.ico" />
+
+  <!-- Apple SF Pro Fonts -->
+  <link rel="stylesheet" href="https://fonts.cdnfonts.com/css/sf-pro-display" />
+
+  <style>
+    :root {
+      --bg-page: #F5F5F7;
+      --surface-card: #FFFFFF;
+      --surface-elevated: #FFFFFF;
+      --border-subtle: rgba(0, 0, 0, 0.08);
+      --border-hover: rgba(0, 0, 0, 0.16);
+      --text-dark: #1D1D1F;
+      --text-body: #515154;
+      --text-muted: #86868B;
+      --hrl-crimson: #D1002D;
+      --hrl-crimson-dark: #A50024;
+      --hrl-crimson-tint: rgba(209, 0, 45, 0.08);
+      --hrl-crimson-glow: rgba(209, 0, 45, 0.25);
+      --font-sans: -apple-system, BlinkMacSystemFont, "SF Pro Display", "SF Pro Text", "Segoe UI", Roboto, Helvetica, Arial, sans-serif;
+      --font-mono: ui-monospace, "SF Mono", "Cascadia Code", "Roboto Mono", Menlo, Consolas, monospace;
+      --radius-pill: 9999px;
+      --radius-card: 18px;
+      --radius-hero: 20px;
+      --transition-smooth: all 0.22s cubic-bezier(0.16, 1, 0.3, 1);
+    }
+
+    * {
+      box-sizing: border-box;
+      margin: 0;
+      padding: 0;
+      -webkit-font-smoothing: antialiased;
+      -moz-osx-font-smoothing: grayscale;
+    }
+
+    body {
+      font-family: var(--font-sans);
+      background-color: var(--bg-page);
+      color: var(--text-dark);
+      min-height: 100vh;
+      display: flex;
+      flex-direction: column;
+      overflow-x: hidden;
+      line-height: 1.5;
+    }
+
+    /* Top Ribbon */
+    .apple-ribbon {
+      background: #FFFFFF;
+      color: var(--text-muted);
+      font-size: 13px;
+      text-align: center;
+      padding: 8px 16px;
+      border-bottom: 1px solid var(--border-subtle);
+    }
+    .apple-ribbon a {
+      color: var(--hrl-crimson);
+      text-decoration: none;
+      font-weight: 600;
+      margin-left: 6px;
+    }
+    .apple-ribbon a:hover {
+      text-decoration: underline;
+    }
+
+    /* Navigation */
+    .apple-nav {
+      position: sticky;
+      top: 0;
+      z-index: 1000;
+      background: rgba(255, 255, 255, 0.88);
+      backdrop-filter: blur(20px);
+      -webkit-backdrop-filter: blur(20px);
+      border-bottom: 1px solid var(--border-subtle);
+    }
+    .nav-container {
+      max-width: 1240px;
+      margin: 0 auto;
+      padding: 0 24px;
+      height: 54px;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+    }
+    .nav-brand {
+      display: flex;
+      align-items: center;
+      gap: 10px;
+      text-decoration: none;
+      color: var(--text-dark);
+      font-weight: 700;
+      font-size: 15px;
+      letter-spacing: -0.015em;
+    }
+    .nav-flag-thumb {
+      height: 20px;
+      width: auto;
+      object-fit: contain;
+      vertical-align: middle;
+      display: inline-block;
+      box-shadow: none !important;
+      border: none !important;
+    }
+    .nav-links {
+      display: flex;
+      align-items: center;
+      gap: 20px;
+      list-style: none;
+    }
+    .nav-links a {
+      text-decoration: none;
+      color: var(--text-body);
+      font-size: 13.5px;
+      font-weight: 500;
+      transition: var(--transition-smooth);
+    }
+    .nav-links a:hover,
+    .nav-links a.active {
+      color: var(--hrl-crimson);
+      font-weight: 600;
+    }
+    .nav-cta {
+      display: inline-flex;
+      align-items: center;
+      gap: 6px;
+      background: var(--hrl-crimson);
+      color: #FFFFFF !important;
+      font-size: 12.5px;
+      font-weight: 600;
+      padding: 7px 18px;
+      border-radius: var(--radius-pill);
+      box-shadow: 0 2px 10px rgba(209, 0, 45, 0.22);
+      transition: var(--transition-smooth);
+    }
+    .nav-cta:hover {
+      background: var(--hrl-crimson-dark);
+      transform: translateY(-1px);
+    }
+
+    /* Main Container */
+    main {
+      flex: 1;
+      max-width: 1140px;
+      margin: 0 auto;
+      padding: 44px 24px 80px;
+      width: 100%;
+    }
+
+    /* Header Section */
+    .hero-header {
+      text-align: center;
+      max-width: 920px;
+      margin: 0 auto 36px;
+    }
+
+    /* Apple-Caliber Executive Company Motto Badge */
+    .company-motto-badge {
+      display: inline-flex;
+      align-items: center;
+      gap: 12px;
+      background: #FFFFFF;
+      border: 1px solid rgba(0, 0, 0, 0.08);
+      padding: 5px 18px 5px 6px;
+      border-radius: var(--radius-pill);
+      box-shadow: 0 2px 8px rgba(0, 0, 0, 0.04), 0 1px 2px rgba(0, 0, 0, 0.02);
+      transition: var(--transition-smooth);
+      margin-bottom: 24px;
+      vertical-align: middle;
+    }
+    .company-motto-badge:hover {
+      border-color: rgba(0, 0, 0, 0.14);
+      box-shadow: 0 4px 14px rgba(0, 0, 0, 0.06);
+      transform: translateY(-1px);
+    }
+    .motto-tag {
+      background: linear-gradient(135deg, #D1002D 0%, #B80026 100%);
+      color: #FFFFFF;
+      font-size: 10px;
+      font-weight: 700;
+      text-transform: uppercase;
+      letter-spacing: 0.05em;
+      padding: 4px 11px;
+      border-radius: var(--radius-pill);
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      line-height: 1;
+      box-shadow: 0 1px 3px rgba(209, 0, 45, 0.28);
+      flex-shrink: 0;
+    }
+    .motto-text {
+      color: #1D1D1F;
+      font-size: 13px;
+      font-weight: 600;
+      letter-spacing: -0.012em;
+      line-height: 1;
+      display: inline-flex;
+      align-items: center;
+    }
+
+    .eyebrow-badge {
+      display: inline-flex;
+      align-items: center;
+      gap: 6px;
+      font-size: 12px;
+      font-weight: 700;
+      text-transform: uppercase;
+      letter-spacing: 0.08em;
+      color: var(--hrl-crimson);
+      margin-bottom: 12px;
+    }
+    h1 {
+      font-size: clamp(34px, 5.2vw, 54px);
+      font-weight: 800;
+      letter-spacing: -0.035em;
+      line-height: 1.1;
+      color: var(--text-dark);
+      margin-bottom: 14px;
+    }
+    p.lead-desc {
+      font-size: 17px;
+      color: var(--text-body);
+      line-height: 1.55;
+      max-width: 840px;
+      margin: 0 auto;
+    }
+
+    /* Primary Hero Flag Container: Displays Original RAW Master Flag */
+    .flag-hero-wrapper {
+      margin: 32px 0 24px;
+      position: relative;
+    }
+    .flag-hero-container {
+      width: 100%;
+      background: #FFFFFF;
+      border-radius: var(--radius-hero);
+      overflow: hidden;
+      border: 1px solid var(--border-subtle);
+      box-shadow: 0 20px 60px rgba(0, 0, 0, 0.08), 0 2px 8px rgba(0, 0, 0, 0.04);
+      aspect-ratio: 3 / 2;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+    }
+    .flag-hero-image {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+      display: block;
+    }
+
+    /* Metadata Badges Bar */
+    .flag-metadata-bar {
+      display: flex;
+      flex-wrap: wrap;
+      align-items: center;
+      justify-content: center;
+      gap: 12px;
+      margin-top: 20px;
+    }
+    .meta-badge {
+      display: inline-flex;
+      align-items: center;
+      gap: 6px;
+      background: var(--surface-card);
+      border: 1px solid var(--border-subtle);
+      padding: 6px 14px;
+      border-radius: var(--radius-pill);
+      font-size: 12px;
+      font-weight: 600;
+      color: var(--text-body);
+      box-shadow: 0 1px 4px rgba(0, 0, 0, 0.02);
+    }
+    .meta-badge strong {
+      color: var(--text-dark);
+    }
+    .meta-badge-primary {
+      background: var(--hrl-crimson-tint);
+      border-color: rgba(209, 0, 45, 0.22);
+      color: var(--hrl-crimson);
+    }
+
+    /* Actions */
+    .actions-row {
+      display: flex;
+      flex-wrap: wrap;
+      justify-content: center;
+      gap: 14px;
+      margin: 28px 0 60px;
+    }
+    .hrl-btn {
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      gap: 8px;
+      font-size: 13.5px;
+      font-weight: 600;
+      padding: 12px 24px;
+      border-radius: var(--radius-pill);
+      text-decoration: none;
+      cursor: pointer;
+      border: 1px solid transparent;
+      transition: var(--transition-smooth);
+    }
+    .hrl-btn-primary {
+      background: var(--hrl-crimson);
+      color: #FFFFFF;
+      box-shadow: 0 4px 16px rgba(209, 0, 45, 0.28);
+    }
+    .hrl-btn-primary:hover {
+      background: var(--hrl-crimson-dark);
+      transform: translateY(-2px);
+      box-shadow: 0 6px 22px rgba(209, 0, 45, 0.35);
+    }
+    .hrl-btn-secondary {
+      background: var(--surface-card);
+      color: var(--text-dark);
+      border-color: var(--border-subtle);
+      box-shadow: 0 2px 8px rgba(0, 0, 0, 0.03);
+    }
+    .hrl-btn-secondary:hover {
+      background: #FFFFFF;
+      border-color: var(--border-hover);
+      transform: translateY(-2px);
+      box-shadow: 0 6px 16px rgba(0, 0, 0, 0.06);
+    }
+
+    /* Section Headers */
+    .section-header-block {
+      text-align: center;
+      max-width: 800px;
+      margin: 60px auto 32px;
+    }
+    .section-eyebrow {
+      font-size: 11.5px;
+      font-weight: 700;
+      text-transform: uppercase;
+      letter-spacing: 0.08em;
+      color: var(--hrl-crimson);
+      margin-bottom: 8px;
+    }
+    .section-title {
+      font-size: clamp(24px, 3.8vw, 36px);
+      font-weight: 800;
+      letter-spacing: -0.025em;
+      color: var(--text-dark);
+      margin-bottom: 10px;
+    }
+    .section-desc {
+      font-size: 15px;
+      color: var(--text-body);
+      line-height: 1.55;
+    }
+
+    /* Symmetrical Bento Grid for Heraldic Specs (4 Cards = 2x2) */
+    .bento-grid-2x2 {
+      display: grid;
+      grid-template-columns: 1fr;
+      gap: 22px;
+      margin-bottom: 40px;
+    }
+    @media (min-width: 768px) {
+      .bento-grid-2x2 {
+        grid-template-columns: repeat(2, 1fr);
+      }
+    }
+    .bento-card {
+      background: var(--surface-card);
+      border: 1px solid var(--border-subtle);
+      border-radius: var(--radius-card);
+      padding: 26px 28px;
+      display: flex;
+      flex-direction: column;
+      transition: var(--transition-smooth);
+      box-shadow: 0 4px 16px rgba(0, 0, 0, 0.02);
+    }
+    .bento-card:hover {
+      transform: translateY(-2px);
+      border-color: var(--border-hover);
+      box-shadow: 0 10px 28px rgba(0, 0, 0, 0.05);
+    }
+    .card-eyebrow {
+      font-size: 11px;
+      font-weight: 700;
+      text-transform: uppercase;
+      letter-spacing: 0.06em;
+      color: var(--text-muted);
+      margin-bottom: 8px;
+    }
+    .card-title {
+      font-size: 19px;
+      font-weight: 700;
+      color: var(--text-dark);
+      letter-spacing: -0.015em;
+      margin-bottom: 10px;
+      display: flex;
+      align-items: center;
+      gap: 8px;
+    }
+    .card-desc {
+      font-size: 14px;
+      color: var(--text-body);
+      line-height: 1.55;
+    }
+
+    /* Rules & Regulations Detailed Legal Container */
+    .rules-master-container {
+      background: var(--surface-card);
+      border: 1px solid var(--border-subtle);
+      border-radius: 22px;
+      padding: 36px 36px 42px;
+      margin-top: 20px;
+      box-shadow: 0 10px 32px rgba(0, 0, 0, 0.03);
+    }
+    @media (max-width: 640px) {
+      .rules-master-container {
+        padding: 24px 18px;
+      }
+    }
+
+    .rules-grid {
+      display: grid;
+      grid-template-columns: 1fr;
+      gap: 30px;
+      margin-top: 28px;
+    }
+    @media (min-width: 880px) {
+      .rules-grid {
+        grid-template-columns: repeat(2, 1fr);
+      }
+    }
+
+    .rule-item {
+      border-left: 3px solid var(--hrl-crimson);
+      padding-left: 18px;
+    }
+    .rule-item h4 {
+      font-size: 16px;
+      font-weight: 700;
+      color: var(--text-dark);
+      margin-bottom: 6px;
+      letter-spacing: -0.01em;
+    }
+    .rule-item p {
+      font-size: 13.5px;
+      color: var(--text-body);
+      line-height: 1.6;
+      margin-bottom: 8px;
+    }
+    .rule-item ul {
+      margin-left: 18px;
+      font-size: 13px;
+      color: var(--text-body);
+      line-height: 1.6;
+    }
+    .rule-item li {
+      margin-bottom: 4px;
+    }
+
+    /* Statutory Notice Callout Box */
+    .statutory-callout {
+      margin-top: 36px;
+      background: #FFF5F5;
+      border: 1px solid rgba(209, 0, 45, 0.22);
+      border-radius: 14px;
+      padding: 22px 24px;
+    }
+    .statutory-callout h4 {
+      font-size: 14px;
+      font-weight: 700;
+      color: var(--hrl-crimson);
+      text-transform: uppercase;
+      letter-spacing: 0.05em;
+      margin-bottom: 8px;
+      display: flex;
+      align-items: center;
+      gap: 8px;
+    }
+    .statutory-callout p {
+      font-size: 13px;
+      color: #5A1E1E;
+      line-height: 1.6;
+    }
+
+    /* Toast */
+    #toast {
+      position: fixed;
+      bottom: 24px;
+      left: 50%;
+      transform: translateX(-50%) translateY(20px);
+      background: #10B981;
+      color: #FFFFFF;
+      padding: 10px 22px;
+      border-radius: var(--radius-pill);
+      font-size: 13px;
+      font-weight: 600;
+      box-shadow: 0 8px 24px rgba(0, 0, 0, 0.12);
+      opacity: 0;
+      pointer-events: none;
+      transition: var(--transition-smooth);
+      z-index: 2000;
+    }
+    #toast.show {
+      opacity: 1;
+      transform: translateX(-50%) translateY(0);
+    }
+
+    /* Apple Minimalist Light Footer */
+    .apple-footer {
+      background: #FFFFFF;
+      border-top: 1px solid var(--border-subtle);
+      padding: 40px 24px 30px;
+      color: var(--text-muted);
+      font-size: 12.5px;
+      line-height: 1.6;
+    }
+    .footer-content {
+      max-width: 1140px;
+      margin: 0 auto;
+    }
+    .footer-content a {
+      color: var(--text-body);
+      text-decoration: none;
+      transition: var(--transition-smooth);
+    }
+    .footer-content a:hover {
+      color: var(--hrl-crimson);
+    }
+    .footer-bottom {
+      margin-top: 24px;
+      padding-top: 20px;
+      border-top: 1px solid var(--border-subtle);
+      display: flex;
+      flex-wrap: wrap;
+      justify-content: space-between;
+      align-items: center;
+      gap: 14px;
+    }
+    .footer-links {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 18px;
+    }
+    .footer-links a {
+      font-size: 12px;
+      font-weight: 500;
+    }
+
+    @media (max-width: 768px) {
+      .nav-links { display: none; }
+      .actions-row { flex-direction: column; width: 100%; }
+      .hrl-btn { width: 100%; }
+      .company-motto-badge {
+        padding: 6px 14px 6px 6px;
+        gap: 8px;
+        max-width: 100%;
+        text-align: left;
+      }
+      .motto-text {
+        font-size: 12px;
+        line-height: 1.35;
+      }
+    }
+    .hc-flow { display:flex; flex-wrap:wrap; gap:12px; justify-content:center; max-width:1100px; margin:0 auto 64px; padding:0 24px; }
+    .hc-step { background:var(--surface-card); border:1px solid var(--border-subtle); border-radius:var(--radius-card);
+               padding:18px 20px; flex:1 1 180px; max-width:210px; text-align:center; }
+    .hc-step b { display:block; color:var(--hrl-crimson); font-size:13px; letter-spacing:.06em; text-transform:uppercase; margin-bottom:6px; }
+    .hc-step span { font-size:14px; color:var(--text-body); }
+    .hc-card-wrap { display:flex; justify-content:center; padding:0 24px; margin:0 auto 64px; }
+    .hc-card-wrap img { width:100%; max-width:520px; border-radius:20px; box-shadow:0 20px 50px rgba(0,0,0,.18); }
+    .hc-table { width:100%; max-width:1100px; margin:0 auto 64px; border-collapse:collapse; background:var(--surface-card);
+                border-radius:var(--radius-card); overflow:hidden; font-size:14.5px; }
+    .hc-table th, .hc-table td { padding:14px 18px; text-align:left; border-bottom:1px solid var(--border-subtle); }
+    .hc-table th { background:var(--hrl-crimson-tint); color:var(--text-dark); font-weight:600; }
+    .hc-table td code { font-family:var(--font-mono); font-size:13px; }
+    @media (max-width: 760px) { .hc-table { font-size:13px; } .hc-table th, .hc-table td { padding:10px; } }
+  </style>
+</head>
+<body>
+
+  <div class="apple-ribbon">
+    HRL Country · The Developer Community of HRL International Private Limited
+    <a href="#join">Become a Citizen &rarr;</a>
+  </div>
+
+  <nav class="apple-nav">
+    <div class="nav-container">
+      <a href="index.html" class="nav-brand" aria-label="HRL International">
+        <img src="assets/hrl-country-flag.png" alt="HRL Country Flag" class="nav-flag-thumb" />
+        <span>HRL Country</span>
+      </a>
+      <ul class="nav-links">
+        <li><a href="index.html">Overview</a></li>
+        <li><a href="#charter">Charter</a></li>
+        <li><a href="#governance">Governance</a></li>
+        <li><a href="#citizen-id">Citizen ID</a></li>
+        <li><a href="#infrastructure">Infrastructure</a></li>
+        <li><a href="flag.html">Official Flag</a></li>
+        <li><a href="legal.html">Legal</a></li>
+      </ul>
+      <a href="#join" class="nav-cta"><span>Join HRL Country</span></a>
+    </div>
+  </nav>
+
+  <main>
+    <header class="hero-header">
+      <div class="company-motto-badge">
+        <span class="motto-tag">Company Motto</span>
+        <span class="motto-text">We Can Do Everything Related To Software Sector Without Any Excuses!</span>
+      </div>
+      <div class="eyebrow-badge">
+        <svg width="14" height="14" viewBox="0 0 24 24" fill="currentColor"><path d="M12 2L15.09 8.26L22 9.27L17 14.14L18.18 21.02L12 17.77L5.82 21.02L7 14.14L2 9.27L8.91 8.26L12 2Z"/></svg>
+        Developer Community · Est. 2026
+      </div>
+      <h1>HRL Country</h1>
+      <p class="lead-desc">
+        The self-governed, privacy-first home for builders, operated by <strong>HRL International Private Limited</strong>.
+        Citizens get a digital ID, a vote in every community decision, an elected Council, and recognition for every line they ship,
+        all set out in one public Charter.
+      </p>
+    </header>
+
+    <div class="flag-hero-wrapper">
+      <div class="flag-hero-container">
+        <img src="assets/hrl-country-flag.png" alt="HRL Country Flag (DEV Flag)" class="flag-hero-image" />
+      </div>
+      <div class="flag-metadata-bar">
+        <div class="meta-badge meta-badge-primary"><span>Flag:</span> <strong>DEV Flag · 10,800 × 7,200</strong></div>
+        <div class="meta-badge"><span>Ratio:</span> <strong>2:3</strong></div>
+        <div class="meta-badge"><span>Colours:</span> <strong>HRL Red #BF1F1F · Black · White</strong></div>
+        <div class="meta-badge"><span>Charter:</span> <strong>Version 1.0</strong></div>
+      </div>
+    </div>
+
+    <div class="actions-row">
+      <a href="#charter" class="hrl-btn hrl-btn-primary"><span>Read the Charter</span></a>
+      <a href="assets/hrl-country-flag.png" download="HRL Country Flag.png" class="hrl-btn hrl-btn-secondary"><svg width="16" height="16" fill="none" stroke="currentColor" stroke-width="2.5" viewBox="0 0 24 24"><path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4M7 10l5 5 5-5M12 15V3"></path></svg><span>Download Flag (RAW PNG)</span></a>
+      <a href="#join" class="hrl-btn hrl-btn-secondary"><span>Become a Citizen</span></a>
+    </div>
+
+    <div class="section-header-block">
+      <div class="section-eyebrow">What Is HRL Country</div>
+      <h2 class="section-title">A Community Built Like a Country</h2>
+      <p class="section-desc">Citizenship, rights, an elected Council and shared infrastructure, run as the developer community of HRL International.</p>
+    </div>
+    <div class="bento-grid-2x2">
+      <div class="bento-card">
+        <div class="card-eyebrow">Citizenship</div>
+        <h3 class="card-title">Join, Get an ID, Have a Voice</h3>
+        <p class="card-desc">Every member becomes a Citizen with a unique ID (HRL-0001, HRL-0002, …) and a digital ID card. Residents and Founders vote, and new Visitors serve a 30-day probation.</p>
+      </div>
+      <div class="bento-card">
+        <div class="card-eyebrow">Self-Governance</div>
+        <h3 class="card-title">Assembly, Council &amp; Steward</h3>
+        <p class="card-desc">All Citizens form the Assembly. A five-member Council is elected every six months. The Steward appointed by the Company keeps everything legal, secure and funded.</p>
+      </div>
+      <div class="bento-card">
+        <div class="card-eyebrow">Privacy First</div>
+        <h3 class="card-title">Self-Hosted &amp; Pseudonymous</h3>
+        <p class="card-desc">Git hosting and end-to-end encrypted chat run on our own servers and are also reachable as Tor onion services. Pseudonyms are welcome, and we collect only the minimum data we need.</p>
+      </div>
+      <div class="bento-card">
+        <div class="card-eyebrow">Recognition</div>
+        <h3 class="card-title">The Contribution Ledger</h3>
+        <p class="card-desc">Code, docs, reviews, mentoring and infrastructure work earn contribution points on a public leaderboard. Points are for recognition only: not currency, and not equity.</p>
+      </div>
+    </div>
+
+    <div class="section-header-block" id="charter">
+      <div class="section-eyebrow">Founding Document</div>
+      <h2 class="section-title">The Charter of HRL Country</h2>
+      <p class="section-desc">Ten articles that define how we join, decide and resolve disagreements. Summary below.</p>
+    </div>
+    <div class="rules-master-container">
+      <div class="rules-grid">
+        <div class="rule-item">
+          <h4>Art. I · Nature &amp; Legal Status</h4>
+          <p>HRL Country is a private, membership-based developer community operated by HRL International Private Limited.</p>
+          <ul>
+            <li>It is not a state and claims no territory or exemption from law.</li>
+            <li>The laws of India apply, and if this Charter conflicts with them, the law prevails.</li>
+          </ul>
+        </div>
+        <div class="rule-item">
+          <h4>Art. II · Citizenship</h4>
+          <p>Open to anyone aged 18 or over who accepts the Charter and Code of Conduct.</p>
+          <ul>
+            <li>Admission: approval by one Council member, or vouching by two Citizens.</li>
+            <li>Classes: <strong>Resident</strong>, <strong>Visitor</strong> (30-day probation, no vote) and <strong>Founder</strong>.</li>
+            <li>Leave any time, and your data is deleted on request.</li>
+          </ul>
+        </div>
+        <div class="rule-item">
+          <h4>Art. III · Rights of Citizens</h4>
+          <p>Every Citizen is guaranteed:</p>
+          <ul>
+            <li>Privacy and pseudonymity.</li>
+            <li>Free expression within the Code of Conduct.</li>
+            <li>Ownership of their own code, with OSI licences for community projects.</li>
+            <li>The right to propose, vote and stand for the Council, and to due process before any sanction.</li>
+          </ul>
+        </div>
+        <div class="rule-item">
+          <h4>Art. IV · Duties of Citizens</h4>
+          <p>Membership comes with responsibilities:</p>
+          <ul>
+            <li>Follow the Code of Conduct.</li>
+            <li>No illegal use of the infrastructure: no malware, fraud, harassment or piracy.</li>
+            <li>Never dox another Citizen. Report security issues responsibly.</li>
+          </ul>
+        </div>
+        <div class="rule-item">
+          <h4>Art. VI · Proposals &amp; Voting</h4>
+          <p>Transparent, predictable decision-making:</p>
+          <ul>
+            <li>A motion needs 3 seconds, then 7 days of discussion and 5 days of voting.</li>
+            <li>Quorum: 20% of eligible voters.</li>
+            <li>Ordinary motions need a simple majority. Charter amendments and Council removals need a two-thirds majority.</li>
+          </ul>
+        </div>
+        <div class="rule-item">
+          <h4>Art. VII · Dispute Resolution</h4>
+          <p>A fair, staged process:</p>
+          <ul>
+            <li>Mediation first, then a Moderation Panel of 3 randomly chosen Citizens, then one appeal to the Council.</li>
+            <li>Sanctions: warning, suspension of up to 90 days, or revocation.</li>
+            <li>Nothing restricts anyone's right to go to the courts or the authorities.</li>
+          </ul>
+        </div>
+      </div>
+    </div>
+
+    <div class="section-header-block" id="governance">
+      <div class="section-eyebrow">How Decisions Get Made</div>
+      <h2 class="section-title">Governance Flow</h2>
+      <p class="section-desc">From an idea to a published result, every step is public.</p>
+    </div>
+    <div class="hc-flow">
+      <div class="hc-step"><b>1 · Propose</b><span>Any Resident tables a motion</span></div>
+      <div class="hc-step"><b>2 · Second</b><span>3 Citizens back it</span></div>
+      <div class="hc-step"><b>3 · Discuss</b><span>7 days of open debate</span></div>
+      <div class="hc-step"><b>4 · Vote</b><span>5 days, one Citizen, one vote</span></div>
+      <div class="hc-step"><b>5 · Publish</b><span>Result recorded in the registry</span></div>
+    </div>
+
+    <table class="hc-table">
+      <tr><th>Institution</th><th>Who</th><th>Role</th></tr>
+      <tr><td><strong>Assembly</strong></td><td>All Resident &amp; Founder Citizens</td><td>Passes motions, elects the Council, amends the Charter</td></tr>
+      <tr><td><strong>Council</strong></td><td>5 members, 6-month terms, max 3 consecutive terms</td><td>Administration, admissions, moderation appeals</td></tr>
+      <tr><td><strong>Steward</strong></td><td>Appointed by HRL International</td><td>Infrastructure, finance and legal compliance. May veto only for law or security reasons, with published reasons</td></tr>
+    </table>
+
+    <div class="section-header-block" id="citizen-id">
+      <div class="section-eyebrow">Citizen Tooling</div>
+      <h2 class="section-title">Your HRL Country Citizen ID</h2>
+      <p class="section-desc">Issued to every member from the Community registry, styled after the DEV Flag.</p>
+    </div>
+    <div class="hc-card-wrap">
+      <img src="assets/hrl-country-citizen-card.svg" alt="Sample HRL Country Citizen ID card" />
+    </div>
+    <div class="bento-grid-2x2">
+      <div class="bento-card">
+        <div class="card-eyebrow">Registry</div>
+        <h3 class="card-title">Member Registry</h3>
+        <p class="card-desc">Every Citizen is recorded with their ID, class and join date. Anyone can check who is a member and in what class.</p>
+      </div>
+      <div class="bento-card">
+        <div class="card-eyebrow">Voting</div>
+        <h3 class="card-title">Governance App</h3>
+        <p class="card-desc">Motions, votes and tallies with the Charter rules built in: visitors can't vote, the quorum is 20%, and amendments need two-thirds.</p>
+      </div>
+      <div class="bento-card">
+        <div class="card-eyebrow">Ledger</div>
+        <h3 class="card-title">Contribution Tracking</h3>
+        <p class="card-desc">Points for code, docs, reviews and mentoring, plus a public leaderboard for recognition.</p>
+      </div>
+      <div class="bento-card">
+        <div class="card-eyebrow">ID Cards</div>
+        <h3 class="card-title">Digital Citizen Cards</h3>
+        <p class="card-desc">Cards are generated automatically for every member. Each one states that it is a community membership card, not a government ID.</p>
+      </div>
+    </div>
+
+    <div class="section-header-block" id="infrastructure">
+      <div class="section-eyebrow">Infrastructure</div>
+      <h2 class="section-title">Privacy-First, Self-Hosted Platform</h2>
+      <p class="section-desc">Our own stack, with no exposure on the clear web.</p>
+    </div>
+    <table class="hc-table">
+      <tr><th>Service</th><th>Technology</th><th>Access</th></tr>
+      <tr><td><strong>Code Hosting</strong></td><td>Gitea: repositories, issues, pull requests, wiki</td><td>Tor <code>.onion</code> service + local</td></tr>
+      <tr><td><strong>Encrypted Chat</strong></td><td>Matrix (Conduit) with the Element client, end-to-end encrypted</td><td>Tor <code>.onion</code> service + local</td></tr>
+      <tr><td><strong>Identity</strong></td><td>Council-approved accounts only, 2FA for the Council</td><td>Registration via admission (Art. II)</td></tr>
+      <tr><td><strong>Data Protection</strong></td><td>Minimal data, deletion on request</td><td>Digital Personal Data Protection Act, 2023</td></tr>
+    </table>
+
+    <div class="section-header-block" id="join">
+      <div class="section-eyebrow">Join</div>
+      <h2 class="section-title">Become a Citizen of HRL Country</h2>
+      <p class="section-desc">Open to developers aged 18 and over, anywhere in the world.</p>
+    </div>
+    <div class="hc-flow">
+      <div class="hc-step"><b>1 · Apply</b><span>Email us your handle and GitHub/GitLab profile</span></div>
+      <div class="hc-step"><b>2 · Accept</b><span>Agree to the Charter &amp; Code of Conduct</span></div>
+      <div class="hc-step"><b>3 · Admission</b><span>Council approval or 2 vouches</span></div>
+      <div class="hc-step"><b>4 · Visitor</b><span>30 days to contribute</span></div>
+      <div class="hc-step"><b>5 · Resident</b><span>Full vote and Citizen ID</span></div>
+    </div>
+    <div class="actions-row">
+      <a href="mailto:hrlinternationalprivatelimited@gmail.com?subject=HRL%20Country%20Citizenship%20Application" class="hrl-btn hrl-btn-primary"><span>Apply for Citizenship</span></a>
+    </div>
+
+    <div class="rules-master-container">
+      <div class="statutory-callout">
+        <h4>Legal Status</h4>
+        <p>
+          <strong>HRL Country</strong> is a private developer community operated by <strong>HRL International Private Limited</strong>,
+          a company incorporated in India. &ldquo;Country&rdquo;, &ldquo;Citizen&rdquo;, &ldquo;Council&rdquo; and similar terms are community branding.
+          They do not denote any nation, state or legal status. Citizen IDs are community membership cards, not government identification.
+          The HRL Country flag is a corporate and community identity mark, displayed in accordance with the Flag Code of India.
+        </p>
+      </div>
+    </div>
+  </main>
+
+  <div id="toast">Asset ready for download</div>
+
+  <!-- Apple Minimalist Footer (Light Theme) -->
+  <footer class="apple-footer">
+    <div class="footer-content">
+      <p>1. HRL International Private Limited is an incorporated entity registered under the Companies Act in Mangaluru, Karnataka, India.</p>
+      <p>2. The Official Sovereign Flag is a proprietary registered trade dress asset owned exclusively by Pavan Kumar Sadashiv.</p>
+      <p>3. Corporate Legal Inquiries: <a href="mailto:hrlinternationalprivatelimited@gmail.com">hrlinternationalprivatelimited@gmail.com</a></p>
+
+      <div class="footer-bottom">
+        <div>Copyright &copy; 2026 Pavan Kumar Sadashiv. HRL International&trade; is an asserted and registered trademark. All rights reserved.</div>
+        <div class="footer-links">
+          <a href="index.html">Home</a>
+          <a href="hrlpavan.html">Founder Entity</a>
+          <a href="https://github.com/hrlpavan/all-projects-portfolio" target="_blank" rel="noopener noreferrer">Master Portfolio</a>
+          <a href="https://github.com/hrlpavan/hrl-corporate-flag" target="_blank" rel="noopener noreferrer">GitHub</a>
+          <a href="https://gitlab.com/hrlpavan/hrl-corporate-flag" target="_blank" rel="noopener noreferrer">GitLab</a>
+          <a href="legal.html">Legal Doctrine</a>
+        </div>
+      </div>
+    </div>
+  </footer>
+
+  <script>
+    function showToast(msg) {
+      const toast = document.getElementById('toast');
+      toast.innerText = msg;
+      toast.classList.add('show');
+      setTimeout(() => {
+        toast.classList.remove('show');
+      }, 2500);
+    }
+  </script>
+</body>
+</html>
