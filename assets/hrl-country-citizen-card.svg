@@ -10,8 +10,8 @@
 <text x="160" y="210" font-size="42" font-weight="bold">Pavan Kumar Sadashiv</text>
 <text x="160" y="248" font-size="22">@hrlpavan</text>
 <text x="160" y="312" font-size="15" fill="#f3c4c4">CITIZEN #</text><text x="160" y="342" font-size="28" font-family="monospace">HRL-0001</text>
-<text x="380" y="312" font-size="15" fill="#f3c4c4">CLASS</text><text x="380" y="342" font-size="28">Founder</text>
-<text x="580" y="312" font-size="15" fill="#f3c4c4">JOINED</text><text x="580" y="342" font-size="24">2026-11-24</text>
+<text x="360" y="312" font-size="15" fill="#f3c4c4">ROLE / CLASS</text><text x="360" y="342" font-size="24">Founder</text>
+<text x="640" y="312" font-size="15" fill="#f3c4c4">JOINED</text><text x="640" y="342" font-size="22">2026-11-24</text>
 <text x="160" y="396" font-size="15" fill="#f3c4c4">CRYPTOGRAPHIC CANDIDATE ADDRESS (SHA-256)</text>
 <text x="160" y="424" font-size="20" font-family="monospace">0x800cc49a7635210c432ae2ec8667587f612c7c10</text>
 <text x="160" y="515" font-size="13" fill="#f3c4c4">Community membership card of HRL International LLC. Not a government ID.</text>

@@ -601,8 +601,8 @@
                padding:18px 20px; flex:1 1 180px; max-width:210px; text-align:center; }
     .hc-step b { display:block; color:var(--hrl-crimson); font-size:13px; letter-spacing:.06em; text-transform:uppercase; margin-bottom:6px; }
     .hc-step span { font-size:14px; color:var(--text-body); }
-    .hc-card-wrap { display:flex; justify-content:center; padding:0 24px; margin:0 auto 64px; }
-    .hc-card-wrap img { width:100%; max-width:520px; border-radius:20px; box-shadow:0 20px 50px rgba(0,0,0,.18); }
+    .hc-card-wrap { display:flex; flex-wrap:wrap; gap:24px; justify-content:center; padding:0 24px; margin:0 auto 64px; max-width:1100px; }
+    .hc-card-wrap img { width:100%; max-width:500px; border-radius:20px; box-shadow:0 20px 50px rgba(0,0,0,.18); }
     .hc-table { width:100%; max-width:1100px; margin:0 auto 64px; border-collapse:collapse; background:var(--surface-card);
                 border-radius:var(--radius-card); overflow:hidden; font-size:14.5px; }
     .hc-table th, .hc-table td { padding:14px 18px; text-align:left; border-bottom:1px solid var(--border-subtle); }
@@ -829,7 +829,8 @@
       <p class="section-desc">Issued to every member from the Community registry, styled after the DEV Flag.</p>
     </div>
     <div class="hc-card-wrap">
-      <img src="assets/hrl-country-citizen-card.svg" alt="Sample HRL Country Citizen ID card" />
+      <img src="assets/hrl-country-citizen-card.svg" alt="HRL-0001 Founder Citizen ID card — Pavan Kumar Sadashiv" />
+      <img src="assets/hrl-country-citizen-card-apoorvi.svg" alt="HRL-0002 CEO Citizen ID card — Apoorvi Vijay" />
     </div>
     <div class="bento-grid-2x2">
       <div class="bento-card">
@@ -878,7 +879,7 @@
             <th>Rank</th>
             <th>Citizen</th>
             <th>Cryptographic Candidate ID</th>
-            <th>Class</th>
+            <th>Role</th>
             <th>Block</th>
             <th>Merit (HRLM)</th>
             <th>Status</th>
@@ -1015,7 +1016,7 @@
       setTimeout(() => { toast.classList.remove('show'); }, 2600);
     }
 
-    const FALLBACK_LEDGER = {"chain_id":"hrl-country-1","operator":"HRL International LLC","pow_prefix":"000","unit":"HRLM","block_count":3,"tip_hash":"00063e5e52bcf972c6b55ee6e2d9d32ca4c958ea4e973c487d1068e9a79df486","leaderboard":[{"rank":1,"cid":"HRL-0001","handle":"hrlpavan","name":"Pavan Kumar Sadashiv","class":"founder","joined":"2026-11-24","candidate_id":"0x800cc49a7635210c432ae2ec8667587f612c7c10","points":100,"unit":"HRLM","join_block":1}],"blocks":[{"height":0,"ts":"2026-11-24T00:00:00Z","tx_type":"GENESIS","candidate_id":"0x0000000000000000000000000000000000000000","payload":{"chain":"hrl-country-1","charter":"1.0","operator":"HRL International LLC","unit":"HRLM (non-transferable contribution merit)"},"prev_hash":"0000000000000000000000000000000000000000000000000000000000000000","nonce":1832,"block_hash":"00017cbb781a539d18220ab525da6caa0decb725939e92b91c928013f5979311"},{"height":1,"ts":"2026-11-24T20:16:14Z","tx_type":"JOIN","candidate_id":"0x800cc49a7635210c432ae2ec8667587f612c7c10","payload":{"cid":"HRL-0001","class":"founder","handle":"hrlpavan","name":"Pavan Kumar Sadashiv","pubkey":"3e971593a798f10a7d770c22a28510f83f6fb3fd505d6dc3c2456503a86f8306"},"prev_hash":"00017cbb781a539d18220ab525da6caa0decb725939e92b91c928013f5979311","nonce":3956,"block_hash":"0004c21225bf78fa5469ae1025b270f5411e55419a84afb36112a9169e284a2d"},{"height":2,"ts":"2026-11-24T20:16:14Z","tx_type":"CONTRIBUTE","candidate_id":"0x800cc49a7635210c432ae2ec8667587f612c7c10","payload":{"cid":"HRL-0001","handle":"hrlpavan","note":"Authored HRL Country Charter v1.0 & Genesis Public Ledger","points":100,"unit":"HRLM"},"prev_hash":"0004c21225bf78fa5469ae1025b270f5411e55419a84afb36112a9169e284a2d","nonce":2704,"block_hash":"00063e5e52bcf972c6b55ee6e2d9d32ca4c958ea4e973c487d1068e9a79df486"}]};
+    const FALLBACK_LEDGER = {"chain_id":"hrl-country-1","operator":"HRL International LLC","pow_prefix":"000","unit":"HRLM","unit_notice":"Non-transferable contribution merit for community recognition only; not currency, equity, or a financial instrument.","block_count":5,"tip_hash":"000bdcc93d835693cd21cfd65ad0bf299570746202de03e68f9d3a1b0b2b6776","leaderboard":[{"rank":1,"cid":"HRL-0001","handle":"hrlpavan","name":"Pavan Kumar Sadashiv","class":"founder","role":"Founder","joined":"2026-11-24","candidate_id":"0x800cc49a7635210c432ae2ec8667587f612c7c10","points":100,"unit":"HRLM","join_block":1},{"rank":2,"cid":"HRL-0002","handle":"apoorvi-vijay","name":"Apoorvi Vijay","class":"founder","role":"CEO","joined":"2026-11-25","candidate_id":"0x88b2acbbaad3a453b953c0cd9ae25b13fb9839c9","points":50,"unit":"HRLM","join_block":3}],"blocks":[{"height":0,"ts":"2026-11-24T00:00:00Z","tx_type":"GENESIS","candidate_id":"0x0000000000000000000000000000000000000000","payload":{"chain":"hrl-country-1","charter":"1.0","operator":"HRL International LLC","unit":"HRLM (non-transferable contribution merit)"},"prev_hash":"0000000000000000000000000000000000000000000000000000000000000000","nonce":1832,"block_hash":"00017cbb781a539d18220ab525da6caa0decb725939e92b91c928013f5979311"},{"height":1,"ts":"2026-11-24T20:16:14Z","tx_type":"JOIN","candidate_id":"0x800cc49a7635210c432ae2ec8667587f612c7c10","payload":{"cid":"HRL-0001","class":"founder","handle":"hrlpavan","name":"Pavan Kumar Sadashiv","pubkey":"3e971593a798f10a7d770c22a28510f83f6fb3fd505d6dc3c2456503a86f8306"},"prev_hash":"00017cbb781a539d18220ab525da6caa0decb725939e92b91c928013f5979311","nonce":3956,"block_hash":"0004c21225bf78fa5469ae1025b270f5411e55419a84afb36112a9169e284a2d"},{"height":2,"ts":"2026-11-24T20:16:14Z","tx_type":"CONTRIBUTE","candidate_id":"0x800cc49a7635210c432ae2ec8667587f612c7c10","payload":{"cid":"HRL-0001","handle":"hrlpavan","note":"Authored HRL Country Charter v1.0 & Genesis Public Ledger","points":100,"unit":"HRLM"},"prev_hash":"0004c21225bf78fa5469ae1025b270f5411e55419a84afb36112a9169e284a2d","nonce":2704,"block_hash":"00063e5e52bcf972c6b55ee6e2d9d32ca4c958ea4e973c487d1068e9a79df486"},{"height":3,"ts":"2026-11-25T17:33:02Z","tx_type":"JOIN","candidate_id":"0x88b2acbbaad3a453b953c0cd9ae25b13fb9839c9","payload":{"cid":"HRL-0002","class":"founder","handle":"apoorvi-vijay","name":"Apoorvi Vijay","pubkey":"f242bf3475a15d965152ca6053893c13bd1720e1ed2efcef108c8e3a9ba3a091","role":"CEO"},"prev_hash":"00063e5e52bcf972c6b55ee6e2d9d32ca4c958ea4e973c487d1068e9a79df486","nonce":1239,"block_hash":"000c5d63dabe941b47933a3563a5beaa9a6ed546a1def0fe35a14d247c5bfb11"},{"height":4,"ts":"2026-11-25T17:33:02Z","tx_type":"CONTRIBUTE","candidate_id":"0x88b2acbbaad3a453b953c0cd9ae25b13fb9839c9","payload":{"cid":"HRL-0002","handle":"apoorvi-vijay","note":"Appointed Citizen #2 & CEO leadership onboarding","points":50,"unit":"HRLM"},"prev_hash":"000c5d63dabe941b47933a3563a5beaa9a6ed546a1def0fe35a14d247c5bfb11","nonce":2238,"block_hash":"000bdcc93d835693cd21cfd65ad0bf299570746202de03e68f9d3a1b0b2b6776"}]};
 
     let currentLedger = FALLBACK_LEDGER;
     let lastMinted = null;
@@ -1072,7 +1073,7 @@
           <td><strong>#${r.rank}</strong></td>
           <td><strong>${esc(r.name)}</strong><br/><span style="font-size:12.5px;color:var(--text-muted);">@${esc(r.handle)} · <code>${esc(r.cid)}</code></span></td>
           <td><span class="hc-addr" title="Click to copy ${esc(r.candidate_id)}" data-copy="${esc(r.candidate_id)}">${esc(shortHex(r.candidate_id, 12, 8))}</span></td>
-          <td><span class="hc-pill">${esc(r.class)}</span></td>
+          <td><span class="hc-pill">${esc(r.role || r.class)}</span></td>
           <td><code>#${r.join_block}</code></td>
           <td><strong>${r.points}</strong> <code>${esc(r.unit)}</code></td>
           <td><span class="hc-pill ok">Confirmed On-Chain</span></td>

@@ -4,8 +4,8 @@
   "pow_prefix": "000",
   "unit": "HRLM",
   "unit_notice": "Non-transferable contribution merit for community recognition only; not currency, equity, or a financial instrument.",
-  "block_count": 3,
-  "tip_hash": "00063e5e52bcf972c6b55ee6e2d9d32ca4c958ea4e973c487d1068e9a79df486",
+  "block_count": 5,
+  "tip_hash": "000bdcc93d835693cd21cfd65ad0bf299570746202de03e68f9d3a1b0b2b6776",
   "leaderboard": [
     {
       "rank": 1,
@@ -13,11 +13,25 @@
       "handle": "hrlpavan",
       "name": "Pavan Kumar Sadashiv",
       "class": "founder",
+      "role": "Founder",
       "joined": "2026-11-24",
       "candidate_id": "0x800cc49a7635210c432ae2ec8667587f612c7c10",
       "points": 100,
       "unit": "HRLM",
       "join_block": 1
+    },
+    {
+      "rank": 2,
+      "cid": "HRL-0002",
+      "handle": "apoorvi-vijay",
+      "name": "Apoorvi Vijay",
+      "class": "founder",
+      "role": "CEO",
+      "joined": "2026-11-25",
+      "candidate_id": "0x88b2acbbaad3a453b953c0cd9ae25b13fb9839c9",
+      "points": 50,
+      "unit": "HRLM",
+      "join_block": 3
     }
   ],
   "blocks": [
@@ -67,6 +81,39 @@
       "prev_hash": "0004c21225bf78fa5469ae1025b270f5411e55419a84afb36112a9169e284a2d",
       "nonce": 2704,
       "block_hash": "00063e5e52bcf972c6b55ee6e2d9d32ca4c958ea4e973c487d1068e9a79df486"
+    },
+    {
+      "height": 3,
+      "ts": "2026-11-25T17:33:02Z",
+      "tx_type": "JOIN",
+      "candidate_id": "0x88b2acbbaad3a453b953c0cd9ae25b13fb9839c9",
+      "payload": {
+        "cid": "HRL-0002",
+        "class": "founder",
+        "handle": "apoorvi-vijay",
+        "name": "Apoorvi Vijay",
+        "pubkey": "f242bf3475a15d965152ca6053893c13bd1720e1ed2efcef108c8e3a9ba3a091",
+        "role": "CEO"
+      },
+      "prev_hash": "00063e5e52bcf972c6b55ee6e2d9d32ca4c958ea4e973c487d1068e9a79df486",
+      "nonce": 1239,
+      "block_hash": "000c5d63dabe941b47933a3563a5beaa9a6ed546a1def0fe35a14d247c5bfb11"
+    },
+    {
+      "height": 4,
+      "ts": "2026-11-25T17:33:02Z",
+      "tx_type": "CONTRIBUTE",
+      "candidate_id": "0x88b2acbbaad3a453b953c0cd9ae25b13fb9839c9",
+      "payload": {
+        "cid": "HRL-0002",
+        "handle": "apoorvi-vijay",
+        "note": "Appointed Citizen #2 & CEO leadership onboarding",
+        "points": 50,
+        "unit": "HRLM"
+      },
+      "prev_hash": "000c5d63dabe941b47933a3563a5beaa9a6ed546a1def0fe35a14d247c5bfb11",
+      "nonce": 2238,
+      "block_hash": "000bdcc93d835693cd21cfd65ad0bf299570746202de03e68f9d3a1b0b2b6776"
     }
   ]
 }

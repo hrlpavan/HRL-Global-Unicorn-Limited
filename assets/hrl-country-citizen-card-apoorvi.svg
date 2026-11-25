@@ -1,0 +1,18 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 856 540" width="856" height="540">
+<clipPath id="c"><rect width="856" height="540" rx="32"/></clipPath><g clip-path="url(#c)">
+<rect width="856" height="540" fill="#BF1F1F"/>
+<rect x="40" width="40" height="540" fill="#fff"/><rect y="130" width="856" height="30" fill="#fff"/>
+<g fill="#000"><rect x="80" width="8" height="130"/><rect x="96" width="6" height="130"/><rect x="110" width="6" height="130"/></g>
+<polygon fill="#BF1F1F" points="60,300 66,326 86,320 70,336 86,352 66,346 60,372 54,346 34,352 50,336 34,320 54,326"/>
+<g fill="#fff" font-family="Helvetica,Arial,sans-serif">
+<text x="160" y="80" font-size="34" font-weight="bold">HRL COUNTRY</text>
+<text x="160" y="112" font-size="18">Developer Community · Cryptographic Citizen ID</text>
+<text x="160" y="210" font-size="42" font-weight="bold">Apoorvi Vijay</text>
+<text x="160" y="248" font-size="22">@apoorvi-vijay</text>
+<text x="160" y="312" font-size="15" fill="#f3c4c4">CITIZEN #</text><text x="160" y="342" font-size="28" font-family="monospace">HRL-0002</text>
+<text x="360" y="312" font-size="15" fill="#f3c4c4">ROLE / CLASS</text><text x="360" y="342" font-size="24">CEO · Founder</text>
+<text x="640" y="312" font-size="15" fill="#f3c4c4">JOINED</text><text x="640" y="342" font-size="22">2026-11-25</text>
+<text x="160" y="396" font-size="15" fill="#f3c4c4">CRYPTOGRAPHIC CANDIDATE ADDRESS (SHA-256)</text>
+<text x="160" y="424" font-size="20" font-family="monospace">0x88b2acbbaad3a453b953c0cd9ae25b13fb9839c9</text>
+<text x="160" y="515" font-size="13" fill="#f3c4c4">Community membership card of HRL International LLC. Not a government ID.</text>
+</g></g></svg>
