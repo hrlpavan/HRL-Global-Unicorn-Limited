@@ -1,0 +1,1535 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Official Certification — Agentic Engineering with Context &amp; Harness Engineering | HRL International Pvt. Ltd.</title>
+  <meta name="description" content="Official 1-Hour Subject and 20-Minute Certification Examination in Agentic Engineering with Context &amp; Harness Engineering by HRL International Private Limited.">
+  <link rel="icon" type="image/png" href="assets/favicon.png">
+  <script src="assets/js/qrcode.min.js" defer></script>
+  <script src="assets/js/html-to-image.min.js" defer></script>
+  <script src="https://cdn.jsdelivr.net/npm/jspdf@2.5.1/dist/jspdf.umd.min.js" defer></script>
+  <script src="assets/js/security-shield.js" defer></script>
+  <style>
+    :root {
+      --hrl-crimson: #D1002D;
+      --hrl-crimson-dark: #A50024;
+      --hrl-crimson-tint: rgba(209, 0, 45, 0.08);
+      --hrl-crimson-glow: rgba(209, 0, 45, 0.25);
+      --hrl-gold: #B8913E;
+      --hrl-gold-light: #DFC27D;
+      --bg-light-base: #FFFFFF;
+      --bg-light-surface: #F5F5F7;
+      --border-light: rgba(0, 0, 0, 0.08);
+      --border-light-hover: rgba(0, 0, 0, 0.16);
+      --text-light-dark: #1D1D1F;
+      --text-light-body: #515154;
+      --text-light-muted: #86868B;
+      --font-sans: -apple-system, BlinkMacSystemFont, "SF Pro Display", "SF Pro Text", "Segoe UI", Roboto, Helvetica, Arial, sans-serif;
+      --font-mono: ui-monospace, "SF Mono", "Cascadia Code", "Roboto Mono", Menlo, Consolas, monospace;
+    }
+
+    * { box-sizing: border-box; margin: 0; padding: 0; }
+
+    body {
+      font-family: var(--font-sans);
+      background: var(--bg-light-base);
+      color: var(--text-light-dark);
+      line-height: 1.55;
+      -webkit-font-smoothing: antialiased;
+    }
+
+    /* Top Nav */
+    .top-nav {
+      position: sticky;
+      top: 0;
+      z-index: 100;
+      background: rgba(255, 255, 255, 0.88);
+      backdrop-filter: blur(16px);
+      -webkit-backdrop-filter: blur(16px);
+      border-bottom: 1px solid var(--border-light);
+    }
+
+    .top-nav-inner {
+      max-width: 1180px;
+      margin: 0 auto;
+      padding: 14px 24px;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      gap: 16px;
+    }
+
+    .brand-link {
+      display: inline-flex;
+      align-items: center;
+      gap: 12px;
+      text-decoration: none;
+      color: var(--text-light-dark);
+      font-weight: 700;
+      font-size: 16px;
+      letter-spacing: -0.01em;
+    }
+
+    .brand-link img {
+      width: 34px;
+      height: 34px;
+      border-radius: 8px;
+      object-fit: contain;
+    }
+
+    .nav-actions {
+      display: flex;
+      align-items: center;
+      gap: 12px;
+    }
+
+    .btn {
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      gap: 8px;
+      padding: 10px 20px;
+      border-radius: 9999px;
+      font-size: 14px;
+      font-weight: 600;
+      cursor: pointer;
+      border: 1px solid transparent;
+      text-decoration: none;
+      transition: all 0.2s ease;
+      font-family: var(--font-sans);
+    }
+
+    .btn-primary {
+      background: var(--hrl-crimson);
+      color: #FFFFFF;
+      box-shadow: 0 4px 14px var(--hrl-crimson-glow);
+    }
+
+    .btn-primary:hover {
+      background: var(--hrl-crimson-dark);
+      transform: translateY(-1px);
+    }
+
+    .btn-secondary {
+      background: var(--bg-light-surface);
+      color: var(--text-light-dark);
+      border-color: var(--border-light);
+    }
+
+    .btn-secondary:hover {
+      border-color: var(--border-light-hover);
+      background: #ECECF0;
+    }
+
+    .btn-outline {
+      background: transparent;
+      color: var(--hrl-crimson);
+      border-color: rgba(209, 0, 45, 0.35);
+    }
+
+    .btn-outline:hover {
+      background: var(--hrl-crimson-tint);
+    }
+
+    .btn:disabled {
+      opacity: 0.55;
+      cursor: not-allowed;
+      transform: none;
+    }
+
+    .container {
+      max-width: 1120px;
+      margin: 0 auto;
+      padding: 48px 24px 80px;
+    }
+
+    /* Hero */
+    .hero {
+      text-align: center;
+      max-width: 820px;
+      margin: 0 auto 48px;
+    }
+
+    .eyebrow {
+      display: inline-flex;
+      align-items: center;
+      gap: 8px;
+      padding: 6px 14px;
+      border-radius: 9999px;
+      background: var(--hrl-crimson-tint);
+      color: var(--hrl-crimson);
+      font-size: 12px;
+      font-weight: 700;
+      letter-spacing: 0.08em;
+      text-transform: uppercase;
+      margin-bottom: 18px;
+    }
+
+    .hero h1 {
+      font-size: clamp(30px, 4.4vw, 48px);
+      font-weight: 800;
+      letter-spacing: -0.03em;
+      line-height: 1.12;
+      color: var(--text-light-dark);
+      margin-bottom: 16px;
+    }
+
+    .hero p {
+      font-size: 17px;
+      color: var(--text-light-body);
+      margin-bottom: 24px;
+    }
+
+    .motto-badge {
+      display: inline-block;
+      padding: 10px 18px;
+      border-radius: 12px;
+      background: var(--bg-light-surface);
+      border: 1px solid var(--border-light);
+      font-size: 13px;
+      font-weight: 600;
+      color: var(--text-light-dark);
+      letter-spacing: -0.01em;
+    }
+
+    .motto-badge span {
+      color: var(--hrl-crimson);
+      font-weight: 700;
+    }
+
+    /* Symmetrical Specs Grid (3 columns) */
+    .specs-grid {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 20px;
+      margin-bottom: 48px;
+    }
+
+    .spec-card {
+      background: var(--bg-light-surface);
+      border: 1px solid var(--border-light);
+      border-radius: 18px;
+      padding: 24px;
+      transition: border-color 0.2s ease, transform 0.2s ease;
+    }
+
+    .spec-card:hover {
+      border-color: var(--border-light-hover);
+      transform: translateY(-2px);
+    }
+
+    .spec-label {
+      font-size: 11px;
+      font-weight: 700;
+      text-transform: uppercase;
+      letter-spacing: 0.08em;
+      color: var(--text-light-muted);
+      margin-bottom: 8px;
+    }
+
+    .spec-value {
+      font-size: 24px;
+      font-weight: 800;
+      letter-spacing: -0.02em;
+      color: var(--text-light-dark);
+      margin-bottom: 6px;
+    }
+
+    .spec-desc {
+      font-size: 13.5px;
+      color: var(--text-light-body);
+    }
+
+    /* Curriculum 2x2 Grid */
+    .section-header {
+      margin-bottom: 24px;
+    }
+
+    .section-header h2 {
+      font-size: 26px;
+      font-weight: 800;
+      letter-spacing: -0.02em;
+      margin-bottom: 6px;
+    }
+
+    .section-header p {
+      font-size: 15px;
+      color: var(--text-light-body);
+    }
+
+    .curriculum-grid {
+      display: grid;
+      grid-template-columns: repeat(2, 1fr);
+      gap: 20px;
+      margin-bottom: 48px;
+    }
+
+    .module-card {
+      background: var(--bg-light-base);
+      border: 1px solid var(--border-light);
+      border-radius: 18px;
+      padding: 24px;
+    }
+
+    .module-meta {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      margin-bottom: 10px;
+      font-size: 12px;
+      font-weight: 700;
+      color: var(--hrl-crimson);
+      text-transform: uppercase;
+      letter-spacing: 0.06em;
+    }
+
+    .module-card h3 {
+      font-size: 18px;
+      font-weight: 700;
+      margin-bottom: 8px;
+    }
+
+    .module-card p {
+      font-size: 14px;
+      color: var(--text-light-body);
+    }
+
+    /* Panel */
+    .panel {
+      background: var(--bg-light-surface);
+      border: 1px solid var(--border-light);
+      border-radius: 22px;
+      padding: 32px;
+      margin-bottom: 40px;
+    }
+
+    .form-grid {
+      display: grid;
+      grid-template-columns: repeat(2, 1fr);
+      gap: 20px;
+      margin-top: 20px;
+      margin-bottom: 24px;
+    }
+
+    .field label {
+      display: block;
+      font-size: 13px;
+      font-weight: 600;
+      color: var(--text-light-dark);
+      margin-bottom: 8px;
+    }
+
+    .field input {
+      width: 100%;
+      padding: 13px 16px;
+      border-radius: 12px;
+      border: 1px solid var(--border-light-hover);
+      background: #FFFFFF;
+      font-size: 15px;
+      font-family: var(--font-sans);
+      color: var(--text-light-dark);
+      outline: none;
+      transition: border-color 0.2s ease, box-shadow 0.2s ease;
+    }
+
+    .field input:focus {
+      border-color: var(--hrl-crimson);
+      box-shadow: 0 0 0 3px var(--hrl-crimson-tint);
+    }
+
+    .action-row {
+      display: flex;
+      flex-wrap: wrap;
+      align-items: center;
+      gap: 12px;
+    }
+
+    /* Exam UI */
+    .hidden { display: none !important; }
+
+    .exam-bar {
+      position: sticky;
+      top: 66px;
+      z-index: 50;
+      background: #121216;
+      color: #FFFFFF;
+      border-radius: 16px;
+      padding: 16px 24px;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      gap: 16px;
+      margin-bottom: 24px;
+      box-shadow: 0 12px 30px rgba(0, 0, 0, 0.16);
+    }
+
+    .exam-timer {
+      font-family: var(--font-mono);
+      font-size: 22px;
+      font-weight: 800;
+      color: #FFFFFF;
+      background: var(--hrl-crimson);
+      padding: 6px 14px;
+      border-radius: 10px;
+      letter-spacing: 0.04em;
+    }
+
+    .question-card {
+      background: #FFFFFF;
+      border: 1px solid var(--border-light);
+      border-radius: 16px;
+      padding: 24px;
+      margin-bottom: 16px;
+    }
+
+    .question-title {
+      font-size: 16px;
+      font-weight: 700;
+      margin-bottom: 14px;
+      color: var(--text-light-dark);
+    }
+
+    .options-list {
+      display: grid;
+      gap: 10px;
+    }
+
+    .option-label {
+      display: flex;
+      align-items: flex-start;
+      gap: 12px;
+      padding: 12px 14px;
+      border-radius: 12px;
+      border: 1px solid var(--border-light);
+      cursor: pointer;
+      font-size: 14.5px;
+      color: var(--text-light-body);
+      transition: all 0.15s ease;
+    }
+
+    .option-label:hover {
+      border-color: var(--hrl-crimson);
+      background: var(--hrl-crimson-tint);
+      color: var(--text-light-dark);
+    }
+
+    .option-label input[type="radio"] {
+      margin-top: 3px;
+      accent-color: var(--hrl-crimson);
+    }
+
+    /* Status Banner */
+    .status-banner {
+      padding: 16px 20px;
+      border-radius: 14px;
+      font-size: 14px;
+      font-weight: 600;
+      margin-bottom: 24px;
+      border: 1px solid transparent;
+    }
+
+    .status-success {
+      background: rgba(16, 185, 129, 0.1);
+      border-color: rgba(16, 185, 129, 0.3);
+      color: #065F46;
+    }
+
+    .status-warn {
+      background: rgba(209, 0, 45, 0.08);
+      border-color: rgba(209, 0, 45, 0.25);
+      color: var(--hrl-crimson-dark);
+    }
+
+    /* =====================================================================
+       EXECUTIVE CERTIFICATE RENDERER (Landscape 1120 x 792 px)
+       ===================================================================== */
+    .cert-stage {
+      overflow-x: auto;
+      padding: 12px 0 24px;
+    }
+
+    .certificate-frame {
+      width: 1056px;
+      min-height: 746px;
+      margin: 0 auto;
+      background: #FFFFFF;
+      position: relative;
+      padding: 28px;
+      box-shadow: 0 24px 64px rgba(0, 0, 0, 0.14);
+      color: #1D1D1F;
+      overflow: hidden;
+    }
+
+    .cert-outer-border {
+      border: 3px solid #121216;
+      height: 100%;
+      min-height: 690px;
+      padding: 10px;
+      position: relative;
+    }
+
+    .cert-inner-border {
+      border: 1.5px solid var(--hrl-gold);
+      height: 100%;
+      min-height: 666px;
+      padding: 36px 48px 32px;
+      position: relative;
+      display: flex;
+      flex-direction: column;
+      justify-content: space-between;
+      background:
+        radial-gradient(circle at 0% 0%, rgba(209, 0, 45, 0.04) 0%, transparent 38%),
+        radial-gradient(circle at 100% 100%, rgba(184, 145, 62, 0.07) 0%, transparent 40%),
+        #FFFFFF;
+    }
+
+    .cert-corner {
+      position: absolute;
+      width: 28px;
+      height: 28px;
+      border-color: var(--hrl-crimson);
+      border-style: solid;
+    }
+    .cert-corner.tl { top: 8px; left: 8px; border-width: 3px 0 0 3px; }
+    .cert-corner.tr { top: 8px; right: 8px; border-width: 3px 3px 0 0; }
+    .cert-corner.bl { bottom: 8px; left: 8px; border-width: 0 0 3px 3px; }
+    .cert-corner.br { bottom: 8px; right: 8px; border-width: 0 3px 3px 0; }
+
+    .cert-header {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      border-bottom: 1px solid rgba(0, 0, 0, 0.1);
+      padding-bottom: 20px;
+    }
+
+    .cert-brand {
+      display: flex;
+      align-items: center;
+      gap: 16px;
+    }
+
+    .cert-logo-wrap {
+      width: 108px;
+      height: 68px;
+      border-radius: 10px;
+      background: #FFFFFF;
+      border: 1px solid rgba(184, 145, 62, 0.45);
+      overflow: hidden;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      flex-shrink: 0;
+    }
+
+    .cert-logo {
+      width: 165%;
+      height: 165%;
+      object-fit: contain;
+      display: block;
+    }
+
+    .cert-company-name {
+      font-size: 20px;
+      font-weight: 800;
+      letter-spacing: 0.04em;
+      text-transform: uppercase;
+      color: #121216;
+    }
+
+    .cert-company-sub {
+      font-size: 11.5px;
+      font-weight: 600;
+      letter-spacing: 0.12em;
+      text-transform: uppercase;
+      color: var(--hrl-crimson);
+      margin-top: 2px;
+    }
+
+    .cert-id-block {
+      text-align: right;
+      font-family: var(--font-mono);
+      font-size: 11.5px;
+      color: var(--text-light-body);
+      line-height: 1.6;
+    }
+
+    .cert-id-block strong {
+      color: #121216;
+    }
+
+    .cert-body {
+      text-align: center;
+      padding: 24px 16px 16px;
+    }
+
+    .cert-kicker {
+      font-size: 12px;
+      font-weight: 700;
+      letter-spacing: 0.24em;
+      text-transform: uppercase;
+      color: var(--hrl-gold);
+      margin-bottom: 8px;
+    }
+
+    .cert-title {
+      font-size: 40px;
+      font-weight: 800;
+      letter-spacing: -0.02em;
+      color: #121216;
+      margin-bottom: 14px;
+    }
+
+    .cert-presented {
+      font-size: 14px;
+      color: var(--text-light-body);
+      text-transform: uppercase;
+      letter-spacing: 0.14em;
+      margin-bottom: 10px;
+    }
+
+    .cert-recipient {
+      font-size: 38px;
+      font-weight: 800;
+      color: var(--hrl-crimson);
+      letter-spacing: -0.02em;
+      padding-bottom: 10px;
+      margin: 0 auto 16px;
+      max-width: 760px;
+      border-bottom: 2px solid rgba(184, 145, 62, 0.55);
+    }
+
+    .cert-statement {
+      font-size: 15px;
+      color: var(--text-light-body);
+      max-width: 780px;
+      margin: 0 auto 12px;
+      line-height: 1.6;
+    }
+
+    .cert-subject {
+      font-size: 22px;
+      font-weight: 800;
+      color: #121216;
+      letter-spacing: -0.015em;
+      margin-bottom: 18px;
+    }
+
+    .cert-metrics {
+      display: inline-flex;
+      align-items: center;
+      gap: 24px;
+      padding: 10px 24px;
+      border-radius: 9999px;
+      background: #F5F5F7;
+      border: 1px solid rgba(0, 0, 0, 0.08);
+      font-size: 12.5px;
+      font-weight: 600;
+      color: #1D1D1F;
+    }
+
+    .cert-metrics span {
+      color: var(--hrl-crimson);
+      font-weight: 700;
+    }
+
+    .cert-footer {
+      display: grid;
+      grid-template-columns: 1fr auto 1fr;
+      align-items: center;
+      gap: 24px;
+      padding-top: 20px;
+      border-top: 1px solid rgba(0, 0, 0, 0.08);
+    }
+
+    .sig-block {
+      text-align: left;
+    }
+
+    .sig-script {
+      font-family: "Snell Roundhand", "Brush Script MT", Georgia, serif;
+      font-size: 25px;
+      font-style: italic;
+      color: #121216;
+      line-height: 1.1;
+      margin-bottom: 6px;
+      white-space: nowrap;
+    }
+
+    .sig-line {
+      width: 230px;
+      height: 1px;
+      background: #121216;
+      margin-bottom: 8px;
+    }
+
+    .sig-name {
+      font-size: 13.5px;
+      font-weight: 700;
+      color: #121216;
+      line-height: 1.3;
+    }
+
+    .sig-role {
+      font-size: 11.5px;
+      color: var(--text-light-body);
+      line-height: 1.45;
+      white-space: nowrap;
+    }
+
+    .cert-seal {
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      gap: 8px;
+    }
+
+    .cert-seal-ring {
+      width: 78px;
+      height: 78px;
+      border-radius: 50%;
+      border: 2px dashed var(--hrl-gold);
+      padding: 4px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+    }
+
+    .cert-seal-inner {
+      width: 100%;
+      height: 100%;
+      border-radius: 50%;
+      background: #FFFFFF;
+      border: 2px solid var(--hrl-crimson);
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: center;
+      overflow: hidden;
+      padding: 4px;
+    }
+
+    .cert-seal-logo {
+      width: 54px;
+      height: 22px;
+      object-fit: cover;
+      object-position: center;
+      display: block;
+    }
+
+    .cert-seal-label {
+      font-size: 7px;
+      font-weight: 800;
+      letter-spacing: 0.12em;
+      color: #121216;
+      text-transform: uppercase;
+      margin-top: 3px;
+      position: relative;
+      z-index: 2;
+    }
+
+    .cert-motto {
+      font-size: 10px;
+      font-weight: 700;
+      letter-spacing: 0.06em;
+      text-transform: uppercase;
+      color: var(--text-light-muted);
+      text-align: center;
+      max-width: 260px;
+    }
+
+    .qr-block {
+      display: flex;
+      align-items: flex-end;
+      justify-content: flex-end;
+      gap: 14px;
+    }
+
+    .qr-meta {
+      text-align: right;
+      font-size: 11px;
+      color: var(--text-light-body);
+      line-height: 1.5;
+    }
+
+    .qr-col {
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      gap: 4px;
+    }
+
+    .qr-key-id {
+      font-family: var(--font-mono);
+      font-size: 9px;
+      font-weight: 700;
+      color: #121216;
+      letter-spacing: 0.04em;
+      white-space: nowrap;
+    }
+
+    #certQrCode {
+      width: 76px;
+      height: 76px;
+      padding: 4px;
+      background: #FFFFFF;
+      border: 1px solid rgba(0, 0, 0, 0.12);
+      border-radius: 6px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+    }
+
+    footer.site-footer {
+      border-top: 1px solid var(--border-light);
+      padding: 28px 24px;
+      text-align: center;
+      font-size: 13px;
+      color: var(--text-light-muted);
+    }
+
+    @media (max-width: 900px) {
+      .specs-grid, .curriculum-grid, .form-grid {
+        grid-template-columns: 1fr;
+      }
+    }
+
+    @media print {
+      @page { size: landscape; margin: 0; }
+      body * { visibility: hidden; }
+      #certificateCapture, #certificateCapture * { visibility: visible; }
+      #certificateCapture {
+        position: fixed;
+        inset: 0;
+        margin: auto;
+        box-shadow: none;
+      }
+    }
+  </style>
+</head>
+<body>
+  <header class="top-nav">
+    <div class="top-nav-inner">
+      <a href="index.html" class="brand-link">
+        <img src="assets/logo.png" alt="HRL International Logo">
+        <span>HRL International Pvt. Ltd.</span>
+      </a>
+      <div class="nav-actions">
+        <a href="index.html" class="btn btn-secondary">Back to Website</a>
+      </div>
+    </div>
+  </header>
+
+  <main class="container">
+    <!-- Hero -->
+    <section class="hero">
+      <div class="eyebrow">Official Corporate Subject &amp; Certification</div>
+      <h1>Agentic Engineering with Context &amp; Harness Engineering</h1>
+      <p>Complete the official 1-hour HRL International Private Limited curriculum and pass the 20-minute proctored examination to earn your verifiable executive certificate, delivered directly to your email.</p>
+      <div class="motto-badge">
+        <span>Official Doctrine:</span> &ldquo;We Can Do Everything Related To Software Sector Without Any Excuses!&rdquo;
+      </div>
+    </section>
+
+    <!-- 3-Column Symmetrical Specs -->
+    <section class="specs-grid">
+      <div class="spec-card">
+        <div class="spec-label">Official Subject Duration</div>
+        <div class="spec-value">1 Hour</div>
+        <div class="spec-desc">4 focused engineering modules covering agent loops, context architecture, tool harnesses, and deterministic verification.</div>
+      </div>
+      <div class="spec-card">
+        <div class="spec-label">Certification Examination</div>
+        <div class="spec-value">20 Minutes</div>
+        <div class="spec-desc">12 technical questions with a live countdown timer and a 70% passing threshold (9/12 minimum).</div>
+      </div>
+      <div class="spec-card">
+        <div class="spec-label">Credential Delivery</div>
+        <div class="spec-value">Instant Email + PNG/PDF</div>
+        <div class="spec-desc">Dispatched directly to your registered email upon passing, complete with high-res logo, QR code, and unique ID.</div>
+      </div>
+    </section>
+
+    <!-- 2x2 Symmetrical Curriculum -->
+    <section>
+      <div class="section-header">
+        <h2>1-Hour Official Subject Curriculum</h2>
+        <p>Core competencies evaluated in the 20-minute certification examination.</p>
+      </div>
+      <div class="curriculum-grid">
+        <div class="module-card">
+          <div class="module-meta"><span>Module 01</span><span>15 Minutes</span></div>
+          <h3>Agentic Systems Architecture</h3>
+          <p>Autonomous plan-act-observe loops, bounded tool-calling protocols, multi-agent delegation, and deterministic state transitions.</p>
+        </div>
+        <div class="module-card">
+          <div class="module-meta"><span>Module 02</span><span>15 Minutes</span></div>
+          <h3>Context Engineering &amp; Memory Hierarchies</h3>
+          <p>Token-budget governance, structured context compression, working vs. episodic memory, and eliminating context rot across long horizons.</p>
+        </div>
+        <div class="module-card">
+          <div class="module-meta"><span>Module 03</span><span>15 Minutes</span></div>
+          <h3>Harness Engineering &amp; Tool Sandboxing</h3>
+          <p>Execution harnesses, permission boundaries, deterministic tool schemas, retry/backoff guards, and fault-isolated sandbox runtimes.</p>
+        </div>
+        <div class="module-card">
+          <div class="module-meta"><span>Module 04</span><span>15 Minutes</span></div>
+          <h3>Verification Oracles &amp; Production Evals</h3>
+          <p>Objective pass/fail oracles, regression test harnesses, latency/cost telemetry, and zero-excuse production deployment standards.</p>
+        </div>
+      </div>
+    </section>
+
+    <!-- Registration Panel -->
+    <section class="panel" id="registrationSection">
+      <div class="section-header" style="margin-bottom: 0;">
+        <h2>Candidate Registration &amp; 20-Minute Exam</h2>
+        <p>Enter your full legal name (as it will appear on your certificate) and email address for automatic certificate delivery.</p>
+      </div>
+      <div class="form-grid">
+        <div class="field">
+          <label for="candidateName">Full Name (Certificate Recipient)</label>
+          <input type="text" id="candidateName" placeholder="e.g., Pavan Kumar Sadashiv" autocomplete="name" required>
+        </div>
+        <div class="field">
+          <label for="candidateEmail">Email Address (Certificate Delivery)</label>
+          <input type="email" id="candidateEmail" placeholder="e.g., engineer@company.com" autocomplete="email" required>
+        </div>
+      </div>
+      <div id="regError" class="status-banner status-warn hidden"></div>
+      <div class="action-row">
+        <button type="button" class="btn btn-primary" id="startExamBtn">Start 20-Minute Certification Exam</button>
+        <button type="button" class="btn btn-outline" id="previewSampleBtn">Preview Official Certificate Design</button>
+      </div>
+    </section>
+
+    <!-- Active Exam Section -->
+    <section id="examSection" class="hidden">
+      <div class="exam-bar">
+        <div>
+          <div style="font-size: 12px; color: #A1A1AA; text-transform: uppercase; letter-spacing: 0.08em;">Official Proctored Assessment</div>
+          <div style="font-size: 15px; font-weight: 700;" id="examCandidateBanner">Candidate</div>
+        </div>
+        <div style="display: flex; align-items: center; gap: 16px;">
+          <div style="font-size: 13px; color: #A1A1AA;" id="examProgressText">0 / 12 Answered</div>
+          <div class="exam-timer" id="examTimerDisplay">20:00</div>
+        </div>
+      </div>
+      <form id="examForm"></form>
+      <div class="action-row" style="margin-top: 24px;">
+        <button type="button" class="btn btn-primary" id="submitExamBtn">Submit Examination &amp; Generate Certificate</button>
+      </div>
+    </section>
+
+    <!-- Result & Certificate Section -->
+    <section id="certificateSection" class="hidden">
+      <div id="resultBanner" class="status-banner status-success"></div>
+      <div id="emailStatusBanner" class="status-banner hidden"></div>
+
+      <div class="action-row" style="margin-bottom: 20px;">
+        <button type="button" class="btn btn-primary" id="downloadPdfBtn">Download High-Res PDF</button>
+        <button type="button" class="btn btn-secondary" id="downloadPngBtn">Download High-Res PNG</button>
+        <button type="button" class="btn btn-outline" id="resendEmailBtn">Send to Email</button>
+        <a id="mailtoFallbackLink" class="btn btn-secondary hidden" href="#">Open Email Dispatch Fallback</a>
+        <button type="button" class="btn btn-secondary" id="retakeExamBtn">Back / Retake Exam</button>
+      </div>
+
+      <!-- Certificate Stage -->
+      <div class="cert-stage">
+        <div class="certificate-frame" id="certificateCapture">
+          <div class="cert-outer-border">
+            <div class="cert-inner-border">
+              <div class="cert-corner tl"></div>
+              <div class="cert-corner tr"></div>
+              <div class="cert-corner bl"></div>
+              <div class="cert-corner br"></div>
+
+              <!-- Header -->
+              <div class="cert-header">
+                <div class="cert-brand">
+                  <div class="cert-logo-wrap">
+                    <img src="assets/logo.png" alt="HRL International Official Logo" class="cert-logo">
+                  </div>
+                  <div>
+                    <div class="cert-company-name">HRL International Private Limited&trade;</div>
+                    <div class="cert-company-sub">Official Corporate Certification Authority</div>
+                  </div>
+                </div>
+                <div class="cert-id-block">
+                  <div>CERTIFICATE ID: <strong id="certIdText">HRL-AECHE-2026-000000</strong></div>
+                  <div>ISSUED ON: <strong id="certDateText">November 27, 2026</strong></div>
+                  <div>STATUS: <strong>VERIFIED OFFICIAL</strong></div>
+                </div>
+              </div>
+
+              <!-- Body -->
+              <div class="cert-body">
+                <div class="cert-kicker">Certificate of Official Completion</div>
+                <div class="cert-title">Executive Technical Credential</div>
+                <div class="cert-presented">This is to certify that</div>
+                <div class="cert-recipient" id="certRecipientText">Pavan Kumar Sadashiv</div>
+                <div class="cert-statement">
+                  has successfully completed the official corporate subject curriculum and passed the 20-minute proctored technical examination in
+                </div>
+                <div class="cert-subject">Agentic Engineering with Context &amp; Harness Engineering</div>
+                <div class="cert-metrics">
+                  <div>Subject Duration: <span>1 Hour</span></div>
+                  <div>Exam Duration: <span>20 Minutes</span></div>
+                  <div>Score Achieved: <span id="certScoreText">100% (12/12)</span></div>
+                </div>
+              </div>
+
+              <!-- Footer -->
+              <div class="cert-footer">
+                <div class="sig-block">
+                  <div class="sig-script">Pavan Kumar Sadashiv</div>
+                  <div class="sig-line"></div>
+                  <div class="sig-name">Pavan Kumar Sadashiv</div>
+                  <div class="sig-role">Founder &amp; Managing Director<br>HRL International Private Limited&trade;</div>
+                </div>
+
+                <div class="cert-seal">
+                  <div class="cert-seal-ring" aria-label="Official HRL Verified Seal">
+                    <div class="cert-seal-inner">
+                      <img src="assets/logo.png" alt="HRL Official Logo" class="cert-seal-logo">
+                      <div class="cert-seal-label">VERIFIED</div>
+                    </div>
+                  </div>
+                  <div class="cert-motto">&ldquo;We Can Do Everything Related To Software Sector Without Any Excuses!&rdquo;</div>
+                </div>
+
+                <div class="qr-block">
+                  <div class="qr-meta">
+                    <div><strong>Verify via HRL Portal</strong></div>
+                  </div>
+                  <div class="qr-col">
+                    <div id="certQrCode"></div>
+                    <div class="qr-key-id" id="certQrKeyText">KEY: HRL-AECHE-2026-SAMPLE</div>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- Verify Certificate by Key ID Panel -->
+    <section class="panel" id="verifySection">
+      <div class="section-header" style="margin-bottom: 16px;">
+        <h2>Verify Official Certificate</h2>
+        <p>Enter the Key ID printed below the certificate QR code to verify its authenticity on HRL International Private Limited&trade;.</p>
+      </div>
+      <div class="action-row" style="align-items: stretch;">
+        <input type="text" id="verifyKeyInput" placeholder="e.g., HRL-AECHE-2026-SAMPLE" style="flex: 1; min-width: 240px; padding: 12px 16px; border-radius: 12px; border: 1px solid var(--border-light-hover); font-family: var(--font-mono); font-size: 14px; outline: none;">
+        <button type="button" class="btn btn-primary" id="verifyKeyBtn">Verify Key ID</button>
+      </div>
+      <div id="verifyResultBanner" class="status-banner hidden" style="margin-top: 16px; margin-bottom: 0;"></div>
+    </section>
+  </main>
+
+  <footer class="site-footer">
+    &copy; 2026 HRL International Private Limited&trade; &mdash; Mangaluru, Karnataka, India. All Rights Reserved.
+  </footer>
+
+  <script>
+    const EXAM_DURATION_SECONDS = 20 * 60; // 20 Minutes
+    const PASS_THRESHOLD = 0.70; // 70%
+
+    const QUESTIONS = [
+      {
+        q: "1. What is the primary architectural difference between a standard LLM prompt and an Agentic Engineering system?",
+        options: [
+          "An agent operates in a closed-loop plan-act-observe cycle with tool invocation and state feedback.",
+          "An agent always uses a larger temperature setting than a standard prompt.",
+          "An agent replaces all deterministic code with natural language.",
+          "An agent only runs offline without external tools."
+        ],
+        answer: 0
+      },
+      {
+        q: "2. In Context Engineering, what is 'context rot'?",
+        options: [
+          "Degradation of model reasoning quality as irrelevant, stale, or noisy tokens accumulate in the context window.",
+          "Physical corruption of GPU VRAM during inference.",
+          "An expired API key in an authentication header.",
+          "A syntax error in JSON tool schemas."
+        ],
+        answer: 0
+      },
+      {
+        q: "3. Which Context Engineering technique best preserves signal across long-horizon multi-step agent tasks?",
+        options: [
+          "Appending raw unedited terminal logs forever until the context overflows.",
+          "Structured context compression, progressive disclosure, and offloading bulky state to external memory or artifacts.",
+          "Removing the system prompt after turn 3.",
+          "Duplicating the user request at the end of every tool output."
+        ],
+        answer: 1
+      },
+      {
+        q: "4. What is the core responsibility of an Agent Harness in Harness Engineering?",
+        options: [
+          "Training base model weights from scratch.",
+          "Orchestrating the execution loop, enforcing tool schemas, managing sandboxes/permissions, and handling retries and termination.",
+          "Designing marketing landing pages.",
+          "Replacing version control systems."
+        ],
+        answer: 1
+      },
+      {
+        q: "5. Why should a production agent harness enforce strict input/output schemas on tool calls?",
+        options: [
+          "To slow down execution speed intentionally.",
+          "To guarantee deterministic parameter validation, prevent malformed side effects, and give the model actionable error feedback.",
+          "To prevent the agent from reading files.",
+          "To eliminate the need for logging."
+        ],
+        answer: 1
+      },
+      {
+        q: "6. In Harness Engineering, why is sandboxing critical when granting an agent shell or filesystem tools?",
+        options: [
+          "It isolates blast radius, enforces least-privilege boundaries, and prevents accidental or adversarial host corruption.",
+          "It increases the model's context window size.",
+          "It automatically writes unit tests.",
+          "It removes the need for error handling."
+        ],
+        answer: 0
+      },
+      {
+        q: "7. What is a deterministic verification oracle in an agentic workflow?",
+        options: [
+          "Asking the same LLM if it feels confident about its answer.",
+          "An objective, reproducible check (such as unit tests, type-checkers, linters, or schema validators) that verifies task completion.",
+          "A random number generator used to pick outputs.",
+          "A manual email sent to marketing."
+        ],
+        answer: 1
+      },
+      {
+        q: "8. When designing multi-agent delegation (subagents), what is the primary context benefit?",
+        options: [
+          "Each subagent isolates high-volume exploration in its own context window and returns only a compressed, high-signal result.",
+          "Subagents share zero information with the coordinator.",
+          "Subagents bypass all security rules.",
+          "Subagents eliminate the need for prompts."
+        ],
+        answer: 0
+      },
+      {
+        q: "9. How should an agent harness handle transient tool failures (e.g., HTTP 429 or network timeout)?",
+        options: [
+          "Crash the entire process immediately without logging.",
+          "Apply bounded retries with exponential backoff and surface structured error context if retries are exhausted.",
+          "Silently pretend the tool succeeded.",
+          "Loop infinitely without a retry cap."
+        ],
+        answer: 1
+      },
+      {
+        q: "10. What is 'progressive disclosure' in Context Engineering?",
+        options: [
+          "Loading full documentation for every possible tool into the initial system prompt.",
+          "Keeping lightweight metadata in context and loading detailed schemas, files, or skill instructions only when relevant.",
+          "Hiding error messages from the agent.",
+          "Truncating user instructions randomly."
+        ],
+        answer: 1
+      },
+      {
+        q: "11. Why are bounded step limits and cost/latency telemetry essential in a production harness?",
+        options: [
+          "To prevent infinite agent loops, control token expenditure, and enable root-cause debugging via execution traces.",
+          "To force the agent to stop before completing any task.",
+          "To disable parallel tool calling.",
+          "To hide performance metrics from engineers."
+        ],
+        answer: 0
+      },
+      {
+        q: "12. Which combination best defines reliable production Agentic Engineering?",
+        options: [
+          "Vague prompts + unrestricted root access + no tests.",
+          "Disciplined Context Engineering + fault-isolated Harness Engineering + deterministic verification oracles.",
+          "Single-turn completion + zero logging + manual copy-paste.",
+          "Maximizing prompt length regardless of relevance."
+        ],
+        answer: 1
+      }
+    ];
+
+    let timerInterval = null;
+    let remainingSeconds = EXAM_DURATION_SECONDS;
+    let currentCertData = null;
+
+    const el = (id) => document.getElementById(id);
+
+    function formatTime(sec) {
+      const m = Math.floor(sec / 60);
+      const s = sec % 60;
+      return `${String(m).padStart(2, '0')}:${String(s).padStart(2, '0')}`;
+    }
+
+    function keyChecksum(body) {
+      let sum = 0;
+      for (let i = 0; i < body.length; i++) sum = (sum * 31 + body.charCodeAt(i)) % 1296;
+      return sum.toString(36).toUpperCase().padStart(2, '0');
+    }
+
+    function generateCertId() {
+      const rand = Math.random().toString(36).substring(2, 8).toUpperCase();
+      const body = `HRL-AECHE-2026-${rand}`;
+      return `${body}-${keyChecksum(body)}`;
+    }
+
+    // Official pre-registered credentials verifiable globally on any device
+    const OFFICIAL_ISSUED_REGISTRY = {
+      'HRL-AECHE-2026-VS2601': {
+        name: 'Vasu Sharma',
+        subject: 'Agentic Engineering with Context & Harness Engineering',
+        percent: 100,
+        correct: 12,
+        total: 12,
+        issueDate: 'November 27, 2026'
+      }
+    };
+
+    // ponytail: client-side registry + checksum; upgrade to Vercel KV / Supabase for cross-device public lookup
+    const CERT_REGISTRY_KEY = 'hrl_official_cert_registry_v1';
+    function saveCertToRegistry(data) {
+      try {
+        const reg = JSON.parse(localStorage.getItem(CERT_REGISTRY_KEY) || '{}');
+        reg[data.certId.toUpperCase()] = {
+          name: data.name,
+          subject: data.subject,
+          percent: data.percent,
+          correct: data.correct,
+          total: data.total,
+          issueDate: data.issueDate
+        };
+        localStorage.setItem(CERT_REGISTRY_KEY, JSON.stringify(reg));
+      } catch (_) {}
+    }
+
+    function verifyKeyId(rawKey) {
+      const key = (rawKey || '').trim().toUpperCase().replace(/^KEY:\s*/i, '');
+      const out = el('verifyResultBanner');
+      if (!key) {
+        out.className = 'status-banner status-warn';
+        out.textContent = 'Please enter a Certificate Key ID to verify.';
+        out.classList.remove('hidden');
+        return;
+      }
+
+      const reg = { ...OFFICIAL_ISSUED_REGISTRY, ...JSON.parse(localStorage.getItem(CERT_REGISTRY_KEY) || '{}') };
+      if (reg[key]) {
+        const r = reg[key];
+        out.className = 'status-banner status-success';
+        out.textContent = `VERIFIED OFFICIAL — Key ID: ${key} | Recipient: ${r.name} | Subject: ${r.subject} | Score: ${r.percent}% (${r.correct}/${r.total}) | Issued: ${r.issueDate}`;
+        out.classList.remove('hidden');
+        return;
+      }
+
+      if (key === 'HRL-AECHE-2026-SAMPLE') {
+        out.className = 'status-banner status-success';
+        out.textContent = 'VERIFIED SAMPLE — Key ID: HRL-AECHE-2026-SAMPLE | Official HRL International Private Limited Preview Credential.';
+        out.classList.remove('hidden');
+        return;
+      }
+
+      const m = key.match(/^(HRL-AECHE-2026-[A-Z0-9]{6})-([A-Z0-9]{2})$/);
+      if (m && keyChecksum(m[1]) === m[2]) {
+        out.className = 'status-banner status-success';
+        out.textContent = `VERIFIED AUTHENTIC KEY FORMAT — Key ID: ${key} passed HRL International Private Limited checksum validation for Agentic Engineering with Context & Harness Engineering.`;
+        out.classList.remove('hidden');
+        return;
+      }
+
+      out.className = 'status-banner status-warn';
+      out.textContent = `NOT VERIFIED — Key ID "${key}" is not a valid HRL International Private Limited certificate key.`;
+      out.classList.remove('hidden');
+    }
+
+    function renderQuestions() {
+      const form = el('examForm');
+      form.innerHTML = QUESTIONS.map((item, idx) => `
+        <div class="question-card">
+          <div class="question-title">${item.q}</div>
+          <div class="options-list">
+            ${item.options.map((opt, optIdx) => `
+              <label class="option-label">
+                <input type="radio" name="q_${idx}" value="${optIdx}">
+                <span>${opt}</span>
+              </label>
+            `).join('')}
+          </div>
+        </div>
+      `).join('');
+
+      form.addEventListener('change', () => {
+        const answered = form.querySelectorAll('input[type="radio"]:checked').length;
+        el('examProgressText').textContent = `${answered} / ${QUESTIONS.length} Answered`;
+      });
+    }
+
+    function startExam() {
+      const name = el('candidateName').value.trim();
+      const email = el('candidateEmail').value.trim();
+      const regError = el('regError');
+
+      if (name.length < 2 || !/^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(email)) {
+        regError.textContent = 'Please enter your full name and a valid email address before starting the 20-minute exam.';
+        regError.classList.remove('hidden');
+        return;
+      }
+
+      regError.classList.add('hidden');
+      renderQuestions();
+      remainingSeconds = EXAM_DURATION_SECONDS;
+      el('examTimerDisplay').textContent = formatTime(remainingSeconds);
+      el('examProgressText').textContent = `0 / ${QUESTIONS.length} Answered`;
+      el('examCandidateBanner').textContent = `${name} (${email})`;
+
+      el('registrationSection').classList.add('hidden');
+      el('certificateSection').classList.add('hidden');
+      el('examSection').classList.remove('hidden');
+
+      clearInterval(timerInterval);
+      timerInterval = setInterval(() => {
+        remainingSeconds -= 1;
+        el('examTimerDisplay').textContent = formatTime(Math.max(0, remainingSeconds));
+        if (remainingSeconds <= 0) {
+          clearInterval(timerInterval);
+          submitExam(true);
+        }
+      }, 1000);
+
+      window.scrollTo({ top: el('examSection').offsetTop - 80, behavior: 'smooth' });
+    }
+
+    function renderCertificate(data) {
+      currentCertData = data;
+      el('certIdText').textContent = data.certId;
+      el('certQrKeyText').textContent = `KEY: ${data.certId}`;
+      el('certDateText').textContent = data.issueDate;
+      el('certRecipientText').textContent = data.name;
+      el('certScoreText').textContent = `${data.percent}% (${data.correct}/${data.total})`;
+      saveCertToRegistry(data);
+
+      const qrContainer = el('certQrCode');
+      qrContainer.innerHTML = '';
+      if (typeof QRCode !== 'undefined') {
+        new QRCode(qrContainer, {
+          text: `https://hrl-brand-seo.vercel.app/agentic-engineering-certification.html?verify=${encodeURIComponent(data.certId)}`,
+          width: 68,
+          height: 68,
+          colorDark: '#121216',
+          colorLight: '#ffffff',
+          correctLevel: QRCode.CorrectLevel.M
+        });
+      }
+    }
+
+    async function dispatchCertificateEmail(data) {
+      const banner = el('emailStatusBanner');
+      const fallback = el('mailtoFallbackLink');
+      banner.className = 'status-banner status-success';
+      banner.textContent = `Sending official certificate to ${data.email}...`;
+      banner.classList.remove('hidden');
+      fallback.classList.add('hidden');
+
+      const mailtoSubject = `Official Certificate: Agentic Engineering with Context & Harness Engineering (${data.certId})`;
+      const mailtoBody =
+        `Congratulations ${data.name},\n\n` +
+        `You have successfully completed the 1-Hour Official Subject and 20-Minute Examination:\n` +
+        `Subject: Agentic Engineering with Context & Harness Engineering\n` +
+        `Issuer: HRL International Private Limited\n` +
+        `Score: ${data.percent}% (${data.correct}/${data.total})\n` +
+        `Certificate ID: ${data.certId}\n` +
+        `Issued On: ${data.issueDate}\n\n` +
+        `Verify at: https://hrl-brand-seo.vercel.app/agentic-engineering-certification.html?verify=${data.certId}`;
+
+      fallback.href = `mailto:${encodeURIComponent(data.email)}?cc=${encodeURIComponent('hrlinternationalprivatelimited@gmail.com')}&subject=${encodeURIComponent(mailtoSubject)}&body=${encodeURIComponent(mailtoBody)}`;
+
+      try {
+        const res = await fetch('/api/send-certificate', {
+          method: 'POST',
+          headers: { 'Content-Type': 'application/json' },
+          body: JSON.stringify(data)
+        });
+        const payload = await res.json().catch(() => ({}));
+        if (res.ok && payload.sent) {
+          banner.className = 'status-banner status-success';
+          banner.textContent = `Official certificate successfully delivered to ${data.email} (ID: ${data.certId}).`;
+        } else {
+          banner.className = 'status-banner status-warn';
+          banner.textContent = payload.error || 'Automated email API is not configured on this host yet. Use Download PNG/PDF or the Email Dispatch Fallback button below.';
+          fallback.classList.remove('hidden');
+        }
+      } catch (_) {
+        banner.className = 'status-banner status-warn';
+        banner.textContent = 'Automated email endpoint unavailable in static preview. Use Download PNG/PDF or the Email Dispatch Fallback button below.';
+        fallback.classList.remove('hidden');
+      }
+    }
+
+    function submitExam(autoSubmitted = false) {
+      clearInterval(timerInterval);
+      const form = el('examForm');
+      let correct = 0;
+      QUESTIONS.forEach((item, idx) => {
+        const chosen = form.querySelector(`input[name="q_${idx}"]:checked`);
+        if (chosen && Number(chosen.value) === item.answer) correct += 1;
+      });
+
+      const percent = Math.round((correct / QUESTIONS.length) * 100);
+      const passed = (correct / QUESTIONS.length) >= PASS_THRESHOLD;
+      const name = el('candidateName').value.trim();
+      const email = el('candidateEmail').value.trim();
+
+      el('examSection').classList.add('hidden');
+      el('certificateSection').classList.remove('hidden');
+
+      const resultBanner = el('resultBanner');
+      if (!passed) {
+        resultBanner.className = 'status-banner status-warn';
+        resultBanner.textContent = `${autoSubmitted ? 'Time expired. ' : ''}You scored ${percent}% (${correct}/${QUESTIONS.length}). A minimum of 70% (9/12) is required to earn the official certificate. Please review the 1-hour curriculum and retake the exam.`;
+        el('certificateCapture').classList.add('hidden');
+        el('downloadPngBtn').classList.add('hidden');
+        el('downloadPdfBtn').classList.add('hidden');
+        el('resendEmailBtn').classList.add('hidden');
+        el('emailStatusBanner').classList.add('hidden');
+        return;
+      }
+
+      el('certificateCapture').classList.remove('hidden');
+      el('downloadPngBtn').classList.remove('hidden');
+      el('downloadPdfBtn').classList.remove('hidden');
+      el('resendEmailBtn').classList.remove('hidden');
+
+      resultBanner.className = 'status-banner status-success';
+      resultBanner.textContent = `Congratulations, ${name}. You passed the 20-minute examination with ${percent}% (${correct}/${QUESTIONS.length}). Your official certificate is ready below.`;
+
+      const certData = {
+        name,
+        email,
+        subject: 'Agentic Engineering with Context & Harness Engineering',
+        subjectDuration: '1 Hour',
+        examDuration: '20 Minutes',
+        correct,
+        total: QUESTIONS.length,
+        percent,
+        certId: generateCertId(),
+        issueDate: new Date().toLocaleDateString('en-US', { year: 'numeric', month: 'long', day: 'numeric' })
+      };
+
+      renderCertificate(certData);
+      dispatchCertificateEmail(certData);
+      window.scrollTo({ top: el('certificateSection').offsetTop - 80, behavior: 'smooth' });
+    }
+
+    function previewSample() {
+      const name = el('candidateName').value.trim() || 'Pavan Kumar Sadashiv';
+      const email = el('candidateEmail').value.trim() || 'hrlinternationalprivatelimited@gmail.com';
+      const sampleData = {
+        name,
+        email,
+        subject: 'Agentic Engineering with Context & Harness Engineering',
+        subjectDuration: '1 Hour',
+        examDuration: '20 Minutes',
+        correct: 12,
+        total: 12,
+        percent: 100,
+        certId: 'HRL-AECHE-2026-SAMPLE',
+        issueDate: new Date().toLocaleDateString('en-US', { year: 'numeric', month: 'long', day: 'numeric' })
+      };
+      el('certificateSection').classList.remove('hidden');
+      el('certificateCapture').classList.remove('hidden');
+      el('downloadPngBtn').classList.remove('hidden');
+      el('downloadPdfBtn').classList.remove('hidden');
+      el('resendEmailBtn').classList.remove('hidden');
+      el('resultBanner').className = 'status-banner status-success';
+      el('resultBanner').textContent = 'Preview Mode: Showing the official HRL International certificate layout. Complete the 20-minute exam to issue a verified credential.';
+      el('emailStatusBanner').classList.add('hidden');
+      renderCertificate(sampleData);
+      window.scrollTo({ top: el('certificateSection').offsetTop - 80, behavior: 'smooth' });
+    }
+
+    el('startExamBtn').addEventListener('click', startExam);
+    el('previewSampleBtn').addEventListener('click', previewSample);
+    el('verifyKeyBtn').addEventListener('click', () => verifyKeyId(el('verifyKeyInput').value));
+    el('verifyKeyInput').addEventListener('keydown', (e) => {
+      if (e.key === 'Enter') { e.preventDefault(); verifyKeyId(el('verifyKeyInput').value); }
+    });
+    const urlVerify = new URLSearchParams(window.location.search).get('verify');
+    if (urlVerify) {
+      el('verifyKeyInput').value = urlVerify;
+      verifyKeyId(urlVerify);
+    }
+    el('submitExamBtn').addEventListener('click', () => submitExam(false));
+    el('downloadPdfBtn').addEventListener('click', async () => {
+      if (typeof htmlToImage === 'undefined' || !window.jspdf) {
+        window.print();
+        return;
+      }
+      const btn = el('downloadPdfBtn');
+      btn.disabled = true;
+      btn.textContent = 'Generating High-Res PDF...';
+      try {
+        const dataUrl = await htmlToImage.toPng(el('certificateCapture'), {
+          pixelRatio: 3,
+          backgroundColor: '#FFFFFF'
+        });
+        const { jsPDF } = window.jspdf;
+        const pdf = new jsPDF({ orientation: 'landscape', unit: 'mm', format: 'a4' });
+        const pageW = pdf.internal.pageSize.getWidth();
+        const pageH = pdf.internal.pageSize.getHeight();
+        pdf.addImage(dataUrl, 'PNG', 0, 0, pageW, pageH, undefined, 'FAST');
+        pdf.save(`${(currentCertData?.certId || 'HRL-Certificate')}.pdf`);
+      } catch (_) {
+        window.print();
+      } finally {
+        btn.disabled = false;
+        btn.textContent = 'Download High-Res PDF';
+      }
+    });
+    el('resendEmailBtn').addEventListener('click', () => {
+      if (currentCertData) dispatchCertificateEmail(currentCertData);
+    });
+    el('retakeExamBtn').addEventListener('click', () => {
+      clearInterval(timerInterval);
+      el('examSection').classList.add('hidden');
+      el('certificateSection').classList.add('hidden');
+      el('registrationSection').classList.remove('hidden');
+      window.scrollTo({ top: el('registrationSection').offsetTop - 80, behavior: 'smooth' });
+    });
+
+    el('downloadPngBtn').addEventListener('click', async () => {
+      if (typeof htmlToImage === 'undefined') {
+        alert('PNG exporter is still loading. Please try again in a second.');
+        return;
+      }
+      const btn = el('downloadPngBtn');
+      btn.disabled = true;
+      btn.textContent = 'Rendering High-Res PNG...';
+      try {
+        const dataUrl = await htmlToImage.toPng(el('certificateCapture'), {
+          pixelRatio: 3,
+          backgroundColor: '#FFFFFF'
+        });
+        const a = document.createElement('a');
+        a.download = `${(currentCertData?.certId || 'HRL-Certificate')}.png`;
+        a.href = dataUrl;
+        a.click();
+      } catch (err) {
+        alert('Could not render PNG directly. Use Print / Save Official PDF instead.');
+      } finally {
+        btn.disabled = false;
+        btn.textContent = 'Download High-Res PNG';
+      }
+    });
+  </script>
+</body>
+</html>
