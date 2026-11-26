@@ -1184,6 +1184,18 @@
       return `${body}-${keyChecksum(body)}`;
     }
 
+    // Official pre-registered credentials verifiable globally on any device
+    const OFFICIAL_ISSUED_REGISTRY = {
+      'HRL-AECHE-2026-VS2601': {
+        name: 'Vasu Sharma',
+        subject: 'Agentic Engineering with Context & Harness Engineering',
+        percent: 100,
+        correct: 12,
+        total: 12,
+        issueDate: 'November 27, 2026'
+      }
+    };
+
     // ponytail: client-side registry + checksum; upgrade to Vercel KV / Supabase for cross-device public lookup
     const CERT_REGISTRY_KEY = 'hrl_official_cert_registry_v1';
     function saveCertToRegistry(data) {
@@ -1211,7 +1223,7 @@
         return;
       }
 
-      const reg = JSON.parse(localStorage.getItem(CERT_REGISTRY_KEY) || '{}');
+      const reg = { ...OFFICIAL_ISSUED_REGISTRY, ...JSON.parse(localStorage.getItem(CERT_REGISTRY_KEY) || '{}') };
       if (reg[key]) {
         const r = reg[key];
         out.className = 'status-banner status-success';
