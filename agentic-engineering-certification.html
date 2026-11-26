@@ -509,14 +509,24 @@
       gap: 16px;
     }
 
-    .cert-logo {
-      width: 72px;
-      height: 72px;
-      object-fit: contain;
-      border-radius: 12px;
-      background: #0A0A0C;
-      padding: 6px;
+    .cert-logo-wrap {
+      width: 108px;
+      height: 68px;
+      border-radius: 10px;
+      background: #FFFFFF;
       border: 1px solid rgba(184, 145, 62, 0.45);
+      overflow: hidden;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      flex-shrink: 0;
+    }
+
+    .cert-logo {
+      width: 165%;
+      height: 165%;
+      object-fit: contain;
+      display: block;
     }
 
     .cert-company-name {
@@ -873,7 +883,9 @@
               <!-- Header -->
               <div class="cert-header">
                 <div class="cert-brand">
-                  <img src="assets/logo.png" alt="HRL International Official Logo" class="cert-logo" crossorigin="anonymous">
+                  <div class="cert-logo-wrap">
+                    <img src="assets/logo.png" alt="HRL International Official Logo" class="cert-logo">
+                  </div>
                   <div>
                     <div class="cert-company-name">HRL International Private Limited&trade;</div>
                     <div class="cert-company-sub">Official Corporate Certification Authority</div>
