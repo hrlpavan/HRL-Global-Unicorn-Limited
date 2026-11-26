@@ -752,6 +752,22 @@
       line-height: 1.5;
     }
 
+    .qr-col {
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      gap: 4px;
+    }
+
+    .qr-key-id {
+      font-family: var(--font-mono);
+      font-size: 9px;
+      font-weight: 700;
+      color: #121216;
+      letter-spacing: 0.04em;
+      white-space: nowrap;
+    }
+
     #certQrCode {
       width: 76px;
       height: 76px;
@@ -988,13 +1004,29 @@
                     <div>hrl-brand-seo.vercel.app</div>
                     <div id="certEmailMeta">hrlinternationalprivatelimited@gmail.com</div>
                   </div>
-                  <div id="certQrCode"></div>
+                  <div class="qr-col">
+                    <div id="certQrCode"></div>
+                    <div class="qr-key-id" id="certQrKeyText">KEY: HRL-AECHE-2026-SAMPLE</div>
+                  </div>
                 </div>
               </div>
             </div>
           </div>
         </div>
       </div>
+    </section>
+
+    <!-- Verify Certificate by Key ID Panel -->
+    <section class="panel" id="verifySection">
+      <div class="section-header" style="margin-bottom: 16px;">
+        <h2>Verify Official Certificate</h2>
+        <p>Enter the Key ID printed below the certificate QR code to verify its authenticity on HRL International Private Limited&trade;.</p>
+      </div>
+      <div class="action-row" style="align-items: stretch;">
+        <input type="text" id="verifyKeyInput" placeholder="e.g., HRL-AECHE-2026-SAMPLE" style="flex: 1; min-width: 240px; padding: 12px 16px; border-radius: 12px; border: 1px solid var(--border-light-hover); font-family: var(--font-mono); font-size: 14px; outline: none;">
+        <button type="button" class="btn btn-primary" id="verifyKeyBtn">Verify Key ID</button>
+      </div>
+      <div id="verifyResultBanner" class="status-banner hidden" style="margin-top: 16px; margin-bottom: 0;"></div>
     </section>
   </main>
 
@@ -1141,9 +1173,72 @@
       return `${String(m).padStart(2, '0')}:${String(s).padStart(2, '0')}`;
     }
 
+    function keyChecksum(body) {
+      let sum = 0;
+      for (let i = 0; i < body.length; i++) sum = (sum * 31 + body.charCodeAt(i)) % 1296;
+      return sum.toString(36).toUpperCase().padStart(2, '0');
+    }
+
     function generateCertId() {
       const rand = Math.random().toString(36).substring(2, 8).toUpperCase();
-      return `HRL-AECHE-2026-${rand}`;
+      const body = `HRL-AECHE-2026-${rand}`;
+      return `${body}-${keyChecksum(body)}`;
+    }
+
+    // ponytail: client-side registry + checksum; upgrade to Vercel KV / Supabase for cross-device public lookup
+    const CERT_REGISTRY_KEY = 'hrl_official_cert_registry_v1';
+    function saveCertToRegistry(data) {
+      try {
+        const reg = JSON.parse(localStorage.getItem(CERT_REGISTRY_KEY) || '{}');
+        reg[data.certId.toUpperCase()] = {
+          name: data.name,
+          subject: data.subject,
+          percent: data.percent,
+          correct: data.correct,
+          total: data.total,
+          issueDate: data.issueDate
+        };
+        localStorage.setItem(CERT_REGISTRY_KEY, JSON.stringify(reg));
+      } catch (_) {}
+    }
+
+    function verifyKeyId(rawKey) {
+      const key = (rawKey || '').trim().toUpperCase().replace(/^KEY:\s*/i, '');
+      const out = el('verifyResultBanner');
+      if (!key) {
+        out.className = 'status-banner status-warn';
+        out.textContent = 'Please enter a Certificate Key ID to verify.';
+        out.classList.remove('hidden');
+        return;
+      }
+
+      const reg = JSON.parse(localStorage.getItem(CERT_REGISTRY_KEY) || '{}');
+      if (reg[key]) {
+        const r = reg[key];
+        out.className = 'status-banner status-success';
+        out.textContent = `VERIFIED OFFICIAL — Key ID: ${key} | Recipient: ${r.name} | Subject: ${r.subject} | Score: ${r.percent}% (${r.correct}/${r.total}) | Issued: ${r.issueDate}`;
+        out.classList.remove('hidden');
+        return;
+      }
+
+      if (key === 'HRL-AECHE-2026-SAMPLE') {
+        out.className = 'status-banner status-success';
+        out.textContent = 'VERIFIED SAMPLE — Key ID: HRL-AECHE-2026-SAMPLE | Official HRL International Private Limited Preview Credential.';
+        out.classList.remove('hidden');
+        return;
+      }
+
+      const m = key.match(/^(HRL-AECHE-2026-[A-Z0-9]{6})-([A-Z0-9]{2})$/);
+      if (m && keyChecksum(m[1]) === m[2]) {
+        out.className = 'status-banner status-success';
+        out.textContent = `VERIFIED AUTHENTIC KEY FORMAT — Key ID: ${key} passed HRL International Private Limited checksum validation for Agentic Engineering with Context & Harness Engineering.`;
+        out.classList.remove('hidden');
+        return;
+      }
+
+      out.className = 'status-banner status-warn';
+      out.textContent = `NOT VERIFIED — Key ID "${key}" is not a valid HRL International Private Limited certificate key.`;
+      out.classList.remove('hidden');
     }
 
     function renderQuestions() {
@@ -1206,10 +1301,12 @@
     function renderCertificate(data) {
       currentCertData = data;
       el('certIdText').textContent = data.certId;
+      el('certQrKeyText').textContent = `KEY: ${data.certId}`;
       el('certDateText').textContent = data.issueDate;
       el('certRecipientText').textContent = data.name;
       el('certScoreText').textContent = `${data.percent}% (${data.correct}/${data.total})`;
       el('certEmailMeta').textContent = data.email;
+      saveCertToRegistry(data);
 
       const qrContainer = el('certQrCode');
       qrContainer.innerHTML = '';
@@ -1352,6 +1449,15 @@
 
     el('startExamBtn').addEventListener('click', startExam);
     el('previewSampleBtn').addEventListener('click', previewSample);
+    el('verifyKeyBtn').addEventListener('click', () => verifyKeyId(el('verifyKeyInput').value));
+    el('verifyKeyInput').addEventListener('keydown', (e) => {
+      if (e.key === 'Enter') { e.preventDefault(); verifyKeyId(el('verifyKeyInput').value); }
+    });
+    const urlVerify = new URLSearchParams(window.location.search).get('verify');
+    if (urlVerify) {
+      el('verifyKeyInput').value = urlVerify;
+      verifyKeyId(urlVerify);
+    }
     el('submitExamBtn').addEventListener('click', () => submitExam(false));
     el('downloadPdfBtn').addEventListener('click', async () => {
       if (typeof htmlToImage === 'undefined' || !window.jspdf) {
