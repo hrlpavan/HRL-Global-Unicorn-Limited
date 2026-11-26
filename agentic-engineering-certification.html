@@ -1001,9 +1001,7 @@
 
                 <div class="qr-block">
                   <div class="qr-meta">
-                    <div><strong>Verify Credential</strong></div>
-                    <div>hrl-brand-seo.vercel.app</div>
-                    <div id="certEmailMeta">hrlinternationalprivatelimited@gmail.com</div>
+                    <div><strong>Verify via HRL Portal</strong></div>
                   </div>
                   <div class="qr-col">
                     <div id="certQrCode"></div>
@@ -1306,7 +1304,6 @@
       el('certDateText').textContent = data.issueDate;
       el('certRecipientText').textContent = data.name;
       el('certScoreText').textContent = `${data.percent}% (${data.correct}/${data.total})`;
-      el('certEmailMeta').textContent = data.email;
       saveCertToRegistry(data);
 
       const qrContainer = el('certQrCode');
